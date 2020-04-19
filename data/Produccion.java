@@ -7,10 +7,6 @@ package data;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author FABIa
- */
 public class Produccion {
     private ArrayList materiasPrimas;
     private ArrayList<EtapaDeProceso> etapas;
