@@ -2,7 +2,7 @@ package Estructuras_de_datos;
 
 public class DoubleNode<T> {
 
-    private T data;
+    private T item;
     private DoubleNode<T> next;
     private DoubleNode<T> prev;
 
@@ -10,14 +10,14 @@ public class DoubleNode<T> {
         this(null);
     }
 
-    public DoubleNode(T data) {
-        this.data = data;
+    public DoubleNode(T item) {
+        this.item = item;
         next = null;
         prev = null;
     }
 
-    public T getData() {
-        return data;
+    public T getItem() {
+        return item;
     }
 
     public DoubleNode<T> getNext() {
@@ -28,8 +28,8 @@ public class DoubleNode<T> {
         return prev;
     }
 
-    public void setData(T data) {
-        this.data = data;
+    public void setItem(T item) {
+        this.item = item;
     }
 
     public void setNext(DoubleNode<T> next) {

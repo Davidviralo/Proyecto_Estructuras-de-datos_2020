@@ -2,28 +2,28 @@ package Estructuras_de_datos;
 
 public class SingleNode<T> {
 
-    private T data;
+    private T item;
     private SingleNode<T> next;
 
     public SingleNode() {
         this(null);
     }
 
-    public SingleNode(T data) {
-        this.data = data;
+    public SingleNode(T item) {
+        this.item = item;
         next = null;
     }
 
-    public T getData() {
-        return data;
+    public T getItem() {
+        return item;
     }
 
     public SingleNode<T> getNext() {
         return next;
     }
 
-    public void setData(T data) {
-        this.data = data;
+    public void setItem(T item) {
+        this.item = item;
     }
 
     public void setNext(SingleNode<T> next) {

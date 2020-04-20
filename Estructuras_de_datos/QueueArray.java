@@ -2,29 +2,33 @@ package Estructuras_de_datos;
 
 public class QueueArray<T> {
 
-    private int size = 10;
-    private int front, rear , numberOfElements;
+    private int capacity = 10;
+    private int front, rear , size;
     private T[] qarray;
 
     public QueueArray(){
-        front = rear = numberOfElements = 0;
-        qarray = (T[]) new Object[size];
+        front = rear = size = 0;
+        qarray = (T[]) new Object[capacity];
     }
 
     public boolean empty(){
-        return numberOfElements <=0;
+        return size <= 0;
     }
 
     public boolean full(){
-        return numberOfElements >= size;
+        return size >= capacity;
+    }
+
+    public int getSize() {
+        return size;
     }
 
     public void enqueue(T item){
         if (full()) {
-            T[] newQarray = (T[]) new Object[size * 2];
+            T[] newQarray = (T[]) new Object[capacity * 2];
             int count = 0;
             if (front > rear) {
-                for (int i = front; i < size; i++) {
+                for (int i = front; i < capacity; i++) {
                     newQarray[count] = qarray[i];
                     count++;
                 }
@@ -39,13 +43,13 @@ public class QueueArray<T> {
                 }
             }
             front = 0;
-            rear = size - 1;
-            size = size * 2;
+            rear = capacity - 1;
+            capacity = capacity * 2;
             qarray = newQarray;
         }
-        rear = (rear + 1) % size;
+        rear = (rear + 1) % capacity;
         qarray[rear] = item;
-        numberOfElements++;
+        size++;
     }
 
     public T dequeue(){
@@ -54,8 +58,8 @@ public class QueueArray<T> {
         else {
             T item = qarray[front];
             qarray[front] = null;
-            front = (front + 1) % size;
-            numberOfElements--;
+            front = (front + 1) % capacity;
+            size--;
             return item;
         }
     }
