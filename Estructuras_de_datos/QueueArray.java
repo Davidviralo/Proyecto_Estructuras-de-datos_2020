@@ -1,12 +1,12 @@
 package Estructuras_de_datos;
 
-public class QueueArrayGeneric<T> {
+public class QueueArray<T> {
 
     private int size = 10;
     private int front, rear , numberOfElements;
     private T[] qarray;
 
-    public QueueArrayGeneric(){
+    public QueueArray(){
         front = rear = numberOfElements = 0;
         qarray = (T[]) new Object[size];
     }
