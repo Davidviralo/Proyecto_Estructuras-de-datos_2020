@@ -1,19 +1,30 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package data;
 
-/**
- *
- * @author FABIa
- */
 public class Event {
     private String name;
     private String startDate;
     private String endDate;
+    private String id;
     private String description;
+    protected boolean isActive;
+    protected boolean isFinished;
+
+    public Event(String name, String id, String startDate, String description) {
+        this.name = name;
+        this.id = id;
+        this.startDate = startDate;
+        this.description = description;
+        isActive = false;
+        isFinished = false;
+    }
+
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public boolean isFinished() {
+        return isFinished;
+    }
 
     public String getName() {
         return name;
@@ -46,6 +57,6 @@ public class Event {
     public void setDescription(String description) {
         this.description = description;
     }
-    
-    
+
+
 }

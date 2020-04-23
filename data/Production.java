@@ -1,34 +1,31 @@
 package data;
 
-import Estructuras_de_datos.ArrayList;
+import Estructuras_de_datos.*;
 
-public class Production {
+public class Production extends Event{
     private ArrayList<RawMaterial> rawMaterials;
-    private ArrayList<ProcessStage> processStages;
-    private String productionID;
+    private ArrayQueue<ProcessStage> processStages;
 
-
-    public ArrayList getRawMaterials() {
-        return rawMaterials;
-    }
-
-    public ArrayList<ProcessStage> getProcessStages() {
-        return processStages;
-    }
-
-    public String getProductionID() {
-        return productionID;
-    }
-
-    public void setRawMaterials(ArrayList rawMaterials) {
+    public Production(String name, String id, String startDate, String description,
+                      ArrayList<RawMaterial> rawMaterials, ArrayQueue<ProcessStage> processStages) {
+        super(name, startDate, id, description);
         this.rawMaterials = rawMaterials;
-    }
-
-    public void setProcessStages(ArrayList<ProcessStage> processStages) {
         this.processStages = processStages;
     }
 
-    public void setProductionID(String productionID) {
-        this.productionID = productionID;
+    public ArrayList<RawMaterial> getRawMaterials() {
+        return rawMaterials;
+    }
+
+    public ArrayQueue<ProcessStage> getProcessStages() {
+        return processStages;
+    }
+
+    public void setRawMaterials(ArrayList<RawMaterial> rawMaterials) {
+        this.rawMaterials = rawMaterials;
+    }
+
+    public void setProcessStages(ArrayQueue<ProcessStage> processStages) {
+        this.processStages = processStages;
     }
 }
