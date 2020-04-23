@@ -4,10 +4,10 @@ import Estructuras_de_datos.*;
 
 public class ProcessStage extends Event {
 
-    private ArrayList<Parameter> parameterList;
+    private MyArrayList<Parameter> parameterList;
 
     public ProcessStage(String name, String id, String startDate,
-                        String description, ArrayList<Parameter> parameterList) {
+                        String description, MyArrayList<Parameter> parameterList) {
         super(name, id, startDate, description);
         this.parameterList = parameterList;
     }
@@ -23,7 +23,7 @@ public class ProcessStage extends Event {
         //If a parameter does not comply with the given quality standart,
         //it is listed in badParametersList
         if (!testPassed){
-            ArrayList<Parameter> badParameterList = new ArrayList<>();
+            MyArrayList<Parameter> badParameterList = new MyArrayList<>();
             for (int i = auxIndex; i < parameterList.getSize() ; i++) {
                 //testPassed = parameterList.getItem(i).complies();
                 //if (!testPassed){

@@ -1,12 +1,12 @@
 package Estructuras_de_datos;
 
-public class ArrayList<T> {
+public class MyArrayList<T> {
 
     private int capacity = 10;
     private int size;
     private T[] listArray;
 
-    public ArrayList() {
+    public MyArrayList() {
         size = 0;
         listArray = (T[]) new Object[capacity];
     }

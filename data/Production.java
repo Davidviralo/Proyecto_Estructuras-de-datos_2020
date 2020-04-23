@@ -3,17 +3,17 @@ package data;
 import Estructuras_de_datos.*;
 
 public class Production extends Event{
-    private ArrayList<RawMaterial> rawMaterials;
+    private MyArrayList<RawMaterial> rawMaterials;
     private ArrayQueue<ProcessStage> processStages;
 
     public Production(String name, String id, String startDate, String description,
-                      ArrayList<RawMaterial> rawMaterials, ArrayQueue<ProcessStage> processStages) {
+                      MyArrayList<RawMaterial> rawMaterials, ArrayQueue<ProcessStage> processStages) {
         super(name, startDate, id, description);
         this.rawMaterials = rawMaterials;
         this.processStages = processStages;
     }
 
-    public ArrayList<RawMaterial> getRawMaterials() {
+    public MyArrayList<RawMaterial> getRawMaterials() {
         return rawMaterials;
     }
 
@@ -21,7 +21,7 @@ public class Production extends Event{
         return processStages;
     }
 
-    public void setRawMaterials(ArrayList<RawMaterial> rawMaterials) {
+    public void setRawMaterials(MyArrayList<RawMaterial> rawMaterials) {
         this.rawMaterials = rawMaterials;
     }
 
