@@ -9,13 +9,13 @@ package data;
  *
  * @author FABIa
  */
-public class EtapaDeProceso extends Evento {
-    private int numeroEtapa;
+public class ProcessStage extends Event {
+    private int stageID;
 
-    public int getNumeroEtapa() {
-        return numeroEtapa;
+    public int getStageID() {
+        return stageID;
     }
-    public void setNumeroEtapa(int numeroEtapa) {
-        this.numeroEtapa = numeroEtapa;
+    public void setStageID(int stageID) {
+        this.stageID = stageID;
     }
 }

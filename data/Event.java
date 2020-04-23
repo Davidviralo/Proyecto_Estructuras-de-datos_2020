@@ -9,7 +9,7 @@ package data;
  *
  * @author FABIa
  */
-public class Evento {
+public class Event {
     private String name;
     private String startDate;
     private String endDate;

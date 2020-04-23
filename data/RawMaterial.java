@@ -2,7 +2,7 @@ package data;
 
 import java.util.ArrayList;
 
-public class MateriaPrima {
+public class RawMaterial {
 
     private String admissionDate;
     private String expirationDate;
@@ -50,8 +50,8 @@ public class MateriaPrima {
         this.parametrosCalidad = parametrosCalidad;
     }
 
-    public MateriaPrima(String admissionDate, String expirationDate,
-                        String batch, String description, ArrayList parametrosCalidad) {
+    public RawMaterial(String admissionDate, String expirationDate,
+                       String batch, String description, ArrayList parametrosCalidad) {
 
         this.admissionDate = admissionDate;
         this.expirationDate = expirationDate;
