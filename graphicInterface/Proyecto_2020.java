@@ -1,4 +1,4 @@
-package data;
+package graphicInterface;
 
 public class Proyecto_2020 {
 
