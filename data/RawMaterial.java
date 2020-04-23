@@ -1,7 +1,6 @@
 package data;
 
 import Estructuras_de_datos.MyArrayList;
-import java.util.ArrayList;
 
 
 public class RawMaterial {
