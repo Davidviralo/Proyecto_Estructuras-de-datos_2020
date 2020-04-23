@@ -71,7 +71,7 @@ public class SinglyLinkedList<T> {
     }
 
     public void pushBack(T item) {
-        SingleNode<T> node = new SingleNode<>(item);
+        SingleNode<T> node = new SingleNode<T>(item);
         if (tail == null){
             head = node;
         } else {

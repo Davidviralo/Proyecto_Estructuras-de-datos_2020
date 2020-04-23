@@ -5,8 +5,19 @@ public class User {
     private int id;
     private String user;
     private String password;
-    private int account;
-
+    private Boolean Adm;
+    
+    public User(){
+        
+    }
+    public User(String name, int id, String user, String password, Boolean Adm) {
+        this.name = name;
+        this.id = id;
+        this.user = user;
+        this.password = password;
+        this.Adm = Adm;
+    }
+    
     public String getName() {
         return name;
     }
@@ -23,8 +34,8 @@ public class User {
         return password;
     }
 
-    public int getAccount() {
-        return account;
+    public Boolean getAccount() {
+        return Adm;
     }
 
     public void setName(String name) {
@@ -43,7 +54,7 @@ public class User {
         this.password = contrasena;
     }
 
-    public void setAccount(int account) {
-        this.account = account;
+    public void setAccount(Boolean Adm) {
+        this.Adm = Adm;
     }
 }
