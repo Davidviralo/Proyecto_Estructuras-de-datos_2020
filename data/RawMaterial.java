@@ -1,6 +1,8 @@
 package data;
 
+import Estructuras_de_datos.MyArrayList;
 import java.util.ArrayList;
+
 
 public class RawMaterial {
 
@@ -8,7 +10,7 @@ public class RawMaterial {
     private String expirationDate;
     private String batch;
     private String description;
-    private ArrayList parametrosCalidad;
+    private MyArrayList parametrosCalidad;
 
     public String getAdmissionDate() {
         return admissionDate;
@@ -42,16 +44,16 @@ public class RawMaterial {
         this.description = description;
     }
 
-    public ArrayList getParametrosCalidad() {
+    public MyArrayList getParametrosCalidad() {
         return parametrosCalidad;
     }
 
-    public void setParametrosCalidad(ArrayList parametrosCalidad) {
+    public void setParametrosCalidad(MyArrayList parametrosCalidad) {
         this.parametrosCalidad = parametrosCalidad;
     }
 
     public RawMaterial(String admissionDate, String expirationDate,
-                       String batch, String description, ArrayList parametrosCalidad) {
+                       String batch, String description, MyArrayList parametrosCalidad) {
 
         this.admissionDate = admissionDate;
         this.expirationDate = expirationDate;
