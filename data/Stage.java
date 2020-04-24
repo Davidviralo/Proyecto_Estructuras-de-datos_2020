@@ -2,14 +2,29 @@ package data;
 
 import Estructuras_de_datos.*;
 
-public class ProcessStage extends Event {
+import java.util.Scanner;
+
+public class Stage extends Event {
 
     private MyArrayList<Parameter> parameterList;
 
-    public ProcessStage(String name, String id, String startDate,
-                        String description, MyArrayList<Parameter> parameterList) {
-        super(name, id, startDate, description);
+    public Stage(String name, String id, String startDate,
+                 String description, MyArrayList<Parameter> parameterList) {
+        super(name, description);
         this.parameterList = parameterList;
+    }
+
+    public Stage() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Ingrese nombre de etapa:");
+        String name = sc.next();
+        System.out.println("nombre: " + name);
+        System.out.println("Ingrese descripción de etapa:");
+        String description = sc.next();
+        System.out.println("nombre: " + description);
+        System.out.println("Ahora creamos etapas");
+        super.setName(name);
+        super.setDescription(description);
     }
 
     public void finish() {
@@ -33,8 +48,8 @@ public class ProcessStage extends Event {
             System.out.println("The process can't continue due to a compliance issue with the parameter(s):");
             //Print the listed parameter's names;
         } else {
-            this.isActive = false;
-            this.isFinished = true;
+            super.setIsActive(false);
+            this.setIsFinished(true);
         }
     }
 

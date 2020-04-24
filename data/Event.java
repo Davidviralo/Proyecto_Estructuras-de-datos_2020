@@ -6,13 +6,14 @@ public class Event {
     private String endDate;
     private String id;
     private String description;
-    protected boolean isActive;
-    protected boolean isFinished;
+    private boolean isActive;
+    private boolean isFinished;
 
-    public Event(String name, String id, String startDate, String description) {
+    public Event() {
+    }
+
+    public Event(String name, String description) {
         this.name = name;
-        this.id = id;
-        this.startDate = startDate;
         this.description = description;
         isActive = false;
         isFinished = false;
@@ -25,6 +26,7 @@ public class Event {
     public boolean isFinished() {
         return isFinished;
     }
+
 
     public String getName() {
         return name;
@@ -58,5 +60,15 @@ public class Event {
         this.description = description;
     }
 
+    public void setId(String id) {
+        this.id = id;
+    }
 
+    public void setIsActive(boolean isActive) {
+        this.isActive = isActive;
+    }
+
+    public void setIsFinished(boolean isFinished) {
+        this.isFinished = isFinished;
+    }
 }
