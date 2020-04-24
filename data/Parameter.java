@@ -43,18 +43,6 @@ public class Parameter {
     }
 public Parameter(){
         Scanner input = new Scanner(System.in);
-       /* int numeroetapas= teclado.nextInt();
-        System.out.println("Porfavor ingrese el numero de etapas");
-        for (int i=0;i<numeroetapas;i++){
-         System.out.println("Etapa. nombre,id,starDate,description");
-            String nameStage = teclado.nextLine();
-            int id = teclado.nextInt();
-            String StartDate = teclado.nextLine();
-            String descrption = teclado.nextLine();
-            MyArrayList<Parameter> parameters = new MyArrayList<>();
-            ProcessStage etapa1 = new ProcessStage("", "StartDate", "StartDate", "descrption",parameters); 
-            ArrayQueue<ProcessStage> listaProcesos = new ArrayQueue<>();
-        this();*/
             System.out.println("Creación de parametro");
             System.out.println("Digite el valor");
             this.value= input.nextDouble();
