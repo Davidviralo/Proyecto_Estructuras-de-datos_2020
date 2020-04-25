@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 public class Stage extends Event {
 
+    private int stageNumber;
     private MyArrayList<Parameter> parameterList;
 
     public Stage(String name, String id, String startDate,
@@ -14,17 +15,37 @@ public class Stage extends Event {
         this.parameterList = parameterList;
     }
 
-    public Stage() {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Ingrese nombre de etapa:");
-        String name = sc.next();
-        System.out.println("nombre: " + name);
-        System.out.println("Ingrese descripción de etapa:");
-        String description = sc.next();
-        System.out.println("nombre: " + description);
-        System.out.println("Ahora creamos etapas");
+    public Stage(int stageNumber) {
+        this.stageNumber = stageNumber;
+        Scanner input = new Scanner(System.in);
+        System.out.println("Ingrese el nombre de la etapa " + stageNumber + ":");
+        String name = input.nextLine();
         super.setName(name);
+        System.out.println("Nombre de la etapa: " + name);
+        System.out.println("Ingrese la descripción de la etapa " + stageNumber + ":");
+        String description = input.nextLine();
         super.setDescription(description);
+        System.out.println("Descripción de la etapa: " + description);
+        System.out.println("Cree parámetros de calidad a evaluar en esta etapa:");
+        MyArrayList<Parameter> parameterList = new MyArrayList<>();
+        Parameter parameter = new Parameter();
+        parameterList.pushBack(parameter);
+        boolean createParameter = true;
+        while (createParameter) {
+            System.out.println("¿Desea agregar más parámetros a la etapa?");
+            String answer = input.nextLine();
+            if (answer.equalsIgnoreCase("Si")){
+                parameter = new Parameter();
+                parameterList.pushBack(parameter);
+            }else if (answer.equalsIgnoreCase("No")){
+                System.out.println("Creación de etapas finalizadas.");
+                createParameter = false;
+            }else{
+                System.out.println("Entrada no válida. Intente de nuevo.");
+            }
+        }
+        System.out.println("Se creó la etapa " + stageNumber + " con "
+                + parameterList.getSize() + " parámetros de calidad.");
     }
 
     public void finish() {
@@ -53,4 +74,11 @@ public class Stage extends Event {
         }
     }
 
+    public int getStageNumber() {
+        return stageNumber;
+    }
+
+    public MyArrayList<Parameter> getParameterList() {
+        return parameterList;
+    }
 }
