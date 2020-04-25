@@ -1,7 +1,5 @@
 package data;
 
-import Estructuras_de_datos.ArrayQueue;
-import Estructuras_de_datos.MyArrayList;
 import java.util.Scanner;
 
 public class Parameter {
@@ -53,17 +51,16 @@ public class Parameter {
 
         
     }
+
     public Parameter(String name, double value, double lowerLimit, double upperLimit) {
         this.name = name;
         this.value = value;
         this.lowerLimit = lowerLimit;
         this.upperLimit = upperLimit;
     }
-    
-     
-    public boolean satisfyQuality(){
-    return(lowerLimit<=value)&&(value<=upperLimit);
-    
+
+    public boolean satisfyQuality() {
+        return (lowerLimit <= value) && (value <= upperLimit);
+
     }
-   
 }

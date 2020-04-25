@@ -1,9 +1,13 @@
 package data;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class Event {
     private String name;
-    private String startDate;
-    private String endDate;
+    private DateTimeFormatter timeFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+    private LocalDateTime startDate;
+    private LocalDateTime endDate;
     private String id;
     private String description;
     private boolean isActive;
@@ -32,11 +36,11 @@ public class Event {
         return name;
     }
 
-    public String getStartDate() {
+    public LocalDateTime getStartDate() {
         return startDate;
     }
 
-    public String getEndDate() {
+    public LocalDateTime getEndDate() {
         return endDate;
     }
 
@@ -44,15 +48,19 @@ public class Event {
         return description;
     }
 
+    public DateTimeFormatter getTimeFormat() {
+        return timeFormat;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
 
-    public void setStartDate(String startDate) {
+    public void setStartDate(LocalDateTime startDate) {
         this.startDate = startDate;
     }
 
-    public void setEndDate(String endDate) {
+    public void setEndDate(LocalDateTime endDate) {
         this.endDate = endDate;
     }
 

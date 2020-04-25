@@ -2,6 +2,7 @@ package data;
 
 import Estructuras_de_datos.*;
 
+import java.time.LocalDateTime;
 import java.util.Scanner;
 
 public class Stage extends Event {
@@ -48,29 +49,50 @@ public class Stage extends Event {
                 + parameterList.getSize() + " parámetros de calidad.");
     }
 
+    public void start() {
+        super.setIsActive(true);
+        super.setIsFinished(false);
+        System.out.println("Se inició la etapa " + stageNumber + " de producción '" + super.getName() + "'");
+        super.setStartDate(LocalDateTime.now());
+        System.out.println("Fecha de inicio: " + super.getTimeFormat().format(super.getStartDate()));
+    }
+
+    public void setParameters() {
+        Scanner input = new Scanner(System.in);
+        System.out.println("A continuación, ingrese los valores de los parámetros obtenidos en la etapa:");
+        for (int i = 0; i < parameterList.getSize(); i++) {
+            System.out.println("Ingrese el valor obtenido para " +
+                    parameterList.getItem(i).getName().toLowerCase() + ":");
+            parameterList.getItem(i).setValue(input.nextDouble());
+        }
+        System.out.println("Se han asignado los valores de los parámetros de la etapa " + stageNumber + ".");
+    }
+
     public void finish() {
         boolean testPassed = true;
         int auxIndex = 0;
         for (int i = 0; i < parameterList.getSize() && testPassed; i++) {
-            //Checks all the parameters in the list.
-            //test passed = parameterList.getItem(i).complies();
+            testPassed = parameterList.getItem(i).satisfyQuality();
             auxIndex = i;
         }
-        //If a parameter does not comply with the given quality standart,
-        //it is listed in badParametersList
         if (!testPassed){
             MyArrayList<Parameter> badParameterList = new MyArrayList<>();
             for (int i = auxIndex; i < parameterList.getSize() ; i++) {
-                //testPassed = parameterList.getItem(i).complies();
-                //if (!testPassed){
-                //    badParameterList.pushBack(parameterList.getItem(i));
-                //}
+                if (!parameterList.getItem(i).satisfyQuality()){
+                    badParameterList.pushBack(parameterList.getItem(i));
+                }
             }
-            System.out.println("The process can't continue due to a compliance issue with the parameter(s):");
-            //Print the listed parameter's names;
+            System.out.println("EL proceso no puede continuar ya que no se cumplen los " +
+                    "estándares de calidad en los siguientes parámetros:");
+            for (int i = 0; i < badParameterList.getSize(); i++) {
+                System.out.println(badParameterList.getItem(i).getName());
+            }
         } else {
+            super.setEndDate(LocalDateTime.now());
             super.setIsActive(false);
             this.setIsFinished(true);
+            System.out.println("Finalizó la etapa " + stageNumber + " cumpliendo con los estándares de calidad!");
+            System.out.println("Fecha y hora de finalización: " + super.getTimeFormat().format(super.getEndDate()));
         }
     }
 

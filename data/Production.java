@@ -1,7 +1,7 @@
 package data;
 
 import Estructuras_de_datos.*;
-
+import java.time.LocalDateTime;
 import java.util.Scanner;
 
 public class Production extends Event{
@@ -53,6 +53,29 @@ public class Production extends Event{
         System.out.println("Se creó la producción '" + name + "' con " + processStages.getSize() + " etapas.");
     }
 
+    public void start() {
+        super.setIsActive(true);
+        super.setIsFinished(false);
+        System.out.println("Se inició la producción '" + super.getName() + "'");
+        LocalDateTime now = LocalDateTime.now();
+        super.setStartDate(now);
+        System.out.println("Fecha de inicio: " + super.getTimeFormat().format(now));
+    }
+
+    public void  finish() {
+        boolean allStagesFinished = true;
+        for (int i = 0; i < stages.getSize() && allStagesFinished; i++) {
+            allStagesFinished = stages.getItem(i).isFinished();
+        }
+        if (allStagesFinished) {
+            System.out.println("¡Felicitaciones! Se ha finalizado" +
+                    " el proceso cumpliendo todos los parámetros de calidad.");
+            System.out.println("¡Los clientes estarán muy satisfechos con su producto!");
+        } else {
+            System.out.println("Hay etapas que no se han finalizado, " +
+                    "por favor revíselas antes de intentar finalizar la producción nuevamente.");
+        }
+    }
 
     public MyArrayList<RawMaterial> getRawMaterials() {
         return rawMaterials;
