@@ -6,10 +6,10 @@ import java.util.Scanner;
 
 public class Production extends Event{
     private MyArrayList<RawMaterial> rawMaterials;
-    private ArrayQueue<Stage> stages;
+    private MyArrayList<Stage> stages;
 
     public Production(String name, String description, MyArrayList<RawMaterial> rawMaterials,
-                      ArrayQueue<Stage> stages) {
+                      MyArrayList<Stage> stages) {
         super(name, description);
         this.rawMaterials = rawMaterials;
         this.stages = stages;
@@ -17,28 +17,31 @@ public class Production extends Event{
 
     public Production() {
         Scanner input = new Scanner(System.in);
-        System.out.println("Ingrese nombre de producción:");
-        String name = input.next();
-        System.out.println("nombre: " + name);
-        System.out.println("Ingrese descripción:");
-        String description = input.next();
+        System.out.println("**********************  ASISTENTE DE CREACIÓN DE PRODUCCIÓN  ***********************");
+        System.out.println("Bienvenido, aquí podrá crear su producción. Para ello puede seleccionar las materias " +
+                "primas que desee usar y puede dividir su producción en etapas con sus respectivos parámetros de " +
+                "calidad. A continuación, siga las instrucciones dadas");
+        System.out.println("Ingrese el nombre de la producción:");
+        String name = input.nextLine();
+        System.out.println("Nombre: " + name);
+        System.out.println("Ingrese una descripción para la producción:");
+        String description = input.nextLine();
         System.out.println("Descripción: " + description);
-        System.out.println("Ahora creamos etapas");
-        ArrayQueue<Stage> processStages = new ArrayQueue<>() ;
-        Stage stage = new Stage();
-        processStages.enqueue(stage);
+        System.out.println("Seleccione las materias primas que va a emplear.");
+        //rawMaterials selection.
+        System.out.println("Cree etapas de producción:");
+        MyArrayList<Stage> processStages = new MyArrayList<>();
+        Stage stage = new Stage(1);
+        processStages.pushBack(stage);
         boolean createStage = true;
-        int numberOfStages = 1;
         while (createStage) {
             System.out.println("¿Desea agregar más etapas al proceso?");
-            String answer = input.next();
-            if (answer.equalsIgnoreCase("Si")){
-                System.out.println("Hacer una nueva etapa.");
-                stage = new Stage();
-                processStages.enqueue(stage);
-                numberOfStages++;
+            String answer = input.nextLine();
+            if (answer.equalsIgnoreCase("Si")) {
+                stage = new Stage(processStages.getSize()+1);
+                processStages.pushBack(stage);
             }else if (answer.equalsIgnoreCase("No")){
-                System.out.println("No hacer más etapas.");
+                System.out.println("Creación de etapas finalizadas.");
                 createStage = false;
             }else{
                 System.out.println("Entrada no válida. Intente de nuevo.");
@@ -47,7 +50,7 @@ public class Production extends Event{
         super.setName(name);
         super.setDescription(description);
         this.stages = processStages;
-        System.out.println("Se creó la producción '" + name + "' con " + numberOfStages + " etapas.");
+        System.out.println("Se creó la producción '" + name + "' con " + processStages.getSize() + " etapas.");
     }
 
 
@@ -55,7 +58,7 @@ public class Production extends Event{
         return rawMaterials;
     }
 
-    public ArrayQueue<Stage> getStages() {
+    public MyArrayList<Stage> getStages() {
         return stages;
     }
 
@@ -63,7 +66,7 @@ public class Production extends Event{
         this.rawMaterials = rawMaterials;
     }
 
-    public void setStages(ArrayQueue<Stage> stages) {
+    public void setStages(MyArrayList<Stage> stages) {
         this.stages = stages;
     }
 }
