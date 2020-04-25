@@ -1,8 +1,10 @@
 package graphicInterface;
 
 import businessLogic.Logic;
+import data.*;
 import java.util.Scanner;
 
+///
 public class Proyecto_2020 {
     
     static void menumain(){
@@ -48,6 +50,7 @@ public class Proyecto_2020 {
     
     public static final Scanner scanner = new Scanner(System.in);
     private static final Logic logic = new Logic(); 
+    private static final DataBase dataBase = new DataBase(); 
     public static void main(String[] args) {
      
     System.out.print("************");
@@ -58,8 +61,9 @@ public class Proyecto_2020 {
     System.out.println("Por ello creamos este software, deje que SOFPROCAL garantice la seguridad y satisfaccion de sus clientes.\n");        
     System.out.println("************\n");
     
+   DataBase.LoadArchive();
     menumain();
-        
+   DataBase.WriteArchive();    
             
     }
 }

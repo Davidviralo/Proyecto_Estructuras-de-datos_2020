@@ -2,16 +2,17 @@ package businessLogic;
 
 import Estructuras_de_datos.*;
 import data.*;
+import static data.DataBase.*;
 import static graphicInterface.Proyecto_2020.scanner;
+import java.io.*;
 
 
-public class Logic {
+public class Logic implements Serializable {
     
         
     private static User user = new User(); 
     
-    private static SinglyLinkedList<User> singlyLinkedListUser = new SinglyLinkedList<User>(); 
-    
+   
     private Boolean create;
     private int id;
     private String userr;

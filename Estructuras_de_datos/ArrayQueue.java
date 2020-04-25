@@ -1,6 +1,8 @@
 package Estructuras_de_datos;
 
-public class ArrayQueue<T> {
+import java.io.Serializable;
+
+public class ArrayQueue<T> implements Serializable{
 
     private int capacity = 10;
     private int head, tail, size;

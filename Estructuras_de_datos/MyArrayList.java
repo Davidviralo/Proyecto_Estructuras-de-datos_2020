@@ -1,6 +1,8 @@
 package Estructuras_de_datos;
 
-public class MyArrayList<T> {
+import java.io.Serializable;
+
+public class MyArrayList<T> implements Serializable{
 
     private int capacity = 10;
     private int size;

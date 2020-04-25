@@ -5,11 +5,13 @@
  */
 package Estructuras_de_datos;
 
+import java.io.Serializable;
+
 /**
  *
  * @author FABIa
  */
-public class ArrayStack<T> {
+public class ArrayStack<T>  implements Serializable{
     private static final int N=3;
     private int top;
     private T[] sarray;

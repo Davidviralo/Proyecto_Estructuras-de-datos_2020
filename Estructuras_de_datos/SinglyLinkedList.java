@@ -1,6 +1,8 @@
 package Estructuras_de_datos;
 
-public class SinglyLinkedList<T> {
+import java.io.Serializable;
+
+public class SinglyLinkedList<T> implements Serializable {
 
     private SingleNode<T> head;
     private SingleNode<T> tail;
