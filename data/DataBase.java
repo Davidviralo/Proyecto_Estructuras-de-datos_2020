@@ -1,64 +1,41 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package data;
-
 
 import Estructuras_de_datos.*;
 import java.io.*;
 
-
-/**
- *
- * @author Sebastian
- */
 public class DataBase implements Serializable{
+    //IMPORTANTE
+   //Para poder usar la base de datos deben poner el Users(nombre del usuario en su pc) y el disco local y carpeta donde guardaron el archivo del proyecto
+   //Direccion sebastian: C:\\Users\\Sebastian\\Documents\\NetBeansProjects\\Proyecto_Estructuras\\src\\Basededatos.txt
     
     public static SinglyLinkedList<User> singlyLinkedListUser = new SinglyLinkedList<User>(); 
     
-      public static void WriteArchive  () {
-        
+      public static void WriteArchive  () {        
         FileOutputStream fileStrem=null;  
         try {
-          
-        fileStrem = new FileOutputStream("Basededatos.txt");    
-         
+        fileStrem = new FileOutputStream("C:\\Users\\Sebastian\\Documents\\NetBeansProjects\\Proyecto_Estructuras\\src\\Basededatos.txt ");    
         ObjectOutputStream ose =new ObjectOutputStream(fileStrem);
         
-               
         ose.writeObject(singlyLinkedListUser);
-             ose.close();
         
+        ose.close();        
         }catch(Exception e){
-            System.out.println("Error al guardar datos");
-      }     
-    } 
-      
-      
+        System.out.println("Error al guardar datos");
+        }     
+     } 
+           
       public static void LoadArchive () {
-            FileInputStream fileStremx=null;
-            
-        try {
-        
-        fileStremx = new FileInputStream("Basededatos.txt");          
+        FileInputStream fileStremx=null;
+        try {        
+        fileStremx = new FileInputStream("C:\\Users\\Sebastian\\Documents\\NetBeansProjects\\Proyecto_Estructuras\\src\\Basededatos.txt");          
         ObjectInputStream os =new ObjectInputStream(fileStremx);
       
         Object loadData = os.readObject();        
         singlyLinkedListUser = (SinglyLinkedList<User>) loadData;
         
-        
-//        for(int i=0; i<singlyLinkedListUser.size(); i++){
-//        System.out.println("Usuario: " +memberList.get(i).getUser());
-//        System.out.println("Contraseña: "+memberList.get(i).getPassword());
-//        }
-//        
-        os.close();
-       
+        os.close();       
         }catch(Exception e){
             System.out.println("Error al cargar archivo");
-      } 
-         
-    }
+        } 
+     }
 }
