@@ -82,7 +82,7 @@ public class Stage extends Event {
                     badParameterList.pushBack(parameterList.getItem(i));
                 }
             }
-            System.out.println("EL proceso no puede continuar ya que no se cumplen los " +
+            System.out.println("El proceso no puede continuar ya que no se cumplen los " +
                     "estándares de calidad en los siguientes parámetros:");
             for (int i = 0; i < badParameterList.getSize(); i++) {
                 System.out.println(badParameterList.getItem(i).getName());
@@ -91,7 +91,7 @@ public class Stage extends Event {
             super.setEndDate(LocalDateTime.now());
             super.setIsActive(false);
             this.setIsFinished(true);
-            System.out.println("Finalizó la etapa " + stageNumber + " cumpliendo con los estándares de calidad!");
+            System.out.println("¡Finalizó la etapa " + stageNumber + " cumpliendo con los estándares de calidad!");
             System.out.println("Fecha y hora de finalización: " + super.getTimeFormat().format(super.getEndDate()));
         }
     }

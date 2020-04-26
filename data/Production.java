@@ -60,9 +60,32 @@ public class Production extends Event{
         super.setIsFinished(false);
         currentStage = 1;
         System.out.println("Se inició la producción '" + super.getName() + "'");
-        LocalDateTime now = LocalDateTime.now();
-        super.setStartDate(now);
-        System.out.println("Fecha de inicio: " + super.getTimeFormat().format(now));
+        super.setStartDate(LocalDateTime.now());
+        System.out.println("Fecha de inicio: " + super.getTimeFormat().format(LocalDateTime.now()));
+
+    }
+
+    public void nextStage() {
+        int auxCurrentStage = currentStage;
+        endCurrentStage();
+        if (auxCurrentStage != currentStage) {
+            startCurrentStage();
+        }
+    }
+
+    public void endCurrentStage() {
+        stages.getItem(currentStage-1).setParameters();
+        stages.getItem(currentStage-1).finish();
+        if (stages.getItem(currentStage-1).isFinished()) {
+            currentStage++;
+        } else {
+            System.out.println("Por favor, revise y emprenda acciones en su producción " +
+                    "para cumplir con los estándares de calidad, tome nuevos datos e intente de nuevo.");
+        }
+    }
+
+    public void startCurrentStage() {
+        stages.getItem(currentStage-1).start();
     }
 
     public void  finish() {
@@ -79,6 +102,17 @@ public class Production extends Event{
         } else {
             System.out.println("Hay etapas que no se han finalizado, " +
                     "por favor revíselas antes de intentar finalizar la producción nuevamente.");
+        }
+    }
+
+    public void printBasicSummary() {
+        System.out.println("Producción: " + super.getName());
+        if (super.isActive()) {
+            System.out.println("Estado actual: Etapa " + currentStage + " de " + stages.getSize());
+        } else if (super.isFinished()){
+            System.out.println("Estado: Finalizada");
+        } else {
+            System.out.println("Estado: Sin iniciar");
         }
     }
 
