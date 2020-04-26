@@ -2,7 +2,7 @@ package Estructuras_de_datos;
 
 import java.io.Serializable;
 
-public class SingleNode<T> implements Serializable{
+public class SingleNode<T> implements Serializable {
 
     private T item;
     private SingleNode<T> next;

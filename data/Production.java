@@ -2,11 +2,14 @@ package data;
 
 import Estructuras_de_datos.*;
 
+import java.time.LocalDateTime;
 import java.util.Scanner;
 
-public class Production extends Event{
+public class Production extends Event {
+
     private MyArrayList<RawMaterial> rawMaterials;
     private MyArrayList<Stage> stages;
+    private int currentStage = 0;
 
     public Production(String name, String description, MyArrayList<RawMaterial> rawMaterials,
                       MyArrayList<Stage> stages) {
@@ -27,7 +30,7 @@ public class Production extends Event{
         System.out.println("Ingrese una descripción para la producción:");
         String description = input.nextLine();
         System.out.println("Descripción: " + description);
-        System.out.println("Seleccione las materias primas que va a emplear.");
+        //System.out.println("Seleccione las materias primas que va a emplear.");
         //rawMaterials selection.
         System.out.println("Cree etapas de producción:");
         MyArrayList<Stage> processStages = new MyArrayList<>();
@@ -38,12 +41,12 @@ public class Production extends Event{
             System.out.println("¿Desea agregar más etapas al proceso?");
             String answer = input.nextLine();
             if (answer.equalsIgnoreCase("Si")) {
-                stage = new Stage(processStages.getSize()+1);
+                stage = new Stage(processStages.getSize() + 1);
                 processStages.pushBack(stage);
-            }else if (answer.equalsIgnoreCase("No")){
+            } else if (answer.equalsIgnoreCase("No")) {
                 System.out.println("Creación de etapas finalizadas.");
                 createStage = false;
-            }else{
+            } else {
                 System.out.println("Entrada no válida. Intente de nuevo.");
             }
         }
@@ -53,6 +56,88 @@ public class Production extends Event{
         System.out.println("Se creó la producción '" + name + "' con " + processStages.getSize() + " etapas.");
     }
 
+    public void start() {
+        super.setIsActive(true);
+        super.setIsFinished(false);
+        currentStage = 1;
+        System.out.println("Se inició la producción '" + super.getName() + "'");
+        super.setStartDate(LocalDateTime.now());
+        System.out.println("Fecha de inicio: " + super.getTimeFormat().format(LocalDateTime.now()));
+
+    }
+
+    public void nextStage() {
+        int auxCurrentStage = currentStage;
+        endCurrentStage();
+        if (auxCurrentStage != currentStage) {
+            startCurrentStage();
+        }
+    }
+
+    public void endCurrentStage() {
+        stages.getItem(currentStage - 1).setParameters();
+        stages.getItem(currentStage - 1).finish();
+        if (stages.getItem(currentStage - 1).isFinished()) {
+            currentStage++;
+        } else {
+            System.out.println("Por favor, revise y emprenda acciones en su producción " +
+                    "para cumplir con los estándares de calidad, tome nuevos datos e intente de nuevo.");
+        }
+    }
+
+    public void startCurrentStage() {
+        stages.getItem(currentStage - 1).start();
+    }
+
+    public void finish() {
+        boolean allStagesFinished = true;
+        for (int i = 0; i < stages.getSize() && allStagesFinished; i++) {
+            allStagesFinished = stages.getItem(i).isFinished();
+        }
+        if (allStagesFinished) {
+            super.setIsActive(false);
+            super.setIsFinished(true);
+            System.out.println("¡Felicitaciones! Se ha finalizado" +
+                    " el proceso cumpliendo todos los parámetros de calidad.");
+            System.out.println("¡Los clientes estarán muy satisfechos con su producto!");
+        } else {
+            System.out.println("Hay etapas que no se han finalizado, " +
+                    "por favor revíselas antes de intentar finalizar la producción nuevamente.");
+        }
+    }
+
+    public void printBasicSummary() {
+        System.out.println("Producción: " + super.getName());
+        if (super.isActive()) {
+            System.out.println("Estado actual: Etapa " + currentStage + " de " + stages.getSize());
+        } else if (super.isFinished()) {
+            System.out.println("Estado: Finalizada");
+        } else {
+            System.out.println("Estado: Sin iniciar");
+        }
+    }
+
+    public void printSummary() {
+        System.out.println("########## RESUMEN DE LA PRODUCCIÓN ##########");
+        System.out.println("Nombre: " + super.getName());
+        if (super.isActive()) {
+            System.out.println("Estado: Activa");
+            System.out.println("Fecha y hora de inicio: " + super.getStartDate());
+            System.out.println("Avance: Etapa " + currentStage + " de " + stages.getSize());
+        } else if (super.isFinished()) {
+            System.out.println("Estado: Finalizada");
+            System.out.println("Fecha y hora de inicio: " + super.getStartDate());
+            System.out.println("Fecha y hora de finalización: " + super.getEndDate());
+        } else {
+            System.out.println("Estado: Sin iniciar");
+        }
+        System.out.println("Descripción: " + super.getDescription());
+        for (int i = 0; i < stages.getSize(); i++) {
+            System.out.println("----------- ETAPA " + i + 1 + " -----------");
+            stages.getItem(i).printSummary();
+        }
+        System.out.println("##############################################");
+    }
 
     public MyArrayList<RawMaterial> getRawMaterials() {
         return rawMaterials;
