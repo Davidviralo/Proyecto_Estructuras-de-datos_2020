@@ -10,7 +10,7 @@ public class DataBase implements Serializable {
     //Dirección David: C:\\Users\\USUARIO\\Desktop\\Estructuras de Datos\\Proyecto\\src\\Basededatos.txt
     //Guarda los datos separados por ; si tiene una lista dentro de alguna clase, esta se debe guardar
     //seperada por * y el numero de variables va al inicio seperada por &.
-    public static String localDatabase = "C:\\Users\\Sebastian\\Documents\\NetBeansProjects\\Proyecto_Estructuras\\src\\";
+    public static String localDatabase = "C:\\Users\\USUARIO\\Desktop\\Estructuras de Datos\\Proyecto\\src\\";
     public static SinglyLinkedList<User> singlyLinkedListUser = new SinglyLinkedList<User>();
     public static SinglyLinkedList<RawMaterial> singlyLinkedRawMaterial = new SinglyLinkedList<RawMaterial>();
     public static SinglyLinkedList<String> singlyLinkedRawMaterialname = new SinglyLinkedList<String>();
