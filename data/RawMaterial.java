@@ -5,11 +5,23 @@ import Estructuras_de_datos.MyArrayList;
 
 public class RawMaterial {
 
+    private String name;
     private String admissionDate;
     private String expirationDate;
     private String batch;
     private String description;
-    private MyArrayList parametrosCalidad;
+    private MyArrayList<Parameter> parametrosCalidad;
+
+    
+    public RawMaterial() {
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
 
     public String getAdmissionDate() {
         return admissionDate;
@@ -47,17 +59,21 @@ public class RawMaterial {
         return parametrosCalidad;
     }
 
-    public void setParametrosCalidad(MyArrayList parametrosCalidad) {
+    public void setParametrosCalidad(MyArrayList<Parameter> parametrosCalidad) {
         this.parametrosCalidad = parametrosCalidad;
     }
 
-    public RawMaterial(String admissionDate, String expirationDate,
-                       String batch, String description, MyArrayList parametrosCalidad) {
-
+     public RawMaterial(String name, String admissionDate, String expirationDate, String batch, String description, MyArrayList <Parameter> parametrosCalidad) {
+        this.name = name;
         this.admissionDate = admissionDate;
         this.expirationDate = expirationDate;
         this.batch = batch;
         this.description = description;
         this.parametrosCalidad = parametrosCalidad;
+    }
+     
+    @Override
+       public String toString(){
+        return(name+";"+admissionDate+";"+expirationDate+";"+batch+";"+description);
     }
 }

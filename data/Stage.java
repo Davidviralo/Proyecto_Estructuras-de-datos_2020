@@ -35,13 +35,13 @@ public class Stage extends Event {
         while (createParameter) {
             System.out.println("¿Desea agregar más parámetros a la etapa?");
             String answer = input.nextLine();
-            if (answer.equalsIgnoreCase("Si")){
+            if (answer.equalsIgnoreCase("Si")) {
                 parameter = new Parameter();
                 parameterList.pushBack(parameter);
-            }else if (answer.equalsIgnoreCase("No")){
+            } else if (answer.equalsIgnoreCase("No")) {
                 System.out.println("Creación de etapas finalizadas.");
                 createParameter = false;
-            }else{
+            } else {
                 System.out.println("Entrada no válida. Intente de nuevo.");
             }
         }
@@ -75,10 +75,10 @@ public class Stage extends Event {
             testPassed = parameterList.getItem(i).satisfyQuality();
             auxIndex = i;
         }
-        if (!testPassed){
+        if (!testPassed) {
             MyArrayList<Parameter> badParameterList = new MyArrayList<>();
-            for (int i = auxIndex; i < parameterList.getSize() ; i++) {
-                if (!parameterList.getItem(i).satisfyQuality()){
+            for (int i = auxIndex; i < parameterList.getSize(); i++) {
+                if (!parameterList.getItem(i).satisfyQuality()) {
                     badParameterList.pushBack(parameterList.getItem(i));
                 }
             }
@@ -101,7 +101,7 @@ public class Stage extends Event {
         if (super.isActive()) {
             System.out.println("Estado: Activa");
             System.out.println("Fecha y hora de inicio: " + super.getStartDate());
-        } else if (super.isFinished()){
+        } else if (super.isFinished()) {
             System.out.println("Estado: Finalizada");
             System.out.println("Fecha y hora de inicio: " + super.getStartDate());
             System.out.println("Fecha y hora de finalización: " + super.getEndDate());

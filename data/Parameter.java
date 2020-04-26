@@ -39,17 +39,18 @@ public class Parameter {
     public void setUpperLimit(double upperLimit) {
         this.upperLimit = upperLimit;
     }
-    public Parameter(){
+
+    public Parameter() {
         Scanner input = new Scanner(System.in);
         System.out.println("Creación de parametro");
         System.out.println("Ingrese el nombre del parámetro");
         this.name = input.nextLine();
         System.out.println("Digite limite inferior");
-        this.lowerLimit= input.nextDouble();
+        this.lowerLimit = input.nextDouble();
         System.out.println("Digite limite superior");
-        this.upperLimit= input.nextDouble();
+        this.upperLimit = input.nextDouble();
 
-        
+
     }
 
     public Parameter(String name, double value, double lowerLimit, double upperLimit) {
@@ -63,4 +64,11 @@ public class Parameter {
         return (lowerLimit <= value) && (value <= upperLimit);
 
     }
+    
+     
+    @Override
+    public String toString(){
+        return(name+";"+String.valueOf(value)+";"+String.valueOf(lowerLimit)+";"+String.valueOf(upperLimit));
+    }
+    
 }
