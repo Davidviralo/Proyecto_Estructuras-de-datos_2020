@@ -53,8 +53,8 @@ public class User implements Serializable {
         this.user = user;
     }
 
-    public void setContraseña(String contrasena) {
-        this.password = contrasena;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public void setAccount(Boolean Adm) {
