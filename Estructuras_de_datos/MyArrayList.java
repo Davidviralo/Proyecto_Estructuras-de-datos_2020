@@ -2,7 +2,7 @@ package Estructuras_de_datos;
 
 import java.io.Serializable;
 
-public class MyArrayList<T> implements Serializable{
+public class MyArrayList<T> implements Serializable {
 
     private int capacity = 10;
     private int size;
@@ -17,7 +17,7 @@ public class MyArrayList<T> implements Serializable{
         return size <= 0;
     }
 
-    public boolean full(){
+    public boolean full() {
         return size >= capacity;
     }
 
@@ -25,28 +25,28 @@ public class MyArrayList<T> implements Serializable{
         return size;
     }
 
-    public boolean isListed (T item) {
+    public boolean isListed(T item) {
         if (empty())
             return false;
         else {
             boolean isListed = false;
-            for (int i = 0; i<size && !isListed; i++)
+            for (int i = 0; i < size && !isListed; i++)
                 isListed = listArray[i] == item;
             return isListed;
         }
     }
 
     public void pushFront(T item) {
-        if (full()){
-            T[] newListArray = (T[]) new Object[capacity*2];
-            for (int i = 0; i < capacity; i++){
-                newListArray[i+1] = listArray[i];
+        if (full()) {
+            T[] newListArray = (T[]) new Object[capacity * 2];
+            for (int i = 0; i < capacity; i++) {
+                newListArray[i + 1] = listArray[i];
             }
             capacity = capacity * 2;
             listArray = newListArray;
         } else {
-            for (int i = size; i > 0; i--){
-                listArray[i] = listArray[i-1];
+            for (int i = size; i > 0; i--) {
+                listArray[i] = listArray[i - 1];
             }
         }
         listArray[0] = item;
@@ -56,17 +56,17 @@ public class MyArrayList<T> implements Serializable{
     public void popFront() {
         if (empty())
             throw new RuntimeException("Nothing to remove, the list is empty.");
-        for (int i = 0; i < size-1; i++){
-            listArray[i] = listArray[i+1];
+        for (int i = 0; i < size - 1; i++) {
+            listArray[i] = listArray[i + 1];
         }
-        listArray[size-1] = null;
+        listArray[size - 1] = null;
         size--;
     }
 
     public void pushBack(T item) {
-        if (full()){
-            T[] newListArray = (T[]) new Object[capacity*2];
-            for (int i = 0; i < capacity; i++){
+        if (full()) {
+            T[] newListArray = (T[]) new Object[capacity * 2];
+            for (int i = 0; i < capacity; i++) {
                 newListArray[i] = listArray[i];
             }
             capacity = capacity * 2;
@@ -79,7 +79,7 @@ public class MyArrayList<T> implements Serializable{
     public void popBack() {
         if (empty())
             throw new RuntimeException("Nothing to remove, the list is empty.");
-        listArray[size-1] = null;
+        listArray[size - 1] = null;
         size--;
     }
 
@@ -89,7 +89,7 @@ public class MyArrayList<T> implements Serializable{
         else {
             int index = -1;
             boolean isListed = false;
-            for (int i = 0; i<size && !isListed; i++) {
+            for (int i = 0; i < size && !isListed; i++) {
                 if (listArray[i] == item) {
                     index = i;
                     isListed = true;
@@ -100,14 +100,14 @@ public class MyArrayList<T> implements Serializable{
     }
 
     public T getItem(int index) {
-        if (index < 0 || index > size-1)
+        if (index < 0 || index > size - 1)
             throw new IndexOutOfBoundsException("Invalid index. " +
                     "Current list size: = " + size + ".");
         return listArray[index];
     }
 
     public void add(int index, T item) {
-        if (index < 0 || index > size){
+        if (index < 0 || index > size) {
             throw new IndexOutOfBoundsException("Invalid index. " +
                     "Current list size: = " + size + ".");
         } else {
@@ -116,13 +116,13 @@ public class MyArrayList<T> implements Serializable{
             } else if (index == size) {
                 pushBack(item);
             } else {
-                if (full()){
-                    T[] newListArray = (T[]) new Object[capacity*2];
-                    for (int i = 0; i < index; i++){
+                if (full()) {
+                    T[] newListArray = (T[]) new Object[capacity * 2];
+                    for (int i = 0; i < index; i++) {
                         newListArray[i] = listArray[i];
                     }
-                    for (int i = index; i < capacity; i++){
-                        newListArray[i+1] = listArray[i];
+                    for (int i = index; i < capacity; i++) {
+                        newListArray[i + 1] = listArray[i];
                     }
                     capacity = capacity * 2;
                     listArray = newListArray;
@@ -138,19 +138,19 @@ public class MyArrayList<T> implements Serializable{
     }
 
     public void removeIndex(int index) {
-        if (index < 0 || index > size-1){
+        if (index < 0 || index > size - 1) {
             throw new IndexOutOfBoundsException("Invalid index. " +
                     "Current list size: = " + size + ".");
         } else {
             if (index == 0) {
                 popFront();
-            } else if (index == size-1) {
+            } else if (index == size - 1) {
                 popBack();
             } else {
                 for (int i = index; i < size; i++) {
-                    listArray[i] = listArray[i+1];
+                    listArray[i] = listArray[i + 1];
                 }
-                listArray[size-1] = null;
+                listArray[size - 1] = null;
                 size--;
             }
         }
@@ -168,7 +168,7 @@ public class MyArrayList<T> implements Serializable{
     public void printList() {
         if (empty()) {
             System.out.println("The list is empty.");
-        }else {
+        } else {
             for (int i = 0; i < size; i++) {
                 System.out.print(listArray[i] + " ");
             }

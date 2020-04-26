@@ -42,7 +42,7 @@ public class SinglyLinkedList<T> implements Serializable {
             boolean isListed = false;
             SingleNode<T> node;
             node = head;
-            for (int i = 0; i < size && !isListed; i++){
+            for (int i = 0; i < size && !isListed; i++) {
                 if (node.getItem() == item) {
                     isListed = true;
                 } else {
@@ -62,7 +62,7 @@ public class SinglyLinkedList<T> implements Serializable {
         size++;
     }
 
-    public void  popFront() {
+    public void popFront() {
         if (empty())
             throw new RuntimeException("Nothing to remove, the list is empty.");
         head = head.getNext();
@@ -74,7 +74,7 @@ public class SinglyLinkedList<T> implements Serializable {
 
     public void pushBack(T item) {
         SingleNode<T> node = new SingleNode<T>(item);
-        if (tail == null){
+        if (tail == null) {
             head = node;
         } else {
             tail.setNext(node);
@@ -93,7 +93,7 @@ public class SinglyLinkedList<T> implements Serializable {
             } else {
                 SingleNode<T> node;
                 node = head;
-                while (node.getNext().getNext() != null){
+                while (node.getNext().getNext() != null) {
                     node = node.getNext();
                 }
                 node.setNext(null);
@@ -111,7 +111,7 @@ public class SinglyLinkedList<T> implements Serializable {
             boolean isListed = false;
             SingleNode<T> node;
             node = head;
-            for (int i = 0; i < size && !isListed; i++){
+            for (int i = 0; i < size && !isListed; i++) {
                 if (node.getItem() == item) {
                     index = i;
                     isListed = true;
@@ -124,7 +124,7 @@ public class SinglyLinkedList<T> implements Serializable {
     }
 
     public SingleNode<T> getNode(int index) {
-        if (index < 0 || index > size-1){
+        if (index < 0 || index > size - 1) {
             throw new IndexOutOfBoundsException("Invalid index. " +
                     "Current list size: = " + size + ".");
         } else {
@@ -151,7 +151,7 @@ public class SinglyLinkedList<T> implements Serializable {
     }
 
     public void add(int index, T item) {
-        if (index < 0 || index > size){
+        if (index < 0 || index > size) {
             throw new IndexOutOfBoundsException("Invalid index. " +
                     "Current list size: = " + size + ".");
         } else {
@@ -160,7 +160,7 @@ public class SinglyLinkedList<T> implements Serializable {
             } else if (index == size) {
                 pushBack(item);
             } else {
-                addAfter(getNode(index-1), item);
+                addAfter(getNode(index - 1), item);
             }
         }
     }
@@ -175,16 +175,16 @@ public class SinglyLinkedList<T> implements Serializable {
     }
 
     public void removeIndex(int index) {
-        if (index < 0 || index > size-1){
+        if (index < 0 || index > size - 1) {
             throw new IndexOutOfBoundsException("Invalid index. " +
                     "Current list size: = " + size + ".");
         } else {
             if (index == 0) {
                 popFront();
-            } else if (index == size-1) {
+            } else if (index == size - 1) {
                 popBack();
             } else {
-                getNode(index-1).setNext(getNode(index-1).getNext().getNext());
+                getNode(index - 1).setNext(getNode(index - 1).getNext().getNext());
                 size--;
             }
         }
@@ -193,7 +193,7 @@ public class SinglyLinkedList<T> implements Serializable {
     public void printList() {
         if (empty()) {
             System.out.println("The list is empty.");
-        }else {
+        } else {
             SingleNode<T> node;
             node = head;
             for (int i = 0; i < size; i++) {

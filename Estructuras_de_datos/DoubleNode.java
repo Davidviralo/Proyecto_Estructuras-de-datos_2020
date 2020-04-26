@@ -2,7 +2,7 @@ package Estructuras_de_datos;
 
 import java.io.Serializable;
 
-public class DoubleNode<T>implements Serializable {
+public class DoubleNode<T> implements Serializable {
 
     private T item;
     private DoubleNode<T> next;

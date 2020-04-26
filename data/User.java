@@ -8,10 +8,11 @@ public class User implements Serializable {
     private String user;
     private String password;
     private Boolean Adm;
-    
-    public User(){
-        
+
+    public User() {
+
     }
+
     public User(String name, int id, String user, String password, Boolean Adm) {
         this.name = name;
         this.id = id;
@@ -19,7 +20,7 @@ public class User implements Serializable {
         this.password = password;
         this.Adm = Adm;
     }
-    
+
     public String getName() {
         return name;
     }

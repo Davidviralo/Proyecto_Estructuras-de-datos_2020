@@ -1,10 +1,11 @@
 package data;
 
 import Estructuras_de_datos.*;
+
 import java.time.LocalDateTime;
 import java.util.Scanner;
 
-public class Production extends Event{
+public class Production extends Event {
 
     private MyArrayList<RawMaterial> rawMaterials;
     private MyArrayList<Stage> stages;
@@ -40,12 +41,12 @@ public class Production extends Event{
             System.out.println("¿Desea agregar más etapas al proceso?");
             String answer = input.nextLine();
             if (answer.equalsIgnoreCase("Si")) {
-                stage = new Stage(processStages.getSize()+1);
+                stage = new Stage(processStages.getSize() + 1);
                 processStages.pushBack(stage);
-            }else if (answer.equalsIgnoreCase("No")){
+            } else if (answer.equalsIgnoreCase("No")) {
                 System.out.println("Creación de etapas finalizadas.");
                 createStage = false;
-            }else{
+            } else {
                 System.out.println("Entrada no válida. Intente de nuevo.");
             }
         }
@@ -74,9 +75,9 @@ public class Production extends Event{
     }
 
     public void endCurrentStage() {
-        stages.getItem(currentStage-1).setParameters();
-        stages.getItem(currentStage-1).finish();
-        if (stages.getItem(currentStage-1).isFinished()) {
+        stages.getItem(currentStage - 1).setParameters();
+        stages.getItem(currentStage - 1).finish();
+        if (stages.getItem(currentStage - 1).isFinished()) {
             currentStage++;
         } else {
             System.out.println("Por favor, revise y emprenda acciones en su producción " +
@@ -85,10 +86,10 @@ public class Production extends Event{
     }
 
     public void startCurrentStage() {
-        stages.getItem(currentStage-1).start();
+        stages.getItem(currentStage - 1).start();
     }
 
-    public void  finish() {
+    public void finish() {
         boolean allStagesFinished = true;
         for (int i = 0; i < stages.getSize() && allStagesFinished; i++) {
             allStagesFinished = stages.getItem(i).isFinished();
@@ -109,7 +110,7 @@ public class Production extends Event{
         System.out.println("Producción: " + super.getName());
         if (super.isActive()) {
             System.out.println("Estado actual: Etapa " + currentStage + " de " + stages.getSize());
-        } else if (super.isFinished()){
+        } else if (super.isFinished()) {
             System.out.println("Estado: Finalizada");
         } else {
             System.out.println("Estado: Sin iniciar");
@@ -123,7 +124,7 @@ public class Production extends Event{
             System.out.println("Estado: Activa");
             System.out.println("Fecha y hora de inicio: " + super.getStartDate());
             System.out.println("Avance: Etapa " + currentStage + " de " + stages.getSize());
-        } else if (super.isFinished()){
+        } else if (super.isFinished()) {
             System.out.println("Estado: Finalizada");
             System.out.println("Fecha y hora de inicio: " + super.getStartDate());
             System.out.println("Fecha y hora de finalización: " + super.getEndDate());
@@ -131,8 +132,8 @@ public class Production extends Event{
             System.out.println("Estado: Sin iniciar");
         }
         System.out.println("Descripción: " + super.getDescription());
-        for (int i = 0; i < stages.getSize(); i++){
-            System.out.println("----------- ETAPA " + i+1 + " -----------");
+        for (int i = 0; i < stages.getSize(); i++) {
+            System.out.println("----------- ETAPA " + i + 1 + " -----------");
             stages.getItem(i).printSummary();
         }
         System.out.println("##############################################");
