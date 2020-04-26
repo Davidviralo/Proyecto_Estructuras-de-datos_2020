@@ -7,19 +7,20 @@ public class DataBase implements Serializable {
     //IMPORTANTE
     //Para poder usar la base de datos deben poner el Users(nombre del usuario en su pc) y el disco local y carpeta donde guardaron el archivo del proyecto
     //Direccion sebastian: C:\\Users\\Sebastian\\Documents\\NetBeansProjects\\Proyecto_Estructuras\\src\\Basededatos.txt
+    //Dirección David: C:\\Users\\USUARIO\\Desktop\\Estructuras de Datos\\Proyecto\\src\\Basededatos.txt
     //Guarda los datos separados por ; si tiene una lista dentro de alguna clase, esta se debe guardar
-    //seperada por * y el numero de variables va al inicio seperada por &. 
+    //seperada por * y el numero de variables va al inicio seperada por &.
+    public static String localDatabase = "C:\\Users\\Sebastian\\Documents\\NetBeansProjects\\Proyecto_Estructuras\\src\\";
     public static SinglyLinkedList<User> singlyLinkedListUser = new SinglyLinkedList<User>();
-    
     public static SinglyLinkedList<RawMaterial> singlyLinkedRawMaterial = new SinglyLinkedList<RawMaterial>();
     public static SinglyLinkedList<String> singlyLinkedRawMaterialname = new SinglyLinkedList<String>();
     public static SinglyLinkedList<Integer> singlyLinkedRawDeleteMaterial = new SinglyLinkedList<Integer>();
 
     public static void WriteArchive() {
         String nametxt = "";
-    //Dirección David: C:\\Users\\USUARIO\\Desktop\\Estructuras de Datos\\Proyecto\\src\\Basededatos.txt
+
         try {
-            nametxt="C:\\Users\\Sebastian\\Documents\\NetBeansProjects\\Proyecto_Estructuras\\src\\";    
+            nametxt=localDatabase;
             nametxt = nametxt+"Materiales2";
             File file = new File(nametxt + ".txt");
             FileWriter flwriter = new FileWriter(file.getAbsoluteFile(), true);
@@ -38,7 +39,7 @@ public class DataBase implements Serializable {
                 bfwriter.write(";\n");
             }
             
-            nametxt="C:\\Users\\Sebastian\\Documents\\NetBeansProjects\\Proyecto_Estructuras\\src\\";  
+            nametxt=localDatabase;
             nametxt = nametxt+"DatosborradosMateriales";
             File file2 = new File(nametxt + ".txt");
             FileWriter flwriter2 = new FileWriter(file2);
@@ -69,7 +70,7 @@ public class DataBase implements Serializable {
     
     
     public static void loadDeleteMaterial(String numbertxt) throws IOException{
-            String url="C:\\Users\\Sebastian\\Documents\\NetBeansProjects\\Proyecto_Estructuras\\src\\";
+            String url=localDatabase;
             FileReader fileStremx = new FileReader(url+"DatosborradosMateriales"+numbertxt+ ".txt");
             BufferedReader os = new BufferedReader(fileStremx);
             String loadData = os.readLine();
@@ -81,7 +82,7 @@ public class DataBase implements Serializable {
    }
     
     public static void loadNameMaterial(String numbertxt) throws IOException{
-            String url="C:\\Users\\Sebastian\\Documents\\NetBeansProjects\\Proyecto_Estructuras\\src\\";
+            String url=localDatabase;
             FileReader fileStremx2 = new FileReader(url+"Materiales"+numbertxt+ ".txt");            
             BufferedReader os2 = new BufferedReader(fileStremx2);
             String loadData2 = os2.readLine();
@@ -114,7 +115,7 @@ public class DataBase implements Serializable {
         int i = singlyLinkedRawMaterialname.getIndex(buscarBD);     
         
         if(i!=-1){
-        FileReader fileStremx = new FileReader("C:\\Users\\Sebastian\\Documents\\NetBeansProjects\\Proyecto_Estructuras\\src\\Materiales" + ".txt");
+        FileReader fileStremx = new FileReader(localDatabase + "Materiales" + ".txt");
         BufferedReader os = new BufferedReader(fileStremx);
        
        
