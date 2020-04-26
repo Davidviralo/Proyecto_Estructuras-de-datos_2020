@@ -64,4 +64,11 @@ public class Parameter {
         return (lowerLimit <= value) && (value <= upperLimit);
 
     }
+    
+     
+    @Override
+    public String toString(){
+        return(name+";"+String.valueOf(value)+";"+String.valueOf(lowerLimit)+";"+String.valueOf(upperLimit));
+    }
+    
 }
