@@ -5,8 +5,10 @@ import java.time.LocalDateTime;
 import java.util.Scanner;
 
 public class Production extends Event{
+
     private MyArrayList<RawMaterial> rawMaterials;
     private MyArrayList<Stage> stages;
+    private int currentStage = 0;
 
     public Production(String name, String description, MyArrayList<RawMaterial> rawMaterials,
                       MyArrayList<Stage> stages) {
@@ -27,7 +29,7 @@ public class Production extends Event{
         System.out.println("Ingrese una descripción para la producción:");
         String description = input.nextLine();
         System.out.println("Descripción: " + description);
-        System.out.println("Seleccione las materias primas que va a emplear.");
+        //System.out.println("Seleccione las materias primas que va a emplear.");
         //rawMaterials selection.
         System.out.println("Cree etapas de producción:");
         MyArrayList<Stage> processStages = new MyArrayList<>();
@@ -56,6 +58,7 @@ public class Production extends Event{
     public void start() {
         super.setIsActive(true);
         super.setIsFinished(false);
+        currentStage = 1;
         System.out.println("Se inició la producción '" + super.getName() + "'");
         LocalDateTime now = LocalDateTime.now();
         super.setStartDate(now);
@@ -68,6 +71,8 @@ public class Production extends Event{
             allStagesFinished = stages.getItem(i).isFinished();
         }
         if (allStagesFinished) {
+            super.setIsActive(false);
+            super.setIsFinished(true);
             System.out.println("¡Felicitaciones! Se ha finalizado" +
                     " el proceso cumpliendo todos los parámetros de calidad.");
             System.out.println("¡Los clientes estarán muy satisfechos con su producto!");
@@ -75,6 +80,28 @@ public class Production extends Event{
             System.out.println("Hay etapas que no se han finalizado, " +
                     "por favor revíselas antes de intentar finalizar la producción nuevamente.");
         }
+    }
+
+    public void printSummary() {
+        System.out.println("########## RESUMEN DE LA PRODUCCIÓN ##########");
+        System.out.println("Nombre: " + super.getName());
+        if (super.isActive()) {
+            System.out.println("Estado: Activa");
+            System.out.println("Fecha y hora de inicio: " + super.getStartDate());
+            System.out.println("Avance: Etapa " + currentStage + " de " + stages.getSize());
+        } else if (super.isFinished()){
+            System.out.println("Estado: Finalizada");
+            System.out.println("Fecha y hora de inicio: " + super.getStartDate());
+            System.out.println("Fecha y hora de finalización: " + super.getEndDate());
+        } else {
+            System.out.println("Estado: Sin iniciar");
+        }
+        System.out.println("Descripción: " + super.getDescription());
+        for (int i = 0; i < stages.getSize(); i++){
+            System.out.println("----------- ETAPA " + i+1 + " -----------");
+            stages.getItem(i).printSummary();
+        }
+        System.out.println("##############################################");
     }
 
     public MyArrayList<RawMaterial> getRawMaterials() {

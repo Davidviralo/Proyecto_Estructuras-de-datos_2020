@@ -96,6 +96,25 @@ public class Stage extends Event {
         }
     }
 
+    public void printSummary() {
+        System.out.println("Nombre: " + super.getName());
+        if (super.isActive()) {
+            System.out.println("Estado: Activa");
+            System.out.println("Fecha y hora de inicio: " + super.getStartDate());
+        } else if (super.isFinished()){
+            System.out.println("Estado: Finalizada");
+            System.out.println("Fecha y hora de inicio: " + super.getStartDate());
+            System.out.println("Fecha y hora de finalización: " + super.getEndDate());
+            System.out.println("Parámetros de calidad obtenidos:");
+            for (int i = 0; i < parameterList.getSize(); i++) {
+                System.out.println(parameterList.getItem(i).getName() + ": " + parameterList.getItem(i).getValue());
+            }
+        } else {
+            System.out.println("Estado: Sin iniciar");
+        }
+        System.out.println("Descripción: " + super.getDescription());
+    }
+
     public int getStageNumber() {
         return stageNumber;
     }
