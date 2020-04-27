@@ -1,7 +1,7 @@
 package data;
 
 import Estructuras_de_datos.*;
-
+import static graphicInterface.Proyecto_2020.scanner;
 import java.time.LocalDateTime;
 import java.util.Scanner;
 
@@ -18,13 +18,12 @@ public class Stage extends Event {
 
     public Stage(int stageNumber) {
         this.stageNumber = stageNumber;
-        Scanner input = new Scanner(System.in);
         System.out.println("Ingrese el nombre de la etapa " + stageNumber + ":");
-        String name = input.nextLine();
+        String name = scanner.nextLine();
         super.setName(name);
         System.out.println("Nombre de la etapa: " + name);
         System.out.println("Ingrese la descripción de la etapa " + stageNumber + ":");
-        String description = input.nextLine();
+        String description = scanner.nextLine();
         super.setDescription(description);
         System.out.println("Descripción de la etapa: " + description);
         System.out.println("Cree parámetros de calidad a evaluar en esta etapa:");
@@ -34,7 +33,7 @@ public class Stage extends Event {
         boolean createParameter = true;
         while (createParameter) {
             System.out.println("¿Desea agregar más parámetros a la etapa?");
-            String answer = input.nextLine();
+            String answer = scanner.nextLine();
             if (answer.equalsIgnoreCase("Si")) {
                 parameter = new Parameter();
                 parameterList.pushBack(parameter);
@@ -47,6 +46,7 @@ public class Stage extends Event {
         }
         System.out.println("Se creó la etapa " + stageNumber + " con "
                 + parameterList.getSize() + " parámetros de calidad.");
+        this.parameterList = parameterList;
     }
 
     public void start() {
@@ -58,12 +58,11 @@ public class Stage extends Event {
     }
 
     public void setParameters() {
-        Scanner input = new Scanner(System.in);
         System.out.println("A continuación, ingrese los valores de los parámetros obtenidos en la etapa:");
         for (int i = 0; i < parameterList.getSize(); i++) {
             System.out.println("Ingrese el valor obtenido para " +
-                    parameterList.getItem(i).getName().toLowerCase() + ":");
-            parameterList.getItem(i).setValue(input.nextDouble());
+                    parameterList.getItem(i).getName()+ ":");
+            parameterList.getItem(i).setValue(scanner.nextDouble());
         }
         System.out.println("Se han asignado los valores de los parámetros de la etapa " + stageNumber + ".");
     }
@@ -100,11 +99,11 @@ public class Stage extends Event {
         System.out.println("Nombre: " + super.getName());
         if (super.isActive()) {
             System.out.println("Estado: Activa");
-            System.out.println("Fecha y hora de inicio: " + super.getStartDate());
+            System.out.println("Fecha y hora de inicio: " + super.getTimeFormat().format(super.getStartDate()));
         } else if (super.isFinished()) {
             System.out.println("Estado: Finalizada");
-            System.out.println("Fecha y hora de inicio: " + super.getStartDate());
-            System.out.println("Fecha y hora de finalización: " + super.getEndDate());
+            System.out.println("Fecha y hora de inicio: " + super.getTimeFormat().format(super.getStartDate()));
+            System.out.println("Fecha y hora de finalización: " + super.getTimeFormat().format(super.getEndDate()));
             System.out.println("Parámetros de calidad obtenidos:");
             for (int i = 0; i < parameterList.getSize(); i++) {
                 System.out.println(parameterList.getItem(i).getName() + ": " + parameterList.getItem(i).getValue());

@@ -1,6 +1,7 @@
 package data;
 
 import java.util.Scanner;
+import static graphicInterface.Proyecto_2020.scanner;
 
 public class Parameter {
     private String name;
@@ -41,16 +42,31 @@ public class Parameter {
     }
 
     public Parameter() {
-        Scanner input = new Scanner(System.in);
         System.out.println("Creación de parametro");
         System.out.println("Ingrese el nombre del parámetro");
-        this.name = input.nextLine();
-        System.out.println("Digite limite inferior");
-        this.lowerLimit = input.nextDouble();
-        System.out.println("Digite limite superior");
-        this.upperLimit = input.nextDouble();
-
-
+        this.name = scanner.nextLine();
+        boolean validLowerInput = false;
+        while (!validLowerInput){
+            System.out.println("Digite limite inferior");
+            try {
+                this.lowerLimit = scanner.nextDouble();
+                validLowerInput = true;
+            } catch (Exception e) {
+                System.out.println("Entrada inválida, intente nuevamente");
+                scanner.nextLine();
+            }
+        }
+        boolean validUpperInput = false;
+        while (!validUpperInput){
+            System.out.println("Digite limite superior");
+            try {
+                this.upperLimit = scanner.nextDouble();
+                validUpperInput = true;
+            } catch (Exception e) {
+                System.out.println("Entrada inválida, intente nuevamente");
+                scanner.nextLine();
+            }
+        }
     }
 
     public Parameter(String name, double value, double lowerLimit, double upperLimit) {

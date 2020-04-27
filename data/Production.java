@@ -1,7 +1,7 @@
 package data;
 
 import Estructuras_de_datos.*;
-
+import static graphicInterface.Proyecto_2020.scanner;
 import java.time.LocalDateTime;
 import java.util.Scanner;
 
@@ -19,16 +19,15 @@ public class Production extends Event {
     }
 
     public Production() {
-        Scanner input = new Scanner(System.in);
         System.out.println("**********************  ASISTENTE DE CREACIÓN DE PRODUCCIÓN  ***********************");
         System.out.println("Bienvenido, aquí podrá crear su producción. Para ello puede seleccionar las materias " +
                 "primas que desee usar y puede dividir su producción en etapas con sus respectivos parámetros de " +
                 "calidad. A continuación, siga las instrucciones dadas");
         System.out.println("Ingrese el nombre de la producción:");
-        String name = input.nextLine();
+        String name = scanner.nextLine();
         System.out.println("Nombre: " + name);
         System.out.println("Ingrese una descripción para la producción:");
-        String description = input.nextLine();
+        String description = scanner.nextLine();
         System.out.println("Descripción: " + description);
         //System.out.println("Seleccione las materias primas que va a emplear.");
         //rawMaterials selection.
@@ -39,7 +38,7 @@ public class Production extends Event {
         boolean createStage = true;
         while (createStage) {
             System.out.println("¿Desea agregar más etapas al proceso?");
-            String answer = input.nextLine();
+            String answer = scanner.nextLine();
             if (answer.equalsIgnoreCase("Si")) {
                 stage = new Stage(processStages.getSize() + 1);
                 processStages.pushBack(stage);
@@ -57,20 +56,28 @@ public class Production extends Event {
     }
 
     public void start() {
-        super.setIsActive(true);
-        super.setIsFinished(false);
-        currentStage = 1;
-        System.out.println("Se inició la producción '" + super.getName() + "'");
-        super.setStartDate(LocalDateTime.now());
-        System.out.println("Fecha de inicio: " + super.getTimeFormat().format(LocalDateTime.now()));
-
+        if (!isFinished()) {
+            super.setIsActive(true);
+            super.setIsFinished(false);
+            currentStage = 1;
+            System.out.println("Se inició la producción '" + super.getName() + "'");
+            super.setStartDate(LocalDateTime.now());
+            System.out.println("Fecha de inicio: " + super.getTimeFormat().format(super.getStartDate()));
+            stages.getItem(0).start();
+        } else {
+            System.out.println("La producción no se puede empezar pues ya ha finalizado");
+        }
     }
 
     public void nextStage() {
         int auxCurrentStage = currentStage;
         endCurrentStage();
-        if (auxCurrentStage != currentStage) {
-            startCurrentStage();
+        if (currentStage > stages.getSize()) {
+            finish();
+        } else {
+            if (auxCurrentStage != currentStage) {
+                startCurrentStage();
+            }
         }
     }
 
@@ -107,7 +114,7 @@ public class Production extends Event {
     }
 
     public void printBasicSummary() {
-        System.out.println("Producción: " + super.getName());
+        System.out.println(super.getName());
         if (super.isActive()) {
             System.out.println("Estado actual: Etapa " + currentStage + " de " + stages.getSize());
         } else if (super.isFinished()) {
@@ -122,18 +129,18 @@ public class Production extends Event {
         System.out.println("Nombre: " + super.getName());
         if (super.isActive()) {
             System.out.println("Estado: Activa");
-            System.out.println("Fecha y hora de inicio: " + super.getStartDate());
+            System.out.println("Fecha y hora de inicio: " + super.getTimeFormat().format(super.getStartDate()));
             System.out.println("Avance: Etapa " + currentStage + " de " + stages.getSize());
         } else if (super.isFinished()) {
             System.out.println("Estado: Finalizada");
-            System.out.println("Fecha y hora de inicio: " + super.getStartDate());
-            System.out.println("Fecha y hora de finalización: " + super.getEndDate());
+            System.out.println("Fecha y hora de inicio: " + super.getTimeFormat().format(super.getStartDate()));
+            System.out.println("Fecha y hora de finalización: " + super.getTimeFormat().format(super.getEndDate()));
         } else {
             System.out.println("Estado: Sin iniciar");
         }
         System.out.println("Descripción: " + super.getDescription());
         for (int i = 0; i < stages.getSize(); i++) {
-            System.out.println("----------- ETAPA " + i + 1 + " -----------");
+            System.out.println("----------- ETAPA " + (i + 1) + " -----------");
             stages.getItem(i).printSummary();
         }
         System.out.println("##############################################");
