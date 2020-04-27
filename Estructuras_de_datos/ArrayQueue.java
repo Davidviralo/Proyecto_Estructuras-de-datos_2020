@@ -48,8 +48,10 @@ public class ArrayQueue<T> implements Serializable {
             tail = capacity - 1;
             capacity = capacity * 2;
             qarray = newQarray;
+            tail = (tail + 1) % capacity;
+        } else if (!empty()){
+            tail = (tail + 1) % capacity;
         }
-        tail = (tail + 1) % capacity;
         qarray[tail] = item;
         size++;
     }
