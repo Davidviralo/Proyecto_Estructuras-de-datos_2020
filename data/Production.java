@@ -7,11 +7,11 @@ import java.util.Scanner;
 
 public class Production extends Event {
 
-    private MyArrayList<RawMaterial> rawMaterials;
+    private ArrayQueue<RawMaterial> rawMaterials;
     private MyArrayList<Stage> stages;
     private int currentStage = 0;
 
-    public Production(String name, String description, MyArrayList<RawMaterial> rawMaterials,
+    public Production(String name, String description, ArrayQueue<RawMaterial> rawMaterials,
                       MyArrayList<Stage> stages) {
         super(name, description);
         this.rawMaterials = rawMaterials;
@@ -53,6 +53,7 @@ public class Production extends Event {
         super.setDescription(description);
         this.stages = processStages;
         System.out.println("Se creó la producción '" + name + "' con " + processStages.getSize() + " etapas.");
+        
     }
 
     public void start() {
@@ -61,8 +62,8 @@ public class Production extends Event {
             super.setIsFinished(false);
             currentStage = 1;
             System.out.println("Se inició la producción '" + super.getName() + "'");
-            super.setStartDate(LocalDateTime.now());
-            System.out.println("Fecha de inicio: " + super.getTimeFormat().format(super.getStartDate()));
+           // super.setStartDate(LocalDateTime.now());
+           // System.out.println("Fecha de inicio: " + super.getTimeFormat().format(super.getStartDate()));
             stages.getItem(0).start();
         } else {
             System.out.println("La producción no se puede empezar pues ya ha finalizado");
@@ -129,12 +130,12 @@ public class Production extends Event {
         System.out.println("Nombre: " + super.getName());
         if (super.isActive()) {
             System.out.println("Estado: Activa");
-            System.out.println("Fecha y hora de inicio: " + super.getTimeFormat().format(super.getStartDate()));
+           // System.out.println("Fecha y hora de inicio: " + super.getTimeFormat().format(super.getStartDate()));
             System.out.println("Avance: Etapa " + currentStage + " de " + stages.getSize());
         } else if (super.isFinished()) {
             System.out.println("Estado: Finalizada");
-            System.out.println("Fecha y hora de inicio: " + super.getTimeFormat().format(super.getStartDate()));
-            System.out.println("Fecha y hora de finalización: " + super.getTimeFormat().format(super.getEndDate()));
+           // System.out.println("Fecha y hora de inicio: " + super.getTimeFormat().format(super.getStartDate()));
+          //  System.out.println("Fecha y hora de finalización: " + super.getTimeFormat().format(super.getEndDate()));
         } else {
             System.out.println("Estado: Sin iniciar");
         }
@@ -146,7 +147,7 @@ public class Production extends Event {
         System.out.println("##############################################");
     }
 
-    public MyArrayList<RawMaterial> getRawMaterials() {
+    public ArrayQueue<RawMaterial> getRawMaterials() {
         return rawMaterials;
     }
 
@@ -154,11 +155,37 @@ public class Production extends Event {
         return stages;
     }
 
-    public void setRawMaterials(MyArrayList<RawMaterial> rawMaterials) {
+    public void setRawMaterials(ArrayQueue<RawMaterial> rawMaterials) {
         this.rawMaterials = rawMaterials;
     }
 
     public void setStages(MyArrayList<Stage> stages) {
         this.stages = stages;
+    }
+    
+    
+    @Override
+    public String getDescription() {
+        return super.getDescription(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String getName() {
+        return super.getName(); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    @Override
+    public String toString(){
+        return (getName()+";"+getDescription());
+    }
+
+    @Override
+    public void setDescription(String description) {
+        super.setDescription(description); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setName(String name) {
+        super.setName(name); //To change body of generated methods, choose Tools | Templates.
     }
 }

@@ -10,9 +10,14 @@ public class Stage extends Event {
     private int stageNumber;
     private MyArrayList<Parameter> parameterList;
 
-    public Stage(String name, String id, String startDate,
-                 String description, MyArrayList<Parameter> parameterList) {
-        super(name, description);
+//    public Stage(String name, String id, String startDate,
+//                 String description, MyArrayList<Parameter> parameterList) {
+//        super(name, description);
+//        this.parameterList = parameterList;
+//    }
+     
+    public Stage(MyArrayList<Parameter> parameterList, String name, String startDate, String endDate, String id, String description) {
+        super(name, startDate, endDate, id, description);
         this.parameterList = parameterList;
     }
 
@@ -53,8 +58,9 @@ public class Stage extends Event {
         super.setIsActive(true);
         super.setIsFinished(false);
         System.out.println("Se inició la etapa " + stageNumber + " de producción '" + super.getName() + "'");
-        super.setStartDate(LocalDateTime.now());
-        System.out.println("Fecha de inicio: " + super.getTimeFormat().format(super.getStartDate()));
+      
+        super.setStartDate(super.getTimeFormat().format(LocalDateTime.now()));
+        System.out.println("Fecha de inicio: " + super.getStartDate());
     }
 
     public void setParameters() {
@@ -87,11 +93,11 @@ public class Stage extends Event {
                 System.out.println(badParameterList.getItem(i).getName());
             }
         } else {
-            super.setEndDate(LocalDateTime.now());
+            super.setEndDate(super.getTimeFormat().format(LocalDateTime.now()));
             super.setIsActive(false);
             this.setIsFinished(true);
             System.out.println("¡Finalizó la etapa " + stageNumber + " cumpliendo con los estándares de calidad!");
-            System.out.println("Fecha y hora de finalización: " + super.getTimeFormat().format(super.getEndDate()));
+            System.out.println("Fecha y hora de finalización: " + super.getEndDate());
         }
     }
 
@@ -99,11 +105,11 @@ public class Stage extends Event {
         System.out.println("Nombre: " + super.getName());
         if (super.isActive()) {
             System.out.println("Estado: Activa");
-            System.out.println("Fecha y hora de inicio: " + super.getTimeFormat().format(super.getStartDate()));
+            System.out.println("Fecha y hora de inicio: " + super.getStartDate());
         } else if (super.isFinished()) {
             System.out.println("Estado: Finalizada");
-            System.out.println("Fecha y hora de inicio: " + super.getTimeFormat().format(super.getStartDate()));
-            System.out.println("Fecha y hora de finalización: " + super.getTimeFormat().format(super.getEndDate()));
+            System.out.println("Fecha y hora de inicio: " + super.getStartDate());
+            System.out.println("Fecha y hora de finalización: " + super.getEndDate());
             System.out.println("Parámetros de calidad obtenidos:");
             for (int i = 0; i < parameterList.getSize(); i++) {
                 System.out.println(parameterList.getItem(i).getName() + ": " + parameterList.getItem(i).getValue());
@@ -120,5 +126,25 @@ public class Stage extends Event {
 
     public MyArrayList<Parameter> getParameterList() {
         return parameterList;
+    }
+    
+     @Override
+    public String getDescription() {
+        return super.getDescription(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String getStartDate() {
+        return super.getStartDate(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String getName() {
+        return super.getName(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String getId() {
+        return super.getId(); //To change body of generated methods, choose Tools | Templates.
     }
 }
