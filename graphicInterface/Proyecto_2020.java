@@ -4,7 +4,6 @@ import Estructuras_de_datos.MyArrayList;
 import businessLogic.Logic;
 import data.*;
 
-import static data.DataBase.singlyLinkedRawMaterial;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -157,18 +156,11 @@ public class Proyecto_2020 {
         System.out.println("Recuerde que la CALIDAD y EFICIENCIA en su produccion permiten atraer mas clientes.");
         System.out.println("Por ello creamos este software, deje que SOFPROCAL garantice la seguridad y satisfaccion de sus clientes.\n");
         System.out.println("************\n");
-
-        DataBase.LoadArchive();
-
+        DataBase.loadArchive();
         menumain();
-
-        //DataBase.reachMaterial("5067");
-
-
-        //System.out.println(singlyLinkedRawMaterial.getFront().toString());
-        //Esta funcion le permite buscar el materia que usted desee.
-        //Cuando lo encuentre lo va a guardar en su respectiva lista(En este caso es de materiales pues en la lista de materiales
-
-        //DataBase.WriteArchive();
+        
+         DataBase.WriteArchive();    
+         
     }
+    
 }
