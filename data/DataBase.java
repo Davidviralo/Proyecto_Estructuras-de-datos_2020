@@ -9,8 +9,8 @@ public class DataBase implements Serializable {
     //Dirección David: C:\\Users\\USUARIO\\Desktop\\Estructuras de Datos\\Proyecto\\src\\
     private static String localDatabase = "";
     
-    public static MyArrayList<Production> myArrayListProduction = new MyArrayList<Production>();
-    public static SinglyLinkedList<String> sLnameP = new SinglyLinkedList<String>();
+    public static MyArrayList<Production> myArrayListProduction = new MyArrayList<Production>(); // guarda la lista de producciones
+    public static SinglyLinkedList<String> sLnameP = new SinglyLinkedList<String>();// carga los nombres de las producciones para luego buscarlas
     
     public static SinglyLinkedList<User> singlyLinkedListUser = new SinglyLinkedList<User>();
     public static SinglyLinkedList<String> sLnameU = new SinglyLinkedList<String>();
@@ -114,7 +114,27 @@ public class DataBase implements Serializable {
         } else if (name.equalsIgnoreCase("Producciones") && myArrayListProduction.getSize() != 0) {
             String write = myArrayListProduction.getItem(number).getName();
             bfwriter.write("1.Nombre: " + write + ";\n");
-
+            
+            Boolean a = myArrayListProduction.getItem(number).isIsActive();
+            write="0";
+            if(a){
+                write="1";
+            }
+            bfwriter.write(write + ";\n");
+            
+            Boolean b = myArrayListProduction.getItem(number).isIsFinished();
+            write="0";
+            if(b){
+                write="1";
+            }
+            bfwriter.write(write + ";\n");
+            
+            write = myArrayListProduction.getItem(number).getStartDate();
+            bfwriter.write(write + ";\n");
+            
+            write = myArrayListProduction.getItem(number).getEndDate();
+            bfwriter.write(write + ";\n");
+            
             write = myArrayListProduction.getItem(number).getDescription();
             bfwriter.write("2.Descripcion" + ";\n" + write + ";\n");
         } else if (name.equalsIgnoreCase("Stage")) {
@@ -126,7 +146,7 @@ public class DataBase implements Serializable {
 
                 String write = myArrayListStage.getItem(index).toString();
 
-                String size2 = String.valueOf(5 + myArrayListStage.getItem(index).getParameterList().getSize() * 4);
+                String size2 = String.valueOf(8 + myArrayListStage.getItem(index).getParameterList().getSize() * 4);
 
                 bfwriter.write(size2 + "$" + write);
 
@@ -172,8 +192,12 @@ public class DataBase implements Serializable {
 //Load    
     public static void loadArchive() {
         try {
+          
             load("", "Informe");
             load("", "Usuarios");
+            for(int i=0; i<sLnameP.getSize(); i++){                
+                DataBase.reach(sLnameP.getItem(i), "Informe");     
+            }           
         } catch (IOException e) {
             System.out.println("Error al cargar archivos");
         }
@@ -193,8 +217,9 @@ public class DataBase implements Serializable {
                     for (int i = 0; i < loadData2.length(); i++) {
                         if (loadData2.charAt(i) == ';') {
                             sLnameP.pushBack(loadData2.substring(0, i));
+                            break;
                         }
-                        break;
+                        
                     }
                     loadData2 = os2.readLine();
                 }
@@ -203,9 +228,10 @@ public class DataBase implements Serializable {
                 while (loadData2 != null) {
                     for (int i = 0; i < loadData2.length(); i++) {
                         if (loadData2.charAt(i) == ';') {
-                            sLnameU.pushBack(loadData2.substring(0, i));
+                            sLnameU.pushBack(loadData2.substring(2, i));                           
+                            break;
                         }
-                        break;
+                        
                     }
                     loadData2 = os2.readLine();
                 }
@@ -217,19 +243,36 @@ public class DataBase implements Serializable {
 //Busca el nombre proceso o el nombre de usuario y luego lo carga al sistema con todos sus datos
     public static Boolean reach(String buscarBD, String tip) throws IOException {
         int i = -1;
+       
         if (tip.equals("Usuarios")) {
             i = sLnameU.getIndex(buscarBD);
-        } else if (tip.equals("Informe")) {
-           
-            i = sLnameP.getIndex(buscarBD);
+        } else if (tip.equals("Informe")) {           
+            //i = sLnameP.getIndex(buscarBD);
         }
-        if (i != -1 && tip.equals("Informe")) {
+        
+        if (tip.equals("Informe")) {
             FileReader fileStremx = new FileReader(localDatabase + buscarBD + ".txt");
 
             BufferedReader os = new BufferedReader(fileStremx);
             String loadData = os.readLine();
             String name = loadData.substring(10, loadData.length() - 1);
-
+            
+            Boolean start=true;
+            loadData = os.readLine();
+            if((loadData).equals("0;")){
+                start=false;
+            }
+            loadData = os.readLine();
+            Boolean end=true;
+            if((loadData).equals("0;")){
+                end=false;
+            }
+             loadData = os.readLine();             
+             String fecha1= loadData.substring(0, loadData.length() - 1);
+             
+             loadData = os.readLine();
+             String fecha2= loadData.substring(0, loadData.length() - 1);   
+             
             os.readLine();
             loadData = os.readLine();
             String descripcion = loadData.substring(0, loadData.length() - 1);
@@ -238,14 +281,18 @@ public class DataBase implements Serializable {
             arrayQueueRawMaterial = new  ArrayQueue<>();
             while (!(loadData = os.readLine()).equals("4.Stage;")) {
                 int tam = 0;
+                int count=0;
                 for (int o = 0; o < loadData.length(); o++) {
                     if (loadData.charAt(o) == '$') {
-                        tam = Integer.parseInt(loadData.substring(0, o));
+                        tam = Integer.parseInt(loadData.substring(0, o));count++;
+                        break;
                     }
+                    count++;
+                    
                 }
                 String load[] = new String[tam];
                 int j = 0;
-                int k = 2;
+                int k = count+1;
                 int z = 0;
                 for (int o = 0; o < loadData.length(); o++) {
                     if (loadData.charAt(o) == ';') {
@@ -272,18 +319,23 @@ public class DataBase implements Serializable {
                 rawMaterial = new RawMaterial(load[0], load[1], load[2], load[3], load[4], parametrosCalidad);
                 arrayQueueRawMaterial.enqueue(rawMaterial);
             }
-            os.readLine();
+           // os.readLine();
             myArrayListStage = new MyArrayList<>();
+                        
             while ((loadData = os.readLine()) != null) {
+                System.out.println(loadData); 
                 int tam = 0;
+                int count=0;
                 for (int o = 0; o < loadData.length(); o++) {
                     if (loadData.charAt(o) == '$') {
                         tam = Integer.parseInt(loadData.substring(0, o));
+                        break;
                     }
+                    count++;
                 }
                 String load[] = new String[tam];
                 int j = 0;
-                int k = 2;
+                int k = count+1;
                 int z = 0;
                 for (int o = 0; o < loadData.length(); o++) {
                     if (loadData.charAt(o) == ';') {
@@ -302,16 +354,33 @@ public class DataBase implements Serializable {
                 Stage stage;
                 int a = 0;
                 for (int o = 0; o < z; o++) {
-                    parameter = new Parameter(load[5 + a], Double.parseDouble(load[6 + a]), Double.parseDouble(load[7 + a]), Double.parseDouble(load[8 + a]));
+                    parameter = new Parameter(load[8 + a], Double.parseDouble(load[9 + a]), Double.parseDouble(load[10 + a]), Double.parseDouble(load[11 + a]));
                     a = a + 4;
                     parametrosCalidad.pushBack(parameter);
 
                 }
-                stage = new Stage(parametrosCalidad, load[0], load[1], load[2], load[3], load[4]);
+                Boolean s=true;
+                if(load[6].equals("0")){
+                    s=false;
+                }
+                Boolean s2=true;
+                if(load[7].equals("0")){
+                    s2=false;
+                }
+   
+                stage = new Stage(Integer.valueOf(load[5]),parametrosCalidad, load[0], load[2], load[3], load[1], load[4]);
+                stage.setIsActive(s);
+                stage.setIsFinished(s2);                                
                 myArrayListStage.pushBack(stage);
+                System.out.println(myArrayListStage.getSize());
+                
             }
-
-            Production production = new Production(name, descripcion, arrayQueueRawMaterial, myArrayListStage);
+             System.out.println(myArrayListStage.getSize());    
+            Production production = new Production(name,descripcion,arrayQueueRawMaterial, myArrayListStage);
+            production.setIsActive(start);
+            production.setIsFinished(end);
+            production.setStartDate(fecha1);
+            production.setEndDate(fecha2);          
             myArrayListProduction.pushBack(production);
             os.close();
             return true;

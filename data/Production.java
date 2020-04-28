@@ -11,11 +11,20 @@ public class Production extends Event {
     private MyArrayList<Stage> stages;
     private int currentStage = 0;
 
-    public Production(String name, String description, ArrayQueue<RawMaterial> rawMaterials,
+        public Production(String name, String description, ArrayQueue<RawMaterial> rawMaterials,
                       MyArrayList<Stage> stages) {
         super(name, description);
         this.rawMaterials = rawMaterials;
         this.stages = stages;
+    }
+  
+    
+    public int getCurrentStage() {
+        return currentStage;
+    }
+
+    public void setCurrentStage(int currentStage) {
+        this.currentStage = currentStage;
     }
 
     public Production() {
@@ -24,6 +33,7 @@ public class Production extends Event {
                 "primas que desee usar y puede dividir su producción en etapas con sus respectivos parámetros de " +
                 "calidad. A continuación, siga las instrucciones dadas");
         System.out.println("Ingrese el nombre de la producción:");
+        scanner.nextLine();
         String name = scanner.nextLine();
         System.out.println("Nombre: " + name);
         System.out.println("Ingrese una descripción para la producción:");
@@ -48,11 +58,21 @@ public class Production extends Event {
             } else {
                 System.out.println("Entrada no válida. Intente de nuevo.");
             }
-        }
+        }        
         super.setName(name);
         super.setDescription(description);
         this.stages = processStages;
+        //Opcional mientras se pide los materiales - Falta menu de materiales
+        ArrayQueue<RawMaterial> materiales=new ArrayQueue<RawMaterial>();// Para poder guardar el elemento completo
+        RawMaterial rawMaterial= new RawMaterial("Sin información","Sin información","Sin información","Sin información","Sin información",processStages.getItem(0).getParameterList());
+        materiales.enqueue(rawMaterial);
+        this.rawMaterials = materiales; 
+        //        
         System.out.println("Se creó la producción '" + name + "' con " + processStages.getSize() + " etapas.");
+        super.setStartDate("Noiniciado");
+        super.setEndDate("Nofinalizado");
+        super.setIsActive(true);
+        super.setIsFinished(false);
         
     }
 
@@ -62,8 +82,8 @@ public class Production extends Event {
             super.setIsFinished(false);
             currentStage = 1;
             System.out.println("Se inició la producción '" + super.getName() + "'");
-           // super.setStartDate(LocalDateTime.now());
-           // System.out.println("Fecha de inicio: " + super.getTimeFormat().format(super.getStartDate()));
+            super.setStartDate(super.getTimeFormat().format(LocalDateTime.now()));
+            System.out.println("Fecha de inicio: " + super.getStartDate());
             stages.getItem(0).start();
         } else {
             System.out.println("La producción no se puede empezar pues ya ha finalizado");
@@ -114,6 +134,9 @@ public class Production extends Event {
         }
     }
 
+ 
+         
+
     public void printBasicSummary() {
         System.out.println(super.getName());
         if (super.isActive()) {
@@ -130,12 +153,12 @@ public class Production extends Event {
         System.out.println("Nombre: " + super.getName());
         if (super.isActive()) {
             System.out.println("Estado: Activa");
-           // System.out.println("Fecha y hora de inicio: " + super.getTimeFormat().format(super.getStartDate()));
+            System.out.println("Fecha y hora de inicio: " + super.getStartDate());
             System.out.println("Avance: Etapa " + currentStage + " de " + stages.getSize());
         } else if (super.isFinished()) {
             System.out.println("Estado: Finalizada");
-           // System.out.println("Fecha y hora de inicio: " + super.getTimeFormat().format(super.getStartDate()));
-          //  System.out.println("Fecha y hora de finalización: " + super.getTimeFormat().format(super.getEndDate()));
+            System.out.println("Fecha y hora de inicio: " + super.getStartDate());
+            System.out.println("Fecha y hora de finalización: " + super.getEndDate());
         } else {
             System.out.println("Estado: Sin iniciar");
         }
@@ -165,27 +188,8 @@ public class Production extends Event {
     
     
     @Override
-    public String getDescription() {
-        return super.getDescription(); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public String getName() {
-        return super.getName(); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-    @Override
     public String toString(){
         return (getName()+";"+getDescription());
     }
 
-    @Override
-    public void setDescription(String description) {
-        super.setDescription(description); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void setName(String name) {
-        super.setName(name); //To change body of generated methods, choose Tools | Templates.
-    }
 }

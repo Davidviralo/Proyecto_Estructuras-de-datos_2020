@@ -60,4 +60,11 @@ public class User implements Serializable {
     public void setAccount(Boolean Adm) {
         this.Adm = Adm;
     }
+     public String toString(){
+        int ad=0;
+        if(Adm){
+            ad=1;
+        }
+        return(user+";"+String.valueOf(id)+";"+name+";"+password+";"+String.valueOf(ad));
+    }
 }

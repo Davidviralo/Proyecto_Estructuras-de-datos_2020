@@ -62,6 +62,7 @@ public class Parameter {
             try {
                 this.upperLimit = scanner.nextDouble();
                 validUpperInput = true;
+                 scanner.nextLine();
             } catch (Exception e) {
                 System.out.println("Entrada inválida, intente nuevamente");
                 scanner.nextLine();

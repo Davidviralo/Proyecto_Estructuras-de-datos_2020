@@ -10,16 +10,12 @@ public class Stage extends Event {
     private int stageNumber;
     private MyArrayList<Parameter> parameterList;
 
-//    public Stage(String name, String id, String startDate,
-//                 String description, MyArrayList<Parameter> parameterList) {
-//        super(name, description);
-//        this.parameterList = parameterList;
-//    }
-     
-    public Stage(MyArrayList<Parameter> parameterList, String name, String startDate, String endDate, String id, String description) {
+    public Stage(int stageNumber, MyArrayList<Parameter> parameterList, String name, String startDate, String endDate, String id, String description) {
         super(name, startDate, endDate, id, description);
+        this.stageNumber = stageNumber;
         this.parameterList = parameterList;
-    }
+    }   
+
 
     public Stage(int stageNumber) {
         this.stageNumber = stageNumber;
@@ -52,13 +48,18 @@ public class Stage extends Event {
         System.out.println("Se creó la etapa " + stageNumber + " con "
                 + parameterList.getSize() + " parámetros de calidad.");
         this.parameterList = parameterList;
+        super.setStartDate("Noiniciado");
+        super.setEndDate("Nofinalizado");
+        super.setIsActive(false);
+        super.setIsFinished(false);
+        super.setId("?");
     }
 
     public void start() {
         super.setIsActive(true);
         super.setIsFinished(false);
         System.out.println("Se inició la etapa " + stageNumber + " de producción '" + super.getName() + "'");
-      
+
         super.setStartDate(super.getTimeFormat().format(LocalDateTime.now()));
         System.out.println("Fecha de inicio: " + super.getStartDate());
     }
@@ -66,8 +67,8 @@ public class Stage extends Event {
     public void setParameters() {
         System.out.println("A continuación, ingrese los valores de los parámetros obtenidos en la etapa:");
         for (int i = 0; i < parameterList.getSize(); i++) {
-            System.out.println("Ingrese el valor obtenido para " +
-                    parameterList.getItem(i).getName()+ ":");
+            System.out.println("Ingrese el valor obtenido para "
+                    + parameterList.getItem(i).getName() + ":");
             parameterList.getItem(i).setValue(scanner.nextDouble());
         }
         System.out.println("Se han asignado los valores de los parámetros de la etapa " + stageNumber + ".");
@@ -87,8 +88,8 @@ public class Stage extends Event {
                     badParameterList.pushBack(parameterList.getItem(i));
                 }
             }
-            System.out.println("El proceso no puede continuar ya que no se cumplen los " +
-                    "estándares de calidad en los siguientes parámetros:");
+            System.out.println("El proceso no puede continuar ya que no se cumplen los "
+                    + "estándares de calidad en los siguientes parámetros:");
             for (int i = 0; i < badParameterList.getSize(); i++) {
                 System.out.println(badParameterList.getItem(i).getName());
             }
@@ -127,8 +128,8 @@ public class Stage extends Event {
     public MyArrayList<Parameter> getParameterList() {
         return parameterList;
     }
-    
-     @Override
+
+    @Override
     public String getDescription() {
         return super.getDescription(); //To change body of generated methods, choose Tools | Templates.
     }
@@ -147,9 +148,27 @@ public class Stage extends Event {
     public String getId() {
         return super.getId(); //To change body of generated methods, choose Tools | Templates.
     }
-       @Override
-       public String toString(){
-        return( getName()+";"+getId()+";"+getStartDate()+";"+super.getEndDate()+";"+getDescription());
+
+    @Override
+    public String toString() {
+        String A = "0";
+        if (super.isActive()) {
+            A = "1";
+        }
+        String B = "0";
+        if (super.isFinished()) {
+            B = "1";
+        }
+
+        return (getName() + ";" + getId() + ";" + getStartDate() + ";" + super.getEndDate() + ";" + getDescription() + ";" + getStageNumber()+";"+A+";"+B);
+    }
+
+    public void setStageNumber(int stageNumber) {
+        this.stageNumber = stageNumber;
+    }
+
+    public void setParameterList(MyArrayList<Parameter> parameterList) {
+        this.parameterList = parameterList;
     }
 
 }

@@ -13,6 +13,10 @@ public class Event {
     private boolean isActive;
     private boolean isFinished;    
 
+    public void setTimeFormat(DateTimeFormatter timeFormat) {
+        this.timeFormat = timeFormat;
+    }
+
     public String getId() {
         return id;
     }

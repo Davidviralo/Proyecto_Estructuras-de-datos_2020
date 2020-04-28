@@ -1,8 +1,8 @@
 package graphicInterface;
 
-import Estructuras_de_datos.MyArrayList;
 import businessLogic.Logic;
 import data.*;
+import static data.DataBase.myArrayListProduction;
 
 
 import java.io.IOException;
@@ -13,9 +13,9 @@ public class Proyecto_2020 {
 
     public static final Scanner scanner = new Scanner(System.in);
     private static final Logic logic = new Logic();
-    private static MyArrayList<Production> productionList = new MyArrayList<>();
+    
 
-    static void menumain() {
+    static void menumain() throws IOException {
         System.out.println("**********************             MENU PRINCIPAL             **********************");
         System.out.println("                              ***1.Iniciar Sesion ***");
         System.out.println("                              ***2.Registrarse    ***");
@@ -51,6 +51,7 @@ public class Proyecto_2020 {
                 System.out.println("***");
                 System.out.println("¡Esperamos que vuelva pronto!");
                 System.out.println("***");
+                DataBase.WriteArchive();  
                 System.exit(0);
                 break;
 
@@ -62,7 +63,7 @@ public class Proyecto_2020 {
     }
 
 
-    public static void controlPanel() {
+    public static void controlPanel() throws IOException {
         System.out.println("**********************             PANEL DE CONTROL             **********************");
         System.out.println("                            ***  1.Crear producción     ***");
         System.out.println("                            ***  2.Gestionar producción ***");
@@ -72,7 +73,7 @@ public class Proyecto_2020 {
         switch (val) {
             case 1:
                 Production newProduction = new Production();
-                productionList.pushBack(newProduction);
+                myArrayListProduction.pushBack(newProduction);
             case 2:
                 manageMenu();
             case 3:
@@ -85,16 +86,16 @@ public class Proyecto_2020 {
         }
     }
 
-    public static void manageMenu() {
+    public static void manageMenu() throws IOException {
         System.out.println("Seleccione la producción que desea gestionar:");
-        for (int i = 0; i < productionList.getSize(); i++) {
+        for (int i = 0; i < myArrayListProduction.getSize(); i++) {
             System.out.print(i + 1 + ". ");
-            productionList.getItem(i).printBasicSummary();
+            myArrayListProduction.getItem(i).printBasicSummary();
         }
         System.out.println();
         System.out.println("0. Regresar al panel de control");
         int selection = scanner.nextInt();
-        if (selection < 0 || selection > productionList.getSize()) {
+        if (selection < 0 || selection > myArrayListProduction.getSize()) {
             System.out.println("Selección inválida, por favor intente nuevamente.");
             manageMenu();
         } else if (selection == 0) {
@@ -103,22 +104,22 @@ public class Proyecto_2020 {
             int selectedProduction = selection - 1;
             boolean repeatMenu = true;
             while (repeatMenu) {
-                if (productionList.getItem(selectedProduction).isActive()) {
-                    productionList.getItem(selectedProduction).printBasicSummary();
+                if (myArrayListProduction.getItem(selectedProduction).isActive()) {
+                    myArrayListProduction.getItem(selectedProduction).printBasicSummary();
                     System.out.println("Seleccione que acción desea realizar con esta producción:");
                     System.out.println("1. Ver resumen");
                     System.out.println("2. Completar etapa actual");
                     System.out.println("0. Regresar a la selección de producción");
                     selection = scanner.nextInt();
-                    System.out.println(selection);
+                    //System.out.println(selection);
                     switch (selection) {
                         case 1:
-                            productionList.getItem(selectedProduction).printSummary();
+                            myArrayListProduction.getItem(selectedProduction).printSummary();
                             break;
                         case 2:
-                            System.out.println("Case 2");
-                            productionList.getItem(selectedProduction).nextStage();
-                            if (productionList.getItem(selectedProduction).isFinished()) {
+                            //System.out.println("Case 2");
+                            myArrayListProduction.getItem(selectedProduction).nextStage();
+                            if (myArrayListProduction.getItem(selectedProduction).isFinished()) {
                                 repeatMenu = false;
                             }
                             break;
@@ -128,7 +129,7 @@ public class Proyecto_2020 {
                             System.out.println("Entrada inválida, por favor intente nuevamente.");
                     }
                 } else {
-                    productionList.getItem(selectedProduction).printBasicSummary();
+                    myArrayListProduction.getItem(selectedProduction).printBasicSummary();
                     System.out.println("Seleccione que acción desea realizar con esta producción:");
                     System.out.println("1. Iniciar producción");
                     System.out.println("0. Regresar a la selección de producción");
@@ -136,7 +137,7 @@ public class Proyecto_2020 {
                     System.out.println(selection);
                     switch (selection) {
                         case 1:
-                            productionList.getItem(selectedProduction).start();
+                            myArrayListProduction.getItem(selectedProduction).start();
                         case 0:
                             manageMenu();
                         default:
@@ -158,9 +159,10 @@ public class Proyecto_2020 {
         System.out.println("************\n");
         DataBase.loadArchive();
         menumain();
+        
         //DataBase.reach("Nombredelaproduccion", "Informes"); forma de buscar una produccion en la base de datos
         //DataBase.eliminar("Nombredelaproducion"; Para eliminar un archivo
-         DataBase.WriteArchive();    
+           
          
     }
     
