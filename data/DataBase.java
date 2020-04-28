@@ -96,10 +96,10 @@ public class DataBase implements Serializable {
             int size=arrayQueueRawMaterial.getSize();
             for (int index = 0; index < size; index++) {
                 String write = arrayQueueRawMaterial.getTail().toString(); //debe ser la cabeza, "corregir"
-                String size2 = String.valueOf(5 + arrayQueueRawMaterial.getTail().getParametrosCalidad().getSize() * 4);
+                String size2 = String.valueOf(5 + arrayQueueRawMaterial.getTail().getParameterList().getSize() * 4);
                 bfwriter.write(size2 + "$" + write);
-                for (int j = 0; j < arrayQueueRawMaterial.getTail().getParametrosCalidad().getSize(); j++) {
-                    write = arrayQueueRawMaterial.getTail().getParametrosCalidad().getItem(j).toString();
+                for (int j = 0; j < arrayQueueRawMaterial.getTail().getParameterList().getSize(); j++) {
+                    write = arrayQueueRawMaterial.getTail().getParameterList().getItem(j).toString();
                     bfwriter.write("*" + write);
                 }
                  arrayQueueRawMaterial.dequeue();
