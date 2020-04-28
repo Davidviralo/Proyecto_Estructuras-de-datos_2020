@@ -22,16 +22,17 @@ public class DataBase implements Serializable {
 //WRITE
     public static void WriteArchive() {
         try {
-            if (sLnameU.getSize() != 0) {
+            if (sLnameU.getSize() == 0) {
                 CreateArchive("Usuarios", true);
             }
-            if (sLnameP.getSize() != 0) {
+            if (sLnameP.getSize() == 0) {
                 CreateArchive("Informe", true);
             }
 
             for (int i = 0; i < singlyLinkedListUser.getSize(); i++) {
-                if (!sLnameU.isListed(singlyLinkedListUser.getItem(0).getUser())) {
-                    Write("Usuarios", "Usuarios", 0);
+                
+                if (sLnameU.getIndex(singlyLinkedListUser.getItem(i).getUser())==-1) {
+                    Write("Usuarios", "Usuarios", i);
                 }
 
             }
@@ -62,7 +63,7 @@ public class DataBase implements Serializable {
         Write(nameA, "Producciones", i);
         Write(nameA, "Materiales", i);
         Write(nameA, "Stage", i);
-        informeArchive(nameA + ";" + i);
+        informeArchive(nameA,true);
     }
 
     public static void eliminar(String nameA) throws IOException {//Elimina un archivo
@@ -75,6 +76,9 @@ public class DataBase implements Serializable {
         } else {
             System.out.println("El archivo" + nameA + "no puedo ser borrado satisfactoriamente");
         }
+        
+         sLnameP.removeItem(nameA);
+         informeArchive("Eliminar",false);
     }
 
     public static void Write(String nameA, String name, int number) throws IOException {//Escribe el archivo dependiendo lo que vaya a escribir
@@ -139,20 +143,28 @@ public class DataBase implements Serializable {
         bfwriter.close();
     }
 
-    public static void informeArchive(String name) throws IOException { //Actualiza la lista de procesos
+    public static void informeArchive(String name, Boolean neww) throws IOException { //Actualiza la lista de procesos
         String nametxt = localDatabase;
         nametxt = nametxt + "Informe";
         File file = new File(nametxt + ".txt");
-        FileWriter flwriter = new FileWriter(file.getAbsoluteFile(), true);
+        FileWriter flwriter = new FileWriter(file.getAbsoluteFile(), neww);
         try (BufferedWriter bfwriter = new BufferedWriter(flwriter)) {
-            if (sLnameP.getSize() != 0) {
-                if (!sLnameP.isListed(name)) {
+            if(name.equals("Eliminar")){
+                   for(int i=0; i<sLnameP.getSize(); i++){
+                       bfwriter.write(sLnameP.getItem(i)+ ";" + "\n");
+                   }
+                  
+            }else{
+                  if (sLnameP.getSize() != 0) {
+            
+                if (sLnameP.getIndex(name)==-1) {
                     bfwriter.write(name + ";" + "\n");
                 }
             } else {
                 bfwriter.write(name + ";" + "\n");
 
             }
+            }     
 
         }
     }
@@ -182,6 +194,7 @@ public class DataBase implements Serializable {
                         if (loadData2.charAt(i) == ';') {
                             sLnameP.pushBack(loadData2.substring(0, i));
                         }
+                        break;
                     }
                     loadData2 = os2.readLine();
                 }
@@ -192,6 +205,7 @@ public class DataBase implements Serializable {
                         if (loadData2.charAt(i) == ';') {
                             sLnameU.pushBack(loadData2.substring(0, i));
                         }
+                        break;
                     }
                     loadData2 = os2.readLine();
                 }
@@ -206,6 +220,7 @@ public class DataBase implements Serializable {
         if (tip.equals("Usuarios")) {
             i = sLnameU.getIndex(buscarBD);
         } else if (tip.equals("Informe")) {
+           
             i = sLnameP.getIndex(buscarBD);
         }
         if (i != -1 && tip.equals("Informe")) {
@@ -221,7 +236,7 @@ public class DataBase implements Serializable {
 
             os.readLine();
             arrayQueueRawMaterial = new  ArrayQueue<>();
-            while (!(loadData = os.readLine()).equals("3.Stage;")) {
+            while (!(loadData = os.readLine()).equals("4.Stage;")) {
                 int tam = 0;
                 for (int o = 0; o < loadData.length(); o++) {
                     if (loadData.charAt(o) == '$') {

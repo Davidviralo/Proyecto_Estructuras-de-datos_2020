@@ -147,4 +147,9 @@ public class Stage extends Event {
     public String getId() {
         return super.getId(); //To change body of generated methods, choose Tools | Templates.
     }
+       @Override
+       public String toString(){
+        return( getName()+";"+getId()+";"+getStartDate()+";"+super.getEndDate()+";"+getDescription());
+    }
+
 }

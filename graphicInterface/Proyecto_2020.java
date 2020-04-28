@@ -158,7 +158,8 @@ public class Proyecto_2020 {
         System.out.println("************\n");
         DataBase.loadArchive();
         menumain();
-        
+        //DataBase.reach("Nombredelaproduccion", "Informes"); forma de buscar una produccion en la base de datos
+        //DataBase.eliminar("Nombredelaproducion"; Para eliminar un archivo
          DataBase.WriteArchive();    
          
     }
