@@ -8,11 +8,11 @@ import java.util.Scanner;
 
 public class Production extends Event {
 
-    private ArrayQueue<RawMaterial> rawMaterials;
+    private MyArrayList<RawMaterial> rawMaterials;
     private MyArrayList<Stage> stages;
     private int currentStage = 0;
 
-        public Production(String name, String description, ArrayQueue<RawMaterial> rawMaterials,
+        public Production(String name, String description, MyArrayList<RawMaterial> rawMaterials,
                       MyArrayList<Stage> stages) {
         super(name, description);
         this.rawMaterials = rawMaterials;
@@ -79,16 +79,17 @@ public class Production extends Event {
         super.setName(name);
         super.setDescription(description);
         this.stages = processStages;
-        //Opcional mientras se pide los materiales - Falta menu de materiales
-        ArrayQueue<RawMaterial> materiales=new ArrayQueue<RawMaterial>();// Para poder guardar el elemento completo
-        RawMaterial rawMaterial= new RawMaterial("Sin información","Sin información","Sin información","Sin información","Sin información",processStages.getItem(0).getParameterList());
-        materiales.enqueue(rawMaterial);
-        this.rawMaterials = materiales; 
-        //        
+        this.rawMaterials=rawMaterials;
+//        //Opcional mientras se pide los materiales - Falta menu de materiales
+//        ArrayQueue<RawMaterial> materiales=new ArrayQueue<RawMaterial>();// Para poder guardar el elemento completo
+//        RawMaterial rawMaterial= new RawMaterial("Sin información","Sin información","Sin información","Sin información","Sin información",processStages.getItem(0).getParameterList());
+//        materiales.enqueue(rawMaterial);
+//        this.rawMaterials = materiales; 
+//        //        
         System.out.println("Se creó la producción '" + name + "' con " + processStages.getSize() + " etapas.");
         super.setStartDate("Noiniciado");
         super.setEndDate("Nofinalizado");
-        super.setIsActive(true);
+        super.setIsActive(false);
         super.setIsFinished(false);
         
     }
@@ -188,7 +189,7 @@ public class Production extends Event {
     }
     
     public void  print(int index){
-        System.out.println("########## REGISTRO DE LA PRODUCCIÓN ##########");
+        System.out.println("                  ########## REGISTRO DE LA PRODUCCIÓN ##########");
         System.out.print("NOMBRE: " + super.getName()+"  ");                
        System.out.print("Fecha de inicio: " + super.getStartDate() + "  ");
         Boolean f = myArrayListProduction.getItem(index).isIsFinished();
@@ -197,34 +198,34 @@ public class Production extends Event {
         } else {
             System.out.print("Estado: Activo" + "\n ");
         }
-        System.out.print(" DESCRIPCIÓN: \n" + super.getDescription() + "\n ");        
+        System.out.print("DESCRIPCIÓN \n" + super.getDescription() + "\n ");        
         
-        System.out.print("----------- MATERIALES -----------\n");
-        int i = 1;
-        while (rawMaterials.getSize() != 0) { //arreglar es cabeza no cola
+        System.out.print("                            ----------- MATERIALES -----------\n");
+        int i = 0;
+        while (i<rawMaterials.getSize()) { //arreglar es cabeza no cola
              
-            System.out.print(i + " Nombre del Material: " + rawMaterials.getTail().getName() + "  ");             
-            System.out.print("Fecha de compra: " + rawMaterials.getTail().getAdmissionDate() + "  ");
-            System.out.print("Fecha de vencimiento: " + rawMaterials.getTail().getExpirationDate() + " \n ");
-            System.out.print("Descripción: " + rawMaterials.getTail().getDescription() + "\n ");
+            System.out.print((i+1) + " Nombre del Material: " + rawMaterials.getItem(i).getName() + "  ");             
+            System.out.print("Fecha de compra: " + rawMaterials.getItem(i).getAdmissionDate() + "  ");
+            System.out.print("Fecha de vencimiento: " + rawMaterials.getItem(i).getExpirationDate() + " \n ");
+            System.out.print("Descripción: " + rawMaterials.getItem(i).getDescription() + "\n ");
             //bfwriter.write("Batch: "+myArrayListProduction.getItem(index).getRawMaterials().getHead().getBatch()+"\n ");
                          
               System.out.print("---- PARAMETROS ----\n");
-            for (int j = 0; j < rawMaterials.getTail().getParametrosCalidad().getSize(); j++) {
-                System.out.print(String.valueOf(j + 1) + " Nombre del parametro: " + rawMaterials.getTail().getParametrosCalidad().getItem(j).getName() + "  ");
+            for (int j = 0; j < rawMaterials.getItem(i).getParametrosCalidad().getSize(); j++) {
+                System.out.print(String.valueOf(j + 1) + " Nombre del parametro: " + rawMaterials.getItem(i).getParametrosCalidad().getItem(j).getName() + "  ");
                   
                 //bfwriter.write("Valor del paramtero: "+myArrayListProduction.getItem(index).getRawMaterials().getHead().getAdmissionDate()+"  ");
-                System.out.print("Limite inferior del parametro: " + rawMaterials.getTail().getParametrosCalidad().getItem(j).getLowerLimit() + "  ");
+                System.out.print("Limite inferior del parametro: " + rawMaterials.getItem(i).getParametrosCalidad().getItem(j).getLowerLimit() + "  ");
                   
-                System.out.print("Limite superior del parametro: " + rawMaterials.getTail().getParametrosCalidad().getItem(j).getUpperLimit() + "\n ");
+                System.out.print("Limite superior del parametro: " + rawMaterials.getItem(i).getParametrosCalidad().getItem(j).getUpperLimit() + "\n ");
                 
                 //bfwriter.write("Batch: "+myArrayListProduction.getItem(index).getRawMaterials().getHead().getBatch()+"\n ");                                  
             }
-            rawMaterials.dequeue();
+            
             i++;
         }
         
-        System.out.print("----------- ETAPAS -----------\n");
+        System.out.print("                                     ----------- ETAPAS -----------\n");
         i=0;
          while (i<stages.getSize()) {
              
@@ -247,7 +248,7 @@ public class Production extends Event {
          System.out.println("##############################################");
     }
 
-    public ArrayQueue<RawMaterial> getRawMaterials() {
+    public MyArrayList<RawMaterial> getRawMaterials() {
         return rawMaterials;
     }
 
@@ -255,7 +256,7 @@ public class Production extends Event {
         return stages;
     }
 
-    public void setRawMaterials(ArrayQueue<RawMaterial> rawMaterials) {
+    public void setRawMaterials(MyArrayList<RawMaterial> rawMaterials) {
         this.rawMaterials = rawMaterials;
     }
 

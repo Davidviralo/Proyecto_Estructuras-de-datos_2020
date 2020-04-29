@@ -96,11 +96,12 @@ public class Proyecto_2020 {
                 myArrayListProduction.getItem(i).print(i);
                 Boolean check=false;
                 while (!check) {
-                    System.out.print("¿Desea generar un archivo txt con el registro?");
+                    System.out.print("¿Desea generar un archivo txt con el registro?Si/No: ");
                     String back = scanner.nextLine();
                     if (back.equalsIgnoreCase("Si")) {
                         DataBase.printTXT(i);
                         check = true;
+                        controlPanel();
                     } else if (back.equalsIgnoreCase("No")) {
                         controlPanel();
                     } else {

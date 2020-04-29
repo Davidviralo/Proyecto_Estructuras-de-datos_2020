@@ -15,7 +15,7 @@ public class DataBase implements Serializable {
     public static SinglyLinkedList<User> singlyLinkedListUser = new SinglyLinkedList<User>();
     public static SinglyLinkedList<String> sLnameU = new SinglyLinkedList<String>();
 
-    public static ArrayQueue<RawMaterial> arrayQueueRawMaterial;
+    public static MyArrayList<RawMaterial> myArrayListMaterial;
     public static MyArrayList<Stage> myArrayListStage;
 
 //WRITE
@@ -90,18 +90,18 @@ public class DataBase implements Serializable {
         BufferedWriter bfwriter = new BufferedWriter(flwriter);
 
         if (name.equalsIgnoreCase("Materiales")) {
-            arrayQueueRawMaterial = myArrayListProduction.getItem(number).getRawMaterials();
+            myArrayListMaterial = myArrayListProduction.getItem(number).getRawMaterials();
             bfwriter.write("3.Materiales;\n");
-            int size = arrayQueueRawMaterial.getSize();
+            int size = myArrayListMaterial.getSize();
             for (int index = 0; index < size; index++) {
-                String write = arrayQueueRawMaterial.getTail().toString(); //debe ser la cabeza, "corregir"
-                String size2 = String.valueOf(5 + arrayQueueRawMaterial.getTail().getParameterList().getSize() * 4);
+                String write = myArrayListMaterial.getItem(index).toString(); 
+                String size2 = String.valueOf(5 + myArrayListMaterial.getItem(index).getParametrosCalidad().getSize() * 4);
                 bfwriter.write(size2 + "$" + write);
-                for (int j = 0; j < arrayQueueRawMaterial.getTail().getParameterList().getSize(); j++) {
-                    write = arrayQueueRawMaterial.getTail().getParameterList().getItem(j).toString();
+                for (int j = 0; j < myArrayListMaterial.getItem(index).getParametrosCalidad().getSize(); j++) {
+                    write = myArrayListMaterial.getItem(index).getParametrosCalidad().getItem(j).toString();
                     bfwriter.write("*" + write);
                 }
-                arrayQueueRawMaterial.dequeue();
+                
                 bfwriter.write(";\n");
             }
 
@@ -278,7 +278,7 @@ public class DataBase implements Serializable {
             String descripcion = loadData.substring(0, loadData.length() - 1);
 
             os.readLine();
-            arrayQueueRawMaterial = new ArrayQueue<>();
+            myArrayListMaterial = new MyArrayList<>();
             while (!(loadData = os.readLine()).equals("4.Stage;")) {
                 int tam = 0;
                 int count = 0;
@@ -318,7 +318,7 @@ public class DataBase implements Serializable {
 
                 }
                 rawMaterial = new RawMaterial(load[0], load[1], load[2], load[3], load[4], parametrosCalidad);
-                arrayQueueRawMaterial.enqueue(rawMaterial);
+                myArrayListMaterial.pushBack(rawMaterial);
             }
             // os.readLine();
             myArrayListStage = new MyArrayList<>();
@@ -376,7 +376,7 @@ public class DataBase implements Serializable {
 
             }
 
-            Production production = new Production(name, descripcion, arrayQueueRawMaterial, myArrayListStage);
+            Production production = new Production(name, descripcion, myArrayListMaterial, myArrayListStage);
             production.setIsActive(start);
             production.setIsFinished(end);
             production.setStartDate(fecha1);
@@ -433,11 +433,11 @@ public class DataBase implements Serializable {
         FileWriter flwriter = new FileWriter(file.getAbsoluteFile(), true);
         BufferedWriter bfwriter = new BufferedWriter(flwriter);
         
-        ArrayQueue<RawMaterial> arrayQueueauxm = new ArrayQueue<>();
+        MyArrayList<RawMaterial> aux = new MyArrayList<>();
         MyArrayList<Stage> myArrayListauxs = new MyArrayList<>();
         MyArrayList<Parameter> myArrayListauxp = new MyArrayList<>();
-    
-        bfwriter.write(" NOMBRE DE PRODUCCIÓN: " + myArrayListProduction.getItem(index).getName() + "   ");
+        bfwriter.write("                  ########## REGISTRO DE LA PRODUCCIÓN ##########"+ "\n ");
+        bfwriter.write(" NOMBRE: " + myArrayListProduction.getItem(index).getName() + "   ");
         bfwriter.write("Fecha de inicio: " + myArrayListProduction.getItem(index).getStartDate() + "  ");
         Boolean f = myArrayListProduction.getItem(index).isIsFinished();
         if (f) {
@@ -445,25 +445,25 @@ public class DataBase implements Serializable {
         } else {
             bfwriter.write("Estado: Activo" + "\n ");
         }
-        bfwriter.write(" DESCRIPCIÓN: " + myArrayListProduction.getItem(index).getDescription() + "\n ");
+        bfwriter.write(" DESCRIPCIÓN \n " + myArrayListProduction.getItem(index).getDescription() + "\n ");
         
         
-        arrayQueueauxm = myArrayListProduction.getItem(index).getRawMaterials();
+        aux = myArrayListProduction.getItem(index).getRawMaterials();
         
         myArrayListauxs=myArrayListProduction.getItem(index).getStages();
-        bfwriter.write(" MATERIALES:\n");
-        int i = 1;
-        while (arrayQueueauxm.getSize() != 0) { //arreglar es cabeza no cola
+        bfwriter.write("                            ----------- MATERIALES -----------\n");
+        int i = 0;
+        while (i<aux.getSize()) { //arreglar es cabeza no cola
              
-            bfwriter.write(i + " Nombre del Material: " + arrayQueueauxm.getTail().getName() + "  ");             
-            bfwriter.write("Fecha de compra: " + arrayQueueauxm.getTail().getAdmissionDate() + "  ");
-            bfwriter.write("Fecha de vencimiento: " + arrayQueueauxm.getTail().getExpirationDate() + " \n ");
-            bfwriter.write("Dedescripción: " + arrayQueueauxm.getTail().getDescription() + "\n ");
+            bfwriter.write(String.valueOf(i+1) + " Nombre del Material: " + aux.getItem(i).getName() + "  ");             
+            bfwriter.write("Fecha de compra: " + aux.getItem(i).getAdmissionDate() + "  ");
+            bfwriter.write("Fecha de vencimiento: " + aux.getItem(i).getExpirationDate() + " \n ");
+            bfwriter.write("Dedescripción: " + aux.getItem(i).getDescription() + "\n ");
             //bfwriter.write("Batch: "+myArrayListProduction.getItem(index).getRawMaterials().getHead().getBatch()+"\n ");
              
-            myArrayListauxp = arrayQueueauxm.getTail().getParametrosCalidad();
+            myArrayListauxp = aux.getItem(i).getParametrosCalidad();
              
-             bfwriter.write("PARAMETROS:\n");
+             bfwriter.write("   ---- PARAMETROS ----\n");
             for (int j = 0; j < myArrayListauxp.getSize(); j++) {
                 bfwriter.write(String.valueOf(j + 1) + " Nombre del parametro: " + myArrayListauxp.getItem(j).getName() + "  ");
                   
@@ -473,12 +473,11 @@ public class DataBase implements Serializable {
                 bfwriter.write("Limite superior del parametro: " + myArrayListauxp.getItem(j).getUpperLimit() + "\n ");
                 
                 //bfwriter.write("Batch: "+myArrayListProduction.getItem(index).getRawMaterials().getHead().getBatch()+"\n ");                                  
-            }
-            arrayQueueauxm.dequeue();
+            }            
             i++;
         }
         
-        bfwriter.write(" ETAPAS: \n");
+        bfwriter.write("                                     ----------- ETAPAS -----------\n");
         i=0;
          while (i<myArrayListauxs.getSize()) {
              

@@ -90,7 +90,7 @@ public class RawMaterial {
     }
 
     public MyArrayList<Parameter> getParametrosCalidad() {
-        return parametrosCalidad;
+        return parameterList;
     }
 
     public void setParameterList(MyArrayList<Parameter> parameterList) {
