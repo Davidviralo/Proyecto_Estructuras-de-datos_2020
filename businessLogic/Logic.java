@@ -99,7 +99,7 @@ public class Logic implements Serializable {
         return true;
     }
 
-    public Boolean CheckSignIn() {
+    public Boolean CheckSignIn() throws IOException {
         System.out.println("\n                            ***1.Iniciar Sesion ***");
         userr = "";
         while (userr.equals("")) {
@@ -119,8 +119,11 @@ public class Logic implements Serializable {
         }
 
         create = false;
-        for (int i = 0; i < singlyLinkedListUser.getSize(); i++) {
-            if (singlyLinkedListUser.getItem(i).getUser().equals(userr)) {
+        
+            if (DataBase.reach(userr, "Usuarios")) {
+                
+            for (int i = 0; i < singlyLinkedListUser.getSize(); i++) {
+                
                 if (singlyLinkedListUser.getItem(i).getPassword().equals(adm)) {
                     create = true;
                     break;

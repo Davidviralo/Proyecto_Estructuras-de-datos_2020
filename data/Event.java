@@ -6,14 +6,38 @@ import java.time.format.DateTimeFormatter;
 public class Event {
     private String name;
     private DateTimeFormatter timeFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
-    private LocalDateTime startDate;
-    private LocalDateTime endDate;
-    private String id;
+    private String startDate; // Cambio a string para facilitar el guardado de los datos
+    private String endDate; // En el momento que la declare convierta de tiemformat a string =>super.getTimeFormat().format(LocalDateTime.now())
+    private String id;             //Es decir, Captura la hora y luego la mete en un String
     private String description;
     private boolean isActive;
-    private boolean isFinished;
+    private boolean isFinished;    
+
+    public void setTimeFormat(DateTimeFormatter timeFormat) {
+        this.timeFormat = timeFormat;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public boolean isIsActive() {
+        return isActive;
+    }
+
+    public boolean isIsFinished() {
+        return isFinished;
+    }
 
     public Event() {
+    }
+    
+       public Event(String name, String startDate, String endDate, String id, String description) {
+        this.name = name;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.id = id;
+        this.description = description;
     }
 
     public Event(String name, String description) {
@@ -36,11 +60,11 @@ public class Event {
         return name;
     }
 
-    public LocalDateTime getStartDate() {
+    public String getStartDate() {
         return startDate;
     }
 
-    public LocalDateTime getEndDate() {
+    public String getEndDate() {
         return endDate;
     }
 
@@ -56,11 +80,11 @@ public class Event {
         this.name = name;
     }
 
-    public void setStartDate(LocalDateTime startDate) {
+    public void setStartDate(String startDate) {
         this.startDate = startDate;
     }
 
-    public void setEndDate(LocalDateTime endDate) {
+    public void setEndDate(String endDate) {
         this.endDate = endDate;
     }
 

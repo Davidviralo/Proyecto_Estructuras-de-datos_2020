@@ -31,7 +31,7 @@ public class MyArrayList<T> implements Serializable {
         else {
             boolean isListed = false;
             for (int i = 0; i < size && !isListed; i++)
-                isListed = listArray[i] == item;
+                isListed = listArray[i].equals(item);
             return isListed;
         }
     }
@@ -90,7 +90,7 @@ public class MyArrayList<T> implements Serializable {
             int index = -1;
             boolean isListed = false;
             for (int i = 0; i < size && !isListed; i++) {
-                if (listArray[i] == item) {
+                if (listArray[i].equals(item)) {
                     index = i;
                     isListed = true;
                 }

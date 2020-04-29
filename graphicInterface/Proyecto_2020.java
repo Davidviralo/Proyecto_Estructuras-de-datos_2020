@@ -2,8 +2,8 @@ package graphicInterface;
 
 import businessLogic.Logic;
 import data.*;
+import static data.DataBase.myArrayListProduction;
 
-import static data.DataBase.singlyLinkedRawMaterial;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -13,8 +13,9 @@ public class Proyecto_2020 {
 
     public static final Scanner scanner = new Scanner(System.in);
     private static final Logic logic = new Logic();
+    
 
-    static void menumain() {
+    static void menumain() throws IOException {
         System.out.println("**********************             MENU PRINCIPAL             **********************");
         System.out.println("                              ***1.Iniciar Sesion ***");
         System.out.println("                              ***2.Registrarse    ***");
@@ -38,28 +39,143 @@ public class Proyecto_2020 {
                         System.out.print("Valor no valido. Intente de nuevo.");
                     }
                 }
+                controlPanel();
+                break;
 
             case 2:
                 logic.SignUp();
                 menumain();
+                break;
 
             case 3:
                 System.out.println("***");
                 System.out.println("¡Esperamos que vuelva pronto!");
                 System.out.println("***");
+                DataBase.WriteArchive();  
                 System.exit(0);
+                break;
 
             default:
                 System.out.println("Valor no valido. Intente de nuevo");
+                menumain();
         }
 
     }
 
 
-    public void manageMenu() {
-
+    public static void controlPanel() throws IOException {
+        System.out.println("**********************             PANEL DE CONTROL             **********************");
+        System.out.println("                            ***  1.Crear producción     ***");
+        System.out.println("                            ***  2.Gestionar producción ***");
+        System.out.println("                            ***  3.Crear registro       ***");
+        System.out.println("                            ***  4.Cerrar sesión        ***");
+        int val = scanner.nextInt();
+        switch (val) {
+            case 1:
+                Production newProduction = new Production();
+                myArrayListProduction.pushBack(newProduction);
+            case 2:
+                manageMenu();
+            case 3:
+                reg();
+            case 4:
+                menumain();
+            default:
+                System.out.println("Valor no valido. Intente de nuevo");
+                controlPanel();
+        }
+    }
+    
+    public static void reg() throws IOException{
+        System.out.println("**********************             CREAR REGISTRO             **********************");
+        scanner.nextLine();
+        System.out.println("Buscar nombre de proceso:");
+        String namep=scanner.nextLine();
+        for(int i=0; i<myArrayListProduction.getSize(); i++){
+            if(myArrayListProduction.getItem(i).getName().equalsIgnoreCase(namep)){
+                myArrayListProduction.getItem(i).print(i);
+                Boolean check=false;
+                while (!check) {
+                    System.out.print("¿Desea generar un archivo txt con el registro?Si/No: ");
+                    String back = scanner.nextLine();
+                    if (back.equalsIgnoreCase("Si")) {
+                        DataBase.printTXT(i);
+                        check = true;
+                        controlPanel();
+                    } else if (back.equalsIgnoreCase("No")) {
+                        controlPanel();
+                    } else {
+                        System.out.print("Valor no valido. Intente de nuevo.");
+                    }
+                }
+                
+                break;
+            }
+        }
+             
     }
 
+    public static void manageMenu() throws IOException {
+        System.out.println("Seleccione la producción que desea gestionar:");
+        for (int i = 0; i < myArrayListProduction.getSize(); i++) {
+            System.out.print(i + 1 + ". ");
+            myArrayListProduction.getItem(i).printBasicSummary();
+        }
+        System.out.println();
+        System.out.println("0. Regresar al panel de control");
+        int selection = scanner.nextInt();
+        if (selection < 0 || selection > myArrayListProduction.getSize()) {
+            System.out.println("Selección inválida, por favor intente nuevamente.");
+            manageMenu();
+        } else if (selection == 0) {
+            controlPanel();
+        } else {
+            int selectedProduction = selection - 1;
+            boolean repeatMenu = true;
+            while (repeatMenu) {
+                if (myArrayListProduction.getItem(selectedProduction).isActive()) {
+                    myArrayListProduction.getItem(selectedProduction).printBasicSummary();
+                    System.out.println("Seleccione que acción desea realizar con esta producción:");
+                    System.out.println("1. Ver resumen");
+                    System.out.println("2. Completar etapa actual");
+                    System.out.println("0. Regresar a la selección de producción");
+                    selection = scanner.nextInt();
+                    //System.out.println(selection);
+                    switch (selection) {
+                        case 1:
+                            myArrayListProduction.getItem(selectedProduction).printSummary();
+                            break;
+                        case 2:
+                            System.out.println("Case 2");
+                            myArrayListProduction.getItem(selectedProduction).nextStage();
+                            if (myArrayListProduction.getItem(selectedProduction).isFinished()) {
+                                repeatMenu = false;
+                            }
+                            break;
+                        case 0:
+                            manageMenu();
+                        default:
+                            System.out.println("Entrada inválida, por favor intente nuevamente.");
+                    }
+                } else {
+                    myArrayListProduction.getItem(selectedProduction).printBasicSummary();
+                    System.out.println("Seleccione que acción desea realizar con esta producción:");
+                    System.out.println("1. Iniciar producción");
+                    System.out.println("0. Regresar a la selección de producción");
+                    selection = scanner.nextInt();
+                    System.out.println(selection);
+                    switch (selection) {
+                        case 1:
+                            myArrayListProduction.getItem(selectedProduction).start();
+                        case 0:
+                            manageMenu();
+                        default:
+                            System.out.println("Entrada inválida, por favor intente nuevamente.");
+                    }
+                }
+            }
+        }
+    }
 
     public static void main(String[] args) throws IOException {
 
@@ -70,18 +186,13 @@ public class Proyecto_2020 {
         System.out.println("Recuerde que la CALIDAD y EFICIENCIA en su produccion permiten atraer mas clientes.");
         System.out.println("Por ello creamos este software, deje que SOFPROCAL garantice la seguridad y satisfaccion de sus clientes.\n");
         System.out.println("************\n");
-
-        DataBase.LoadArchive();
-
+        DataBase.loadArchive();
         menumain();
-
-        //DataBase.reachMaterial("5067");
-
-
-        //System.out.println(singlyLinkedRawMaterial.getFront().toString());
-        //Esta funcion le permite buscar el materia que usted desee.
-        //Cuando lo encuentre lo va a guardar en su respectiva lista(En este caso es de materiales pues en la lista de materiales
-
-        //DataBase.WriteArchive();
+        
+        //DataBase.reach("Nombredelaproduccion", "Informes"); forma de buscar una produccion en la base de datos
+        //DataBase.eliminar("Nombredelaproducion"; Para eliminar un archivo
+           
+         
     }
+    
 }
