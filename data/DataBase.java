@@ -1,6 +1,7 @@
 package data;
 
 import Estructuras_de_datos.*;
+
 import java.io.*;
 
 public class DataBase implements Serializable {
@@ -18,7 +19,7 @@ public class DataBase implements Serializable {
     public static MyArrayList<RawMaterial> myArrayListMaterial;
     public static MyArrayList<Stage> myArrayListStage;
 
-//WRITE
+    //WRITE
     public static void WriteArchive() {
         try {
             if (sLnameU.getSize() == 0) {
@@ -94,14 +95,14 @@ public class DataBase implements Serializable {
             bfwriter.write("3.Materiales;\n");
             int size = myArrayListMaterial.getSize();
             for (int index = 0; index < size; index++) {
-                String write = myArrayListMaterial.getItem(index).toString(); 
+                String write = myArrayListMaterial.getItem(index).toString();
                 String size2 = String.valueOf(5 + myArrayListMaterial.getItem(index).getParametrosCalidad().getSize() * 4);
                 bfwriter.write(size2 + "$" + write);
                 for (int j = 0; j < myArrayListMaterial.getItem(index).getParametrosCalidad().getSize(); j++) {
                     write = myArrayListMaterial.getItem(index).getParametrosCalidad().getItem(j).toString();
                     bfwriter.write("*" + write);
                 }
-                
+
                 bfwriter.write(";\n");
             }
 
@@ -133,14 +134,14 @@ public class DataBase implements Serializable {
 
             write = myArrayListProduction.getItem(number).getEndDate();
             bfwriter.write(write + ";\n");
-            
+
             write = Integer.toString(myArrayListProduction.getItem(number).getCurrentStage());
             bfwriter.write(write + ";\n");
-            
+
             write = myArrayListProduction.getItem(number).getDescription();
             bfwriter.write("2.Descripcion" + ";\n" + write + ";\n");
-            
-             
+
+
         } else if (name.equalsIgnoreCase("Stage")) {
             bfwriter.write("4.Stage;\n");
 
@@ -191,10 +192,10 @@ public class DataBase implements Serializable {
             }
             bfwriter.close();
         }
-        
+
     }
 
-//Load    
+    //Load
     public static void loadArchive() {
         try {
 
@@ -254,7 +255,7 @@ public class DataBase implements Serializable {
         int i = -1;
 
         if (tip.equals("Usuarios")) {
-           // i = sLnameU.getIndex(buscarBD);
+            // i = sLnameU.getIndex(buscarBD);
         } else if (tip.equals("Informe")) {
             //i = sLnameP.getIndex(buscarBD);
         }
@@ -281,7 +282,7 @@ public class DataBase implements Serializable {
 
             loadData = os.readLine();
             String fecha2 = loadData.substring(0, loadData.length() - 1);
-            
+
             loadData = os.readLine();
             String num = loadData.substring(0, loadData.length() - 1);
 
@@ -437,93 +438,94 @@ public class DataBase implements Serializable {
     }
 
     public static void printTXT(int index) throws IOException {
-        try{
-            String nametxt2="Producción finalizada " + myArrayListProduction.getItem(index).getName();
-        
-        CreateArchive(nametxt2, true);
-        String nametxt = localDatabase;
-        nametxt = nametxt + nametxt2;
-        
-        File file = new File(nametxt + ".txt");
-        FileWriter flwriter = new FileWriter(file.getAbsoluteFile(), true);
-        BufferedWriter bfwriter = new BufferedWriter(flwriter);
-        
-        MyArrayList<RawMaterial> aux = new MyArrayList<>();
-        MyArrayList<Stage> myArrayListauxs = new MyArrayList<>();
-        MyArrayList<Parameter> myArrayListauxp = new MyArrayList<>();
-        bfwriter.write("                  ########## REGISTRO DE LA PRODUCCIÓN ##########"+ "\n ");
-        bfwriter.write(" NOMBRE: " + myArrayListProduction.getItem(index).getName() + "   ");
-        bfwriter.write("Fecha de inicio: " + myArrayListProduction.getItem(index).getStartDate() + "  ");
-        Boolean f = myArrayListProduction.getItem(index).isIsFinished();
-        if (f) {
-            bfwriter.write("Estado: Finalizado" + "\n ");
-        } else if (myArrayListProduction.getItem(index).isActive()) {
-            bfwriter.write("Estado: Activo" + "\n ");
-        } else{
-            bfwriter.write("Estado: No iniciado" + "\n ");
-        }
-        bfwriter.write(" DESCRIPCIÓN \n " + myArrayListProduction.getItem(index).getDescription() + "\n ");
-        
-        
-        aux = myArrayListProduction.getItem(index).getRawMaterials();
-        
-        myArrayListauxs=myArrayListProduction.getItem(index).getStages();
-        bfwriter.write("                            ----------- MATERIALES -----------\n");
-        int i = 0;
-        while (i<aux.getSize()) { //arreglar es cabeza no cola
-             
-            bfwriter.write(String.valueOf(i+1) + " Nombre del Material: " + aux.getItem(i).getName() + "  ");             
-            bfwriter.write("Fecha de compra: " + aux.getItem(i).getAdmissionDate() + "  ");
-            bfwriter.write("Fecha de vencimiento: " + aux.getItem(i).getExpirationDate() + " \n ");
-            bfwriter.write("Dedescripción: " + aux.getItem(i).getDescription() + "\n ");
-            //bfwriter.write("Batch: "+myArrayListProduction.getItem(index).getRawMaterials().getHead().getBatch()+"\n ");
-             
-            myArrayListauxp = aux.getItem(i).getParametrosCalidad();
-             
-             bfwriter.write("   ---- PARAMETROS ----\n");
-            for (int j = 0; j < myArrayListauxp.getSize(); j++) {
-                bfwriter.write(String.valueOf(j + 1) + " Nombre del parametro: " + myArrayListauxp.getItem(j).getName() + "  ");
-                  
-                //bfwriter.write("Valor del paramtero: "+myArrayListProduction.getItem(index).getRawMaterials().getHead().getAdmissionDate()+"  ");
-                bfwriter.write("Limite inferior del parametro: " + myArrayListauxp.getItem(j).getLowerLimit() + "  ");
-                  
-                bfwriter.write("Limite superior del parametro: " + myArrayListauxp.getItem(j).getUpperLimit() + "\n ");
-                
-                //bfwriter.write("Batch: "+myArrayListProduction.getItem(index).getRawMaterials().getHead().getBatch()+"\n ");                                  
-            }            
-            i++;
-        }
-        
-        bfwriter.write("                                     ----------- ETAPAS -----------\n");
-        i=0;
-         while (i<myArrayListauxs.getSize()) {
-             
-            bfwriter.write(myArrayListauxs.getItem(i).getStageNumber()+ " Nombre de la etapa: " + myArrayListauxs.getItem(i).getName() + "  ");
-            bfwriter.write("Fecha de inicio: " +  myArrayListauxs.getItem(i).getStartDate() + "  ");
-            bfwriter.write("Fecha de final: " +  myArrayListauxs.getItem(i).getEndDate() + " \n ");
-            bfwriter.write("Descripción: " + myArrayListauxs.getItem(i).getDescription() + "\n ");
-            //bfwriter.write("Batch: "+myArrayListProduction.getItem(index).getRawMaterials().getHead().getBatch()+"\n ");
-            myArrayListauxp = myArrayListauxs.getItem(i).getParameterList();
-            bfwriter.write("PARAMETROS:\n");
-            for (int j = 0; j < myArrayListauxp.getSize(); j++) {
-                bfwriter.write(String.valueOf(j + 1) + " Nombre del parametro: " + myArrayListauxp.getItem(j).getName() + "  ");
-                bfwriter.write("Valor del parametro: "+myArrayListauxp.getItem(j).getValue()+"  ");
-                bfwriter.write("Limite inferior del parametro: " + myArrayListauxp.getItem(j).getLowerLimit() + "  ");
-                bfwriter.write("Limite superior del parametro: " + myArrayListauxp.getItem(j).getUpperLimit() + "\n ");
-                //bfwriter.write("Batch: "+myArrayListProduction.getItem(index).getRawMaterials().getHead().getBatch()+"\n ");                                  
+        try {
+            String nametxt2 = "Producción finalizada " + myArrayListProduction.getItem(index).getName();
+
+            CreateArchive(nametxt2, true);
+            String nametxt = localDatabase;
+            nametxt = nametxt + nametxt2;
+
+            File file = new File(nametxt + ".txt");
+            FileWriter flwriter = new FileWriter(file.getAbsoluteFile(), true);
+            BufferedWriter bfwriter = new BufferedWriter(flwriter);
+
+            MyArrayList<RawMaterial> aux = new MyArrayList<>();
+            MyArrayList<Stage> myArrayListauxs = new MyArrayList<>();
+            MyArrayList<Parameter> myArrayListauxp = new MyArrayList<>();
+            bfwriter.write("############################ REGISTRO DE LA PRODUCCIÓN ############################\n");
+            bfwriter.write("NOMBRE: " + myArrayListProduction.getItem(index).getName() + "     ");
+            bfwriter.write("FECHA DE INICIO: " + myArrayListProduction.getItem(index).getStartDate() + "     ");
+            Boolean f = myArrayListProduction.getItem(index).isIsFinished();
+            if (f) {
+                bfwriter.write("ESTADO: Finalizado" + "\n");
+            } else if (myArrayListProduction.getItem(index).isActive()) {
+                bfwriter.write("ESTADO: Activo" + "\n");
+            } else {
+                bfwriter.write("ESTADO: No iniciado" + "\n");
             }
-            i++;
-        }
-         
-         bfwriter.close();
-        System.out.println("------------------------------");
-        System.out.println("El archivo ha sido creado satisfactoriamente.");
-        System.out.println("Nombre del archivo: "+ nametxt2);
-        System.out.println("Se ha guardado en la direccion:  "+ nametxt);
-        System.out.println("------------------------------");
-        }catch(IOException e){
+            bfwriter.write("DESCRIPCIÓN: " + myArrayListProduction.getItem(index).getDescription() + "\n\n");
+
+
+            aux = myArrayListProduction.getItem(index).getRawMaterials();
+
+            myArrayListauxs = myArrayListProduction.getItem(index).getStages();
+            bfwriter.write("------------------------------------ MATERIALES ------------------------------------\n\n");
+            int i = 0;
+            while (i < aux.getSize()) { //arreglar es cabeza no cola
+
+                bfwriter.write(String.valueOf(i + 1) + " NOMBRE DEL MATERIAL: " + aux.getItem(i).getName() + "     ");
+                bfwriter.write("FECHA DE COMPRA: " + aux.getItem(i).getAdmissionDate() + "     ");
+                bfwriter.write("FECHA DE VENCIMIENTO: " + aux.getItem(i).getExpirationDate() + " \n  ");
+                bfwriter.write("DESCRIPCIÓN: " + aux.getItem(i).getDescription() + "\n  ");
+                //bfwriter.write("Batch: "+myArrayListProduction.getItem(index).getRawMaterials().getHead().getBatch()+"\n ");
+
+                myArrayListauxp = aux.getItem(i).getParametrosCalidad();
+
+                bfwriter.write("                       ---------- PARÁMETROS ----------\n");
+                for (int j = 0; j < myArrayListauxp.getSize(); j++) {
+                    bfwriter.write(String.valueOf(j + 1) + " NOMBRE DEL PARÁMETRO: " + myArrayListauxp.getItem(j).getName() + "\n  ");
+
+                    //bfwriter.write("Valor del paramtero: "+myArrayListProduction.getItem(index).getRawMaterials().getHead().getAdmissionDate()+"  ");
+                    bfwriter.write("LÍMITE INFERIOR DEL PARÁMETRO: " + myArrayListauxp.getItem(j).getLowerLimit() + "\n  ");
+
+                    bfwriter.write("LÍMITE SUPERIOR DEL PARÁMETRO: " + myArrayListauxp.getItem(j).getUpperLimit() + "\n\n");
+
+                    //bfwriter.write("Batch: "+myArrayListProduction.getItem(index).getRawMaterials().getHead().getBatch()+"\n ");
+                }
+                i++;
+            }
+
+            bfwriter.write("-------------------------------------- ETAPAS -------------------------------------\n");
+            i = 0;
+            while (i < myArrayListauxs.getSize()) {
+
+                bfwriter.write(myArrayListauxs.getItem(i).getStageNumber() + " NOMBRE DE LA ETAPA: " + myArrayListauxs.getItem(i).getName() + "          ");
+                bfwriter.write("FECHA DE INICIO: " + myArrayListauxs.getItem(i).getStartDate() + "\n");
+                bfwriter.write("FECHA DE FINAL: " + myArrayListauxs.getItem(i).getEndDate() + " \n  ");
+                bfwriter.write("DESCRIPCIÓN: " + myArrayListauxs.getItem(i).getDescription() + "\n ");
+                //bfwriter.write("Batch: "+myArrayListProduction.getItem(index).getRawMaterials().getHead().getBatch()+"\n ");
+                myArrayListauxp = myArrayListauxs.getItem(i).getParameterList();
+                bfwriter.write("                       ---------- PARÁMETROS ----------\n");
+                for (int j = 0; j < myArrayListauxp.getSize(); j++) {
+                    bfwriter.write(String.valueOf(j + 1) + " NOMBRE DEL PARÁMETRO: " + myArrayListauxp.getItem(j).getName() + "\n  ");
+                    bfwriter.write("VALOR OBTENIDO: " + myArrayListauxp.getItem(j).getValue() + "  ");
+                    bfwriter.write("LÍMITE INFERIOR DEL PARÁMETRO: " + myArrayListauxp.getItem(j).getLowerLimit() + "\n  ");
+                    bfwriter.write("LÍMITE SUPERIOR DEL PARÁMETRO: " + myArrayListauxp.getItem(j).getUpperLimit() + "\n\n");
+                    //bfwriter.write("Batch: "+myArrayListProduction.getItem(index).getRawMaterials().getHead().getBatch()+"\n ");
+                }
+                i++;
+                bfwriter.write("-----------------------------------------------------------------------------------\n");
+            }
+            bfwriter.write("###################################################################################");
+            bfwriter.close();
+            System.out.println("------------------------------");
+            System.out.println("El archivo ha sido creado satisfactoriamente.");
+            System.out.println("Nombre del archivo: " + nametxt2);
+            System.out.println("Se ha guardado en la direccion:  " + nametxt);
+            System.out.println("------------------------------");
+        } catch (IOException e) {
             System.out.println("Error al generar registro.");
         }
-        
+
     }
 }

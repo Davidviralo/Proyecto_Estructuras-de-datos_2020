@@ -42,7 +42,7 @@ public class SinglyLinkedList<T> implements Serializable {
             boolean isListed = false;
             SingleNode<T> node;
             node = head;
-            for (int i = 0; i < size && !isListed; i++){
+            for (int i = 0; i < size && !isListed; i++) {
                 if (node.getItem().equals(item)) {
                     isListed = true;
                 } else {
@@ -111,7 +111,7 @@ public class SinglyLinkedList<T> implements Serializable {
             boolean isListed = false;
             SingleNode<T> node;
             node = head;
-            for (int i = 0; i < size && !isListed; i++){
+            for (int i = 0; i < size && !isListed; i++) {
                 if (node.getItem().equals(item)) {
                     index = i;
                     isListed = true;
@@ -201,7 +201,7 @@ public class SinglyLinkedList<T> implements Serializable {
                 node = node.getNext();
             }
             System.out.println();
-        }        
-        
+        }
+
     }
 }

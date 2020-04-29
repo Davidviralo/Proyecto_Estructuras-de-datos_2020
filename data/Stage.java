@@ -1,7 +1,9 @@
 package data;
 
 import Estructuras_de_datos.*;
+
 import static graphicInterface.Proyecto_2020.scanner;
+
 import java.time.LocalDateTime;
 import java.util.Scanner;
 
@@ -14,7 +16,7 @@ public class Stage extends Event {
         super(name, startDate, endDate, id, description);
         this.stageNumber = stageNumber;
         this.parameterList = parameterList;
-    }   
+    }
 
 
     public Stage(int stageNumber) {
@@ -160,7 +162,7 @@ public class Stage extends Event {
             B = "1";
         }
 
-        return (getName() + ";" + getId() + ";" + getStartDate() + ";" + super.getEndDate() + ";" + getDescription() + ";" + getStageNumber()+";"+A+";"+B);
+        return (getName() + ";" + getId() + ";" + getStartDate() + ";" + super.getEndDate() + ";" + getDescription() + ";" + getStageNumber() + ";" + A + ";" + B);
     }
 
     public void setStageNumber(int stageNumber) {

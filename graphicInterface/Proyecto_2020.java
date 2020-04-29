@@ -2,6 +2,7 @@ package graphicInterface;
 
 import businessLogic.Logic;
 import data.*;
+
 import static data.DataBase.myArrayListProduction;
 
 
@@ -13,7 +14,7 @@ public class Proyecto_2020 {
 
     public static final Scanner scanner = new Scanner(System.in);
     private static final Logic logic = new Logic();
-    
+
 
     static void menumain() throws IOException {
         System.out.println("**********************             MENU PRINCIPAL             **********************");
@@ -51,7 +52,7 @@ public class Proyecto_2020 {
                 System.out.println("***");
                 System.out.println("¡Esperamos que vuelva pronto!");
                 System.out.println("***");
-                DataBase.WriteArchive();  
+                DataBase.WriteArchive();
                 System.exit(0);
                 break;
 
@@ -91,17 +92,17 @@ public class Proyecto_2020 {
                 break;
         }
     }
-    
-    public static void reg() throws IOException{
+
+    public static void reg() throws IOException {
         System.out.println("**********************             CREAR REGISTRO             **********************");
         scanner.nextLine();
         System.out.println("Buscar nombre de proceso:");
-        String namep=scanner.nextLine();
+        String namep = scanner.nextLine();
         boolean test = true;
-        for(int i=0; i<myArrayListProduction.getSize(); i++){
-            if(myArrayListProduction.getItem(i).getName().equalsIgnoreCase(namep)){
+        for (int i = 0; i < myArrayListProduction.getSize(); i++) {
+            if (myArrayListProduction.getItem(i).getName().equalsIgnoreCase(namep)) {
                 myArrayListProduction.getItem(i).print(i);
-                Boolean check=false;
+                Boolean check = false;
                 while (!check) {
                     System.out.print("¿Desea generar un archivo txt con el registro?Si/No: ");
                     String back = scanner.nextLine();
@@ -117,7 +118,7 @@ public class Proyecto_2020 {
                         System.out.print("Valor no valido. Intente de nuevo.");
                     }
                 }
-                
+
                 break;
             }
         }
@@ -205,11 +206,11 @@ public class Proyecto_2020 {
         System.out.println("************\n");
         DataBase.loadArchive();
         menumain();
-        
+
         //DataBase.reach("Nombredelaproduccion", "Informes"); forma de buscar una produccion en la base de datos
         //DataBase.eliminar("Nombredelaproducion"; Para eliminar un archivo
-           
-         
+
+
     }
-    
+
 }

@@ -1,7 +1,9 @@
 package data;
 
 import Estructuras_de_datos.MyArrayList;
+
 import java.time.LocalDateTime;
+
 import static graphicInterface.Proyecto_2020.scanner;
 
 
@@ -14,7 +16,7 @@ public class RawMaterial {
     private String description;
     private MyArrayList<Parameter> parameterList;
 
-    
+
     public RawMaterial() {
         System.out.println("Ingrese el nombre del material:");
         String name = scanner.nextLine();
@@ -97,7 +99,7 @@ public class RawMaterial {
         this.parameterList = parameterList;
     }
 
-     public RawMaterial(String name, String admissionDate, String expirationDate, String batch, String description, MyArrayList <Parameter> parameterList) {
+    public RawMaterial(String name, String admissionDate, String expirationDate, String batch, String description, MyArrayList<Parameter> parameterList) {
         this.name = name;
         this.admissionDate = admissionDate;
         this.expirationDate = expirationDate;
@@ -105,9 +107,9 @@ public class RawMaterial {
         this.description = description;
         this.parameterList = parameterList;
     }
-     
+
     @Override
-       public String toString(){
-        return(name+";"+admissionDate+";"+expirationDate+";"+batch+";"+description);
+    public String toString() {
+        return (name + ";" + admissionDate + ";" + expirationDate + ";" + batch + ";" + description);
     }
 }

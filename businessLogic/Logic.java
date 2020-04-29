@@ -1,8 +1,10 @@
 package businessLogic;
 
 import data.*;
+
 import static data.DataBase.*;
 import static graphicInterface.Proyecto_2020.scanner;
+
 import java.io.*;
 
 public class Logic implements Serializable {
@@ -119,10 +121,10 @@ public class Logic implements Serializable {
         }
 
         create = false;
-        
-            if (DataBase.reach(userr, "Usuarios")) {                
+
+        if (DataBase.reach(userr, "Usuarios")) {
             for (int i = 0; i < singlyLinkedListUser.getSize(); i++) {
-                
+
                 if (singlyLinkedListUser.getItem(i).getPassword().equals(adm)) {
                     create = true;
                     break;
@@ -130,18 +132,18 @@ public class Logic implements Serializable {
                     break;
                 }
             }
-        }else{
-                for(int i=0; i< singlyLinkedListUser.getSize(); i++){
-            if(singlyLinkedListUser.getItem(i).getUser().equals(userr)){
-               if(singlyLinkedListUser.getItem(i).getPassword().equals(adm)){
-                create=true;
-                break;                                  
-               }else{
-                   break;
-               }
-                    }            
-        }
+        } else {
+            for (int i = 0; i < singlyLinkedListUser.getSize(); i++) {
+                if (singlyLinkedListUser.getItem(i).getUser().equals(userr)) {
+                    if (singlyLinkedListUser.getItem(i).getPassword().equals(adm)) {
+                        create = true;
+                        break;
+                    } else {
+                        break;
+                    }
+                }
             }
+        }
 
         if (!create) {
             System.out.println("Error al iniciar sesion. Usuario y/o contraseña incorrectos o no validos");

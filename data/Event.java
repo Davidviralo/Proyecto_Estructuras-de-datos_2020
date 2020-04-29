@@ -11,7 +11,7 @@ public class Event {
     private String id;             //Es decir, Captura la hora y luego la mete en un String
     private String description;
     private boolean isActive;
-    private boolean isFinished;    
+    private boolean isFinished;
 
     public void setTimeFormat(DateTimeFormatter timeFormat) {
         this.timeFormat = timeFormat;
@@ -31,8 +31,8 @@ public class Event {
 
     public Event() {
     }
-    
-       public Event(String name, String startDate, String endDate, String id, String description) {
+
+    public Event(String name, String startDate, String endDate, String id, String description) {
         this.name = name;
         this.startDate = startDate;
         this.endDate = endDate;
