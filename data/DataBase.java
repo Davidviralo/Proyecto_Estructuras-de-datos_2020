@@ -203,6 +203,9 @@ public class DataBase implements Serializable {
             for (int i = 0; i < sLnameP.getSize(); i++) {
                 DataBase.reach(sLnameP.getItem(i), "Informe");
             }
+            for (int i = 0; i < sLnameU.getSize(); i++) {
+                DataBase.reach(sLnameU.getItem(i), "Usuarios");
+            }
         } catch (IOException e) {
             System.out.println("Error al cargar archivos");
         }
@@ -251,7 +254,7 @@ public class DataBase implements Serializable {
         int i = -1;
 
         if (tip.equals("Usuarios")) {
-            i = sLnameU.getIndex(buscarBD);
+           // i = sLnameU.getIndex(buscarBD);
         } else if (tip.equals("Informe")) {
             //i = sLnameP.getIndex(buscarBD);
         }
@@ -396,7 +399,7 @@ public class DataBase implements Serializable {
             myArrayListProduction.pushBack(production);
             os.close();
             return true;
-        } else if (i != -1 && tip.equals("Usuarios")) {
+        } else if (tip.equals("Usuarios")) {
             FileReader fileStremx = new FileReader(localDatabase + "Usuarios" + ".txt");
             BufferedReader os = new BufferedReader(fileStremx);
             for (int j = 0; j < i; j++) {
