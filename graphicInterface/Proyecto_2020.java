@@ -202,7 +202,7 @@ public class Proyecto_2020 {
         System.out.println("************\n\n");
 
         System.out.println("Recuerde que la CALIDAD y EFICIENCIA en su produccion permiten atraer mas clientes.");
-        System.out.println("Por ello creamos este software, deje que SOFPROCAL garantice la seguridad y satisfaccion de sus clientes.\n");
+        System.out.println("Por ello creamos este software, deje que SGP garantice la seguridad y satisfaccion de sus clientes.\n");
         System.out.println("************\n");
         DataBase.loadArchive();
         menumain();
