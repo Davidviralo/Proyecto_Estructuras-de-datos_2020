@@ -39,8 +39,24 @@ public class Production extends Event {
         System.out.println("Ingrese una descripción para la producción:");
         String description = scanner.nextLine();
         System.out.println("Descripción: " + description);
-        //System.out.println("Seleccione las materias primas que va a emplear.");
-        //rawMaterials selection.
+        System.out.println("Cree las materias primas que va a emplear.");
+        MyArrayList<RawMaterial> rawMaterials = new MyArrayList<>();
+        RawMaterial rawMaterial = new RawMaterial();
+        rawMaterials.pushBack(rawMaterial);
+        boolean createMaterial = true;
+        while (createMaterial) {
+            System.out.println("¿Desea agregar más materiales al proceso?");
+            String answer = scanner.nextLine();
+            if (answer.equalsIgnoreCase("Si")) {
+                rawMaterial = new RawMaterial();
+                rawMaterials.pushBack(rawMaterial);
+            } else if (answer.equalsIgnoreCase("No")) {
+                System.out.println("Creación de materiales finalizada.");
+                createMaterial = false;
+            } else {
+                System.out.println("Entrada no válida. Intente de nuevo.");
+            }
+        }
         System.out.println("Cree etapas de producción:");
         MyArrayList<Stage> processStages = new MyArrayList<>();
         Stage stage = new Stage(1);

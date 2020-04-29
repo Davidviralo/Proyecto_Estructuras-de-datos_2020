@@ -42,7 +42,7 @@ public class Parameter {
     }
 
     public Parameter() {
-        System.out.println("Creación de parametro");
+        System.out.println("Creación de parámetro");
         System.out.println("Ingrese el nombre del parámetro");
         this.name = scanner.nextLine();
         boolean validLowerInput = false;
