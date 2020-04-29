@@ -77,13 +77,41 @@ public class Proyecto_2020 {
             case 2:
                 manageMenu();
             case 3:
-
+                reg();
             case 4:
                 menumain();
             default:
                 System.out.println("Valor no valido. Intente de nuevo");
                 controlPanel();
         }
+    }
+    
+    public static void reg() throws IOException{
+        System.out.println("**********************             CREAR REGISTRO             **********************");
+        scanner.nextLine();
+        System.out.println("Buscar nombre de proceso:");
+        String namep=scanner.nextLine();
+        for(int i=0; i<myArrayListProduction.getSize(); i++){
+            if(myArrayListProduction.getItem(i).getName().equalsIgnoreCase(namep)){
+                myArrayListProduction.getItem(i).print(i);
+                Boolean check=false;
+                while (!check) {
+                    System.out.print("¿Desea generar un archivo txt con el registro?");
+                    String back = scanner.nextLine();
+                    if (back.equalsIgnoreCase("Si")) {
+                        DataBase.printTXT(i);
+                        check = true;
+                    } else if (back.equalsIgnoreCase("No")) {
+                        controlPanel();
+                    } else {
+                        System.out.print("Valor no valido. Intente de nuevo.");
+                    }
+                }
+                
+                break;
+            }
+        }
+             
     }
 
     public static void manageMenu() throws IOException {
@@ -117,7 +145,7 @@ public class Proyecto_2020 {
                             myArrayListProduction.getItem(selectedProduction).printSummary();
                             break;
                         case 2:
-                            //System.out.println("Case 2");
+                            System.out.println("Case 2");
                             myArrayListProduction.getItem(selectedProduction).nextStage();
                             if (myArrayListProduction.getItem(selectedProduction).isFinished()) {
                                 repeatMenu = false;

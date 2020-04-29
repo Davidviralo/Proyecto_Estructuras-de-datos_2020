@@ -48,8 +48,8 @@ public class Stage extends Event {
         System.out.println("Se creó la etapa " + stageNumber + " con "
                 + parameterList.getSize() + " parámetros de calidad.");
         this.parameterList = parameterList;
-        super.setStartDate("Noiniciado");
-        super.setEndDate("Nofinalizado");
+        super.setStartDate("No iniciado");
+        super.setEndDate("No finalizado");
         super.setIsActive(false);
         super.setIsFinished(false);
         super.setId("?");

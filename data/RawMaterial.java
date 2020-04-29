@@ -89,8 +89,8 @@ public class RawMaterial {
         this.description = description;
     }
 
-    public MyArrayList getParameterList() {
-        return parameterList;
+    public MyArrayList<Parameter> getParametrosCalidad() {
+        return parametrosCalidad;
     }
 
     public void setParameterList(MyArrayList<Parameter> parameterList) {

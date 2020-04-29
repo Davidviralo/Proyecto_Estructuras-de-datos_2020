@@ -121,9 +121,9 @@ public class Logic implements Serializable {
         create = false;
         
             if (DataBase.reach(userr, "Usuarios")) {
-                System.out.println("entro");
+                
             for (int i = 0; i < singlyLinkedListUser.getSize(); i++) {
-                System.out.println("entro");
+                
                 if (singlyLinkedListUser.getItem(i).getPassword().equals(adm)) {
                     create = true;
                     break;

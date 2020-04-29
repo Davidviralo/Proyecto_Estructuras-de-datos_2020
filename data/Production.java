@@ -1,6 +1,7 @@
 package data;
 
 import Estructuras_de_datos.*;
+import static data.DataBase.myArrayListProduction;
 import static graphicInterface.Proyecto_2020.scanner;
 import java.time.LocalDateTime;
 import java.util.Scanner;
@@ -184,6 +185,66 @@ public class Production extends Event {
             stages.getItem(i).printSummary();
         }
         System.out.println("##############################################");
+    }
+    
+    public void  print(int index){
+        System.out.println("########## REGISTRO DE LA PRODUCCIÓN ##########");
+        System.out.print("NOMBRE: " + super.getName()+"  ");                
+       System.out.print("Fecha de inicio: " + super.getStartDate() + "  ");
+        Boolean f = myArrayListProduction.getItem(index).isIsFinished();
+        if (f) {
+            System.out.print("Estado: Finalizado" + "\n ");
+        } else {
+            System.out.print("Estado: Activo" + "\n ");
+        }
+        System.out.print(" DESCRIPCIÓN: \n" + super.getDescription() + "\n ");        
+        
+        System.out.print("----------- MATERIALES -----------\n");
+        int i = 1;
+        while (rawMaterials.getSize() != 0) { //arreglar es cabeza no cola
+             
+            System.out.print(i + " Nombre del Material: " + rawMaterials.getTail().getName() + "  ");             
+            System.out.print("Fecha de compra: " + rawMaterials.getTail().getAdmissionDate() + "  ");
+            System.out.print("Fecha de vencimiento: " + rawMaterials.getTail().getExpirationDate() + " \n ");
+            System.out.print("Descripción: " + rawMaterials.getTail().getDescription() + "\n ");
+            //bfwriter.write("Batch: "+myArrayListProduction.getItem(index).getRawMaterials().getHead().getBatch()+"\n ");
+                         
+              System.out.print("---- PARAMETROS ----\n");
+            for (int j = 0; j < rawMaterials.getTail().getParametrosCalidad().getSize(); j++) {
+                System.out.print(String.valueOf(j + 1) + " Nombre del parametro: " + rawMaterials.getTail().getParametrosCalidad().getItem(j).getName() + "  ");
+                  
+                //bfwriter.write("Valor del paramtero: "+myArrayListProduction.getItem(index).getRawMaterials().getHead().getAdmissionDate()+"  ");
+                System.out.print("Limite inferior del parametro: " + rawMaterials.getTail().getParametrosCalidad().getItem(j).getLowerLimit() + "  ");
+                  
+                System.out.print("Limite superior del parametro: " + rawMaterials.getTail().getParametrosCalidad().getItem(j).getUpperLimit() + "\n ");
+                
+                //bfwriter.write("Batch: "+myArrayListProduction.getItem(index).getRawMaterials().getHead().getBatch()+"\n ");                                  
+            }
+            rawMaterials.dequeue();
+            i++;
+        }
+        
+        System.out.print("----------- ETAPAS -----------\n");
+        i=0;
+         while (i<stages.getSize()) {
+             
+            System.out.print(stages.getItem(i).getStageNumber()+ " Nombre de la etapa: " + stages.getItem(i).getName() + "  ");
+            System.out.print("Fecha de inicio: " +  stages.getItem(i).getStartDate() + "  ");
+            System.out.print("Fecha de final: " +  stages.getItem(i).getEndDate() + " \n ");
+            System.out.print("Descripción: " + stages.getItem(i).getDescription() + "\n ");
+            //bfwriter.write("Batch: "+myArrayListProduction.getItem(index).getRawMaterials().getHead().getBatch()+"\n ");
+            
+            System.out.print("---- PARAMETROS ----\n");
+            for (int j = 0; j < stages.getItem(i).getParameterList().getSize(); j++) {
+               System.out.print(String.valueOf(j + 1) + " Nombre del parametro: " + stages.getItem(i).getParameterList().getItem(j).getName() + "  ");
+               System.out.print("Valor del parametro: "+stages.getItem(i).getParameterList().getItem(j).getValue()+"  ");
+                System.out.print("Limite inferior del parametro: " + stages.getItem(i).getParameterList().getItem(j).getLowerLimit() + "  ");
+                System.out.print("Limite superior del parametro: " + stages.getItem(i).getParameterList().getItem(j).getUpperLimit() + "\n ");
+                //bfwriter.write("Batch: "+myArrayListProduction.getItem(index).getRawMaterials().getHead().getBatch()+"\n ");                                  
+            }
+            i++;
+        }
+         System.out.println("##############################################");
     }
 
     public ArrayQueue<RawMaterial> getRawMaterials() {
