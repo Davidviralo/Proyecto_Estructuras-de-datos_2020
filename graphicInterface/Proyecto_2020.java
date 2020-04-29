@@ -74,15 +74,21 @@ public class Proyecto_2020 {
             case 1:
                 Production newProduction = new Production();
                 myArrayListProduction.pushBack(newProduction);
+                manageMenu();
+                break;
             case 2:
                 manageMenu();
+                break;
             case 3:
                 reg();
+                break;
             case 4:
                 menumain();
+                break;
             default:
                 System.out.println("Valor no valido. Intente de nuevo");
                 controlPanel();
+                break;
         }
     }
     
@@ -91,6 +97,7 @@ public class Proyecto_2020 {
         scanner.nextLine();
         System.out.println("Buscar nombre de proceso:");
         String namep=scanner.nextLine();
+        boolean test = true;
         for(int i=0; i<myArrayListProduction.getSize(); i++){
             if(myArrayListProduction.getItem(i).getName().equalsIgnoreCase(namep)){
                 myArrayListProduction.getItem(i).print(i);
@@ -101,8 +108,10 @@ public class Proyecto_2020 {
                     if (back.equalsIgnoreCase("Si")) {
                         DataBase.printTXT(i);
                         check = true;
+                        test = false;
                         controlPanel();
                     } else if (back.equalsIgnoreCase("No")) {
+                        test = false;
                         controlPanel();
                     } else {
                         System.out.print("Valor no valido. Intente de nuevo.");
@@ -112,7 +121,9 @@ public class Proyecto_2020 {
                 break;
             }
         }
-             
+        if (test)
+            System.out.println("--------La producción no fue encontrada--------");
+        controlPanel();
     }
 
     public static void manageMenu() throws IOException {
@@ -151,11 +162,14 @@ public class Proyecto_2020 {
                             if (myArrayListProduction.getItem(selectedProduction).isFinished()) {
                                 repeatMenu = false;
                             }
+                            manageMenu();
                             break;
                         case 0:
                             manageMenu();
+                            break;
                         default:
                             System.out.println("Entrada inválida, por favor intente nuevamente.");
+                            break;
                     }
                 } else {
                     myArrayListProduction.getItem(selectedProduction).printBasicSummary();
@@ -167,10 +181,13 @@ public class Proyecto_2020 {
                     switch (selection) {
                         case 1:
                             myArrayListProduction.getItem(selectedProduction).start();
+                            break;
                         case 0:
                             manageMenu();
+                            break;
                         default:
                             System.out.println("Entrada inválida, por favor intente nuevamente.");
+                            break;
                     }
                 }
             }

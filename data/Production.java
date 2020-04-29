@@ -195,8 +195,10 @@ public class Production extends Event {
         Boolean f = myArrayListProduction.getItem(index).isIsFinished();
         if (f) {
             System.out.print("Estado: Finalizado" + "\n ");
-        } else {
+        } else if (myArrayListProduction.getItem(index).isActive()) {
             System.out.print("Estado: Activo" + "\n ");
+        } else{
+            System.out.print("Estado: No iniciado" + "\n ");
         }
         System.out.print("DESCRIPCIÓN \n" + super.getDescription() + "\n ");        
         

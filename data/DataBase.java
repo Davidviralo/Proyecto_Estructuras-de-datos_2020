@@ -288,6 +288,7 @@ public class DataBase implements Serializable {
 
             os.readLine();
             myArrayListMaterial = new MyArrayList<>();
+
             while (!(loadData = os.readLine()).equals("4.Stage;")) {
                 int tam = 0;
                 int count = 0;
@@ -302,9 +303,9 @@ public class DataBase implements Serializable {
                 }
                 String load[] = new String[tam];
                 int j = 0;
-                int k = count + 1;
+                int k = count;
                 int z = 0;
-                for (int o = 0; o < loadData.length(); o++) {
+                for (int o = k; o < loadData.length(); o++) {
                     if (loadData.charAt(o) == ';') {
                         load[j] = loadData.substring(k, o);
                         k = o + 1;
@@ -316,6 +317,7 @@ public class DataBase implements Serializable {
                         z++;
                     }
                 }
+
                 MyArrayList<Parameter> parametrosCalidad = new MyArrayList<>();
                 Parameter parameter;
                 RawMaterial rawMaterial;
@@ -347,7 +349,7 @@ public class DataBase implements Serializable {
                 int j = 0;
                 int k = count + 1;
                 int z = 0;
-                for (int o = 0; o < loadData.length(); o++) {
+                for (int o = k; o < loadData.length(); o++) {
                     if (loadData.charAt(o) == ';') {
                         load[j] = loadData.substring(k, o);
                         k = o + 1;
@@ -452,8 +454,10 @@ public class DataBase implements Serializable {
         Boolean f = myArrayListProduction.getItem(index).isIsFinished();
         if (f) {
             bfwriter.write("Estado: Finalizado" + "\n ");
-        } else {
+        } else if (myArrayListProduction.getItem(index).isActive()) {
             bfwriter.write("Estado: Activo" + "\n ");
+        } else{
+            bfwriter.write("Estado: No iniciado" + "\n ");
         }
         bfwriter.write(" DESCRIPCIÓN \n " + myArrayListProduction.getItem(index).getDescription() + "\n ");
         
