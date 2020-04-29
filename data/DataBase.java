@@ -133,9 +133,14 @@ public class DataBase implements Serializable {
 
             write = myArrayListProduction.getItem(number).getEndDate();
             bfwriter.write(write + ";\n");
-
+            
+            write = Integer.toString(myArrayListProduction.getItem(number).getCurrentStage());
+            bfwriter.write(write + ";\n");
+            
             write = myArrayListProduction.getItem(number).getDescription();
             bfwriter.write("2.Descripcion" + ";\n" + write + ";\n");
+            
+             
         } else if (name.equalsIgnoreCase("Stage")) {
             bfwriter.write("4.Stage;\n");
 
@@ -184,8 +189,9 @@ public class DataBase implements Serializable {
 
                 }
             }
-
+            bfwriter.close();
         }
+        
     }
 
 //Load    
@@ -272,6 +278,9 @@ public class DataBase implements Serializable {
 
             loadData = os.readLine();
             String fecha2 = loadData.substring(0, loadData.length() - 1);
+            
+            loadData = os.readLine();
+            String num = loadData.substring(0, loadData.length() - 1);
 
             os.readLine();
             loadData = os.readLine();
@@ -381,6 +390,7 @@ public class DataBase implements Serializable {
             production.setIsFinished(end);
             production.setStartDate(fecha1);
             production.setEndDate(fecha2);
+            production.setCurrentStage(Integer.valueOf(num));
             myArrayListProduction.pushBack(production);
             os.close();
             return true;
