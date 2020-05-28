@@ -55,7 +55,7 @@ public class SignIn extends javax.swing.JFrame {
         superPanel.setMinimumSize(new java.awt.Dimension(1024, 541));
         superPanel.setPreferredSize(new java.awt.Dimension(1024, 541));
 
-        infoPanel.setBackground(new java.awt.Color(0, 69, 173));
+        infoPanel.setBackground(new java.awt.Color(0, 56, 142));
 
         infoTitle.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         infoTitle.setForeground(new java.awt.Color(255, 255, 255));
