@@ -55,8 +55,7 @@ public class createProduction extends javax.swing.JFrame {
         doneButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(1024, 541));
-        setResizable(false);
+        setMinimumSize(new java.awt.Dimension(1024, 576));
 
         superPanel.setMaximumSize(new java.awt.Dimension(1024, 541));
         superPanel.setMinimumSize(new java.awt.Dimension(1024, 541));
@@ -186,7 +185,7 @@ public class createProduction extends javax.swing.JFrame {
         descriptionField.setRows(5);
         descriptionField.setText("Descripción");
         descriptionField.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 5, 2, 5));
-        descriptionField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        descriptionField.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jScrollPane1.setViewportView(descriptionField);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N

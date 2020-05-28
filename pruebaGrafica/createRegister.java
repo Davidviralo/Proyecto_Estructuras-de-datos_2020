@@ -9,12 +9,12 @@ package pruebaGrafica;
  *
  * @author USUARIO
  */
-public class createProduction extends javax.swing.JFrame {
+public class createRegister extends javax.swing.JFrame {
 
     /**
      * Creates new form NewJFrame
      */
-    public createProduction() {
+    public createRegister() {
         initComponents();
     }
 
@@ -38,25 +38,14 @@ public class createProduction extends javax.swing.JFrame {
         goBackButton1 = new javax.swing.JButton();
         controlPanelTitle = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        editProductionPanel = new javax.swing.JPanel();
-        productionIDLabel = new javax.swing.JLabel();
+        generateButton = new javax.swing.JButton();
         nameField = new javax.swing.JTextField();
-        dateField = new javax.swing.JTextField();
+        searchjLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        descriptionField = new javax.swing.JTextArea();
-        jLabel2 = new javax.swing.JLabel();
-        addingPanel = new javax.swing.JPanel();
-        addMaterialButton = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        materialsList = new javax.swing.JList<>();
-        addStageButton = new javax.swing.JButton();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        stagesList = new javax.swing.JList<>();
-        doneButton = new javax.swing.JButton();
+        resgisterField = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(1024, 541));
-        setResizable(false);
+        setMinimumSize(new java.awt.Dimension(1024, 576));
 
         superPanel.setMaximumSize(new java.awt.Dimension(1024, 541));
         superPanel.setMinimumSize(new java.awt.Dimension(1024, 541));
@@ -103,7 +92,7 @@ public class createProduction extends javax.swing.JFrame {
                     .addComponent(idLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(221, 221, 221)
                 .addComponent(roleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 233, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 231, Short.MAX_VALUE)
                 .addComponent(signOutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(55, 55, 55))
         );
@@ -144,18 +133,24 @@ public class createProduction extends javax.swing.JFrame {
         controlPanelTitle.setBackground(new java.awt.Color(203, 203, 204));
         controlPanelTitle.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         controlPanelTitle.setForeground(new java.awt.Color(255, 255, 255));
-        controlPanelTitle.setText("Crear producción");
+        controlPanelTitle.setText("Crear registro");
 
         jSeparator1.setBackground(new java.awt.Color(0, 69, 173));
         jSeparator1.setForeground(new java.awt.Color(0, 69, 173));
         jSeparator1.setToolTipText("");
         jSeparator1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 56, 142)));
 
-        editProductionPanel.setBackground(new java.awt.Color(28, 28, 28));
-
-        productionIDLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        productionIDLabel.setForeground(new java.awt.Color(202, 202, 202));
-        productionIDLabel.setText("ID de la producción: XXXXXXXXXXXX");
+        generateButton.setBackground(new java.awt.Color(0, 56, 142));
+        generateButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        generateButton.setForeground(new java.awt.Color(204, 204, 204));
+        generateButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/documento.png"))); // NOI18N
+        generateButton.setText("  Generar documento");
+        generateButton.setBorder(null);
+        generateButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                generateButtonActionPerformed(evt);
+            }
+        });
 
         nameField.setBackground(new java.awt.Color(48, 48, 48));
         nameField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -168,171 +163,46 @@ public class createProduction extends javax.swing.JFrame {
             }
         });
 
-        dateField.setBackground(new java.awt.Color(48, 48, 48));
-        dateField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        dateField.setForeground(new java.awt.Color(204, 204, 204));
-        dateField.setText("Fecha estimada de finalización");
-        dateField.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 5, 2, 5));
-        dateField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dateFieldActionPerformed(evt);
-            }
-        });
+        searchjLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/buscar.png"))); // NOI18N
 
-        descriptionField.setBackground(new java.awt.Color(48, 48, 48));
-        descriptionField.setColumns(20);
-        descriptionField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        descriptionField.setForeground(new java.awt.Color(204, 204, 204));
-        descriptionField.setRows(5);
-        descriptionField.setText("Descripción");
-        descriptionField.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 5, 2, 5));
-        descriptionField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        jScrollPane1.setViewportView(descriptionField);
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel2.setText("Resumen: X materiales, Y etapas y Z parámetros de calidad.");
-
-        javax.swing.GroupLayout editProductionPanelLayout = new javax.swing.GroupLayout(editProductionPanel);
-        editProductionPanel.setLayout(editProductionPanelLayout);
-        editProductionPanelLayout.setHorizontalGroup(
-            editProductionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(editProductionPanelLayout.createSequentialGroup()
-                .addGap(57, 57, 57)
-                .addGroup(editProductionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addGroup(editProductionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(productionIDLabel)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 435, Short.MAX_VALUE)
-                        .addComponent(nameField)
-                        .addComponent(dateField, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(12, Short.MAX_VALUE))
-        );
-        editProductionPanelLayout.setVerticalGroup(
-            editProductionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(editProductionPanelLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(productionIDLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(dateField, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel2))
-        );
-
-        addingPanel.setBackground(new java.awt.Color(28, 28, 28));
-
-        addMaterialButton.setBackground(new java.awt.Color(65, 69, 71));
-        addMaterialButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        addMaterialButton.setForeground(new java.awt.Color(204, 204, 204));
-        addMaterialButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/agregar_azul.png"))); // NOI18N
-        addMaterialButton.setText("            Agregar materias primas            ");
-        addMaterialButton.setBorder(null);
-        addMaterialButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addMaterialButtonActionPerformed(evt);
-            }
-        });
-
-        materialsList.setBackground(new java.awt.Color(48, 48, 48));
-        materialsList.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        materialsList.setForeground(new java.awt.Color(204, 204, 204));
-        materialsList.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Materia prima 1", "Materia prima 2", "Materia prima 3", "Materia prima 4", "Materia prima 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane2.setViewportView(materialsList);
-
-        addStageButton.setBackground(new java.awt.Color(65, 69, 71));
-        addStageButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        addStageButton.setForeground(new java.awt.Color(204, 204, 204));
-        addStageButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/agregar_azul.png"))); // NOI18N
-        addStageButton.setText("       Agregar etapas de producción       ");
-        addStageButton.setBorder(null);
-        addStageButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addStageButtonActionPerformed(evt);
-            }
-        });
-
-        stagesList.setBackground(new java.awt.Color(48, 48, 48));
-        stagesList.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        stagesList.setForeground(new java.awt.Color(204, 204, 204));
-        stagesList.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Etapa 1", "Etapa 2", "Etapa 3", "Etapa 4 ", "Etapa 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        stagesList.setPreferredSize(new java.awt.Dimension(36, 88));
-        jScrollPane3.setViewportView(stagesList);
-
-        javax.swing.GroupLayout addingPanelLayout = new javax.swing.GroupLayout(addingPanel);
-        addingPanel.setLayout(addingPanelLayout);
-        addingPanelLayout.setHorizontalGroup(
-            addingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addingPanelLayout.createSequentialGroup()
-                .addContainerGap(59, Short.MAX_VALUE)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38))
-            .addGroup(addingPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(addingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(addStageButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(addMaterialButton, javax.swing.GroupLayout.DEFAULT_SIZE, 334, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        addingPanelLayout.setVerticalGroup(
-            addingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addingPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(addMaterialButton, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(addStageButton, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
-        );
-
-        doneButton.setBackground(new java.awt.Color(0, 56, 142));
-        doneButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        doneButton.setForeground(new java.awt.Color(204, 204, 204));
-        doneButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/correcto.png"))); // NOI18N
-        doneButton.setText("Finalizar");
-        doneButton.setBorder(null);
-        doneButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                doneButtonActionPerformed(evt);
-            }
-        });
+        resgisterField.setBackground(new java.awt.Color(48, 48, 48));
+        resgisterField.setColumns(20);
+        resgisterField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        resgisterField.setForeground(new java.awt.Color(204, 204, 204));
+        resgisterField.setRows(5);
+        resgisterField.setText("\t\t             Nombre de la producción\n\n  DESCRIPCIÓN\n\n    MATERIALES\n    1. Nombre del material\tFecha de compra: 1221/21/12     Fecha de vencimiento: 2112/12/21\n        Descripción\n        Paremetros\n    ETAPAS\n    1. Nombre de la etapa\tFecha de inicio: 1212/12/12  Fecha final: 2112/12/12\n       Descripción\n       Parametros  ");
+        resgisterField.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 5, 2, 5));
+        resgisterField.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jScrollPane1.setViewportView(resgisterField);
 
         javax.swing.GroupLayout createPanelLayout = new javax.swing.GroupLayout(createPanel);
         createPanel.setLayout(createPanelLayout);
         createPanelLayout.setHorizontalGroup(
             createPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(createPanelLayout.createSequentialGroup()
-                .addGap(64, 64, 64)
-                .addComponent(goBackButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(createPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jSeparator1)
-                    .addComponent(controlPanelTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, createPanelLayout.createSequentialGroup()
+                .addGroup(createPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(createPanelLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(searchjLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, createPanelLayout.createSequentialGroup()
+                        .addGap(64, 64, 64)
+                        .addComponent(goBackButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 201, Short.MAX_VALUE)
+                        .addGroup(createPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jSeparator1)
+                            .addComponent(controlPanelTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(317, 317, 317))
-            .addGroup(createPanelLayout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(editProductionPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(addingPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, createPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(doneButton, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(435, 435, 435))
+                .addGroup(createPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, createPanelLayout.createSequentialGroup()
+                        .addComponent(generateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(371, 371, 371))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, createPanelLayout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 661, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(132, 132, 132))))
         );
         createPanelLayout.setVerticalGroup(
             createPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -346,16 +216,15 @@ public class createProduction extends javax.swing.JFrame {
                         .addComponent(goBackButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(createPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(createPanelLayout.createSequentialGroup()
-                        .addGap(63, 63, 63)
-                        .addComponent(addingPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, createPanelLayout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(editProductionPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(doneButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(createPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchjLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(generateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout superPanelLayout = new javax.swing.GroupLayout(superPanel);
@@ -391,21 +260,9 @@ public class createProduction extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_signOutButtonActionPerformed
 
-    private void doneButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doneButtonActionPerformed
+    private void generateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generateButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_doneButtonActionPerformed
-
-    private void addStageButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addStageButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_addStageButtonActionPerformed
-
-    private void addMaterialButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addMaterialButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_addMaterialButtonActionPerformed
-
-    private void dateFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dateFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_dateFieldActionPerformed
+    }//GEN-LAST:event_generateButtonActionPerformed
 
     private void nameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameFieldActionPerformed
         // TODO add your handling code here:
@@ -434,14 +291,26 @@ public class createProduction extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(createProduction.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(createRegister.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(createProduction.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(createRegister.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(createProduction.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(createRegister.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(createProduction.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(createRegister.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -450,34 +319,24 @@ public class createProduction extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new createProduction().setVisible(true);
+                new createRegister().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton addMaterialButton;
-    private javax.swing.JButton addStageButton;
-    private javax.swing.JPanel addingPanel;
     private javax.swing.JLabel controlPanelTitle;
     private javax.swing.JPanel createPanel;
-    private javax.swing.JTextField dateField;
-    private javax.swing.JTextArea descriptionField;
-    private javax.swing.JButton doneButton;
-    private javax.swing.JPanel editProductionPanel;
+    private javax.swing.JButton generateButton;
     private javax.swing.JButton goBackButton1;
     private javax.swing.JLabel idLabel;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JList<String> materialsList;
     private javax.swing.JTextField nameField;
-    private javax.swing.JLabel productionIDLabel;
+    private javax.swing.JTextArea resgisterField;
     private javax.swing.JLabel roleLabel;
+    private javax.swing.JLabel searchjLabel;
     private javax.swing.JButton signOutButton;
-    private javax.swing.JList<String> stagesList;
     private javax.swing.JPanel superPanel;
     private javax.swing.JLabel userLabel;
     private javax.swing.JLabel userLogoLabel;
