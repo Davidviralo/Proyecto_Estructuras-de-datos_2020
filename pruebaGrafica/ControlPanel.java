@@ -38,9 +38,9 @@ public class ControlPanel extends javax.swing.JFrame {
         controlPanelTitle = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         createPanel = new javax.swing.JPanel();
-        createButton = new javax.swing.JButton();
         createLabel1 = new javax.swing.JLabel();
         createLabel2 = new javax.swing.JLabel();
+        createButton = new javax.swing.JButton();
         managePanel = new javax.swing.JPanel();
         manageButton = new javax.swing.JButton();
         manageLabel1 = new javax.swing.JLabel();
@@ -138,15 +138,17 @@ public class ControlPanel extends javax.swing.JFrame {
 
         createPanel.setBackground(new java.awt.Color(48, 48, 48));
 
-        createButton.setBackground(new java.awt.Color(48, 48, 48));
-        createButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/mas.png"))); // NOI18N
-        createButton.setBorder(null);
-
         createLabel1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        createLabel1.setForeground(new java.awt.Color(202, 202, 202));
         createLabel1.setText("Crear");
 
         createLabel2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        createLabel2.setForeground(new java.awt.Color(202, 202, 202));
         createLabel2.setText("producción");
+
+        createButton.setBackground(new java.awt.Color(48, 48, 48));
+        createButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/mas.png"))); // NOI18N
+        createButton.setBorder(null);
 
         javax.swing.GroupLayout createPanelLayout = new javax.swing.GroupLayout(createPanel);
         createPanel.setLayout(createPanelLayout);
@@ -154,14 +156,16 @@ public class ControlPanel extends javax.swing.JFrame {
             createPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(createPanelLayout.createSequentialGroup()
                 .addGap(0, 104, Short.MAX_VALUE)
-                .addGroup(createPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(createLabel2)
-                    .addComponent(createLabel1))
+                .addComponent(createLabel2)
                 .addGap(106, 106, 106))
             .addGroup(createPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(createButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(createPanelLayout.createSequentialGroup()
+                .addGap(124, 124, 124)
+                .addComponent(createLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         createPanelLayout.setVerticalGroup(
             createPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -182,9 +186,11 @@ public class ControlPanel extends javax.swing.JFrame {
         manageButton.setBorder(null);
 
         manageLabel1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        manageLabel1.setForeground(new java.awt.Color(202, 202, 202));
         manageLabel1.setText("Gestionar");
 
         manageLabel2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        manageLabel2.setForeground(new java.awt.Color(202, 202, 202));
         manageLabel2.setText("producción");
 
         javax.swing.GroupLayout managePanelLayout = new javax.swing.GroupLayout(managePanel);
@@ -221,10 +227,13 @@ public class ControlPanel extends javax.swing.JFrame {
         registryButton.setBorder(null);
 
         registryLabel1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        registryLabel1.setForeground(new java.awt.Color(202, 202, 202));
         registryLabel1.setText("Crear");
 
         registryLabel2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        registryLabel2.setForeground(new java.awt.Color(202, 202, 202));
         registryLabel2.setText("registro");
+        registryLabel2.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
         javax.swing.GroupLayout registryPanelLayout = new javax.swing.GroupLayout(registryPanel);
         registryPanel.setLayout(registryPanelLayout);
@@ -249,8 +258,8 @@ public class ControlPanel extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(registryLabel1)
                 .addGap(0, 0, 0)
-                .addComponent(registryLabel2)
-                .addGap(31, 31, 31))
+                .addComponent(registryLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23))
         );
 
         javax.swing.GroupLayout controlPanelLayout = new javax.swing.GroupLayout(controlPanel);
