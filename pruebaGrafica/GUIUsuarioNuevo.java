@@ -180,6 +180,8 @@ public class GUIUsuarioNuevo extends javax.swing.JFrame {
         jPasswordField2.setForeground(new java.awt.Color(204, 204, 204));
         jPasswordField2.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 8, 2, 8));
         jPasswordField2.setCaretColor(new java.awt.Color(188, 188, 188));
+        jPasswordField2.setEnabled(false);
+        jPasswordField2.setFocusable(false);
         jPasswordField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jPasswordField2ActionPerformed(evt);
