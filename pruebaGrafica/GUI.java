@@ -8,7 +8,25 @@ public class GUI extends javax.swing.JFrame {
     
     public GUI() {
         initComponents();
-          this.setLocationRelativeTo(null);
+        this.setLocationRelativeTo(null);               
+        Menu.setVisible(false);       
+//             jpCM.setVisible(false);
+//             jpUser.setVisible(false);
+             jpControl.setVisible(false);
+             jpSearchP.setVisible(false);
+             jpCreateP.setVisible(false);
+             jpRegister.setVisible(false);
+        Menu.repaint();
+        Menu.revalidate();
+             
+        Main.setVisible(true); 
+              jpNewUser.setVisible(false);    
+//            jpCM2.setVisible(true);
+//            jpInfo.setVisible(true);
+//            jpSignIn.setVisible(true);    
+        Main.repaint();
+        Main.revalidate();
+
     }
 
     @SuppressWarnings("unchecked")
@@ -75,6 +93,34 @@ public class GUI extends javax.swing.JFrame {
         registryButton = new javax.swing.JButton();
         registryLabel1 = new javax.swing.JLabel();
         registryLabel2 = new javax.swing.JLabel();
+        jpCreateP = new javax.swing.JPanel();
+        goBackButton3 = new javax.swing.JButton();
+        controlPanelTitle1 = new javax.swing.JLabel();
+        jSeparator4 = new javax.swing.JSeparator();
+        editProductionPanel = new javax.swing.JPanel();
+        productionIDLabel = new javax.swing.JLabel();
+        nameField = new javax.swing.JTextField();
+        dateField = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        descriptionField = new javax.swing.JTextArea();
+        jLabel5 = new javax.swing.JLabel();
+        addingPanel = new javax.swing.JPanel();
+        addMaterialButton = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        materialsList = new javax.swing.JList<>();
+        addStageButton = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        stagesList = new javax.swing.JList<>();
+        doneButton = new javax.swing.JButton();
+        jpRegister = new javax.swing.JPanel();
+        goBackButton4 = new javax.swing.JButton();
+        controlPanelTitle2 = new javax.swing.JLabel();
+        jSeparator5 = new javax.swing.JSeparator();
+        generateButton = new javax.swing.JButton();
+        nameField1 = new javax.swing.JTextField();
+        searchjLabel = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        resgisterField = new javax.swing.JTextArea();
         jpSearchP = new javax.swing.JPanel();
         goBackButton5 = new javax.swing.JButton();
         controlPanelTitle3 = new javax.swing.JLabel();
@@ -121,34 +167,6 @@ public class GUI extends javax.swing.JFrame {
         nMField = new javax.swing.JTextField();
         nSField = new javax.swing.JTextField();
         nPField = new javax.swing.JTextField();
-        jpCreateP = new javax.swing.JPanel();
-        goBackButton3 = new javax.swing.JButton();
-        controlPanelTitle1 = new javax.swing.JLabel();
-        jSeparator4 = new javax.swing.JSeparator();
-        editProductionPanel = new javax.swing.JPanel();
-        productionIDLabel = new javax.swing.JLabel();
-        nameField = new javax.swing.JTextField();
-        dateField = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        descriptionField = new javax.swing.JTextArea();
-        jLabel5 = new javax.swing.JLabel();
-        addingPanel = new javax.swing.JPanel();
-        addMaterialButton = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        materialsList = new javax.swing.JList<>();
-        addStageButton = new javax.swing.JButton();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        stagesList = new javax.swing.JList<>();
-        doneButton = new javax.swing.JButton();
-        jpRegister = new javax.swing.JPanel();
-        goBackButton4 = new javax.swing.JButton();
-        controlPanelTitle2 = new javax.swing.JLabel();
-        jSeparator5 = new javax.swing.JSeparator();
-        generateButton = new javax.swing.JButton();
-        nameField1 = new javax.swing.JTextField();
-        searchjLabel = new javax.swing.JLabel();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        resgisterField = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -283,9 +301,9 @@ public class GUI extends javax.swing.JFrame {
         signInButton.setForeground(new java.awt.Color(255, 255, 255));
         signInButton.setText("Ingresar");
         signInButton.setBorder(null);
-        signInButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                signInButtonActionPerformed(evt);
+        signInButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                signInButtonMouseClicked(evt);
             }
         });
         jpSignIn.add(signInButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(188, 315, 195, 33));
@@ -300,9 +318,9 @@ public class GUI extends javax.swing.JFrame {
         registerButton.setForeground(new java.awt.Color(255, 255, 255));
         registerButton.setText("Registrarse");
         registerButton.setBorder(null);
-        registerButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                registerButtonActionPerformed(evt);
+        registerButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                registerButtonMouseClicked(evt);
             }
         });
         jpSignIn.add(registerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(188, 433, 195, 33));
@@ -440,9 +458,9 @@ public class GUI extends javax.swing.JFrame {
         goBackButton0.setText("< Regresar");
         goBackButton0.setBorder(null);
         goBackButton0.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
-        goBackButton0.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                goBackButton0ActionPerformed(evt);
+        goBackButton0.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                goBackButton0MouseClicked(evt);
             }
         });
         jpNewUser.add(goBackButton0, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, -1, -1));
@@ -506,9 +524,9 @@ public class GUI extends javax.swing.JFrame {
         signOutButton.setForeground(new java.awt.Color(255, 255, 255));
         signOutButton.setText("Cerrar sesión");
         signOutButton.setBorder(null);
-        signOutButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                signOutButtonActionPerformed(evt);
+        signOutButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                signOutButtonMouseClicked(evt);
             }
         });
         jpUser.add(signOutButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(837, 23, 132, 52));
@@ -545,6 +563,11 @@ public class GUI extends javax.swing.JFrame {
         createButton.setBackground(new java.awt.Color(48, 48, 48));
         createButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/mas.png"))); // NOI18N
         createButton.setBorder(null);
+        createButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                createButtonMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout createPanelLayout = new javax.swing.GroupLayout(createPanel);
         createPanel.setLayout(createPanelLayout);
@@ -582,6 +605,11 @@ public class GUI extends javax.swing.JFrame {
         manageButton.setBackground(new java.awt.Color(48, 48, 48));
         manageButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/tarea.png"))); // NOI18N
         manageButton.setBorder(null);
+        manageButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                manageButtonMouseClicked(evt);
+            }
+        });
 
         manageLabel1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         manageLabel1.setForeground(new java.awt.Color(202, 202, 202));
@@ -625,6 +653,11 @@ public class GUI extends javax.swing.JFrame {
         registryButton.setBackground(new java.awt.Color(48, 48, 48));
         registryButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/registro.png"))); // NOI18N
         registryButton.setBorder(null);
+        registryButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                registryButtonMouseClicked(evt);
+            }
+        });
 
         registryLabel1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         registryLabel1.setForeground(new java.awt.Color(202, 202, 202));
@@ -665,6 +698,275 @@ public class GUI extends javax.swing.JFrame {
         jpControl.add(registryPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(676, 118, -1, 278));
 
         Menu.add(jpControl, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1024, 431));
+
+        jpCreateP.setBackground(new java.awt.Color(28, 28, 28));
+        jpCreateP.setMinimumSize(new java.awt.Dimension(1024, 431));
+        jpCreateP.setPreferredSize(new java.awt.Dimension(1024, 431));
+        jpCreateP.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        goBackButton3.setBackground(new java.awt.Color(28, 28, 28));
+        goBackButton3.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        goBackButton3.setForeground(new java.awt.Color(77, 147, 255));
+        goBackButton3.setText("< Regresar");
+        goBackButton3.setBorder(null);
+        goBackButton3.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
+        goBackButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                goBackButton3MouseClicked(evt);
+            }
+        });
+        jpCreateP.add(goBackButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 20, 132, 30));
+
+        controlPanelTitle1.setBackground(new java.awt.Color(203, 203, 204));
+        controlPanelTitle1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        controlPanelTitle1.setForeground(new java.awt.Color(255, 255, 255));
+        controlPanelTitle1.setText("Crear producción");
+        jpCreateP.add(controlPanelTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(319, 28, -1, 46));
+
+        jSeparator4.setBackground(new java.awt.Color(0, 69, 173));
+        jSeparator4.setForeground(new java.awt.Color(0, 69, 173));
+        jSeparator4.setToolTipText("");
+        jSeparator4.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 56, 142)));
+        jpCreateP.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(319, 80, 388, -1));
+
+        editProductionPanel.setBackground(new java.awt.Color(28, 28, 28));
+
+        productionIDLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        productionIDLabel.setForeground(new java.awt.Color(202, 202, 202));
+        productionIDLabel.setText("ID de la producción: XXXXXXXXXXXX");
+
+        nameField.setBackground(new java.awt.Color(48, 48, 48));
+        nameField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        nameField.setForeground(new java.awt.Color(204, 204, 204));
+        nameField.setText("Nombre de la producción");
+        nameField.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 5, 2, 5));
+        nameField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nameFieldActionPerformed(evt);
+            }
+        });
+
+        dateField.setBackground(new java.awt.Color(48, 48, 48));
+        dateField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        dateField.setForeground(new java.awt.Color(204, 204, 204));
+        dateField.setText("Fecha estimada de finalización");
+        dateField.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 5, 2, 5));
+        dateField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dateFieldActionPerformed(evt);
+            }
+        });
+
+        descriptionField.setBackground(new java.awt.Color(48, 48, 48));
+        descriptionField.setColumns(20);
+        descriptionField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        descriptionField.setForeground(new java.awt.Color(204, 204, 204));
+        descriptionField.setRows(5);
+        descriptionField.setText("Descripción");
+        descriptionField.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 5, 2, 5));
+        descriptionField.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jScrollPane1.setViewportView(descriptionField);
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jLabel5.setText("Resumen: X materiales, Y etapas y Z parámetros de calidad.");
+
+        javax.swing.GroupLayout editProductionPanelLayout = new javax.swing.GroupLayout(editProductionPanel);
+        editProductionPanel.setLayout(editProductionPanelLayout);
+        editProductionPanelLayout.setHorizontalGroup(
+            editProductionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(editProductionPanelLayout.createSequentialGroup()
+                .addGap(57, 57, 57)
+                .addGroup(editProductionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addGroup(editProductionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(productionIDLabel)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 435, Short.MAX_VALUE)
+                        .addComponent(nameField)
+                        .addComponent(dateField, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(12, Short.MAX_VALUE))
+        );
+        editProductionPanelLayout.setVerticalGroup(
+            editProductionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(editProductionPanelLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(productionIDLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(dateField, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel5))
+        );
+
+        jpCreateP.add(editProductionPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, -1, -1));
+
+        addingPanel.setBackground(new java.awt.Color(28, 28, 28));
+
+        addMaterialButton.setBackground(new java.awt.Color(65, 69, 71));
+        addMaterialButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        addMaterialButton.setForeground(new java.awt.Color(204, 204, 204));
+        addMaterialButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/agregar_azul.png"))); // NOI18N
+        addMaterialButton.setText("            Agregar materias primas            ");
+        addMaterialButton.setBorder(null);
+        addMaterialButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addMaterialButtonActionPerformed(evt);
+            }
+        });
+
+        materialsList.setBackground(new java.awt.Color(48, 48, 48));
+        materialsList.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        materialsList.setForeground(new java.awt.Color(204, 204, 204));
+        materialsList.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Materia prima 1", "Materia prima 2", "Materia prima 3", "Materia prima 4", "Materia prima 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane2.setViewportView(materialsList);
+
+        addStageButton.setBackground(new java.awt.Color(65, 69, 71));
+        addStageButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        addStageButton.setForeground(new java.awt.Color(204, 204, 204));
+        addStageButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/agregar_azul.png"))); // NOI18N
+        addStageButton.setText("       Agregar etapas de producción       ");
+        addStageButton.setBorder(null);
+        addStageButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addStageButtonActionPerformed(evt);
+            }
+        });
+
+        stagesList.setBackground(new java.awt.Color(48, 48, 48));
+        stagesList.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        stagesList.setForeground(new java.awt.Color(204, 204, 204));
+        stagesList.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Etapa 1", "Etapa 2", "Etapa 3", "Etapa 4 ", "Etapa 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        stagesList.setPreferredSize(new java.awt.Dimension(36, 88));
+        jScrollPane3.setViewportView(stagesList);
+
+        javax.swing.GroupLayout addingPanelLayout = new javax.swing.GroupLayout(addingPanel);
+        addingPanel.setLayout(addingPanelLayout);
+        addingPanelLayout.setHorizontalGroup(
+            addingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addingPanelLayout.createSequentialGroup()
+                .addContainerGap(59, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38))
+            .addGroup(addingPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(addingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(addStageButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addMaterialButton, javax.swing.GroupLayout.DEFAULT_SIZE, 334, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        addingPanelLayout.setVerticalGroup(
+            addingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addingPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(addMaterialButton, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(addStageButton, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20))
+        );
+
+        jpCreateP.add(addingPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 145, -1, 216));
+
+        doneButton.setBackground(new java.awt.Color(0, 56, 142));
+        doneButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        doneButton.setForeground(new java.awt.Color(204, 204, 204));
+        doneButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/correcto.png"))); // NOI18N
+        doneButton.setText("Finalizar");
+        doneButton.setBorder(null);
+        doneButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                doneButtonActionPerformed(evt);
+            }
+        });
+        jpCreateP.add(doneButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(446, 377, 143, 35));
+
+        Menu.add(jpCreateP, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1024, 431));
+
+        jpRegister.setBackground(new java.awt.Color(28, 28, 28));
+        jpRegister.setMinimumSize(new java.awt.Dimension(1024, 431));
+        jpRegister.setPreferredSize(new java.awt.Dimension(1024, 431));
+        jpRegister.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        goBackButton4.setBackground(new java.awt.Color(28, 28, 28));
+        goBackButton4.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        goBackButton4.setForeground(new java.awt.Color(77, 147, 255));
+        goBackButton4.setText("< Regresar");
+        goBackButton4.setBorder(null);
+        goBackButton4.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
+        goBackButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                goBackButton4MouseClicked(evt);
+            }
+        });
+        jpRegister.add(goBackButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 20, 132, 30));
+
+        controlPanelTitle2.setBackground(new java.awt.Color(203, 203, 204));
+        controlPanelTitle2.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        controlPanelTitle2.setForeground(new java.awt.Color(255, 255, 255));
+        controlPanelTitle2.setText("Crear registro");
+        jpRegister.add(controlPanelTitle2, new org.netbeans.lib.awtextra.AbsoluteConstraints(414, 28, -1, 46));
+
+        jSeparator5.setBackground(new java.awt.Color(0, 69, 173));
+        jSeparator5.setForeground(new java.awt.Color(0, 69, 173));
+        jSeparator5.setToolTipText("");
+        jSeparator5.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 56, 142)));
+        jpRegister.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(414, 80, 310, -1));
+
+        generateButton.setBackground(new java.awt.Color(0, 56, 142));
+        generateButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        generateButton.setForeground(new java.awt.Color(204, 204, 204));
+        generateButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/documento.png"))); // NOI18N
+        generateButton.setText("  Generar documento");
+        generateButton.setBorder(null);
+        generateButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                generateButtonActionPerformed(evt);
+            }
+        });
+        jpRegister.add(generateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(484, 368, 186, 35));
+
+        nameField1.setBackground(new java.awt.Color(48, 48, 48));
+        nameField1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        nameField1.setForeground(new java.awt.Color(204, 204, 204));
+        nameField1.setText("Nombre de la producción");
+        nameField1.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 5, 2, 5));
+        nameField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nameField1ActionPerformed(evt);
+            }
+        });
+        jpRegister.add(nameField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(446, 88, 251, 34));
+
+        searchjLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/buscar.png"))); // NOI18N
+        jpRegister.add(searchjLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(703, 88, 21, 34));
+
+        resgisterField.setBackground(new java.awt.Color(48, 48, 48));
+        resgisterField.setColumns(20);
+        resgisterField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        resgisterField.setForeground(new java.awt.Color(204, 204, 204));
+        resgisterField.setRows(5);
+        resgisterField.setText("\t\t             Nombre de la producción\n\n  DESCRIPCIÓN\n\n    MATERIALES\n    1. Nombre del material\tFecha de compra: 1221/21/12     Fecha de vencimiento: 2112/12/21\n        Descripción\n        Paremetros\n    ETAPAS\n    1. Nombre de la etapa\tFecha de inicio: 1212/12/12  Fecha final: 2112/12/12\n       Descripción\n       Parametros  ");
+        resgisterField.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 5, 2, 5));
+        resgisterField.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jScrollPane4.setViewportView(resgisterField);
+
+        jpRegister.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(248, 140, 661, 216));
+
+        Menu.add(jpRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1024, 431));
 
         jpSearchP.setBackground(new java.awt.Color(28, 28, 28));
         jpSearchP.setMinimumSize(new java.awt.Dimension(1024, 431));
@@ -921,275 +1223,6 @@ public class GUI extends javax.swing.JFrame {
 
         Menu.add(jpSearchP, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1024, 431));
 
-        jpCreateP.setBackground(new java.awt.Color(28, 28, 28));
-        jpCreateP.setMinimumSize(new java.awt.Dimension(1024, 431));
-        jpCreateP.setPreferredSize(new java.awt.Dimension(1024, 431));
-        jpCreateP.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        goBackButton3.setBackground(new java.awt.Color(28, 28, 28));
-        goBackButton3.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        goBackButton3.setForeground(new java.awt.Color(77, 147, 255));
-        goBackButton3.setText("< Regresar");
-        goBackButton3.setBorder(null);
-        goBackButton3.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
-        goBackButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                goBackButton3ActionPerformed(evt);
-            }
-        });
-        jpCreateP.add(goBackButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 20, 132, 30));
-
-        controlPanelTitle1.setBackground(new java.awt.Color(203, 203, 204));
-        controlPanelTitle1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
-        controlPanelTitle1.setForeground(new java.awt.Color(255, 255, 255));
-        controlPanelTitle1.setText("Crear producción");
-        jpCreateP.add(controlPanelTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(319, 28, -1, 46));
-
-        jSeparator4.setBackground(new java.awt.Color(0, 69, 173));
-        jSeparator4.setForeground(new java.awt.Color(0, 69, 173));
-        jSeparator4.setToolTipText("");
-        jSeparator4.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 56, 142)));
-        jpCreateP.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(319, 80, 388, -1));
-
-        editProductionPanel.setBackground(new java.awt.Color(28, 28, 28));
-
-        productionIDLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        productionIDLabel.setForeground(new java.awt.Color(202, 202, 202));
-        productionIDLabel.setText("ID de la producción: XXXXXXXXXXXX");
-
-        nameField.setBackground(new java.awt.Color(48, 48, 48));
-        nameField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        nameField.setForeground(new java.awt.Color(204, 204, 204));
-        nameField.setText("Nombre de la producción");
-        nameField.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 5, 2, 5));
-        nameField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nameFieldActionPerformed(evt);
-            }
-        });
-
-        dateField.setBackground(new java.awt.Color(48, 48, 48));
-        dateField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        dateField.setForeground(new java.awt.Color(204, 204, 204));
-        dateField.setText("Fecha estimada de finalización");
-        dateField.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 5, 2, 5));
-        dateField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dateFieldActionPerformed(evt);
-            }
-        });
-
-        descriptionField.setBackground(new java.awt.Color(48, 48, 48));
-        descriptionField.setColumns(20);
-        descriptionField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        descriptionField.setForeground(new java.awt.Color(204, 204, 204));
-        descriptionField.setRows(5);
-        descriptionField.setText("Descripción");
-        descriptionField.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 5, 2, 5));
-        descriptionField.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jScrollPane1.setViewportView(descriptionField);
-
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel5.setText("Resumen: X materiales, Y etapas y Z parámetros de calidad.");
-
-        javax.swing.GroupLayout editProductionPanelLayout = new javax.swing.GroupLayout(editProductionPanel);
-        editProductionPanel.setLayout(editProductionPanelLayout);
-        editProductionPanelLayout.setHorizontalGroup(
-            editProductionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(editProductionPanelLayout.createSequentialGroup()
-                .addGap(57, 57, 57)
-                .addGroup(editProductionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
-                    .addGroup(editProductionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(productionIDLabel)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 435, Short.MAX_VALUE)
-                        .addComponent(nameField)
-                        .addComponent(dateField, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(12, Short.MAX_VALUE))
-        );
-        editProductionPanelLayout.setVerticalGroup(
-            editProductionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(editProductionPanelLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(productionIDLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(dateField, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel5))
-        );
-
-        jpCreateP.add(editProductionPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, -1, -1));
-
-        addingPanel.setBackground(new java.awt.Color(28, 28, 28));
-
-        addMaterialButton.setBackground(new java.awt.Color(65, 69, 71));
-        addMaterialButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        addMaterialButton.setForeground(new java.awt.Color(204, 204, 204));
-        addMaterialButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/agregar_azul.png"))); // NOI18N
-        addMaterialButton.setText("            Agregar materias primas            ");
-        addMaterialButton.setBorder(null);
-        addMaterialButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addMaterialButtonActionPerformed(evt);
-            }
-        });
-
-        materialsList.setBackground(new java.awt.Color(48, 48, 48));
-        materialsList.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        materialsList.setForeground(new java.awt.Color(204, 204, 204));
-        materialsList.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Materia prima 1", "Materia prima 2", "Materia prima 3", "Materia prima 4", "Materia prima 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane2.setViewportView(materialsList);
-
-        addStageButton.setBackground(new java.awt.Color(65, 69, 71));
-        addStageButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        addStageButton.setForeground(new java.awt.Color(204, 204, 204));
-        addStageButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/agregar_azul.png"))); // NOI18N
-        addStageButton.setText("       Agregar etapas de producción       ");
-        addStageButton.setBorder(null);
-        addStageButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addStageButtonActionPerformed(evt);
-            }
-        });
-
-        stagesList.setBackground(new java.awt.Color(48, 48, 48));
-        stagesList.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        stagesList.setForeground(new java.awt.Color(204, 204, 204));
-        stagesList.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Etapa 1", "Etapa 2", "Etapa 3", "Etapa 4 ", "Etapa 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        stagesList.setPreferredSize(new java.awt.Dimension(36, 88));
-        jScrollPane3.setViewportView(stagesList);
-
-        javax.swing.GroupLayout addingPanelLayout = new javax.swing.GroupLayout(addingPanel);
-        addingPanel.setLayout(addingPanelLayout);
-        addingPanelLayout.setHorizontalGroup(
-            addingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addingPanelLayout.createSequentialGroup()
-                .addContainerGap(59, Short.MAX_VALUE)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38))
-            .addGroup(addingPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(addingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(addStageButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(addMaterialButton, javax.swing.GroupLayout.DEFAULT_SIZE, 334, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        addingPanelLayout.setVerticalGroup(
-            addingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addingPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(addMaterialButton, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(addStageButton, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
-        );
-
-        jpCreateP.add(addingPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 145, -1, 216));
-
-        doneButton.setBackground(new java.awt.Color(0, 56, 142));
-        doneButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        doneButton.setForeground(new java.awt.Color(204, 204, 204));
-        doneButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/correcto.png"))); // NOI18N
-        doneButton.setText("Finalizar");
-        doneButton.setBorder(null);
-        doneButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                doneButtonActionPerformed(evt);
-            }
-        });
-        jpCreateP.add(doneButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(446, 377, 143, 35));
-
-        Menu.add(jpCreateP, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1024, 431));
-
-        jpRegister.setBackground(new java.awt.Color(28, 28, 28));
-        jpRegister.setMinimumSize(new java.awt.Dimension(1024, 431));
-        jpRegister.setPreferredSize(new java.awt.Dimension(1024, 431));
-        jpRegister.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        goBackButton4.setBackground(new java.awt.Color(28, 28, 28));
-        goBackButton4.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        goBackButton4.setForeground(new java.awt.Color(77, 147, 255));
-        goBackButton4.setText("< Regresar");
-        goBackButton4.setBorder(null);
-        goBackButton4.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
-        goBackButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                goBackButton4ActionPerformed(evt);
-            }
-        });
-        jpRegister.add(goBackButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 20, 132, 30));
-
-        controlPanelTitle2.setBackground(new java.awt.Color(203, 203, 204));
-        controlPanelTitle2.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
-        controlPanelTitle2.setForeground(new java.awt.Color(255, 255, 255));
-        controlPanelTitle2.setText("Crear registro");
-        jpRegister.add(controlPanelTitle2, new org.netbeans.lib.awtextra.AbsoluteConstraints(414, 28, -1, 46));
-
-        jSeparator5.setBackground(new java.awt.Color(0, 69, 173));
-        jSeparator5.setForeground(new java.awt.Color(0, 69, 173));
-        jSeparator5.setToolTipText("");
-        jSeparator5.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 56, 142)));
-        jpRegister.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(414, 80, 310, -1));
-
-        generateButton.setBackground(new java.awt.Color(0, 56, 142));
-        generateButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        generateButton.setForeground(new java.awt.Color(204, 204, 204));
-        generateButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/documento.png"))); // NOI18N
-        generateButton.setText("  Generar documento");
-        generateButton.setBorder(null);
-        generateButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                generateButtonActionPerformed(evt);
-            }
-        });
-        jpRegister.add(generateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(484, 368, 186, 35));
-
-        nameField1.setBackground(new java.awt.Color(48, 48, 48));
-        nameField1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        nameField1.setForeground(new java.awt.Color(204, 204, 204));
-        nameField1.setText("Nombre de la producción");
-        nameField1.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 5, 2, 5));
-        nameField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nameField1ActionPerformed(evt);
-            }
-        });
-        jpRegister.add(nameField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(446, 88, 251, 34));
-
-        searchjLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/buscar.png"))); // NOI18N
-        jpRegister.add(searchjLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(703, 88, 21, 34));
-
-        resgisterField.setBackground(new java.awt.Color(48, 48, 48));
-        resgisterField.setColumns(20);
-        resgisterField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        resgisterField.setForeground(new java.awt.Color(204, 204, 204));
-        resgisterField.setRows(5);
-        resgisterField.setText("\t\t             Nombre de la producción\n\n  DESCRIPCIÓN\n\n    MATERIALES\n    1. Nombre del material\tFecha de compra: 1221/21/12     Fecha de vencimiento: 2112/12/21\n        Descripción\n        Paremetros\n    ETAPAS\n    1. Nombre de la etapa\tFecha de inicio: 1212/12/12  Fecha final: 2112/12/12\n       Descripción\n       Parametros  ");
-        resgisterField.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 5, 2, 5));
-        resgisterField.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jScrollPane4.setViewportView(resgisterField);
-
-        jpRegister.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(248, 140, 661, 216));
-
-        Menu.add(jpRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1024, 431));
-
         getContentPane().add(Menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1024, 541));
 
         pack();
@@ -1202,14 +1235,6 @@ public class GUI extends javax.swing.JFrame {
     private void passwordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_passwordFieldActionPerformed
-
-    private void signInButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signInButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_signInButtonActionPerformed
-
-    private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_registerButtonActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
@@ -1239,18 +1264,6 @@ public class GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jPasswordField3ActionPerformed
 
-    private void goBackButton0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_goBackButton0ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_goBackButton0ActionPerformed
-
-    private void signOutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signOutButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_signOutButtonActionPerformed
-
-    private void goBackButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_goBackButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_goBackButton3ActionPerformed
-
     private void nameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nameFieldActionPerformed
@@ -1270,10 +1283,6 @@ public class GUI extends javax.swing.JFrame {
     private void doneButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doneButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_doneButtonActionPerformed
-
-    private void goBackButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_goBackButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_goBackButton4ActionPerformed
 
     private void generateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generateButtonActionPerformed
         // TODO add your handling code here:
@@ -1347,6 +1356,72 @@ public class GUI extends javax.swing.JFrame {
     private void jlMinimizeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlMinimizeMouseClicked
        this.setState(GUI.ICONIFIED);
     }//GEN-LAST:event_jlMinimizeMouseClicked
+
+    private void goBackButton0MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_goBackButton0MouseClicked
+         jpSignIn.setVisible(true);
+         jpNewUser.setVisible(false);       
+
+    }//GEN-LAST:event_goBackButton0MouseClicked
+
+    private void registerButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerButtonMouseClicked
+        jpSignIn.setVisible(false);
+        jpNewUser.setVisible(true);          
+    }//GEN-LAST:event_registerButtonMouseClicked
+
+    private void signInButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signInButtonMouseClicked
+        Main.setVisible(false);               
+        Main.repaint();
+        Main.revalidate();
+        
+        Menu.setVisible(true);   
+        jpControl.setVisible(true);
+        Menu.repaint();
+        Menu.revalidate();      
+    }//GEN-LAST:event_signInButtonMouseClicked
+
+    private void signOutButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signOutButtonMouseClicked
+        Menu.setVisible(false); 
+//            jpCM.setVisible(false);
+//            jpUser.setVisible(false);
+            jpSearchP.setVisible(false);
+            jpCreateP.setVisible(false);
+            jpRegister.setVisible(false);
+            jpControl.setVisible(false);            
+        Menu.repaint();
+        Menu.revalidate(); 
+        
+        Main.setVisible(true);  
+        jpNewUser.setVisible(false);   
+        Main.repaint();
+        Main.revalidate();
+       
+    }//GEN-LAST:event_signOutButtonMouseClicked
+
+    private void createButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createButtonMouseClicked
+        jpControl.setVisible(false);
+        jpCreateP.setVisible(true);
+        
+    }//GEN-LAST:event_createButtonMouseClicked
+
+    private void manageButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageButtonMouseClicked
+         jpControl.setVisible(false);
+        //.setVisible(true);   
+    }//GEN-LAST:event_manageButtonMouseClicked
+
+    private void registryButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registryButtonMouseClicked
+        jpControl.setVisible(false);
+        jpRegister.setVisible(true);
+    }//GEN-LAST:event_registryButtonMouseClicked
+
+    private void goBackButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_goBackButton3MouseClicked
+        jpCreateP.setVisible(false);
+        jpControl.setVisible(true);
+    }//GEN-LAST:event_goBackButton3MouseClicked
+
+    private void goBackButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_goBackButton4MouseClicked
+        jpRegister.setVisible(false);
+        jpControl.setVisible(true);
+    }//GEN-LAST:event_goBackButton4MouseClicked
 
     public static void main(String args[]) {
         for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
