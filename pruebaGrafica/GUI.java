@@ -1,16 +1,59 @@
 package pruebaGrafica;
 
+import javax.swing.JOptionPane;
+
 public class GUI extends javax.swing.JFrame {
 
+     int x,y;
+    
     public GUI() {
         initComponents();
+          this.setLocationRelativeTo(null);
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        Main = new javax.swing.JPanel();
+        jpCM2 = new javax.swing.JPanel();
+        jlClose1 = new javax.swing.JLabel();
+        jlMinimize1 = new javax.swing.JLabel();
+        jpInfo = new javax.swing.JPanel();
+        infoTitle1 = new javax.swing.JLabel();
+        imageLabel1 = new javax.swing.JLabel();
+        infoText3 = new javax.swing.JLabel();
+        infoText4 = new javax.swing.JLabel();
+        jpSignIn = new javax.swing.JPanel();
+        signInTitle = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        userLabel = new javax.swing.JLabel();
+        userField = new javax.swing.JTextField();
+        passwordLabel = new javax.swing.JLabel();
+        passwordField = new javax.swing.JPasswordField();
+        signInButton = new javax.swing.JButton();
+        registerLabel = new javax.swing.JLabel();
+        registerButton = new javax.swing.JButton();
+        jpNewUser = new javax.swing.JPanel();
+        jTextField1 = new javax.swing.JTextField();
+        jPasswordField1 = new javax.swing.JPasswordField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jSeparator2 = new javax.swing.JSeparator();
+        jButton2 = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jPasswordField2 = new javax.swing.JPasswordField();
+        jCheckBox1 = new javax.swing.JCheckBox();
+        jLabel10 = new javax.swing.JLabel();
+        jPasswordField3 = new javax.swing.JPasswordField();
+        goBackButton0 = new javax.swing.JButton();
         Menu = new javax.swing.JPanel();
+        jpCM = new javax.swing.JPanel();
+        jlClose = new javax.swing.JLabel();
+        jlMinimize = new javax.swing.JLabel();
         jpUser = new javax.swing.JPanel();
         userLogoLabel = new javax.swing.JLabel();
         userLabel1 = new javax.swing.JLabel();
@@ -106,48 +149,333 @@ public class GUI extends javax.swing.JFrame {
         searchjLabel = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         resgisterField = new javax.swing.JTextArea();
-        Main = new javax.swing.JPanel();
-        jpInfo = new javax.swing.JPanel();
-        infoTitle1 = new javax.swing.JLabel();
-        imageLabel1 = new javax.swing.JLabel();
-        infoText3 = new javax.swing.JLabel();
-        infoText4 = new javax.swing.JLabel();
-        jpSignIn = new javax.swing.JPanel();
-        signInTitle = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
-        userLabel = new javax.swing.JLabel();
-        userField = new javax.swing.JTextField();
-        passwordLabel = new javax.swing.JLabel();
-        passwordField = new javax.swing.JPasswordField();
-        signInButton = new javax.swing.JButton();
-        registerLabel = new javax.swing.JLabel();
-        registerButton = new javax.swing.JButton();
-        jpNewUser = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jSeparator2 = new javax.swing.JSeparator();
-        jButton2 = new javax.swing.JButton();
-        jLabel9 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jPasswordField2 = new javax.swing.JPasswordField();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jLabel10 = new javax.swing.JLabel();
-        jPasswordField3 = new javax.swing.JPasswordField();
-        goBackButton0 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setMinimumSize(new java.awt.Dimension(1024, 541));
         setUndecorated(true);
         setResizable(false);
+        addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                formMouseDragged(evt);
+            }
+        });
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                formMousePressed(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Main.setMaximumSize(new java.awt.Dimension(1024, 541));
+        Main.setName(""); // NOI18N
+        Main.setPreferredSize(new java.awt.Dimension(1024, 541));
+        Main.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jpCM2.setBackground(new java.awt.Color(28, 28, 28));
+        jpCM2.setMinimumSize(new java.awt.Dimension(50, 30));
+        jpCM2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jlClose1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/incorrecto.png"))); // NOI18N
+        jlClose1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jlClose1MouseClicked(evt);
+            }
+        });
+        jpCM2.add(jlClose1, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 8, -1, -1));
+
+        jlMinimize1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/linea.png"))); // NOI18N
+        jlMinimize1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jlMinimize1MouseClicked(evt);
+            }
+        });
+        jpCM2.add(jlMinimize1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 8, -1, -1));
+
+        Main.add(jpCM2, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 0, 50, 30));
+
+        jpInfo.setBackground(new java.awt.Color(0, 56, 142));
+        jpInfo.setMaximumSize(new java.awt.Dimension(472, 541));
+        jpInfo.setMinimumSize(new java.awt.Dimension(472, 541));
+        jpInfo.setName(""); // NOI18N
+        jpInfo.setRequestFocusEnabled(false);
+        jpInfo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        infoTitle1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        infoTitle1.setForeground(new java.awt.Color(255, 255, 255));
+        infoTitle1.setText("Bienvenid@ a SGP");
+        jpInfo.add(infoTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(83, 64, -1, -1));
+
+        imageLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/estrategia.png"))); // NOI18N
+        imageLabel1.setToolTipText("");
+        imageLabel1.setDebugGraphicsOptions(javax.swing.DebugGraphics.BUFFERED_OPTION);
+        imageLabel1.setDoubleBuffered(true);
+        jpInfo.add(imageLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(117, 146, -1, -1));
+
+        infoText3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        infoText3.setForeground(new java.awt.Color(255, 255, 255));
+        infoText3.setText("Está a un paso de gestionar toda su producción");
+        jpInfo.add(infoText3, new org.netbeans.lib.awtextra.AbsoluteConstraints(83, 435, -1, -1));
+
+        infoText4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        infoText4.setForeground(new java.awt.Color(255, 255, 255));
+        infoText4.setText("con los mejores estándares de calidad.");
+        jpInfo.add(infoText4, new org.netbeans.lib.awtextra.AbsoluteConstraints(83, 455, -1, -1));
+
+        Main.add(jpInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 472, 541));
+
+        jpSignIn.setBackground(new java.awt.Color(28, 28, 28));
+        jpSignIn.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jpSignIn.setMaximumSize(new java.awt.Dimension(552, 541));
+        jpSignIn.setMinimumSize(new java.awt.Dimension(552, 541));
+        jpSignIn.setPreferredSize(new java.awt.Dimension(552, 541));
+        jpSignIn.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        signInTitle.setBackground(new java.awt.Color(203, 203, 204));
+        signInTitle.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        signInTitle.setForeground(new java.awt.Color(255, 255, 255));
+        signInTitle.setText("Iniciar sesión");
+        jpSignIn.add(signInTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(137, 59, -1, 46));
+
+        jSeparator1.setBackground(new java.awt.Color(0, 69, 173));
+        jSeparator1.setForeground(new java.awt.Color(0, 69, 173));
+        jSeparator1.setToolTipText("");
+        jSeparator1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 56, 142)));
+        jpSignIn.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(137, 111, 292, -1));
+
+        userLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        userLabel.setForeground(new java.awt.Color(202, 202, 202));
+        userLabel.setText("Usuario");
+        jpSignIn.add(userLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(151, 161, -1, -1));
+
+        userField.setBackground(new java.awt.Color(48, 48, 48));
+        userField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        userField.setForeground(new java.awt.Color(204, 204, 204));
+        userField.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        userField.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 8, 2, 8));
+        userField.setCaretColor(new java.awt.Color(188, 188, 188));
+        userField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                userFieldActionPerformed(evt);
+            }
+        });
+        jpSignIn.add(userField, new org.netbeans.lib.awtextra.AbsoluteConstraints(151, 187, 267, 32));
+
+        passwordLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        passwordLabel.setForeground(new java.awt.Color(202, 202, 202));
+        passwordLabel.setText("Contraseña");
+        jpSignIn.add(passwordLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(151, 231, -1, -1));
+
+        passwordField.setBackground(new java.awt.Color(48, 48, 48));
+        passwordField.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        passwordField.setForeground(new java.awt.Color(204, 204, 204));
+        passwordField.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 8, 2, 8));
+        passwordField.setCaretColor(new java.awt.Color(188, 188, 188));
+        passwordField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passwordFieldActionPerformed(evt);
+            }
+        });
+        jpSignIn.add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(151, 257, 267, 30));
+
+        signInButton.setBackground(new java.awt.Color(0, 56, 142));
+        signInButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        signInButton.setForeground(new java.awt.Color(255, 255, 255));
+        signInButton.setText("Ingresar");
+        signInButton.setBorder(null);
+        signInButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                signInButtonActionPerformed(evt);
+            }
+        });
+        jpSignIn.add(signInButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(188, 315, 195, 33));
+
+        registerLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        registerLabel.setForeground(new java.awt.Color(202, 202, 202));
+        registerLabel.setText("¿No tiene un usuario?");
+        jpSignIn.add(registerLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(218, 407, -1, -1));
+
+        registerButton.setBackground(new java.awt.Color(0, 56, 142));
+        registerButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        registerButton.setForeground(new java.awt.Color(255, 255, 255));
+        registerButton.setText("Registrarse");
+        registerButton.setBorder(null);
+        registerButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registerButtonActionPerformed(evt);
+            }
+        });
+        jpSignIn.add(registerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(188, 433, 195, 33));
+
+        Main.add(jpSignIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(472, 0, 552, 541));
+
+        jpNewUser.setBackground(new java.awt.Color(28, 28, 28));
+        jpNewUser.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jpNewUser.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTextField1.setBackground(new java.awt.Color(48, 48, 48));
+        jTextField1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jTextField1.setForeground(new java.awt.Color(204, 204, 204));
+        jTextField1.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        jTextField1.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 8, 2, 8));
+        jTextField1.setCaretColor(new java.awt.Color(188, 188, 188));
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+        jpNewUser.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(123, 242, 267, 32));
+
+        jPasswordField1.setBackground(new java.awt.Color(48, 48, 48));
+        jPasswordField1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jPasswordField1.setForeground(new java.awt.Color(204, 204, 204));
+        jPasswordField1.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 8, 2, 8));
+        jPasswordField1.setCaretColor(new java.awt.Color(188, 188, 188));
+        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPasswordField1ActionPerformed(evt);
+            }
+        });
+        jpNewUser.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(123, 312, 267, 30));
+
+        jLabel1.setBackground(new java.awt.Color(203, 203, 204));
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Usuario Nuevo");
+        jpNewUser.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(123, 30, -1, 46));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(202, 202, 202));
+        jLabel2.setText("Usuario");
+        jpNewUser.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(123, 216, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(202, 202, 202));
+        jLabel3.setText("ID");
+        jpNewUser.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(123, 354, -1, -1));
+
+        jSeparator2.setBackground(new java.awt.Color(0, 69, 173));
+        jSeparator2.setForeground(new java.awt.Color(0, 69, 173));
+        jSeparator2.setToolTipText("");
+        jSeparator2.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 56, 142)));
+        jpNewUser.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(123, 82, 334, -1));
+
+        jButton2.setBackground(new java.awt.Color(0, 56, 142));
+        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setText("Registrarse");
+        jButton2.setBorder(null);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jpNewUser.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(158, 496, 195, 33));
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(202, 202, 202));
+        jLabel9.setText("Nombre");
+        jpNewUser.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(123, 146, -1, -1));
+
+        jTextField2.setBackground(new java.awt.Color(48, 48, 48));
+        jTextField2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jTextField2.setForeground(new java.awt.Color(204, 204, 204));
+        jTextField2.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        jTextField2.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 8, 2, 8));
+        jTextField2.setCaretColor(new java.awt.Color(188, 188, 188));
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
+        jpNewUser.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(123, 172, 267, 32));
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(202, 202, 202));
+        jLabel4.setText("Administrador");
+        jpNewUser.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(123, 416, -1, -1));
+
+        jPasswordField2.setBackground(new java.awt.Color(48, 48, 48));
+        jPasswordField2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jPasswordField2.setForeground(new java.awt.Color(204, 204, 204));
+        jPasswordField2.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 8, 2, 8));
+        jPasswordField2.setCaretColor(new java.awt.Color(188, 188, 188));
+        jPasswordField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPasswordField2ActionPerformed(evt);
+            }
+        });
+        jpNewUser.add(jPasswordField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(123, 448, 267, 30));
+
+        jCheckBox1.setBackground(new java.awt.Color(28, 28, 28));
+        jCheckBox1.setForeground(new java.awt.Color(28, 28, 28));
+        jCheckBox1.setBorder(null);
+        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox1ActionPerformed(evt);
+            }
+        });
+        jpNewUser.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(222, 416, -1, -1));
+
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(202, 202, 202));
+        jLabel10.setText("Contraseña");
+        jpNewUser.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(123, 286, -1, -1));
+
+        jPasswordField3.setBackground(new java.awt.Color(48, 48, 48));
+        jPasswordField3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jPasswordField3.setForeground(new java.awt.Color(204, 204, 204));
+        jPasswordField3.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 8, 2, 8));
+        jPasswordField3.setCaretColor(new java.awt.Color(188, 188, 188));
+        jPasswordField3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPasswordField3ActionPerformed(evt);
+            }
+        });
+        jpNewUser.add(jPasswordField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(123, 380, 267, 30));
+
+        goBackButton0.setBackground(new java.awt.Color(28, 28, 28));
+        goBackButton0.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        goBackButton0.setForeground(new java.awt.Color(77, 147, 255));
+        goBackButton0.setText("< Regresar");
+        goBackButton0.setBorder(null);
+        goBackButton0.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
+        goBackButton0.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                goBackButton0ActionPerformed(evt);
+            }
+        });
+        jpNewUser.add(goBackButton0, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, -1, -1));
+
+        Main.add(jpNewUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(472, 0, 552, 541));
+
+        getContentPane().add(Main, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1024, 541));
 
         Menu.setMinimumSize(new java.awt.Dimension(1024, 541));
         Menu.setPreferredSize(new java.awt.Dimension(1024, 541));
         Menu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jpCM.setBackground(new java.awt.Color(0, 56, 142));
+        jpCM.setMinimumSize(new java.awt.Dimension(50, 30));
+        jpCM.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jlClose.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/incorrecto.png"))); // NOI18N
+        jlClose.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jlCloseMouseClicked(evt);
+            }
+        });
+        jpCM.add(jlClose, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 8, -1, -1));
+
+        jlMinimize.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/linea.png"))); // NOI18N
+        jlMinimize.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jlMinimizeMouseClicked(evt);
+            }
+        });
+        jpCM.add(jlMinimize, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 8, -1, -1));
+
+        Menu.add(jpCM, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 0, 50, 30));
 
         jpUser.setBackground(new java.awt.Color(0, 56, 142));
         jpUser.setMinimumSize(new java.awt.Dimension(1024, 110));
@@ -864,268 +1192,6 @@ public class GUI extends javax.swing.JFrame {
 
         getContentPane().add(Menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1024, 541));
 
-        Main.setMaximumSize(new java.awt.Dimension(1024, 541));
-        Main.setName(""); // NOI18N
-        Main.setPreferredSize(new java.awt.Dimension(1024, 541));
-        Main.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jpInfo.setBackground(new java.awt.Color(0, 56, 142));
-        jpInfo.setMaximumSize(new java.awt.Dimension(472, 541));
-        jpInfo.setMinimumSize(new java.awt.Dimension(472, 541));
-        jpInfo.setName(""); // NOI18N
-        jpInfo.setRequestFocusEnabled(false);
-        jpInfo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        infoTitle1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        infoTitle1.setForeground(new java.awt.Color(255, 255, 255));
-        infoTitle1.setText("Bienvenid@ a SGP");
-        jpInfo.add(infoTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(83, 64, -1, -1));
-
-        imageLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/estrategia.png"))); // NOI18N
-        imageLabel1.setToolTipText("");
-        imageLabel1.setDebugGraphicsOptions(javax.swing.DebugGraphics.BUFFERED_OPTION);
-        imageLabel1.setDoubleBuffered(true);
-        jpInfo.add(imageLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(117, 146, -1, -1));
-
-        infoText3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        infoText3.setForeground(new java.awt.Color(255, 255, 255));
-        infoText3.setText("Está a un paso de gestionar toda su producción");
-        jpInfo.add(infoText3, new org.netbeans.lib.awtextra.AbsoluteConstraints(83, 435, -1, -1));
-
-        infoText4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        infoText4.setForeground(new java.awt.Color(255, 255, 255));
-        infoText4.setText("con los mejores estándares de calidad.");
-        jpInfo.add(infoText4, new org.netbeans.lib.awtextra.AbsoluteConstraints(83, 455, -1, -1));
-
-        Main.add(jpInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 472, 541));
-
-        jpSignIn.setBackground(new java.awt.Color(28, 28, 28));
-        jpSignIn.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jpSignIn.setMaximumSize(new java.awt.Dimension(552, 541));
-        jpSignIn.setMinimumSize(new java.awt.Dimension(552, 541));
-        jpSignIn.setPreferredSize(new java.awt.Dimension(552, 541));
-        jpSignIn.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        signInTitle.setBackground(new java.awt.Color(203, 203, 204));
-        signInTitle.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
-        signInTitle.setForeground(new java.awt.Color(255, 255, 255));
-        signInTitle.setText("Iniciar sesión");
-        jpSignIn.add(signInTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(137, 59, -1, 46));
-
-        jSeparator1.setBackground(new java.awt.Color(0, 69, 173));
-        jSeparator1.setForeground(new java.awt.Color(0, 69, 173));
-        jSeparator1.setToolTipText("");
-        jSeparator1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 56, 142)));
-        jpSignIn.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(137, 111, 292, -1));
-
-        userLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        userLabel.setForeground(new java.awt.Color(202, 202, 202));
-        userLabel.setText("Usuario");
-        jpSignIn.add(userLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(151, 161, -1, -1));
-
-        userField.setBackground(new java.awt.Color(48, 48, 48));
-        userField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        userField.setForeground(new java.awt.Color(204, 204, 204));
-        userField.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        userField.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 8, 2, 8));
-        userField.setCaretColor(new java.awt.Color(188, 188, 188));
-        userField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                userFieldActionPerformed(evt);
-            }
-        });
-        jpSignIn.add(userField, new org.netbeans.lib.awtextra.AbsoluteConstraints(151, 187, 267, 32));
-
-        passwordLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        passwordLabel.setForeground(new java.awt.Color(202, 202, 202));
-        passwordLabel.setText("Contraseña");
-        jpSignIn.add(passwordLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(151, 231, -1, -1));
-
-        passwordField.setBackground(new java.awt.Color(48, 48, 48));
-        passwordField.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        passwordField.setForeground(new java.awt.Color(204, 204, 204));
-        passwordField.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 8, 2, 8));
-        passwordField.setCaretColor(new java.awt.Color(188, 188, 188));
-        passwordField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                passwordFieldActionPerformed(evt);
-            }
-        });
-        jpSignIn.add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(151, 257, 267, 30));
-
-        signInButton.setBackground(new java.awt.Color(0, 56, 142));
-        signInButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        signInButton.setForeground(new java.awt.Color(255, 255, 255));
-        signInButton.setText("Ingresar");
-        signInButton.setBorder(null);
-        signInButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                signInButtonActionPerformed(evt);
-            }
-        });
-        jpSignIn.add(signInButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(188, 315, 195, 33));
-
-        registerLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        registerLabel.setForeground(new java.awt.Color(202, 202, 202));
-        registerLabel.setText("¿No tiene un usuario?");
-        jpSignIn.add(registerLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(218, 407, -1, -1));
-
-        registerButton.setBackground(new java.awt.Color(0, 56, 142));
-        registerButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        registerButton.setForeground(new java.awt.Color(255, 255, 255));
-        registerButton.setText("Registrarse");
-        registerButton.setBorder(null);
-        registerButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                registerButtonActionPerformed(evt);
-            }
-        });
-        jpSignIn.add(registerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(188, 433, 195, 33));
-
-        Main.add(jpSignIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(472, 0, 552, 541));
-
-        jpNewUser.setBackground(new java.awt.Color(28, 28, 28));
-        jpNewUser.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jpNewUser.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jTextField1.setBackground(new java.awt.Color(48, 48, 48));
-        jTextField1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(204, 204, 204));
-        jTextField1.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        jTextField1.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 8, 2, 8));
-        jTextField1.setCaretColor(new java.awt.Color(188, 188, 188));
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-        jpNewUser.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(123, 242, 267, 32));
-
-        jPasswordField1.setBackground(new java.awt.Color(48, 48, 48));
-        jPasswordField1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jPasswordField1.setForeground(new java.awt.Color(204, 204, 204));
-        jPasswordField1.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 8, 2, 8));
-        jPasswordField1.setCaretColor(new java.awt.Color(188, 188, 188));
-        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordField1ActionPerformed(evt);
-            }
-        });
-        jpNewUser.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(123, 312, 267, 30));
-
-        jLabel1.setBackground(new java.awt.Color(203, 203, 204));
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Usuario Nuevo");
-        jpNewUser.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(123, 30, -1, 46));
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(202, 202, 202));
-        jLabel2.setText("Usuario");
-        jpNewUser.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(123, 216, -1, -1));
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(202, 202, 202));
-        jLabel3.setText("ID");
-        jpNewUser.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(123, 354, -1, -1));
-
-        jSeparator2.setBackground(new java.awt.Color(0, 69, 173));
-        jSeparator2.setForeground(new java.awt.Color(0, 69, 173));
-        jSeparator2.setToolTipText("");
-        jSeparator2.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 56, 142)));
-        jpNewUser.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(123, 82, 334, -1));
-
-        jButton2.setBackground(new java.awt.Color(0, 56, 142));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Registrarse");
-        jButton2.setBorder(null);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        jpNewUser.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(158, 496, 195, 33));
-
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(202, 202, 202));
-        jLabel9.setText("Nombre");
-        jpNewUser.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(123, 146, -1, -1));
-
-        jTextField2.setBackground(new java.awt.Color(48, 48, 48));
-        jTextField2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jTextField2.setForeground(new java.awt.Color(204, 204, 204));
-        jTextField2.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        jTextField2.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 8, 2, 8));
-        jTextField2.setCaretColor(new java.awt.Color(188, 188, 188));
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
-            }
-        });
-        jpNewUser.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(123, 172, 267, 32));
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(202, 202, 202));
-        jLabel4.setText("Administrador");
-        jpNewUser.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(123, 416, -1, -1));
-
-        jPasswordField2.setBackground(new java.awt.Color(48, 48, 48));
-        jPasswordField2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jPasswordField2.setForeground(new java.awt.Color(204, 204, 204));
-        jPasswordField2.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 8, 2, 8));
-        jPasswordField2.setCaretColor(new java.awt.Color(188, 188, 188));
-        jPasswordField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordField2ActionPerformed(evt);
-            }
-        });
-        jpNewUser.add(jPasswordField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(123, 448, 267, 30));
-
-        jCheckBox1.setBackground(new java.awt.Color(28, 28, 28));
-        jCheckBox1.setForeground(new java.awt.Color(28, 28, 28));
-        jCheckBox1.setBorder(null);
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
-            }
-        });
-        jpNewUser.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(222, 416, -1, -1));
-
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(202, 202, 202));
-        jLabel10.setText("Contraseña");
-        jpNewUser.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(123, 286, -1, -1));
-
-        jPasswordField3.setBackground(new java.awt.Color(48, 48, 48));
-        jPasswordField3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jPasswordField3.setForeground(new java.awt.Color(204, 204, 204));
-        jPasswordField3.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 8, 2, 8));
-        jPasswordField3.setCaretColor(new java.awt.Color(188, 188, 188));
-        jPasswordField3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordField3ActionPerformed(evt);
-            }
-        });
-        jpNewUser.add(jPasswordField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(123, 380, 267, 30));
-
-        goBackButton0.setBackground(new java.awt.Color(28, 28, 28));
-        goBackButton0.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        goBackButton0.setForeground(new java.awt.Color(77, 147, 255));
-        goBackButton0.setText("< Regresar");
-        goBackButton0.setBorder(null);
-        goBackButton0.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
-        goBackButton0.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                goBackButton0ActionPerformed(evt);
-            }
-        });
-        jpNewUser.add(goBackButton0, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, -1, -1));
-
-        Main.add(jpNewUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(472, 0, 552, 541));
-
-        getContentPane().add(Main, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1024, 541));
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -1249,6 +1315,39 @@ public class GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_nPFieldActionPerformed
 
+    private void formMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMousePressed
+        x= evt.getX();   
+         y= evt.getY(); 
+    }//GEN-LAST:event_formMousePressed
+
+    private void formMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseDragged
+        this.setLocation(this.getLocation().x + evt.getX()-x,this.getLocation().y+evt.getY()-y);
+    }//GEN-LAST:event_formMouseDragged
+
+    private void jlCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlCloseMouseClicked
+        int dialog = JOptionPane.YES_NO_OPTION;
+       int result = JOptionPane.showConfirmDialog(null, "¿Desea cerrar el programa?","Exit",dialog);
+       if(result ==0){         
+           System.exit(0);
+       }
+    }//GEN-LAST:event_jlCloseMouseClicked
+
+    private void jlClose1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlClose1MouseClicked
+         int dialog = JOptionPane.YES_NO_OPTION;
+       int result = JOptionPane.showConfirmDialog(null, "¿Desea cerrar el programa?","Exit",dialog);
+       if(result ==0){
+          System.exit(0);
+       }
+    }//GEN-LAST:event_jlClose1MouseClicked
+
+    private void jlMinimize1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlMinimize1MouseClicked
+       this.setState(GUI.ICONIFIED);
+    }//GEN-LAST:event_jlMinimize1MouseClicked
+
+    private void jlMinimizeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlMinimizeMouseClicked
+       this.setState(GUI.ICONIFIED);
+    }//GEN-LAST:event_jlMinimizeMouseClicked
+
     public static void main(String args[]) {
         for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
         }
@@ -1370,6 +1469,12 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JLabel jlClose;
+    private javax.swing.JLabel jlClose1;
+    private javax.swing.JLabel jlMinimize;
+    private javax.swing.JLabel jlMinimize1;
+    private javax.swing.JPanel jpCM;
+    private javax.swing.JPanel jpCM2;
     private javax.swing.JPanel jpControl;
     private javax.swing.JPanel jpCreateP;
     private javax.swing.JPanel jpInfo;
