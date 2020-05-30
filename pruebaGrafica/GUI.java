@@ -132,10 +132,14 @@ public class GUI extends javax.swing.JFrame {
         controlPanelTitle2 = new javax.swing.JLabel();
         jSeparator5 = new javax.swing.JSeparator();
         generateButton = new javax.swing.JButton();
-        nameField1 = new javax.swing.JTextField();
+        jTextCr = new javax.swing.JTextField();
         searchjLabel = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        resgisterField = new javax.swing.JTextArea();
+        resgisterF = new javax.swing.JTextArea();
+        nRdeP0 = new javax.swing.JTextField();
+        nRdeP = new javax.swing.JLabel();
+        jlBackCr = new javax.swing.JLabel();
+        jlNextCr = new javax.swing.JLabel();
         jpSearchP = new javax.swing.JPanel();
         controlPanelTitle3 = new javax.swing.JLabel();
         jSeparator6 = new javax.swing.JSeparator();
@@ -1076,39 +1080,82 @@ public class GUI extends javax.swing.JFrame {
         generateButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/documento.png"))); // NOI18N
         generateButton.setText("  Generar documento");
         generateButton.setBorder(null);
-        generateButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                generateButtonActionPerformed(evt);
+        generateButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                generateButtonMouseClicked(evt);
             }
         });
         jpRegister.add(generateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(484, 368, 186, 35));
 
-        nameField1.setBackground(new java.awt.Color(48, 48, 48));
-        nameField1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        nameField1.setForeground(new java.awt.Color(204, 204, 204));
-        nameField1.setText("Nombre de la producción");
-        nameField1.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 5, 2, 5));
-        nameField1.addActionListener(new java.awt.event.ActionListener() {
+        jTextCr.setBackground(new java.awt.Color(48, 48, 48));
+        jTextCr.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTextCr.setForeground(new java.awt.Color(204, 204, 204));
+        jTextCr.setText("Nombre de la producción");
+        jTextCr.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 5, 2, 5));
+        jTextCr.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nameField1ActionPerformed(evt);
+                jTextCrActionPerformed(evt);
             }
         });
-        jpRegister.add(nameField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(446, 88, 251, 34));
+        jpRegister.add(jTextCr, new org.netbeans.lib.awtextra.AbsoluteConstraints(446, 88, 251, 34));
 
         searchjLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/buscar.png"))); // NOI18N
+        searchjLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                searchjLabelMouseClicked(evt);
+            }
+        });
         jpRegister.add(searchjLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(703, 88, 21, 34));
 
-        resgisterField.setBackground(new java.awt.Color(48, 48, 48));
-        resgisterField.setColumns(20);
-        resgisterField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        resgisterField.setForeground(new java.awt.Color(204, 204, 204));
-        resgisterField.setRows(5);
-        resgisterField.setText("\t\t             Nombre de la producción\n\n  DESCRIPCIÓN\n\n    MATERIALES\n    1. Nombre del material\tFecha de compra: 1221/21/12     Fecha de vencimiento: 2112/12/21\n        Descripción\n        Paremetros\n    ETAPAS\n    1. Nombre de la etapa\tFecha de inicio: 1212/12/12  Fecha final: 2112/12/12\n       Descripción\n       Parametros  ");
-        resgisterField.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 5, 2, 5));
-        resgisterField.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jScrollPane4.setViewportView(resgisterField);
+        resgisterF.setBackground(new java.awt.Color(48, 48, 48));
+        resgisterF.setColumns(20);
+        resgisterF.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        resgisterF.setForeground(new java.awt.Color(204, 204, 204));
+        resgisterF.setRows(5);
+        resgisterF.setText("\t\t             Nombre de la producción\n\n  Fecha de inicio: 12/12/2102   Fecha de finalización: 12/12/2012 Estado: Sin iniciar/Finalizado/En proceso\n  Descripción\n\n    MATERIALES\n    1. Nombre del material\tLote: \tFecha de compra: 1221/21/12     Fecha de vencimiento: 2112/12/21\n        Descripción\n        Paremetros\n         1. Nombre del parametro  Valor:15  Limite inferior: 2 Limite superior: 15\n    \n    ETAPAS\n    1. Nombre de la etapa\tFecha de inicio: 1212/12/12  Fecha final: 2112/12/12  Estado: Sin iniciar/En proceso/Finalizado\n        Descripción\n        Parametros \n         1. Nombre del parametro  Valor:15  Limite inferior: 2 Limite superior: 15 ");
+        resgisterF.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 5, 2, 5));
+        resgisterF.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        resgisterF.setFocusable(false);
+        jScrollPane4.setViewportView(resgisterF);
 
-        jpRegister.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(248, 140, 661, 216));
+        jpRegister.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, 740, 216));
+
+        nRdeP0.setBackground(new java.awt.Color(48, 48, 48));
+        nRdeP0.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        nRdeP0.setForeground(new java.awt.Color(204, 204, 204));
+        nRdeP0.setText(" XX");
+        nRdeP0.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 255, 255)));
+        nRdeP0.setFocusable(false);
+        nRdeP0.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                nRdeP0InputMethodTextChanged(evt);
+            }
+        });
+        jpRegister.add(nRdeP0, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 370, 26, -1));
+
+        nRdeP.setBackground(new java.awt.Color(48, 48, 48));
+        nRdeP.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        nRdeP.setForeground(new java.awt.Color(204, 204, 204));
+        nRdeP.setText("de XX");
+        jpRegister.add(nRdeP, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 370, -1, 20));
+
+        jlBackCr.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/anterior.png"))); // NOI18N
+        jlBackCr.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jlBackCrMouseClicked(evt);
+            }
+        });
+        jpRegister.add(jlBackCr, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 370, -1, 20));
+
+        jlNextCr.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/siguiente.png"))); // NOI18N
+        jlNextCr.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jlNextCrMouseClicked(evt);
+            }
+        });
+        jpRegister.add(jlNextCr, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 370, -1, 20));
 
         Menu.add(jpRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1024, 431));
 
@@ -1785,13 +1832,9 @@ public class GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextR1ActionPerformed
 
-    private void generateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generateButtonActionPerformed
+    private void jTextCrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextCrActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_generateButtonActionPerformed
-
-    private void nameField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nameField1ActionPerformed
+    }//GEN-LAST:event_jTextCrActionPerformed
 
     private void searchPFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchPFieldActionPerformed
         // TODO add your handling code here:
@@ -1911,9 +1954,39 @@ public class GUI extends javax.swing.JFrame {
         
            
     }//GEN-LAST:event_signInButtonMouseClicked
-
+    private void cleanJPRegister(){
+        jTextCr.setText("Nombre de la producción");
+        nRdeP0.setText("X");
+        nRdeP.setText("de XX");
+        indexCr=1;
+        resgisterF.setText("		             Nombre de la producción\n" +
+"\n" +
+"  Fecha de inicio: 12/12/2102   Fecha de finalización: 12/12/2012 Estado: Sin iniciar/Finalizado/En proceso\n" +
+"  Descripción\n" +
+"\n" +
+"    MATERIALES\n" +
+"    1. Nombre del material	Lote: 	Fecha de compra: 1221/21/12     Fecha de vencimiento: 2112/12/21\n" +
+"        Descripción\n" +
+"        Paremetros\n" +
+"         1. Nombre del parametro  Valor:15  Limite inferior: 2 Limite superior: 15\n" +
+"    \n" +
+"    ETAPAS\n" +
+"    1. Nombre de la etapa	Fecha de inicio: 1212/12/12  Fecha final: 2112/12/12  Estado: Sin iniciar/En proceso/Finalizado\n" +
+"        Descripción\n" +
+"        Parametros \n" +
+"         1. Nombre del parametro  Valor:15  Limite inferior: 2 Limite superior: 15 ");
+    }
     private void signOutButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signOutButtonMouseClicked
-        Menu.setVisible(false); 
+       
+        try{
+              int dialog = JOptionPane.YES_NO_OPTION;
+       int result = JOptionPane.showConfirmDialog(null, "¿Desea cerrar sesión?","Cerrar sesión",dialog);
+       if(result ==0){
+           
+           cleanJPCreatM();
+           cleanJPRegister();
+           cleanJPCreatS();
+           Menu.setVisible(false); 
 //            jpCM.setVisible(false);
 //            jpUser.setVisible(false);
             jpSearchP.setVisible(false);
@@ -1925,6 +1998,8 @@ public class GUI extends javax.swing.JFrame {
         Menu.repaint();
         Menu.revalidate(); 
         
+        
+        
         jTextL1.setText("");
         jTextL2.setText("");
         
@@ -1932,6 +2007,13 @@ public class GUI extends javax.swing.JFrame {
         jpNewUser.setVisible(false);   
         Main.repaint();
         Main.revalidate();
+       }
+              
+        }catch(Exception e){
+            
+        }
+               
+      
        
     }//GEN-LAST:event_signOutButtonMouseClicked
 
@@ -2314,12 +2396,7 @@ public class GUI extends javax.swing.JFrame {
     private void jTextCm0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextCm0ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextCm0ActionPerformed
-    
-    private void addMaterialButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMaterialButton7MouseClicked
-         try{
-           int dialog = JOptionPane.YES_NO_OPTION;
-           int result = JOptionPane.showConfirmDialog(null, "¿Desea agregar un nuevo material?","Nuevo material",dialog);
-           if(result==0){
+    private void cleanJPCreatM(){
             listPaux = new MyArrayList<>();
             jTextCm0.setText("Nombre del material");
             jTextCm1.setText("Lote");
@@ -2385,6 +2462,13 @@ public class GUI extends javax.swing.JFrame {
             ParameterL.removeAll();
             String [] namep= new  String[0];
              ParameterL.setListData(namep);
+    }
+    private void addMaterialButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMaterialButton7MouseClicked
+         try{
+           int dialog = JOptionPane.YES_NO_OPTION;
+           int result = JOptionPane.showConfirmDialog(null, "¿Desea agregar un nuevo material?","Nuevo material",dialog);
+           if(result==0){
+             cleanJPCreatM();
            }
           
         }catch(Exception e){
@@ -2558,12 +2642,8 @@ public class GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextCs0ActionPerformed
 
-    private void addMaterialButton11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMaterialButton11MouseClicked
-    try{
-           int dialog = JOptionPane.YES_NO_OPTION;
-           int result = JOptionPane.showConfirmDialog(null, "¿Desea crear una nueva etapa?","Nuevo etapa",dialog);
-           if(result==0){
-            listPaux2 = new MyArrayList<>();
+    private void cleanJPCreatS(){
+        listPaux2 = new MyArrayList<>();
             jTextCs0.setText("Nombre de la etapa");
             jTextCs1.setText("XXXX");
             jTextCs8.setText("Descripción");
@@ -2627,7 +2707,14 @@ public class GUI extends javax.swing.JFrame {
             jTextCs11.setText("Limite inferior");
             ParameterL1.removeAll();
             String [] namep= new  String[0];
-             ParameterL.setListData(namep);
+            ParameterL1.setListData(namep);
+    }
+    private void addMaterialButton11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMaterialButton11MouseClicked
+    try{
+           int dialog = JOptionPane.YES_NO_OPTION;
+           int result = JOptionPane.showConfirmDialog(null, "¿Desea crear una nueva etapa?","Nuevo etapa",dialog);
+           if(result==0){
+            cleanJPCreatS();
            }
           
         }catch(Exception e){
@@ -2658,13 +2745,8 @@ public class GUI extends javax.swing.JFrame {
         }
          
     }//GEN-LAST:event_addStageButton2MouseClicked
-
-    private void addMaterialButton12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMaterialButton12MouseClicked
-     try{
-           int dialog = JOptionPane.YES_NO_OPTION;
-           int result = JOptionPane.showConfirmDialog(null, "¿Desea crear una nueva producción?","Nuevo producción",dialog);
-           if(result==0){
-            productionIDLabel1.setText("XXXX");
+private void cleanJPCreateP(){
+    productionIDLabel1.setText("XXXX");
             jTextCp1.setText("Nombre de la producción");
             jTextCp3.removeAllItems();
             jTextCp3.addItem("Mes");
@@ -2708,11 +2790,200 @@ public class GUI extends javax.swing.JFrame {
             ListMaux= new MyArrayList<>();
             ListSaux= new MyArrayList<>();
             jLabel5.setText("Resumen: "+String.valueOf(ListMaux.getSize())+" material/es, "+String.valueOf(ListSaux.getSize()) +" etapa/s.");
+           
+}
+    private void addMaterialButton12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMaterialButton12MouseClicked
+     try{
+           int dialog = JOptionPane.YES_NO_OPTION;
+           int result = JOptionPane.showConfirmDialog(null, "¿Desea crear una nueva producción?","Nueva producción",dialog);
+           if(result==0){
+               cleanJPCreateP();
            }
         }catch(Exception e){
             JOptionPane.showMessageDialog(this,"Ha ocurrido un error, por favor contacte con el administrador.");
         }
     }//GEN-LAST:event_addMaterialButton12MouseClicked
+    private static SinglyLinkedList<Integer> sLIDP= new SinglyLinkedList<Integer>();
+    private void searchjLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchjLabelMouseClicked
+       
+        try{
+            sLIDP = new SinglyLinkedList<>();
+            for(int i=0; i<myArrayListProduction.getSize(); i++){
+                if(myArrayListProduction.getItem(i).getName().equalsIgnoreCase(jTextCr.getText())){
+                  sLIDP.pushBack(i);
+                }                
+            }
+            if(sLIDP.getSize()==0){
+                   JOptionPane.showMessageDialog(this,"No se ha encontrado una producción con el nombre: "+jTextCr.getText());    
+            }else{
+                indexCr=1;
+                nRdeP.setText("de "+sLIDP.getSize());
+                nRdeP0.setText("1");
+                printProduction(1);
+                
+            }
+            
+          }catch(Exception e){
+               JOptionPane.showMessageDialog(this,"Ha ocurrido un error, por favor contacte con el administrador.");         
+                    }
+    }//GEN-LAST:event_searchjLabelMouseClicked
+private static int indexCr=1;
+    private void jlNextCrMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlNextCrMouseClicked
+       Boolean correct=true;
+        try{
+           if(sLIDP.getSize()>0){
+                indexCr++;
+                if(sLIDP.getSize()>=indexCr){
+                    printProduction(indexCr);
+                    nRdeP0.setText(String.valueOf(indexCr));
+                }else{
+                   indexCr=indexCr-1; 
+                }
+           }
+            
+       }catch(Exception e){
+           JOptionPane.showMessageDialog(this,"Ha ocurrido un error, por favor contacte con el administrador.");         
+       }
+    }//GEN-LAST:event_jlNextCrMouseClicked
+    public void printProduction(int index){
+       
+        try{
+            if(sLIDP.getSize()>0){
+                if(sLIDP.getSize()>=index){
+                   Production production;
+                   production=myArrayListProduction.getItem(sLIDP.getItem(index-1));
+                   String e;
+                   if(production.isIsActive()){
+                        if(production.isFinished()){
+                            e="Finalizado";
+                        }else{
+                            e="En proceso";
+                        }
+                   }else{
+                       e="Sin iniciar";
+                   }
+                   
+                   
+                   String Materialaux="";
+                   String Parameteraux="";
+                   for(int m=0; m<production.getRawMaterials().getSize(); m++){
+        Materialaux=Materialaux+"    "+(m+1)+". "+production.getRawMaterials().getItem(m).getName()+"    Lote: "+production.getRawMaterials().getItem(m).getBatch()+"    Fecha de compra: "+production.getRawMaterials().getItem(m).getAdmissionDate()+
+                            "    Fecha de vencimiento: "+production.getRawMaterials().getItem(m).getExpirationDate()+"\n"+
+                    "       Descripción: "+production.getRawMaterials().getItem(m).getDescription()+"\n"+
+                    "       Parametros del material "+"\n";
+                        for(int p=0; p<production.getRawMaterials().getItem(m).getParametrosCalidad().getSize(); p++){
+       Parameteraux=Parameteraux+"          "+(p+1)+". "+production.getRawMaterials().getItem(m).getParametrosCalidad().getItem(p).getName()+"    Valor: "+production.getRawMaterials().getItem(m).getParametrosCalidad().getItem(p).getValue()+
+                                  "    Limite inferior: "+production.getRawMaterials().getItem(m).getParametrosCalidad().getItem(p).getLowerLimit()+
+                                  "    Limite superior: "+production.getRawMaterials().getItem(m).getParametrosCalidad().getItem(p).getUpperLimit()+"\n";
+                        }
+                     Materialaux=Materialaux+Parameteraux;
+                     Parameteraux="";
+                   }
+                   
+                   String Stageaux="";
+                   Parameteraux="";
+                   String sE;
+                   for(int s=0; s<production.getRawMaterials().getSize(); s++){
+                   if(production.getStages().getItem(s).isIsActive()){
+                        if(production.getStages().getItem(s).isFinished()){
+                            sE="Finalizado";
+                        }else{
+                            sE="En proceso";
+                        }
+                    }else{
+                             sE="Sin iniciar";
+                    }
+        Stageaux=Stageaux+"    "+(s+1)+". "+production.getStages().getItem(s).getName()+"    Fecha de inicio: "+production.getStages().getItem(s).getStartDate()+
+                            "    Fecha de finalización: "+production.getStages().getItem(s).getEndDate()+"    Estado: "+sE+"\n"+
+                    "       Descripción: "+production.getStages().getItem(s).getDescription()+"\n"+
+                    "       Parametros de la etapa "+"\n";
+                        for(int p=0; p<production.getStages().getItem(s).getParameterList().getSize(); p++){
+       Parameteraux=Parameteraux+"          "+(p+1)+". "+production.getStages().getItem(s).getParameterList().getItem(p).getName()+"    Valor: "+production.getStages().getItem(s).getParameterList().getItem(p).getValue()+
+                                  "    Limite inferior: "+production.getStages().getItem(s).getParameterList().getItem(p).getLowerLimit()+
+                                  "    Limite superior: "+production.getStages().getItem(s).getParameterList().getItem(p).getUpperLimit()+"\n";
+                        }
+                     Stageaux=Stageaux+Parameteraux;
+                     Parameteraux="";
+                   }
+                   resgisterF.setText(
+                    "		                        "+production.getName()+"\n\n"+
+                    "  Fecha de inicio: "+production.getStartDate()+"    Fecha de finalización: "+production.getEndDate()+"    Estado: "+e+"\n"+
+                    "  Descripción: "+production.getDescription()+"\n\n"+
+                    "    MATERIALES\n"+
+                    Materialaux+"\n"+
+                    "    ETAPAS\n"+
+                    Stageaux
+                   );
+                   
+                }
+            }
+            
+       }catch(Exception e){
+           JOptionPane.showMessageDialog(this,"Ha ocurrido un error, por favor contacte con el administrador.");         
+       }
+        
+    }
+    
+    private void nRdeP0InputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_nRdeP0InputMethodTextChanged
+       Boolean correct=true;
+        try{
+           try{
+                Integer.parseInt(nRdeP0.getText());
+           }catch(Exception e){
+                JOptionPane.showMessageDialog(this,"No es posible encontrar un registro con el valor: "+nRdeP0.getText() );
+                correct=false;
+           }
+            if(correct && sLIDP.getSize()>0){
+                if(sLIDP.getSize()>=Integer.parseInt(nRdeP0.getText())){
+                     printProduction(Integer.parseInt(nRdeP0.getText()));
+                    }
+                }
+            
+       }catch(Exception e){
+           JOptionPane.showMessageDialog(this,"Ha ocurrido un error, por favor contacte con el administrador.");         
+       }
+    }//GEN-LAST:event_nRdeP0InputMethodTextChanged
+
+    private void jlBackCrMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlBackCrMouseClicked
+        Boolean correct=true;
+        try{
+           if(sLIDP.getSize()>0 && indexCr>1){
+                indexCr=indexCr-1;
+                if(sLIDP.getSize()>=indexCr){
+                    printProduction(indexCr);
+                    nRdeP0.setText(String.valueOf(indexCr));
+                }else{
+                   indexCr=indexCr+1; 
+                }
+           }
+            
+       }catch(Exception e){
+           JOptionPane.showMessageDialog(this,"Ha ocurrido un error, por favor contacte con el administrador.");         
+       }
+    }//GEN-LAST:event_jlBackCrMouseClicked
+
+    private void generateButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_generateButtonMouseClicked
+      Boolean correct=true;
+        try{
+            if(resgisterF.getText().equalsIgnoreCase(null) || sLIDP.getSize()<=0){
+                correct=false;
+            }
+           if(correct){
+             int dialog = JOptionPane.YES_NO_OPTION;
+              int result = JOptionPane.showConfirmDialog(null, "¿Desea crear un registro?","Generar registro",dialog);
+             if(result==0){
+                if(!DataBase.printTXT(sLIDP.getItem(Integer.parseInt(nRdeP0.getText())-1),resgisterF.getText())){
+                   JOptionPane.showMessageDialog(this,"Ha ocurrido un error al generar el archivo.");          
+                }else{
+                    JOptionPane.showMessageDialog(this,"¡Se ha creado el registro con exito!");     
+                }
+             }
+           }
+           
+      }catch(Exception e){
+          JOptionPane.showMessageDialog(this,"Ha ocurrido un error, por favor contacte con el administrador.");         
+      }
+    }//GEN-LAST:event_generateButtonMouseClicked
 
     public static void main(String args[]) {
         for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -2878,6 +3149,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jTextCp3;
     private javax.swing.JComboBox<String> jTextCp4;
     private javax.swing.JTextArea jTextCp5;
+    private javax.swing.JTextField jTextCr;
     private javax.swing.JTextField jTextCs0;
     private javax.swing.JLabel jTextCs1;
     private javax.swing.JTextField jTextCs10;
@@ -2897,10 +3169,12 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JPasswordField jTextR3;
     private javax.swing.JTextField jTextR4;
     private javax.swing.JPasswordField jTextR5;
+    private javax.swing.JLabel jlBackCr;
     private javax.swing.JLabel jlClose;
     private javax.swing.JLabel jlClose1;
     private javax.swing.JLabel jlMinimize;
     private javax.swing.JLabel jlMinimize1;
+    private javax.swing.JLabel jlNextCr;
     private javax.swing.JPanel jpCM;
     private javax.swing.JPanel jpCM2;
     private javax.swing.JPanel jpControl;
@@ -2920,8 +3194,9 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JList<String> materialL;
     private javax.swing.JTextField nMField;
     private javax.swing.JTextField nPField;
+    private javax.swing.JLabel nRdeP;
+    private javax.swing.JTextField nRdeP0;
     private javax.swing.JTextField nSField;
-    private javax.swing.JTextField nameField1;
     private javax.swing.JLabel namePjLabel;
     private javax.swing.JLabel ntMjLabel;
     private javax.swing.JLabel ntPjLabel;
@@ -2935,7 +3210,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel registryLabel1;
     private javax.swing.JLabel registryLabel2;
     private javax.swing.JPanel registryPanel;
-    private javax.swing.JTextArea resgisterField;
+    private javax.swing.JTextArea resgisterF;
     private javax.swing.JLabel roleLabel;
     private javax.swing.JTextField searchMField;
     private javax.swing.JLabel searchMjLabel;

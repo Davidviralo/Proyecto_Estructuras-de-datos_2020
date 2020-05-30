@@ -107,7 +107,7 @@ public class Proyecto_2020 {
                     System.out.print("¿Desea generar un archivo txt con el registro?Si/No: ");
                     String back = scanner.nextLine();
                     if (back.equalsIgnoreCase("Si")) {
-                        DataBase.printTXT(i);
+                        //DataBase.printTXT(i);
                         check = true;
                         test = false;
                         controlPanel();

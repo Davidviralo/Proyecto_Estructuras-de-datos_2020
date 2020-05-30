@@ -437,94 +437,27 @@ public class DataBase implements Serializable {
         return false;
     }
 
-    public static void printTXT(int index) throws IOException {
+    public static Boolean printTXT(int index, String t) throws IOException {
         try {
-            String nametxt2 = "Producción finalizada " + myArrayListProduction.getItem(index).getName();
+            String nametxt2 = "Producción " + myArrayListProduction.getItem(index).getName();
 
             CreateArchive(nametxt2, true);
             String nametxt = localDatabase;
             nametxt = nametxt + nametxt2;
-
+            System.out.println(t);
             File file = new File(nametxt + ".txt");
             FileWriter flwriter = new FileWriter(file.getAbsoluteFile(), true);
+           
             BufferedWriter bfwriter = new BufferedWriter(flwriter);
-
-            MyArrayList<RawMaterial> aux = new MyArrayList<>();
-            MyArrayList<Stage> myArrayListauxs = new MyArrayList<>();
-            MyArrayList<Parameter> myArrayListauxp = new MyArrayList<>();
-            bfwriter.write("############################ REGISTRO DE LA PRODUCCIÓN ############################\n");
-            bfwriter.write("NOMBRE: " + myArrayListProduction.getItem(index).getName() + "     ");
-            bfwriter.write("FECHA DE INICIO: " + myArrayListProduction.getItem(index).getStartDate() + "     ");
-            Boolean f = myArrayListProduction.getItem(index).isIsFinished();
-            if (f) {
-                bfwriter.write("ESTADO: Finalizado" + "\n");
-            } else if (myArrayListProduction.getItem(index).isActive()) {
-                bfwriter.write("ESTADO: Activo" + "\n");
-            } else {
-                bfwriter.write("ESTADO: No iniciado" + "\n");
-            }
-            bfwriter.write("DESCRIPCIÓN: " + myArrayListProduction.getItem(index).getDescription() + "\n\n");
-
-
-            aux = myArrayListProduction.getItem(index).getRawMaterials();
-
-            myArrayListauxs = myArrayListProduction.getItem(index).getStages();
-            bfwriter.write("------------------------------------ MATERIALES ------------------------------------\n\n");
-            int i = 0;
-            while (i < aux.getSize()) { //arreglar es cabeza no cola
-
-                bfwriter.write(String.valueOf(i + 1) + " NOMBRE DEL MATERIAL: " + aux.getItem(i).getName() + "     ");
-                bfwriter.write("FECHA DE COMPRA: " + aux.getItem(i).getAdmissionDate() + "     ");
-                bfwriter.write("FECHA DE VENCIMIENTO: " + aux.getItem(i).getExpirationDate() + " \n  ");
-                bfwriter.write("DESCRIPCIÓN: " + aux.getItem(i).getDescription() + "\n  ");
-                //bfwriter.write("Batch: "+myArrayListProduction.getItem(index).getRawMaterials().getHead().getBatch()+"\n ");
-
-                myArrayListauxp = aux.getItem(i).getParametrosCalidad();
-
-                bfwriter.write("                       ---------- PARÁMETROS ----------\n");
-                for (int j = 0; j < myArrayListauxp.getSize(); j++) {
-                    bfwriter.write(String.valueOf(j + 1) + " NOMBRE DEL PARÁMETRO: " + myArrayListauxp.getItem(j).getName() + "\n  ");
-
-                    //bfwriter.write("Valor del paramtero: "+myArrayListProduction.getItem(index).getRawMaterials().getHead().getAdmissionDate()+"  ");
-                    bfwriter.write("LÍMITE INFERIOR DEL PARÁMETRO: " + myArrayListauxp.getItem(j).getLowerLimit() + "\n  ");
-
-                    bfwriter.write("LÍMITE SUPERIOR DEL PARÁMETRO: " + myArrayListauxp.getItem(j).getUpperLimit() + "\n\n");
-
-                    //bfwriter.write("Batch: "+myArrayListProduction.getItem(index).getRawMaterials().getHead().getBatch()+"\n ");
-                }
-                i++;
-            }
-
-            bfwriter.write("-------------------------------------- ETAPAS -------------------------------------\n");
-            i = 0;
-            while (i < myArrayListauxs.getSize()) {
-
-                bfwriter.write(myArrayListauxs.getItem(i).getStageNumber() + " NOMBRE DE LA ETAPA: " + myArrayListauxs.getItem(i).getName() + "          ");
-                bfwriter.write("FECHA DE INICIO: " + myArrayListauxs.getItem(i).getStartDate() + "\n");
-                bfwriter.write("FECHA DE FINAL: " + myArrayListauxs.getItem(i).getEndDate() + " \n  ");
-                bfwriter.write("DESCRIPCIÓN: " + myArrayListauxs.getItem(i).getDescription() + "\n ");
-                //bfwriter.write("Batch: "+myArrayListProduction.getItem(index).getRawMaterials().getHead().getBatch()+"\n ");
-                myArrayListauxp = myArrayListauxs.getItem(i).getParameterList();
-                bfwriter.write("                       ---------- PARÁMETROS ----------\n");
-                for (int j = 0; j < myArrayListauxp.getSize(); j++) {
-                    bfwriter.write(String.valueOf(j + 1) + " NOMBRE DEL PARÁMETRO: " + myArrayListauxp.getItem(j).getName() + "\n  ");
-                    bfwriter.write("VALOR OBTENIDO: " + myArrayListauxp.getItem(j).getValue() + "  ");
-                    bfwriter.write("LÍMITE INFERIOR DEL PARÁMETRO: " + myArrayListauxp.getItem(j).getLowerLimit() + "\n  ");
-                    bfwriter.write("LÍMITE SUPERIOR DEL PARÁMETRO: " + myArrayListauxp.getItem(j).getUpperLimit() + "\n\n");
-                    //bfwriter.write("Batch: "+myArrayListProduction.getItem(index).getRawMaterials().getHead().getBatch()+"\n ");
-                }
-                i++;
-                bfwriter.write("-----------------------------------------------------------------------------------\n");
-            }
-            bfwriter.write("###################################################################################");
+            bfwriter.write(t);
+            
             bfwriter.close();
-            System.out.println("------------------------------");
-            System.out.println("El archivo ha sido creado satisfactoriamente.");
-            System.out.println("Nombre del archivo: " + nametxt2);
-            System.out.println("Se ha guardado en la direccion:  " + nametxt);
-            System.out.println("------------------------------");
+            
+            
+            return true;
         } catch (IOException e) {
-            System.out.println("Error al generar registro.");
+            return false;
+           
         }
 
     }
