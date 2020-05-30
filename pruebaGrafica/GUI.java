@@ -1,5 +1,6 @@
 package pruebaGrafica;
 
+import Estructuras_de_datos.*;
 import javax.swing.JOptionPane;
 import data.*;
 import static data.DataBase.*;
@@ -18,6 +19,8 @@ public class GUI extends javax.swing.JFrame {
              jpSearchP.setVisible(false);
              jpCreateP.setVisible(false);
              jpRegister.setVisible(false);
+             jpCreateS.setVisible(false);
+             jpCreateM.setVisible(false);
         Menu.repaint();
         Menu.revalidate();
              
@@ -35,6 +38,7 @@ public class GUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel12 = new javax.swing.JLabel();
         Main = new javax.swing.JPanel();
         jpCM2 = new javax.swing.JPanel();
         jlClose1 = new javax.swing.JLabel();
@@ -101,19 +105,28 @@ public class GUI extends javax.swing.JFrame {
         jSeparator4 = new javax.swing.JSeparator();
         editProductionPanel = new javax.swing.JPanel();
         productionIDLabel = new javax.swing.JLabel();
-        nameField = new javax.swing.JTextField();
-        dateField = new javax.swing.JTextField();
+        jTextCp1 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        descriptionField = new javax.swing.JTextArea();
+        jTextCp5 = new javax.swing.JTextArea();
         jLabel5 = new javax.swing.JLabel();
-        addingPanel = new javax.swing.JPanel();
-        addMaterialButton = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        materialsList = new javax.swing.JList<>();
-        addStageButton = new javax.swing.JButton();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        stagesList = new javax.swing.JList<>();
+        jTextCp4 = new javax.swing.JComboBox<>();
+        jTextCp2 = new javax.swing.JComboBox<>();
+        jTextCp3 = new javax.swing.JComboBox<>();
+        jLabel11 = new javax.swing.JLabel();
+        productionIDLabel1 = new javax.swing.JLabel();
+        addingPanel1 = new javax.swing.JPanel();
+        addMaterialButton1 = new javax.swing.JButton();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        materialL = new javax.swing.JList<>();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        stagesL = new javax.swing.JList<>();
+        jLabel14 = new javax.swing.JLabel();
+        addStageButton1 = new javax.swing.JButton();
+        addStageButton2 = new javax.swing.JButton();
+        jLabel17 = new javax.swing.JLabel();
+        addStageButton3 = new javax.swing.JButton();
         doneButton = new javax.swing.JButton();
+        addMaterialButton12 = new javax.swing.JButton();
         jpRegister = new javax.swing.JPanel();
         goBackButton4 = new javax.swing.JButton();
         controlPanelTitle2 = new javax.swing.JLabel();
@@ -168,6 +181,61 @@ public class GUI extends javax.swing.JFrame {
         nMField = new javax.swing.JTextField();
         nSField = new javax.swing.JTextField();
         nPField = new javax.swing.JTextField();
+        jpCreateM = new javax.swing.JPanel();
+        goBackButton6 = new javax.swing.JButton();
+        controlPanelTitle5 = new javax.swing.JLabel();
+        jSeparator8 = new javax.swing.JSeparator();
+        addMaterialButton4 = new javax.swing.JButton();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        jTextCm8 = new javax.swing.JTextArea();
+        jTextCm3 = new javax.swing.JComboBox<>();
+        jTextCm2 = new javax.swing.JComboBox<>();
+        jLabel21 = new javax.swing.JLabel();
+        jTextCm11 = new javax.swing.JTextField();
+        jTextCm4 = new javax.swing.JComboBox<>();
+        jLabel22 = new javax.swing.JLabel();
+        jTextCm5 = new javax.swing.JComboBox<>();
+        jTextCm6 = new javax.swing.JComboBox<>();
+        jTextCm7 = new javax.swing.JComboBox<>();
+        jTextCm1 = new javax.swing.JTextField();
+        jTextCm9 = new javax.swing.JTextField();
+        jTextCm10 = new javax.swing.JTextField();
+        addMaterialButton6 = new javax.swing.JButton();
+        addMaterialButton5 = new javax.swing.JButton();
+        jScrollPane13 = new javax.swing.JScrollPane();
+        ParameterL = new javax.swing.JList<>();
+        jLabel13 = new javax.swing.JLabel();
+        jTextCm0 = new javax.swing.JTextField();
+        addMaterialButton7 = new javax.swing.JButton();
+        jpCreateS = new javax.swing.JPanel();
+        goBackButton7 = new javax.swing.JButton();
+        controlPanelTitle6 = new javax.swing.JLabel();
+        jSeparator9 = new javax.swing.JSeparator();
+        addMaterialButton8 = new javax.swing.JButton();
+        jScrollPane11 = new javax.swing.JScrollPane();
+        jTextCs8 = new javax.swing.JTextArea();
+        jTextCs3 = new javax.swing.JComboBox<>();
+        jTextCs2 = new javax.swing.JComboBox<>();
+        jTextCs1 = new javax.swing.JLabel();
+        jTextCs11 = new javax.swing.JTextField();
+        jTextCs4 = new javax.swing.JComboBox<>();
+        jLabel24 = new javax.swing.JLabel();
+        jTextCs5 = new javax.swing.JComboBox<>();
+        jTextCs6 = new javax.swing.JComboBox<>();
+        jTextCs7 = new javax.swing.JComboBox<>();
+        jTextCs9 = new javax.swing.JTextField();
+        jTextCs10 = new javax.swing.JTextField();
+        addMaterialButton9 = new javax.swing.JButton();
+        addMaterialButton10 = new javax.swing.JButton();
+        jScrollPane14 = new javax.swing.JScrollPane();
+        ParameterL1 = new javax.swing.JList<>();
+        jLabel18 = new javax.swing.JLabel();
+        jTextCs0 = new javax.swing.JTextField();
+        addMaterialButton11 = new javax.swing.JButton();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+
+        jLabel12.setText("jLabel12");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -509,7 +577,7 @@ public class GUI extends javax.swing.JFrame {
         roleLabel.setForeground(new java.awt.Color(255, 255, 255));
         roleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         roleLabel.setText("User role");
-        jpUser.add(roleLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(486, 38, 120, -1));
+        jpUser.add(roleLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 40, 220, -1));
 
         signOutButton.setBackground(new java.awt.Color(0, 56, 142));
         signOutButton.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
@@ -725,42 +793,49 @@ public class GUI extends javax.swing.JFrame {
 
         productionIDLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         productionIDLabel.setForeground(new java.awt.Color(202, 202, 202));
-        productionIDLabel.setText("ID de la producción: XXXXXXXXXXXX");
+        productionIDLabel.setText("ID de la producción: ");
 
-        nameField.setBackground(new java.awt.Color(48, 48, 48));
-        nameField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        nameField.setForeground(new java.awt.Color(204, 204, 204));
-        nameField.setText("Nombre de la producción");
-        nameField.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 5, 2, 5));
-        nameField.addActionListener(new java.awt.event.ActionListener() {
+        jTextCp1.setBackground(new java.awt.Color(48, 48, 48));
+        jTextCp1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTextCp1.setForeground(new java.awt.Color(204, 204, 204));
+        jTextCp1.setText("Nombre de la producción");
+        jTextCp1.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 5, 2, 5));
+        jTextCp1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nameFieldActionPerformed(evt);
+                jTextCp1ActionPerformed(evt);
             }
         });
 
-        dateField.setBackground(new java.awt.Color(48, 48, 48));
-        dateField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        dateField.setForeground(new java.awt.Color(204, 204, 204));
-        dateField.setText("Fecha estimada de finalización");
-        dateField.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 5, 2, 5));
-        dateField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dateFieldActionPerformed(evt);
-            }
-        });
-
-        descriptionField.setBackground(new java.awt.Color(48, 48, 48));
-        descriptionField.setColumns(20);
-        descriptionField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        descriptionField.setForeground(new java.awt.Color(204, 204, 204));
-        descriptionField.setRows(5);
-        descriptionField.setText("Descripción");
-        descriptionField.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 5, 2, 5));
-        descriptionField.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jScrollPane1.setViewportView(descriptionField);
+        jTextCp5.setBackground(new java.awt.Color(48, 48, 48));
+        jTextCp5.setColumns(20);
+        jTextCp5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTextCp5.setForeground(new java.awt.Color(204, 204, 204));
+        jTextCp5.setRows(5);
+        jTextCp5.setText("Descripción");
+        jTextCp5.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 5, 2, 5));
+        jTextCp5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jScrollPane1.setViewportView(jTextCp5);
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel5.setText("Resumen: X materiales, Y etapas y Z parámetros de calidad.");
+        jLabel5.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel5.setText("Resumen: 0 material/es, 0 etapa/s.");
+
+        jTextCp4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTextCp4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Año", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2029", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039" }));
+
+        jTextCp2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTextCp2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dia", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+
+        jTextCp3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTextCp3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mes", "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
+
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel11.setText("Fecha de finalización: ");
+
+        productionIDLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        productionIDLabel1.setForeground(new java.awt.Color(202, 202, 202));
+        productionIDLabel1.setText("XXXX");
 
         javax.swing.GroupLayout editProductionPanelLayout = new javax.swing.GroupLayout(editProductionPanel);
         editProductionPanel.setLayout(editProductionPanelLayout);
@@ -771,22 +846,38 @@ public class GUI extends javax.swing.JFrame {
                 .addGroup(editProductionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
                     .addGroup(editProductionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(productionIDLabel)
+                        .addGroup(editProductionPanelLayout.createSequentialGroup()
+                            .addComponent(productionIDLabel)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(productionIDLabel1))
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 435, Short.MAX_VALUE)
-                        .addComponent(nameField)
-                        .addComponent(dateField, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jTextCp1))
+                    .addGroup(editProductionPanelLayout.createSequentialGroup()
+                        .addComponent(jLabel11)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextCp2, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextCp3, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextCp4, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(12, Short.MAX_VALUE))
         );
         editProductionPanelLayout.setVerticalGroup(
             editProductionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(editProductionPanelLayout.createSequentialGroup()
                 .addGap(16, 16, 16)
-                .addComponent(productionIDLabel)
+                .addGroup(editProductionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(productionIDLabel)
+                    .addComponent(productionIDLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTextCp1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(dateField, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(editProductionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextCp4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextCp2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextCp3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11))
+                .addGap(8, 8, 8)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel5))
@@ -794,97 +885,158 @@ public class GUI extends javax.swing.JFrame {
 
         jpCreateP.add(editProductionPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, -1, -1));
 
-        addingPanel.setBackground(new java.awt.Color(28, 28, 28));
+        addingPanel1.setBackground(new java.awt.Color(28, 28, 28));
 
-        addMaterialButton.setBackground(new java.awt.Color(65, 69, 71));
-        addMaterialButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        addMaterialButton.setForeground(new java.awt.Color(204, 204, 204));
-        addMaterialButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/agregar_azul.png"))); // NOI18N
-        addMaterialButton.setText("            Agregar materias primas            ");
-        addMaterialButton.setBorder(null);
-        addMaterialButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addMaterialButtonActionPerformed(evt);
+        addMaterialButton1.setBackground(new java.awt.Color(65, 69, 71));
+        addMaterialButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        addMaterialButton1.setForeground(new java.awt.Color(204, 204, 204));
+        addMaterialButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/agregar_azul.png"))); // NOI18N
+        addMaterialButton1.setBorder(null);
+        addMaterialButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addMaterialButton1MouseClicked(evt);
             }
         });
 
-        materialsList.setBackground(new java.awt.Color(48, 48, 48));
-        materialsList.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        materialsList.setForeground(new java.awt.Color(204, 204, 204));
-        materialsList.setModel(new javax.swing.AbstractListModel<String>() {
+        materialL.setBackground(new java.awt.Color(48, 48, 48));
+        materialL.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        materialL.setForeground(new java.awt.Color(204, 204, 204));
+        materialL.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Materia prima 1", "Materia prima 2", "Materia prima 3", "Materia prima 4", "Materia prima 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane2.setViewportView(materialsList);
+        jScrollPane8.setViewportView(materialL);
 
-        addStageButton.setBackground(new java.awt.Color(65, 69, 71));
-        addStageButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        addStageButton.setForeground(new java.awt.Color(204, 204, 204));
-        addStageButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/agregar_azul.png"))); // NOI18N
-        addStageButton.setText("       Agregar etapas de producción       ");
-        addStageButton.setBorder(null);
-        addStageButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addStageButtonActionPerformed(evt);
-            }
-        });
-
-        stagesList.setBackground(new java.awt.Color(48, 48, 48));
-        stagesList.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        stagesList.setForeground(new java.awt.Color(204, 204, 204));
-        stagesList.setModel(new javax.swing.AbstractListModel<String>() {
+        stagesL.setBackground(new java.awt.Color(48, 48, 48));
+        stagesL.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        stagesL.setForeground(new java.awt.Color(204, 204, 204));
+        stagesL.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Etapa 1", "Etapa 2", "Etapa 3", "Etapa 4 ", "Etapa 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        stagesList.setPreferredSize(new java.awt.Dimension(36, 88));
-        jScrollPane3.setViewportView(stagesList);
+        stagesL.setPreferredSize(new java.awt.Dimension(36, 88));
+        jScrollPane9.setViewportView(stagesL);
 
-        javax.swing.GroupLayout addingPanelLayout = new javax.swing.GroupLayout(addingPanel);
-        addingPanel.setLayout(addingPanelLayout);
-        addingPanelLayout.setHorizontalGroup(
-            addingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addingPanelLayout.createSequentialGroup()
-                .addContainerGap(59, Short.MAX_VALUE)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38))
-            .addGroup(addingPanelLayout.createSequentialGroup()
+        jLabel14.setBackground(new java.awt.Color(48, 48, 48));
+        jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel14.setText("Etapas");
+
+        addStageButton1.setBackground(new java.awt.Color(65, 69, 71));
+        addStageButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        addStageButton1.setForeground(new java.awt.Color(204, 204, 204));
+        addStageButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/agregar_azul.png"))); // NOI18N
+        addStageButton1.setBorder(null);
+        addStageButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addStageButton1MouseClicked(evt);
+            }
+        });
+
+        addStageButton2.setBackground(new java.awt.Color(65, 69, 71));
+        addStageButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        addStageButton2.setForeground(new java.awt.Color(204, 204, 204));
+        addStageButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/incorrecto.png"))); // NOI18N
+        addStageButton2.setBorder(null);
+        addStageButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addStageButton2MouseClicked(evt);
+            }
+        });
+
+        jLabel17.setBackground(new java.awt.Color(48, 48, 48));
+        jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel17.setText("Materias primas");
+
+        addStageButton3.setBackground(new java.awt.Color(65, 69, 71));
+        addStageButton3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        addStageButton3.setForeground(new java.awt.Color(204, 204, 204));
+        addStageButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/incorrecto.png"))); // NOI18N
+        addStageButton3.setBorder(null);
+        addStageButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addStageButton3MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout addingPanel1Layout = new javax.swing.GroupLayout(addingPanel1);
+        addingPanel1.setLayout(addingPanel1Layout);
+        addingPanel1Layout.setHorizontalGroup(
+            addingPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(addingPanel1Layout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addGroup(addingPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(addingPanel1Layout.createSequentialGroup()
+                        .addGroup(addingPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addingPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel14)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(addStageButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(addStageButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(38, Short.MAX_VALUE))
+                    .addGroup(addingPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel17)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(addMaterialButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(addStageButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(40, 40, 40))))
+        );
+        addingPanel1Layout.setVerticalGroup(
+            addingPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addingPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(addingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(addStageButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(addMaterialButton, javax.swing.GroupLayout.DEFAULT_SIZE, 334, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        addingPanelLayout.setVerticalGroup(
-            addingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addingPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(addMaterialButton, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(addingPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(addingPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(addMaterialButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(addStageButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(addStageButton, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(addingPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(addStageButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(addStageButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(81, 81, 81))
         );
 
-        jpCreateP.add(addingPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 145, -1, 216));
+        jpCreateP.add(addingPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 145, -1, 216));
 
         doneButton.setBackground(new java.awt.Color(0, 56, 142));
         doneButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         doneButton.setForeground(new java.awt.Color(204, 204, 204));
         doneButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/correcto.png"))); // NOI18N
-        doneButton.setText("Finalizar");
+        doneButton.setText("Guardar");
         doneButton.setBorder(null);
-        doneButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                doneButtonActionPerformed(evt);
+        doneButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                doneButtonMouseClicked(evt);
             }
         });
         jpCreateP.add(doneButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(446, 377, 143, 35));
+
+        addMaterialButton12.setBackground(new java.awt.Color(0, 56, 142));
+        addMaterialButton12.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        addMaterialButton12.setForeground(new java.awt.Color(204, 204, 204));
+        addMaterialButton12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/correcto2.png"))); // NOI18N
+        addMaterialButton12.setText("Nuevo");
+        addMaterialButton12.setBorder(null);
+        addMaterialButton12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addMaterialButton12MouseClicked(evt);
+            }
+        });
+        jpCreateP.add(addMaterialButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 380, 143, 35));
 
         Menu.add(jpCreateP, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1024, 431));
 
@@ -1202,6 +1354,420 @@ public class GUI extends javax.swing.JFrame {
 
         Menu.add(jpSearchP, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1024, 431));
 
+        jpCreateM.setBackground(new java.awt.Color(28, 28, 28));
+        jpCreateM.setMinimumSize(new java.awt.Dimension(1024, 431));
+        jpCreateM.setPreferredSize(new java.awt.Dimension(1024, 431));
+        jpCreateM.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        goBackButton6.setBackground(new java.awt.Color(28, 28, 28));
+        goBackButton6.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        goBackButton6.setForeground(new java.awt.Color(77, 147, 255));
+        goBackButton6.setText("< Regresar");
+        goBackButton6.setBorder(null);
+        goBackButton6.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
+        goBackButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                goBackButton6MouseClicked(evt);
+            }
+        });
+        jpCreateM.add(goBackButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 20, 132, 30));
+
+        controlPanelTitle5.setBackground(new java.awt.Color(203, 203, 204));
+        controlPanelTitle5.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        controlPanelTitle5.setForeground(new java.awt.Color(255, 255, 255));
+        controlPanelTitle5.setText("Agregar material");
+        jpCreateM.add(controlPanelTitle5, new org.netbeans.lib.awtextra.AbsoluteConstraints(319, 28, -1, 46));
+
+        jSeparator8.setBackground(new java.awt.Color(0, 69, 173));
+        jSeparator8.setForeground(new java.awt.Color(0, 69, 173));
+        jSeparator8.setToolTipText("");
+        jSeparator8.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 56, 142)));
+        jpCreateM.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(319, 80, 388, -1));
+
+        addMaterialButton4.setBackground(new java.awt.Color(65, 69, 71));
+        addMaterialButton4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        addMaterialButton4.setForeground(new java.awt.Color(204, 204, 204));
+        addMaterialButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/agregar_azul.png"))); // NOI18N
+        addMaterialButton4.setText("  Agregar");
+        addMaterialButton4.setBorder(null);
+        addMaterialButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addMaterialButton4MouseClicked(evt);
+            }
+        });
+        jpCreateM.add(addMaterialButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 320, 110, 30));
+
+        jTextCm8.setBackground(new java.awt.Color(48, 48, 48));
+        jTextCm8.setColumns(20);
+        jTextCm8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTextCm8.setForeground(new java.awt.Color(204, 204, 204));
+        jTextCm8.setRows(5);
+        jTextCm8.setText("Descripción");
+        jTextCm8.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 5, 2, 5));
+        jTextCm8.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jScrollPane10.setViewportView(jTextCm8);
+
+        jpCreateM.add(jScrollPane10, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 250, 420, 110));
+
+        jTextCm3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTextCm3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mes", "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
+        jpCreateM.add(jTextCm3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 170, 110, -1));
+
+        jTextCm2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTextCm2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dia", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        jpCreateM.add(jTextCm2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 170, -1, -1));
+
+        jLabel21.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel21.setText("Fecha de compra: ");
+        jpCreateM.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, -1, -1));
+
+        jTextCm11.setBackground(new java.awt.Color(48, 48, 48));
+        jTextCm11.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTextCm11.setForeground(new java.awt.Color(204, 204, 204));
+        jTextCm11.setText("Limite inferior");
+        jTextCm11.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 5, 2, 5));
+        jTextCm11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextCm11ActionPerformed(evt);
+            }
+        });
+        jpCreateM.add(jTextCm11, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 200, 150, 28));
+
+        jTextCm4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTextCm4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Año", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2029", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039" }));
+        jpCreateM.add(jTextCm4, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 170, 90, -1));
+
+        jLabel22.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel22.setText("Fecha de vencimiento: ");
+        jpCreateM.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 210, -1, -1));
+
+        jTextCm5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTextCm5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dia", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        jpCreateM.add(jTextCm5, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 210, -1, -1));
+
+        jTextCm6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTextCm6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mes", "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
+        jpCreateM.add(jTextCm6, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 210, 110, -1));
+
+        jTextCm7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTextCm7.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Año", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2029", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039" }));
+        jpCreateM.add(jTextCm7, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 210, 90, -1));
+
+        jTextCm1.setBackground(new java.awt.Color(48, 48, 48));
+        jTextCm1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTextCm1.setForeground(new java.awt.Color(204, 204, 204));
+        jTextCm1.setText("Lote");
+        jTextCm1.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 5, 2, 5));
+        jTextCm1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextCm1ActionPerformed(evt);
+            }
+        });
+        jpCreateM.add(jTextCm1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 130, 100, 28));
+
+        jTextCm9.setBackground(new java.awt.Color(48, 48, 48));
+        jTextCm9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTextCm9.setForeground(new java.awt.Color(204, 204, 204));
+        jTextCm9.setText("Nombre de parametro");
+        jTextCm9.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 5, 2, 5));
+        jTextCm9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextCm9ActionPerformed(evt);
+            }
+        });
+        jpCreateM.add(jTextCm9, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 160, 320, 28));
+
+        jTextCm10.setBackground(new java.awt.Color(48, 48, 48));
+        jTextCm10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTextCm10.setForeground(new java.awt.Color(204, 204, 204));
+        jTextCm10.setText("Limite superior");
+        jTextCm10.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 5, 2, 5));
+        jTextCm10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextCm10ActionPerformed(evt);
+            }
+        });
+        jpCreateM.add(jTextCm10, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 200, 150, 28));
+
+        addMaterialButton6.setBackground(new java.awt.Color(0, 56, 142));
+        addMaterialButton6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        addMaterialButton6.setForeground(new java.awt.Color(204, 204, 204));
+        addMaterialButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/correcto.png"))); // NOI18N
+        addMaterialButton6.setText("  Guardar material     ");
+        addMaterialButton6.setBorder(null);
+        addMaterialButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addMaterialButton6MouseClicked(evt);
+            }
+        });
+        jpCreateM.add(addMaterialButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 380, 180, 30));
+
+        addMaterialButton5.setBackground(new java.awt.Color(65, 69, 71));
+        addMaterialButton5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        addMaterialButton5.setForeground(new java.awt.Color(204, 204, 204));
+        addMaterialButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/incorrecto.png"))); // NOI18N
+        addMaterialButton5.setText(" Eliminar ");
+        addMaterialButton5.setBorder(null);
+        addMaterialButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addMaterialButton5MouseClicked(evt);
+            }
+        });
+        jpCreateM.add(addMaterialButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 320, 110, 30));
+
+        ParameterL.setBackground(new java.awt.Color(48, 48, 48));
+        ParameterL.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        ParameterL.setForeground(new java.awt.Color(204, 204, 204));
+        ParameterL.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Parametro 1", "Parametro 2", "Parametro 3", "Parametro 4", "Parametro 5", "Parametro 6" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane13.setViewportView(ParameterL);
+
+        jpCreateM.add(jScrollPane13, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 240, 320, 66));
+
+        jLabel13.setBackground(new java.awt.Color(48, 48, 48));
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel13.setText("Parametros del material");
+        jpCreateM.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 130, -1, -1));
+
+        jTextCm0.setBackground(new java.awt.Color(48, 48, 48));
+        jTextCm0.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTextCm0.setForeground(new java.awt.Color(204, 204, 204));
+        jTextCm0.setText("Nombre del material");
+        jTextCm0.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 5, 2, 5));
+        jTextCm0.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextCm0ActionPerformed(evt);
+            }
+        });
+        jpCreateM.add(jTextCm0, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, 310, 28));
+
+        addMaterialButton7.setBackground(new java.awt.Color(0, 56, 142));
+        addMaterialButton7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        addMaterialButton7.setForeground(new java.awt.Color(204, 204, 204));
+        addMaterialButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/correcto2.png"))); // NOI18N
+        addMaterialButton7.setText("Nuevo");
+        addMaterialButton7.setBorder(null);
+        addMaterialButton7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addMaterialButton7MouseClicked(evt);
+            }
+        });
+        jpCreateM.add(addMaterialButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 380, 100, 30));
+
+        Menu.add(jpCreateM, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1024, 431));
+
+        jpCreateS.setBackground(new java.awt.Color(28, 28, 28));
+        jpCreateS.setMinimumSize(new java.awt.Dimension(1024, 431));
+        jpCreateS.setPreferredSize(new java.awt.Dimension(1024, 431));
+        jpCreateS.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        goBackButton7.setBackground(new java.awt.Color(28, 28, 28));
+        goBackButton7.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        goBackButton7.setForeground(new java.awt.Color(77, 147, 255));
+        goBackButton7.setText("< Regresar");
+        goBackButton7.setBorder(null);
+        goBackButton7.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
+        goBackButton7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                goBackButton7MouseClicked(evt);
+            }
+        });
+        jpCreateS.add(goBackButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 20, 132, 30));
+
+        controlPanelTitle6.setBackground(new java.awt.Color(203, 203, 204));
+        controlPanelTitle6.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        controlPanelTitle6.setForeground(new java.awt.Color(255, 255, 255));
+        controlPanelTitle6.setText("Agregar etapa");
+        jpCreateS.add(controlPanelTitle6, new org.netbeans.lib.awtextra.AbsoluteConstraints(319, 28, -1, 46));
+
+        jSeparator9.setBackground(new java.awt.Color(0, 69, 173));
+        jSeparator9.setForeground(new java.awt.Color(0, 69, 173));
+        jSeparator9.setToolTipText("");
+        jSeparator9.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 56, 142)));
+        jpCreateS.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(319, 80, 388, -1));
+
+        addMaterialButton8.setBackground(new java.awt.Color(65, 69, 71));
+        addMaterialButton8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        addMaterialButton8.setForeground(new java.awt.Color(204, 204, 204));
+        addMaterialButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/agregar_azul.png"))); // NOI18N
+        addMaterialButton8.setText("  Agregar");
+        addMaterialButton8.setBorder(null);
+        addMaterialButton8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addMaterialButton8MouseClicked(evt);
+            }
+        });
+        jpCreateS.add(addMaterialButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 320, 110, 30));
+
+        jTextCs8.setBackground(new java.awt.Color(48, 48, 48));
+        jTextCs8.setColumns(20);
+        jTextCs8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTextCs8.setForeground(new java.awt.Color(204, 204, 204));
+        jTextCs8.setRows(5);
+        jTextCs8.setText("Descripción");
+        jTextCs8.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 5, 2, 5));
+        jTextCs8.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jScrollPane11.setViewportView(jTextCs8);
+
+        jpCreateS.add(jScrollPane11, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 250, 420, 110));
+
+        jTextCs3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTextCs3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mes", "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
+        jpCreateS.add(jTextCs3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 170, 110, -1));
+
+        jTextCs2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTextCs2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dia", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        jpCreateS.add(jTextCs2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 170, -1, -1));
+
+        jTextCs1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTextCs1.setForeground(new java.awt.Color(204, 204, 204));
+        jTextCs1.setText("XXXX");
+        jpCreateS.add(jTextCs1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 130, 60, 30));
+
+        jTextCs11.setBackground(new java.awt.Color(48, 48, 48));
+        jTextCs11.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTextCs11.setForeground(new java.awt.Color(204, 204, 204));
+        jTextCs11.setText("Limite inferior");
+        jTextCs11.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 5, 2, 5));
+        jTextCs11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextCs11ActionPerformed(evt);
+            }
+        });
+        jpCreateS.add(jTextCs11, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 200, 150, 28));
+
+        jTextCs4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTextCs4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Año", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2029", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039" }));
+        jpCreateS.add(jTextCs4, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 170, 90, -1));
+
+        jLabel24.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel24.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel24.setText("Fecha de finalización: ");
+        jpCreateS.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 210, -1, -1));
+
+        jTextCs5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTextCs5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dia", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        jpCreateS.add(jTextCs5, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 210, -1, -1));
+
+        jTextCs6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTextCs6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mes", "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
+        jpCreateS.add(jTextCs6, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 210, 110, -1));
+
+        jTextCs7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTextCs7.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Año", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2029", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039" }));
+        jpCreateS.add(jTextCs7, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 210, 90, -1));
+
+        jTextCs9.setBackground(new java.awt.Color(48, 48, 48));
+        jTextCs9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTextCs9.setForeground(new java.awt.Color(204, 204, 204));
+        jTextCs9.setText("Nombre del parametro");
+        jTextCs9.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 5, 2, 5));
+        jTextCs9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextCs9ActionPerformed(evt);
+            }
+        });
+        jpCreateS.add(jTextCs9, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 160, 320, 28));
+
+        jTextCs10.setBackground(new java.awt.Color(48, 48, 48));
+        jTextCs10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTextCs10.setForeground(new java.awt.Color(204, 204, 204));
+        jTextCs10.setText("Limite superior");
+        jTextCs10.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 5, 2, 5));
+        jTextCs10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextCs10ActionPerformed(evt);
+            }
+        });
+        jpCreateS.add(jTextCs10, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 200, 150, 28));
+
+        addMaterialButton9.setBackground(new java.awt.Color(0, 56, 142));
+        addMaterialButton9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        addMaterialButton9.setForeground(new java.awt.Color(204, 204, 204));
+        addMaterialButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/correcto.png"))); // NOI18N
+        addMaterialButton9.setText("  Guardar etapa     ");
+        addMaterialButton9.setBorder(null);
+        addMaterialButton9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addMaterialButton9MouseClicked(evt);
+            }
+        });
+        jpCreateS.add(addMaterialButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 380, 170, 28));
+
+        addMaterialButton10.setBackground(new java.awt.Color(65, 69, 71));
+        addMaterialButton10.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        addMaterialButton10.setForeground(new java.awt.Color(204, 204, 204));
+        addMaterialButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/incorrecto.png"))); // NOI18N
+        addMaterialButton10.setText(" Eliminar ");
+        addMaterialButton10.setBorder(null);
+        addMaterialButton10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addMaterialButton10MouseClicked(evt);
+            }
+        });
+        jpCreateS.add(addMaterialButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 320, 110, 30));
+
+        ParameterL1.setBackground(new java.awt.Color(48, 48, 48));
+        ParameterL1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        ParameterL1.setForeground(new java.awt.Color(204, 204, 204));
+        ParameterL1.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Parametro 1", "Parametro 2", "Parametro 3", "Parametro 4", "Parametro 5", "Parametro 6" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane14.setViewportView(ParameterL1);
+
+        jpCreateS.add(jScrollPane14, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 240, 320, 66));
+
+        jLabel18.setBackground(new java.awt.Color(48, 48, 48));
+        jLabel18.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel18.setText("Parametros de la etapa");
+        jpCreateS.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 130, -1, -1));
+
+        jTextCs0.setBackground(new java.awt.Color(48, 48, 48));
+        jTextCs0.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTextCs0.setForeground(new java.awt.Color(204, 204, 204));
+        jTextCs0.setText("Nombre del etapa");
+        jTextCs0.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 5, 2, 5));
+        jTextCs0.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextCs0ActionPerformed(evt);
+            }
+        });
+        jpCreateS.add(jTextCs0, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, 320, 28));
+
+        addMaterialButton11.setBackground(new java.awt.Color(0, 56, 142));
+        addMaterialButton11.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        addMaterialButton11.setForeground(new java.awt.Color(204, 204, 204));
+        addMaterialButton11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/correcto2.png"))); // NOI18N
+        addMaterialButton11.setText("Nuevo");
+        addMaterialButton11.setBorder(null);
+        addMaterialButton11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addMaterialButton11MouseClicked(evt);
+            }
+        });
+        jpCreateS.add(addMaterialButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 380, 100, 30));
+
+        jLabel25.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel25.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel25.setText("Fecha de inicio: ");
+        jpCreateS.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, -1, -1));
+
+        jLabel26.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel26.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel26.setText("ID:");
+        jpCreateS.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 130, 30, 30));
+
+        Menu.add(jpCreateS, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1024, 431));
+
         getContentPane().add(Menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1024, 541));
 
         pack();
@@ -1218,26 +1784,6 @@ public class GUI extends javax.swing.JFrame {
     private void jTextR1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextR1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextR1ActionPerformed
-
-    private void nameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nameFieldActionPerformed
-
-    private void dateFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dateFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_dateFieldActionPerformed
-
-    private void addMaterialButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addMaterialButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_addMaterialButtonActionPerformed
-
-    private void addStageButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addStageButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_addStageButtonActionPerformed
-
-    private void doneButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doneButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_doneButtonActionPerformed
 
     private void generateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generateButtonActionPerformed
         // TODO add your handling code here:
@@ -1373,7 +1919,9 @@ public class GUI extends javax.swing.JFrame {
             jpSearchP.setVisible(false);
             jpCreateP.setVisible(false);
             jpRegister.setVisible(false);
-            jpControl.setVisible(false);            
+            jpControl.setVisible(false); 
+            jpCreateS.setVisible(false);
+            jpCreateM.setVisible(false);
         Menu.repaint();
         Menu.revalidate(); 
         
@@ -1478,7 +2026,6 @@ public class GUI extends javax.swing.JFrame {
 
   
     private void jCheckBox1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckBox1MouseClicked
-
         if(AdmC){
         AdmC=false;
         jTextR5.setFocusable(AdmC);
@@ -1496,6 +2043,676 @@ public class GUI extends javax.swing.JFrame {
         jpRegister.setVisible(true);
         
     }//GEN-LAST:event_seeRegisterButtonMouseClicked
+
+    public String convertMonth(String month){
+        switch (month) {
+             case "Enero":
+                   return "01";
+             case "Febrero":
+                   return "02";
+             case "Marzo":
+                   return "03";
+             case "Abril":
+                   return "04";
+             case "Mayo":
+                   return "05";
+             case "Junio":
+                   return "06";
+             case "Julio":
+                   return "07";
+             case "Agosto":
+                   return "09";
+             case "Septiembre":
+                   return "09";
+             case "Octubre":
+                   return "10";
+             case "Noviembre":
+                   return "11";
+             case "Diciembre":
+                   return "12";
+                   
+             default:
+                 return "Novalido";
+        }
+   
+    }
+    private static int numberProduction=0;
+    private void doneButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_doneButtonMouseClicked
+        Production production=new Production();
+        Boolean correct=true;
+        int countP=1;
+        try{
+           
+           try{
+               Integer.parseInt(jTextCp2.getSelectedItem().toString());
+               Integer.parseInt(convertMonth(jTextCp3.getSelectedItem().toString()));
+               Integer.parseInt(jTextCp4.getSelectedItem().toString());               
+            }catch(Exception e){
+                correct=false;
+                 JOptionPane.showMessageDialog(this,"Valores no validos para fecha.");
+            }
+           
+           if(correct && (ListMaux.getSize()<=0 || ListSaux.getSize()<=0)){
+               correct=false;
+               JOptionPane.showMessageDialog(this,"Antes de guardar, debe agregar materiales y etapas a la producción.");
+             }
+           if(correct){
+               int dialog = JOptionPane.YES_NO_OPTION;
+           int result = JOptionPane.showConfirmDialog(null, "¿Desea guardar los datos?","Guardar la producción",dialog);
+           if(result==0){
+            production=new Production(jTextCp1.getText(), jTextCp5.getText(),ListMaux, ListSaux);
+            production.setStartDate("No iniciado");
+            production.setEndDate(Integer.parseInt(jTextCp2.getSelectedItem().toString())+"/"+Integer.parseInt(convertMonth(jTextCp3.getSelectedItem().toString()))+"/"+Integer.parseInt(jTextCp4.getSelectedItem().toString()));
+            production.setIsActive(false);
+            production.setIsFinished(false);
+            myArrayListProduction.pushBack(production);
+            
+            productionIDLabel1.setText(String.valueOf(countP+1));
+            jTextCp1.setText("Nombre de la producción");
+            jTextCp3.removeAllItems();
+            jTextCp3.addItem("Mes");
+            jTextCp3.addItem("Enero");
+            jTextCp3.addItem("Febrero");
+            jTextCp3.addItem("Marzo");
+            jTextCp3.addItem("Abril");
+            jTextCp3.addItem("Mayo");
+            jTextCp3.addItem("Junio");
+            jTextCp3.addItem("Julio");
+            jTextCp3.addItem("Agosto");
+            jTextCp3.addItem("Septiembre");
+            jTextCp3.addItem("Octubre");
+            jTextCp3.addItem("Noviembre");
+            jTextCp3.addItem("Diciembre");
+             
+            jTextCp2.removeAllItems();  
+           
+            jTextCp2.addItem("Año");
+           
+            for(int i=0; i<10; i++){
+            jTextCp2.addItem("202"+Integer.toString(i));
+           
+            }   
+            for(int i=0; i<10; i++){
+            jTextCp2.addItem("203"+Integer.toString(i));
+           
+            }
+            
+            jTextCp4.removeAllItems();
+            jTextCp4.addItem("Dia");
+            for(int i=1; i<32; i++){
+            jTextCp4.addItem(Integer.toString(i));
+            }
+            jTextCp5.setText("Descripción");
+            materialL.removeAll();
+            stagesL.removeAll();
+            String [] namep= new  String[0];
+            materialL.setListData(namep);
+            stagesL.setListData(namep);            
+            ListMaux= new MyArrayList<>();
+            ListSaux= new MyArrayList<>();
+            jLabel5.setText("Resumen: "+String.valueOf(ListMaux.getSize())+" material/es, "+String.valueOf(ListSaux.getSize()) +" etapa/s.");
+           }
+
+           }
+           
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(this,"Ha ocurrido un error, por favor contacte con el administrador.");
+        }
+    }//GEN-LAST:event_doneButtonMouseClicked
+
+    private void jTextCp1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextCp1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextCp1ActionPerformed
+
+    private void jTextCm11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextCm11ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextCm11ActionPerformed
+
+    private void jTextCm1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextCm1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextCm1ActionPerformed
+
+    private void jTextCm9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextCm9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextCm9ActionPerformed
+
+    private void jTextCm10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextCm10ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextCm10ActionPerformed
+
+    private void addMaterialButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMaterialButton1MouseClicked
+        jpCreateP.setVisible(false);
+        jpCreateM.setVisible(true);        
+    }//GEN-LAST:event_addMaterialButton1MouseClicked
+
+    private void goBackButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_goBackButton6MouseClicked
+         jpCreateM.setVisible(false); 
+         jpCreateP.setVisible(true);
+         jLabel5.setText("Resumen: "+String.valueOf(ListMaux.getSize())+" material/es, "+String.valueOf(ListSaux.getSize()) +" etapa/s.");
+          materialL.removeAll();
+                String [] namep= new  String[ListMaux.getSize()];
+                for (int i = 0; i < ListMaux.getSize(); i++) {
+                namep[i]=ListMaux.getItem(i).getName();
+                }
+          materialL.setListData(namep);
+    }//GEN-LAST:event_goBackButton6MouseClicked
+    private static MyArrayList<Parameter> listPaux = new MyArrayList<>();
+    private void addMaterialButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMaterialButton4MouseClicked
+        Parameter parameter;
+        
+        Boolean correct=true;
+        try{
+            try{
+                Double.parseDouble(jTextCm10.getText());
+                Double.parseDouble(jTextCm11.getText());
+            }catch(Exception e){
+             JOptionPane.showMessageDialog(this,"Valor no valido para los limites en el parametro");
+             correct=false;
+             }
+            if(correct &&(Double.parseDouble( jTextCm10.getText())<0.0 || Double.parseDouble(jTextCm11.getText())<0.0)){
+                 JOptionPane.showMessageDialog(this,"El valor del limite debe ser mayor o igual a 0.");
+                 correct=false;
+            }
+            if(correct && (Double.parseDouble(jTextCm10.getText())<Double.parseDouble(jTextCm11.getText()))){
+              correct=false;
+                JOptionPane.showMessageDialog(this,"El limite inferior no puede ser mayor al limite superior");
+             }
+            if(correct){
+              parameter =new Parameter(jTextCm9.getText(),-1.0,Double.parseDouble( jTextCm11.getText()),Double.parseDouble(jTextCm10.getText()));   
+              listPaux.pushBack(parameter);
+              jTextCm9.setText("Nombre de parametro");
+              jTextCm10.setText("Limite superior");
+              jTextCm11.setText("Limite inferior");
+              
+              ParameterL.removeAll();
+                String [] namep= new  String[listPaux.getSize()];
+                for (int i = 0; i < listPaux.getSize(); i++) {
+                namep[i]=listPaux.getItem(i).getName();
+                }
+                ParameterL.setListData(namep);
+            }
+            
+        }catch(Exception e){
+             JOptionPane.showMessageDialog(this,"Ha ocurrido un error, por favor contacte con el administrador.");
+        }
+    }//GEN-LAST:event_addMaterialButton4MouseClicked
+
+    private void addMaterialButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMaterialButton5MouseClicked
+        int selected =ParameterL.getSelectedIndex();
+        if(selected!=-1){
+            int dialog = JOptionPane.YES_NO_OPTION;
+            int result = JOptionPane.showConfirmDialog(null, "¿Esta seguro que desea eliminar el parametro?","Eliminar parametro",dialog);
+            if(result==0){
+            listPaux.removeIndex(selected);
+             ParameterL.removeAll();
+                String [] namep= new  String[listPaux.getSize()];
+                for (int i = 0; i < listPaux.getSize(); i++) {
+                namep[i]=listPaux.getItem(i).getName();
+                }
+                ParameterL.setListData(namep);
+         }
+        }
+        
+    }//GEN-LAST:event_addMaterialButton5MouseClicked
+
+   private static MyArrayList<RawMaterial> ListMaux= new MyArrayList<>();
+    private void addMaterialButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMaterialButton6MouseClicked
+        Boolean correct=true;
+        try{
+            try{
+               Integer.parseInt(jTextCm2.getSelectedItem().toString());
+               Integer.parseInt(convertMonth(jTextCm3.getSelectedItem().toString()));
+               Integer.parseInt(jTextCm4.getSelectedItem().toString());
+               Integer.parseInt(jTextCm5.getSelectedItem().toString());
+               Integer.parseInt(convertMonth(jTextCm6.getSelectedItem().toString()));
+               Integer.parseInt(jTextCm7.getSelectedItem().toString());
+            }catch(Exception e){
+                correct=false;
+                 JOptionPane.showMessageDialog(this,"Valores no validos para fecha.");
+            }
+            if(correct && listPaux.getSize()==0){
+                 JOptionPane.showMessageDialog(this,"Antes de guardar, agregue parametros al material.");
+                correct=false;
+            }
+            
+            if(correct && Integer.parseInt(jTextCm4.getSelectedItem().toString())>Integer.parseInt(jTextCm7.getSelectedItem().toString())){
+                correct=false;
+                 JOptionPane.showMessageDialog(this,"La fecha de inicio debe ser menor a la fecha de finalización.");
+                
+            }else  if(correct && Integer.parseInt(jTextCm4.getSelectedItem().toString())==Integer.parseInt(jTextCm7.getSelectedItem().toString())){
+                
+                if(Integer.parseInt(convertMonth(jTextCm3.getSelectedItem().toString()))>Integer.parseInt(convertMonth(jTextCm6.getSelectedItem().toString()))){
+                    correct=false;
+                     JOptionPane.showMessageDialog(this,"La fecha de inicio debe ser menor a la fecha de finalización.");
+                }else if(Integer.parseInt(convertMonth(jTextCm3.getSelectedItem().toString()))==Integer.parseInt(convertMonth(jTextCm6.getSelectedItem().toString()))){
+                    if(Integer.parseInt(jTextCm2.getSelectedItem().toString())>Integer.parseInt(jTextCm5.getSelectedItem().toString())){
+                        correct=false;
+                        JOptionPane.showMessageDialog(this,"La fecha de inicio debe ser menor a la fecha de finalización.");
+                     }
+                }
+            }
+            
+            
+            if(correct){
+             int dialog = JOptionPane.YES_NO_OPTION;
+            int result = JOptionPane.showConfirmDialog(null, "¿Desea guardar los datos?","Guardar material",dialog);
+            if(result==0){
+            RawMaterial rawMaterial;
+            String dataS=Integer.parseInt(jTextCm2.getSelectedItem().toString())+"/"+Integer.parseInt(convertMonth(jTextCm3.getSelectedItem().toString()))+"/"+Integer.parseInt(jTextCm4.getSelectedItem().toString());
+            String dataE=Integer.parseInt(jTextCm5.getSelectedItem().toString())+"/"+Integer.parseInt(convertMonth(jTextCm6.getSelectedItem().toString()))+"/"+Integer.parseInt(jTextCm7.getSelectedItem().toString());
+            rawMaterial= new RawMaterial(jTextCm0.getText(),dataS,dataE,jTextCm1.getText(),jTextCm8.getText(),listPaux);           
+            ListMaux.pushBack(rawMaterial);
+           }
+            }
+      
+          
+        }catch(Exception e){
+              JOptionPane.showMessageDialog(this,"Ha ocurrido un error, por favor contacte con el administrador.");
+        }
+    }//GEN-LAST:event_addMaterialButton6MouseClicked
+
+    private void jTextCm0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextCm0ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextCm0ActionPerformed
+    
+    private void addMaterialButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMaterialButton7MouseClicked
+         try{
+           int dialog = JOptionPane.YES_NO_OPTION;
+           int result = JOptionPane.showConfirmDialog(null, "¿Desea agregar un nuevo material?","Nuevo material",dialog);
+           if(result==0){
+            listPaux = new MyArrayList<>();
+            jTextCm0.setText("Nombre del material");
+            jTextCm1.setText("Lote");
+            jTextCm8.setText("Descripción");
+                
+            jTextCm3.removeAllItems();
+            jTextCm3.addItem("Mes");
+           
+            jTextCm3.addItem("Enero");
+            jTextCm3.addItem("Febrero");
+            jTextCm3.addItem("Marzo");
+            jTextCm3.addItem("Abril");
+            jTextCm3.addItem("Mayo");
+            jTextCm3.addItem("Junio");
+            jTextCm3.addItem("Julio");
+            jTextCm3.addItem("Agosto");
+            jTextCm3.addItem("Septiembre");
+            jTextCm3.addItem("Octubre");
+            jTextCm3.addItem("Noviembre");
+            jTextCm3.addItem("Diciembre");
+            
+            jTextCm6.removeAllItems();
+            jTextCm6.addItem("Mes");
+           
+            jTextCm6.addItem("Enero");
+            jTextCm6.addItem("Febrero");
+            jTextCm6.addItem("Marzo");
+            jTextCm6.addItem("Abril");
+            jTextCm6.addItem("Mayo");
+            jTextCm6.addItem("Junio");
+            jTextCm6.addItem("Julio");
+            jTextCm6.addItem("Agosto");
+            jTextCm6.addItem("Septiembre");
+            jTextCm6.addItem("Octubre");
+            jTextCm6.addItem("Noviembre");
+            jTextCm6.addItem("Diciembre");
+            
+            jTextCm4.removeAllItems();  
+            jTextCm7.removeAllItems(); 
+            jTextCm4.addItem("Año");
+            jTextCm7.addItem("Año");
+            for(int i=0; i<10; i++){
+            jTextCm4.addItem("202"+Integer.toString(i));
+            jTextCm7.addItem("202"+Integer.toString(i));
+            }   
+            for(int i=0; i<10; i++){
+            jTextCm4.addItem("203"+Integer.toString(i));
+            jTextCm7.addItem("203"+Integer.toString(i));
+            }
+            
+            jTextCm2.removeAllItems();
+            jTextCm5.removeAllItems();
+            jTextCm2.addItem("Dia");
+            jTextCm5.addItem("Dia");
+            for(int i=1; i<32; i++){
+            jTextCm2.addItem(Integer.toString(i));
+            jTextCm5.addItem(Integer.toString(i));
+            }
+            
+            jTextCm9.setText("Nombre de parametro");
+            jTextCm10.setText("Limite superior");
+            jTextCm11.setText("Limite inferior");
+            ParameterL.removeAll();
+            String [] namep= new  String[0];
+             ParameterL.setListData(namep);
+           }
+          
+        }catch(Exception e){
+              JOptionPane.showMessageDialog(this,"Ha ocurrido un error, por favor contacte con el administrador.");
+        }
+    }//GEN-LAST:event_addMaterialButton7MouseClicked
+
+    private void addStageButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addStageButton3MouseClicked
+        int selected =materialL.getSelectedIndex();
+        if(selected!=-1){
+            int dialog = JOptionPane.YES_NO_OPTION;
+            int result = JOptionPane.showConfirmDialog(null, "¿Esta seguro que desea eliminar la materia prima?","Eliminar material",dialog);
+            if(result==0){
+            ListMaux.removeIndex(selected);
+            jLabel5.setText("Resumen: "+String.valueOf(ListMaux.getSize())+" material/es, "+String.valueOf(ListSaux.getSize()) +" etapa/s.");
+            materialL.removeAll();
+                String [] namep= new  String[ListMaux.getSize()];
+                for (int i = 0; i < ListMaux.getSize(); i++) {
+                namep[i]=listPaux.getItem(i).getName();
+                }
+                materialL.setListData(namep);
+         }
+        }
+         
+    }//GEN-LAST:event_addStageButton3MouseClicked
+
+    private void goBackButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_goBackButton7MouseClicked
+        jpCreateS.setVisible(false); 
+        jpCreateP.setVisible(true);
+        jLabel5.setText("Resumen: "+String.valueOf(ListMaux.getSize())+" material/es, "+String.valueOf(ListSaux.getSize()) +" etapa/s.");
+          stagesL.removeAll();
+                String [] namep= new  String[ListSaux.getSize()];
+                for (int i = 0; i < ListSaux.getSize(); i++) {
+                namep[i]=ListSaux.getItem(i).getName();
+                }
+          stagesL.setListData(namep);
+    }//GEN-LAST:event_goBackButton7MouseClicked
+    private static MyArrayList<Parameter> listPaux2 = new MyArrayList<>();
+    private void addMaterialButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMaterialButton8MouseClicked
+       Parameter parameter;
+        
+        Boolean correct=true;
+        try{
+            try{
+                Double.parseDouble(jTextCs10.getText());
+                Double.parseDouble(jTextCs11.getText());
+            }catch(Exception e){
+             JOptionPane.showMessageDialog(this,"Valor no valido para los limites en el parametro");
+             correct=false;
+             }
+            if(correct &&(Double.parseDouble( jTextCs10.getText())<0.0 || Double.parseDouble(jTextCs11.getText())<0.0)){
+                 JOptionPane.showMessageDialog(this,"El valor del limite debe ser mayor o igual a 0.");
+                 correct=false;
+            }
+             if(correct && (Double.parseDouble( jTextCs10.getText())<Double.parseDouble(jTextCs11.getText()))){
+             correct=false;
+                JOptionPane.showMessageDialog(this,"El limite inferior no puede ser mayor al limite superior");
+             }
+            
+            if(correct){
+              parameter =new Parameter(jTextCs9.getText(),-1.0,Double.parseDouble( jTextCs11.getText()),Double.parseDouble(jTextCs10.getText()));   
+              listPaux2.pushBack(parameter);
+              jTextCs9.setText("Nombre del parametro");
+              jTextCs10.setText("Limite superior");
+              jTextCs11.setText("Limite inferior");
+              
+              ParameterL1.removeAll();
+                String [] namep= new  String[listPaux2.getSize()];
+                for (int i = 0; i < listPaux2.getSize(); i++) {
+                namep[i]=listPaux2.getItem(i).getName();
+                }
+                ParameterL1.setListData(namep);
+            }
+            
+        }catch(Exception e){
+             JOptionPane.showMessageDialog(this,"Ha ocurrido un error, por favor contacte con el administrador.");
+        }
+    }//GEN-LAST:event_addMaterialButton8MouseClicked
+
+    private void jTextCs11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextCs11ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextCs11ActionPerformed
+
+    private void jTextCs9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextCs9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextCs9ActionPerformed
+
+    private void jTextCs10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextCs10ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextCs10ActionPerformed
+    private static MyArrayList<Stage> ListSaux= new MyArrayList<>();
+    private void addMaterialButton9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMaterialButton9MouseClicked
+         Boolean correct=true;
+        try{
+           
+            //
+             try{
+               Integer.parseInt(jTextCs2.getSelectedItem().toString());
+               Integer.parseInt(convertMonth(jTextCs3.getSelectedItem().toString()));
+               Integer.parseInt(jTextCs4.getSelectedItem().toString());
+               Integer.parseInt(jTextCs5.getSelectedItem().toString());
+               Integer.parseInt(convertMonth(jTextCs6.getSelectedItem().toString()));
+               Integer.parseInt(jTextCs7.getSelectedItem().toString());
+            }catch(Exception e){
+                correct=false;
+                 JOptionPane.showMessageDialog(this,"Valores no validos para fecha.");
+            }
+             
+                if(correct && listPaux2.getSize()==0){
+                 JOptionPane.showMessageDialog(this,"Antes de guardar, agregue parametros a la etapa.");
+                correct=false;
+             }
+                
+                 if(correct && Integer.parseInt(jTextCs4.getSelectedItem().toString())>Integer.parseInt(jTextCs7.getSelectedItem().toString())){
+                correct=false;
+                JOptionPane.showMessageDialog(this,"La fecha de inicio debe ser menor a la fecha de finalización.");
+                
+            }else  if(correct && Integer.parseInt(jTextCs4.getSelectedItem().toString())==Integer.parseInt(jTextCs7.getSelectedItem().toString())){
+                
+                if(Integer.parseInt(convertMonth(jTextCs3.getSelectedItem().toString()))>Integer.parseInt(convertMonth(jTextCs6.getSelectedItem().toString()))){
+                    correct=false;
+                    JOptionPane.showMessageDialog(this,"La fecha de inicio debe ser menor a la fecha de finalización.");
+                }else if(Integer.parseInt(convertMonth(jTextCs3.getSelectedItem().toString()))==Integer.parseInt(convertMonth(jTextCs6.getSelectedItem().toString()))){
+                    if(Integer.parseInt(jTextCs2.getSelectedItem().toString())>Integer.parseInt(jTextCs5.getSelectedItem().toString())){
+                        correct=false;
+                        JOptionPane.showMessageDialog(this,"La fecha de inicio debe ser menor a la fecha de finalización.");
+                     }
+                }
+            }
+            
+            
+            //
+            if(correct){
+                int dialog = JOptionPane.YES_NO_OPTION;
+           int result = JOptionPane.showConfirmDialog(null, "¿Desea guardar los datos?","Guardar etapa",dialog);
+           if(result==0){
+            Stage stage;
+            String dataS=Integer.parseInt(jTextCs2.getSelectedItem().toString())+"/"+Integer.parseInt(convertMonth(jTextCs3.getSelectedItem().toString()))+"/"+Integer.parseInt(jTextCs4.getSelectedItem().toString());
+            String dataE=Integer.parseInt(jTextCs5.getSelectedItem().toString())+"/"+Integer.parseInt(convertMonth(jTextCs6.getSelectedItem().toString()))+"/"+Integer.parseInt(jTextCs7.getSelectedItem().toString());
+            stage= new Stage(1,listPaux2,jTextCs0.getText(),dataS,dataE,jTextCs1.getText(),jTextCs8.getText());//Corregir,¡¡¡¡¡¿ que es es 1??           
+            stage.setIsActive(false);
+            stage.setIsFinished(false);
+            ListSaux.pushBack(stage);
+           }
+            }
+           
+          
+        }catch(Exception e){
+              JOptionPane.showMessageDialog(this,"Ha ocurrido un error, por favor contacte con el administrador.");
+        }
+    }//GEN-LAST:event_addMaterialButton9MouseClicked
+
+    private void addMaterialButton10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMaterialButton10MouseClicked
+       int selected =ParameterL1.getSelectedIndex();
+        if(selected!=-1){
+            int dialog = JOptionPane.YES_NO_OPTION;
+            int result = JOptionPane.showConfirmDialog(null, "¿Esta seguro que desea eliminar el parametro?","Eliminar parametro",dialog);
+            if(result==0){
+            listPaux2.removeIndex(selected);
+             ParameterL1.removeAll();
+                String [] namep= new  String[listPaux2.getSize()];
+                for (int i = 0; i < listPaux2.getSize(); i++) {
+                namep[i]=listPaux2.getItem(i).getName();
+                }
+            ParameterL1.setListData(namep);
+         }
+        }
+    }//GEN-LAST:event_addMaterialButton10MouseClicked
+
+    private void jTextCs0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextCs0ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextCs0ActionPerformed
+
+    private void addMaterialButton11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMaterialButton11MouseClicked
+    try{
+           int dialog = JOptionPane.YES_NO_OPTION;
+           int result = JOptionPane.showConfirmDialog(null, "¿Desea crear una nueva etapa?","Nuevo etapa",dialog);
+           if(result==0){
+            listPaux2 = new MyArrayList<>();
+            jTextCs0.setText("Nombre de la etapa");
+            jTextCs1.setText("XXXX");
+            jTextCs8.setText("Descripción");
+                
+            jTextCs3.removeAllItems();
+            jTextCs3.addItem("Mes");
+           
+            jTextCs3.addItem("Enero");
+            jTextCs3.addItem("Febrero");
+            jTextCs3.addItem("Marzo");
+            jTextCs3.addItem("Abril");
+            jTextCs3.addItem("Mayo");
+            jTextCs3.addItem("Junio");
+            jTextCs3.addItem("Julio");
+            jTextCs3.addItem("Agosto");
+            jTextCs3.addItem("Septiembre");
+            jTextCs3.addItem("Octubre");
+            jTextCs3.addItem("Noviembre");
+            jTextCs3.addItem("Diciembre");
+            
+            jTextCs6.removeAllItems();
+            jTextCs6.addItem("Mes");
+           
+            jTextCs6.addItem("Enero");
+            jTextCs6.addItem("Febrero");
+            jTextCs6.addItem("Marzo");
+            jTextCs6.addItem("Abril");
+            jTextCs6.addItem("Mayo");
+            jTextCs6.addItem("Junio");
+            jTextCs6.addItem("Julio");
+            jTextCs6.addItem("Agosto");
+            jTextCs6.addItem("Septiembre");
+            jTextCs6.addItem("Octubre");
+            jTextCs6.addItem("Noviembre");
+            jTextCs6.addItem("Diciembre");
+            
+            jTextCs4.removeAllItems();  
+            jTextCs7.removeAllItems(); 
+            jTextCs4.addItem("Año");
+            jTextCs7.addItem("Año");
+            for(int i=0; i<10; i++){
+            jTextCs4.addItem("202"+Integer.toString(i));
+            jTextCs7.addItem("202"+Integer.toString(i));
+            }   
+            for(int i=0; i<10; i++){
+            jTextCs4.addItem("203"+Integer.toString(i));
+            jTextCs7.addItem("203"+Integer.toString(i));
+            }
+            
+            jTextCs2.removeAllItems();
+            jTextCs5.removeAllItems();
+            jTextCs2.addItem("Dia");
+            jTextCs5.addItem("Dia");
+            for(int i=1; i<32; i++){
+            jTextCs2.addItem(Integer.toString(i));
+            jTextCs5.addItem(Integer.toString(i));
+            }
+            
+            jTextCs9.setText("Nombre de parametro");
+            jTextCs10.setText("Limite superior");
+            jTextCs11.setText("Limite inferior");
+            ParameterL1.removeAll();
+            String [] namep= new  String[0];
+             ParameterL.setListData(namep);
+           }
+          
+        }catch(Exception e){
+              JOptionPane.showMessageDialog(this,"Ha ocurrido un error, por favor contacte con el administrador.");
+        }
+    }//GEN-LAST:event_addMaterialButton11MouseClicked
+
+    private void addStageButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addStageButton1MouseClicked
+        jpCreateP.setVisible(false);
+        jpCreateS.setVisible(true); 
+    }//GEN-LAST:event_addStageButton1MouseClicked
+
+    private void addStageButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addStageButton2MouseClicked
+       int selected =stagesL.getSelectedIndex();
+        if(selected!=-1){
+            int dialog = JOptionPane.YES_NO_OPTION;
+            int result = JOptionPane.showConfirmDialog(null, "¿Esta seguro que desea eliminar la etapa?","Eliminar etapa",dialog);
+            if(result==0){
+            ListSaux.removeIndex(selected);
+            jLabel5.setText("Resumen: "+String.valueOf(ListMaux.getSize())+" material/es, "+String.valueOf(ListSaux.getSize()) +" etapa/s.");
+            stagesL.removeAll();
+                String [] namep= new  String[ListSaux.getSize()];
+                for (int i = 0; i < ListSaux.getSize(); i++) {
+                namep[i]=ListSaux.getItem(i).getName();
+                }
+                stagesL.setListData(namep);
+         }
+        }
+         
+    }//GEN-LAST:event_addStageButton2MouseClicked
+
+    private void addMaterialButton12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMaterialButton12MouseClicked
+     try{
+           int dialog = JOptionPane.YES_NO_OPTION;
+           int result = JOptionPane.showConfirmDialog(null, "¿Desea crear una nueva producción?","Nuevo producción",dialog);
+           if(result==0){
+            productionIDLabel1.setText("XXXX");
+            jTextCp1.setText("Nombre de la producción");
+            jTextCp3.removeAllItems();
+            jTextCp3.addItem("Mes");
+            jTextCp3.addItem("Enero");
+            jTextCp3.addItem("Febrero");
+            jTextCp3.addItem("Marzo");
+            jTextCp3.addItem("Abril");
+            jTextCp3.addItem("Mayo");
+            jTextCp3.addItem("Junio");
+            jTextCp3.addItem("Julio");
+            jTextCp3.addItem("Agosto");
+            jTextCp3.addItem("Septiembre");
+            jTextCp3.addItem("Octubre");
+            jTextCp3.addItem("Noviembre");
+            jTextCp3.addItem("Diciembre");
+             
+            jTextCp2.removeAllItems();  
+           
+            jTextCp2.addItem("Año");
+           
+            for(int i=0; i<10; i++){
+            jTextCp2.addItem("202"+Integer.toString(i));
+           
+            }   
+            for(int i=0; i<10; i++){
+            jTextCp2.addItem("203"+Integer.toString(i));
+           
+            }
+            
+            jTextCp4.removeAllItems();
+            jTextCp4.addItem("Dia");
+            for(int i=1; i<32; i++){
+            jTextCp4.addItem(Integer.toString(i));
+            }
+            jTextCp5.setText("Descripción");
+            materialL.removeAll();
+            stagesL.removeAll();
+            String [] namep= new  String[0];
+            materialL.setListData(namep);
+            stagesL.setListData(namep);            
+            ListMaux= new MyArrayList<>();
+            ListSaux= new MyArrayList<>();
+            jLabel5.setText("Resumen: "+String.valueOf(ListMaux.getSize())+" material/es, "+String.valueOf(ListSaux.getSize()) +" etapa/s.");
+           }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(this,"Ha ocurrido un error, por favor contacte con el administrador.");
+        }
+    }//GEN-LAST:event_addMaterialButton12MouseClicked
 
     public static void main(String args[]) {
         for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -1542,6 +2759,8 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JPanel Main;
     private javax.swing.JList<String> MaterialjList;
     private javax.swing.JPanel Menu;
+    private javax.swing.JList<String> ParameterL;
+    private javax.swing.JList<String> ParameterL1;
     private javax.swing.JList<String> StagejList;
     private javax.swing.JLabel StatejLabel1;
     private javax.swing.JLabel StatejLabel10;
@@ -1558,25 +2777,38 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel StatejLabel7;
     private javax.swing.JLabel StatejLabel8;
     private javax.swing.JLabel StatejLabel9;
-    private javax.swing.JButton addMaterialButton;
-    private javax.swing.JButton addStageButton;
-    private javax.swing.JPanel addingPanel;
+    private javax.swing.JButton addMaterialButton1;
+    private javax.swing.JButton addMaterialButton10;
+    private javax.swing.JButton addMaterialButton11;
+    private javax.swing.JButton addMaterialButton12;
+    private javax.swing.JButton addMaterialButton4;
+    private javax.swing.JButton addMaterialButton5;
+    private javax.swing.JButton addMaterialButton6;
+    private javax.swing.JButton addMaterialButton7;
+    private javax.swing.JButton addMaterialButton8;
+    private javax.swing.JButton addMaterialButton9;
+    private javax.swing.JButton addStageButton1;
+    private javax.swing.JButton addStageButton2;
+    private javax.swing.JButton addStageButton3;
+    private javax.swing.JPanel addingPanel1;
     private javax.swing.JLabel controlPanelTitle;
     private javax.swing.JLabel controlPanelTitle1;
     private javax.swing.JLabel controlPanelTitle2;
     private javax.swing.JLabel controlPanelTitle3;
+    private javax.swing.JLabel controlPanelTitle5;
+    private javax.swing.JLabel controlPanelTitle6;
     private javax.swing.JButton createButton;
     private javax.swing.JLabel createLabel1;
     private javax.swing.JLabel createLabel2;
     private javax.swing.JPanel createPanel;
-    private javax.swing.JTextField dateField;
-    private javax.swing.JTextArea descriptionField;
     private javax.swing.JButton doneButton;
     private javax.swing.JPanel editProductionPanel;
     private javax.swing.JButton generateButton;
     private javax.swing.JButton goBackButton0;
     private javax.swing.JButton goBackButton3;
     private javax.swing.JButton goBackButton4;
+    private javax.swing.JButton goBackButton6;
+    private javax.swing.JButton goBackButton7;
     private javax.swing.JLabel idLabel;
     private javax.swing.JLabel imageLabel1;
     private javax.swing.JLabel infoText3;
@@ -1586,11 +2818,22 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1600,18 +2843,53 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane10;
+    private javax.swing.JScrollPane jScrollPane11;
+    private javax.swing.JScrollPane jScrollPane13;
+    private javax.swing.JScrollPane jScrollPane14;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
+    private javax.swing.JSeparator jSeparator8;
+    private javax.swing.JSeparator jSeparator9;
+    private javax.swing.JTextField jTextCm0;
+    private javax.swing.JTextField jTextCm1;
+    private javax.swing.JTextField jTextCm10;
+    private javax.swing.JTextField jTextCm11;
+    private javax.swing.JComboBox<String> jTextCm2;
+    private javax.swing.JComboBox<String> jTextCm3;
+    private javax.swing.JComboBox<String> jTextCm4;
+    private javax.swing.JComboBox<String> jTextCm5;
+    private javax.swing.JComboBox<String> jTextCm6;
+    private javax.swing.JComboBox<String> jTextCm7;
+    private javax.swing.JTextArea jTextCm8;
+    private javax.swing.JTextField jTextCm9;
+    private javax.swing.JTextField jTextCp1;
+    private javax.swing.JComboBox<String> jTextCp2;
+    private javax.swing.JComboBox<String> jTextCp3;
+    private javax.swing.JComboBox<String> jTextCp4;
+    private javax.swing.JTextArea jTextCp5;
+    private javax.swing.JTextField jTextCs0;
+    private javax.swing.JLabel jTextCs1;
+    private javax.swing.JTextField jTextCs10;
+    private javax.swing.JTextField jTextCs11;
+    private javax.swing.JComboBox<String> jTextCs2;
+    private javax.swing.JComboBox<String> jTextCs3;
+    private javax.swing.JComboBox<String> jTextCs4;
+    private javax.swing.JComboBox<String> jTextCs5;
+    private javax.swing.JComboBox<String> jTextCs6;
+    private javax.swing.JComboBox<String> jTextCs7;
+    private javax.swing.JTextArea jTextCs8;
+    private javax.swing.JTextField jTextCs9;
     private javax.swing.JTextField jTextL1;
     private javax.swing.JPasswordField jTextL2;
     private javax.swing.JTextField jTextR1;
@@ -1626,7 +2904,9 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JPanel jpCM;
     private javax.swing.JPanel jpCM2;
     private javax.swing.JPanel jpControl;
+    private javax.swing.JPanel jpCreateM;
     private javax.swing.JPanel jpCreateP;
+    private javax.swing.JPanel jpCreateS;
     private javax.swing.JPanel jpInfo;
     private javax.swing.JPanel jpNewUser;
     private javax.swing.JPanel jpRegister;
@@ -1637,11 +2917,10 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel manageLabel1;
     private javax.swing.JLabel manageLabel2;
     private javax.swing.JPanel managePanel;
-    private javax.swing.JList<String> materialsList;
+    private javax.swing.JList<String> materialL;
     private javax.swing.JTextField nMField;
     private javax.swing.JTextField nPField;
     private javax.swing.JTextField nSField;
-    private javax.swing.JTextField nameField;
     private javax.swing.JTextField nameField1;
     private javax.swing.JLabel namePjLabel;
     private javax.swing.JLabel ntMjLabel;
@@ -1649,6 +2928,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel ntSjLabel;
     private javax.swing.JLabel passwordLabel;
     private javax.swing.JLabel productionIDLabel;
+    private javax.swing.JLabel productionIDLabel1;
     private javax.swing.JButton registerButton;
     private javax.swing.JLabel registerLabel;
     private javax.swing.JButton registryButton;
@@ -1668,7 +2948,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton signInButton;
     private javax.swing.JLabel signInTitle;
     private javax.swing.JButton signOutButton;
-    private javax.swing.JList<String> stagesList;
+    private javax.swing.JList<String> stagesL;
     private javax.swing.JLabel userLabel;
     private javax.swing.JLabel userLabel1;
     private javax.swing.JLabel userLogoLabel;
