@@ -111,4 +111,42 @@ public class MyBinaryTree implements Serializable {
 
         }
     }
+
+    public void preorder(BinaryNode node) {
+        if (node != null) {
+            System.out.print(node.getKey() + " ");
+            preorder(node.getLeft());
+            preorder(node.getRight());
+        }
+    }
+
+    public void postorder(BinaryNode node) {
+        if (node != null) {
+            postorder(node.getLeft());
+            postorder(node.getRight());
+            System.out.print(node.getKey() + " ");
+        }
+    }
+
+    public void inorder(BinaryNode node) {
+        if (node != null) {
+            postorder(node.getLeft());
+            System.out.print(node.getKey() + " ");
+            postorder(node.getRight());
+        }
+    }
+
+    public void levels(BinaryNode node) {
+        ArrayQueue<BinaryNode> nodeQueue = new ArrayQueue<>();
+        BinaryNode aux = new BinaryNode();
+        nodeQueue.enqueue(node);
+        while (!nodeQueue.empty()) {
+            aux = nodeQueue.dequeue();
+            System.out.println(aux.getKey());
+            if (aux.getLeft() != null)
+                nodeQueue.enqueue(aux.getLeft());
+            if (aux.getRight() != null)
+                nodeQueue.enqueue(aux.getRight());
+        }
+    }
 }
