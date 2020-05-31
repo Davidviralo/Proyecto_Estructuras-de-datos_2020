@@ -4,6 +4,9 @@ import Estructuras_de_datos.*;
 import javax.swing.JOptionPane;
 import data.*;
 import static data.DataBase.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import javax.swing.ImageIcon;
 
 public class GUI extends javax.swing.JFrame {
 
@@ -127,6 +130,7 @@ public class GUI extends javax.swing.JFrame {
         addStageButton3 = new javax.swing.JButton();
         doneButton = new javax.swing.JButton();
         addMaterialButton12 = new javax.swing.JButton();
+        doneButton1 = new javax.swing.JButton();
         jpRegister = new javax.swing.JPanel();
         goBackButton4 = new javax.swing.JButton();
         controlPanelTitle2 = new javax.swing.JLabel();
@@ -144,47 +148,48 @@ public class GUI extends javax.swing.JFrame {
         controlPanelTitle3 = new javax.swing.JLabel();
         jSeparator6 = new javax.swing.JSeparator();
         seeRegisterButton = new javax.swing.JButton();
-        StatejLabel1 = new javax.swing.JLabel();
-        StatejLabel2 = new javax.swing.JLabel();
-        StatejLabel3 = new javax.swing.JLabel();
-        StatejLabel4 = new javax.swing.JLabel();
-        StatejLabel5 = new javax.swing.JLabel();
+        ImageP1 = new javax.swing.JLabel();
+        ImageP2 = new javax.swing.JLabel();
+        ImageP3 = new javax.swing.JLabel();
+        ImageP4 = new javax.swing.JLabel();
+        ImageP5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        searchPField = new javax.swing.JTextField();
+        namePjL0 = new javax.swing.JLabel();
+        jTextSp1 = new javax.swing.JTextField();
         searchPjLabel = new javax.swing.JLabel();
-        ntPjLabel = new javax.swing.JLabel();
+        nSdeP = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        ProductionLSp = new javax.swing.JList<>();
         jScrollPane6 = new javax.swing.JScrollPane();
-        StagejList = new javax.swing.JList<>();
-        ntSjLabel = new javax.swing.JLabel();
+        StageLSp = new javax.swing.JList<>();
+        nSdeP3 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        StatejLabel10 = new javax.swing.JLabel();
-        StatejLabel9 = new javax.swing.JLabel();
-        StatejLabel8 = new javax.swing.JLabel();
-        StatejLabel7 = new javax.swing.JLabel();
-        StatejLabel6 = new javax.swing.JLabel();
+        ImageS5 = new javax.swing.JLabel();
+        ImageS4 = new javax.swing.JLabel();
+        ImageS3 = new javax.swing.JLabel();
+        ImageS2 = new javax.swing.JLabel();
+        ImageS1 = new javax.swing.JLabel();
         searchSjLabel = new javax.swing.JLabel();
-        searchSField = new javax.swing.JTextField();
+        jTextSp2 = new javax.swing.JTextField();
         jScrollPane7 = new javax.swing.JScrollPane();
-        MaterialjList = new javax.swing.JList<>();
-        ntMjLabel = new javax.swing.JLabel();
+        MaterialLSp = new javax.swing.JList<>();
+        nSdeP5 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
-        StatejLabel15 = new javax.swing.JLabel();
-        StatejLabel14 = new javax.swing.JLabel();
-        StatejLabel13 = new javax.swing.JLabel();
-        StatejLabel12 = new javax.swing.JLabel();
-        StatejLabel11 = new javax.swing.JLabel();
+        ImageM5 = new javax.swing.JLabel();
+        ImageM4 = new javax.swing.JLabel();
+        ImageM3 = new javax.swing.JLabel();
+        ImageM2 = new javax.swing.JLabel();
+        ImageM1 = new javax.swing.JLabel();
         searchMjLabel = new javax.swing.JLabel();
-        searchMField = new javax.swing.JTextField();
-        namePjLabel = new javax.swing.JLabel();
-        nMField = new javax.swing.JTextField();
-        nSField = new javax.swing.JTextField();
-        nPField = new javax.swing.JTextField();
+        jTextSp3 = new javax.swing.JTextField();
+        namePjL = new javax.swing.JLabel();
+        nSdeP4 = new javax.swing.JTextField();
+        nSdeP2 = new javax.swing.JTextField();
+        nSdeP0 = new javax.swing.JTextField();
+        goBackButton5 = new javax.swing.JButton();
         jpCreateM = new javax.swing.JPanel();
         goBackButton6 = new javax.swing.JButton();
         controlPanelTitle5 = new javax.swing.JLabel();
@@ -496,7 +501,7 @@ public class GUI extends javax.swing.JFrame {
                 jCheckBox1MouseClicked(evt);
             }
         });
-        jpNewUser.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(222, 416, -1, -1));
+        jpNewUser.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 420, -1, -1));
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(202, 202, 202));
@@ -905,21 +910,11 @@ public class GUI extends javax.swing.JFrame {
         materialL.setBackground(new java.awt.Color(48, 48, 48));
         materialL.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         materialL.setForeground(new java.awt.Color(204, 204, 204));
-        materialL.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Materia prima 1", "Materia prima 2", "Materia prima 3", "Materia prima 4", "Materia prima 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane8.setViewportView(materialL);
 
         stagesL.setBackground(new java.awt.Color(48, 48, 48));
         stagesL.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         stagesL.setForeground(new java.awt.Color(204, 204, 204));
-        stagesL.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Etapa 1", "Etapa 2", "Etapa 3", "Etapa 4 ", "Etapa 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         stagesL.setPreferredSize(new java.awt.Dimension(36, 88));
         jScrollPane9.setViewportView(stagesL);
 
@@ -994,13 +989,11 @@ public class GUI extends javax.swing.JFrame {
         );
         addingPanel1Layout.setVerticalGroup(
             addingPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addingPanel1Layout.createSequentialGroup()
+            .addGroup(addingPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(addingPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(addingPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(addMaterialButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(addMaterialButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(addStageButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1010,11 +1003,11 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(addStageButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(addStageButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(81, 81, 81))
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(95, 95, 95))
         );
 
-        jpCreateP.add(addingPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 145, -1, 216));
+        jpCreateP.add(addingPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 120, -1, 230));
 
         doneButton.setBackground(new java.awt.Color(0, 56, 142));
         doneButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -1027,7 +1020,7 @@ public class GUI extends javax.swing.JFrame {
                 doneButtonMouseClicked(evt);
             }
         });
-        jpCreateP.add(doneButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(446, 377, 143, 35));
+        jpCreateP.add(doneButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 380, 143, 35));
 
         addMaterialButton12.setBackground(new java.awt.Color(0, 56, 142));
         addMaterialButton12.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -1041,6 +1034,19 @@ public class GUI extends javax.swing.JFrame {
             }
         });
         jpCreateP.add(addMaterialButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 380, 143, 35));
+
+        doneButton1.setBackground(new java.awt.Color(0, 56, 142));
+        doneButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        doneButton1.setForeground(new java.awt.Color(204, 204, 204));
+        doneButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/correcto.png"))); // NOI18N
+        doneButton1.setText("Ver lista de procesos");
+        doneButton1.setBorder(null);
+        doneButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                doneButton1MouseClicked(evt);
+            }
+        });
+        jpCreateP.add(doneButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 380, 180, 35));
 
         Menu.add(jpCreateP, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1024, 431));
 
@@ -1112,7 +1118,6 @@ public class GUI extends javax.swing.JFrame {
         resgisterF.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         resgisterF.setForeground(new java.awt.Color(204, 204, 204));
         resgisterF.setRows(5);
-        resgisterF.setText("\t\t             Nombre de la producción\n\n  Fecha de inicio: 12/12/2102   Fecha de finalización: 12/12/2012 Estado: Sin iniciar/Finalizado/En proceso\n  Descripción\n\n    MATERIALES\n    1. Nombre del material\tLote: \tFecha de compra: 1221/21/12     Fecha de vencimiento: 2112/12/21\n        Descripción\n        Paremetros\n         1. Nombre del parametro  Valor:15  Limite inferior: 2 Limite superior: 15\n    \n    ETAPAS\n    1. Nombre de la etapa\tFecha de inicio: 1212/12/12  Fecha final: 2112/12/12  Estado: Sin iniciar/En proceso/Finalizado\n        Descripción\n        Parametros \n         1. Nombre del parametro  Valor:15  Limite inferior: 2 Limite superior: 15 ");
         resgisterF.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 5, 2, 5));
         resgisterF.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         resgisterF.setFocusable(false);
@@ -1160,8 +1165,11 @@ public class GUI extends javax.swing.JFrame {
         Menu.add(jpRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1024, 431));
 
         jpSearchP.setBackground(new java.awt.Color(28, 28, 28));
+        jpSearchP.setEnabled(false);
+        jpSearchP.setFocusable(false);
         jpSearchP.setMinimumSize(new java.awt.Dimension(1024, 431));
         jpSearchP.setPreferredSize(new java.awt.Dimension(1024, 431));
+        jpSearchP.setRequestFocusEnabled(false);
         jpSearchP.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         controlPanelTitle3.setBackground(new java.awt.Color(203, 203, 204));
@@ -1187,217 +1195,252 @@ public class GUI extends javax.swing.JFrame {
                 seeRegisterButtonMouseClicked(evt);
             }
         });
-        jpSearchP.add(seeRegisterButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(439, 372, 186, 35));
+        jpSearchP.add(seeRegisterButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 370, 186, 35));
 
-        StatejLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/correcto2.png"))); // NOI18N
-        jpSearchP.add(StatejLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 182, -1, -1));
+        ImageP1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/nothing.png"))); // NOI18N
+        jpSearchP.add(ImageP1, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 182, -1, -1));
 
-        StatejLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/correcto2.png"))); // NOI18N
-        jpSearchP.add(StatejLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 204, -1, -1));
+        ImageP2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/nothing.png"))); // NOI18N
+        jpSearchP.add(ImageP2, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 204, -1, -1));
 
-        StatejLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/incorrecto.png"))); // NOI18N
-        jpSearchP.add(StatejLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 226, -1, -1));
+        ImageP3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/nothing.png"))); // NOI18N
+        jpSearchP.add(ImageP3, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 226, -1, -1));
 
-        StatejLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/linea.png"))); // NOI18N
-        jpSearchP.add(StatejLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 248, -1, -1));
+        ImageP4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/nothing.png"))); // NOI18N
+        jpSearchP.add(ImageP4, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 248, -1, -1));
 
-        StatejLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/correcto2.png"))); // NOI18N
-        jpSearchP.add(StatejLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 267, -1, -1));
+        ImageP5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/nothing.png"))); // NOI18N
+        jpSearchP.add(ImageP5, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 267, -1, -1));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/siguiente.png"))); // NOI18N
+        jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel7MouseClicked(evt);
+            }
+        });
         jpSearchP.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(325, 299, -1, 29));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/anterior.png"))); // NOI18N
-        jpSearchP.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(297, 299, -1, 29));
-
-        jLabel6.setBackground(new java.awt.Color(48, 48, 48));
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel6.setText("Nombre de la producción: ");
-        jpSearchP.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(414, 336, -1, 16));
-
-        searchPField.setBackground(new java.awt.Color(48, 48, 48));
-        searchPField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        searchPField.setForeground(new java.awt.Color(204, 204, 204));
-        searchPField.setText("Nombre de la producción");
-        searchPField.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 5, 2, 5));
-        searchPField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchPFieldActionPerformed(evt);
+        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel8MouseClicked(evt);
             }
         });
-        jpSearchP.add(searchPField, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 136, 259, 34));
+        jpSearchP.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(297, 299, -1, 29));
+
+        namePjL0.setBackground(new java.awt.Color(48, 48, 48));
+        namePjL0.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        namePjL0.setForeground(new java.awt.Color(204, 204, 204));
+        namePjL0.setText("Nombre de la producción: ");
+        jpSearchP.add(namePjL0, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 340, -1, 20));
+
+        jTextSp1.setBackground(new java.awt.Color(48, 48, 48));
+        jTextSp1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTextSp1.setForeground(new java.awt.Color(204, 204, 204));
+        jTextSp1.setText("Nombre de la producción");
+        jTextSp1.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 5, 2, 5));
+        jTextSp1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextSp1ActionPerformed(evt);
+            }
+        });
+        jpSearchP.add(jTextSp1, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 136, 259, 34));
 
         searchPjLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/buscar.png"))); // NOI18N
+        searchPjLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                searchPjLabelMouseClicked(evt);
+            }
+        });
         jpSearchP.add(searchPjLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 136, 21, 34));
 
-        ntPjLabel.setBackground(new java.awt.Color(48, 48, 48));
-        ntPjLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        ntPjLabel.setForeground(new java.awt.Color(204, 204, 204));
-        ntPjLabel.setText("de XX");
-        jpSearchP.add(ntPjLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(256, 299, -1, 29));
+        nSdeP.setBackground(new java.awt.Color(48, 48, 48));
+        nSdeP.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        nSdeP.setForeground(new java.awt.Color(204, 204, 204));
+        nSdeP.setText("de XX");
+        jpSearchP.add(nSdeP, new org.netbeans.lib.awtextra.AbsoluteConstraints(256, 299, -1, 29));
 
-        jList1.setBackground(new java.awt.Color(48, 48, 48));
-        jList1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jList1.setForeground(new java.awt.Color(204, 204, 204));
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Producción A", "Producción B", "Producción C", "Producción D", "Producción E" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+        ProductionLSp.setBackground(new java.awt.Color(48, 48, 48));
+        ProductionLSp.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        ProductionLSp.setForeground(new java.awt.Color(204, 204, 204));
+        ProductionLSp.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ProductionLSpMouseClicked(evt);
+            }
         });
-        jScrollPane5.setViewportView(jList1);
+        jScrollPane5.setViewportView(ProductionLSp);
 
         jpSearchP.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 176, 259, 117));
 
-        StagejList.setBackground(new java.awt.Color(48, 48, 48));
-        StagejList.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        StagejList.setForeground(new java.awt.Color(204, 204, 204));
-        StagejList.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Etapa C.1", "Etapa C.2", "Etapa C.3", "Etapa C.4", "Etapa C.5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane6.setViewportView(StagejList);
+        StageLSp.setBackground(new java.awt.Color(48, 48, 48));
+        StageLSp.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        StageLSp.setForeground(new java.awt.Color(204, 204, 204));
+        jScrollPane6.setViewportView(StageLSp);
 
         jpSearchP.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(414, 176, 259, 117));
 
-        ntSjLabel.setBackground(new java.awt.Color(48, 48, 48));
-        ntSjLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        ntSjLabel.setForeground(new java.awt.Color(204, 204, 204));
-        ntSjLabel.setText("de XX");
-        jpSearchP.add(ntSjLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(586, 299, -1, 29));
+        nSdeP3.setBackground(new java.awt.Color(48, 48, 48));
+        nSdeP3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        nSdeP3.setForeground(new java.awt.Color(204, 204, 204));
+        nSdeP3.setText("de XX");
+        jpSearchP.add(nSdeP3, new org.netbeans.lib.awtextra.AbsoluteConstraints(586, 299, -1, 29));
 
         jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/anterior.png"))); // NOI18N
+        jLabel15.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel15MouseClicked(evt);
+            }
+        });
         jpSearchP.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(627, 299, -1, 29));
 
         jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/siguiente.png"))); // NOI18N
-        jpSearchP.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(655, 299, -1, 29));
-
-        StatejLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/linea.png"))); // NOI18N
-        jpSearchP.add(StatejLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(387, 267, -1, -1));
-
-        StatejLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/linea.png"))); // NOI18N
-        jpSearchP.add(StatejLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(387, 248, -1, -1));
-
-        StatejLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/incorrecto.png"))); // NOI18N
-        jpSearchP.add(StatejLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(387, 226, -1, -1));
-
-        StatejLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/correcto2.png"))); // NOI18N
-        jpSearchP.add(StatejLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(387, 204, -1, -1));
-
-        StatejLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/correcto2.png"))); // NOI18N
-        jpSearchP.add(StatejLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(387, 182, -1, -1));
-
-        searchSjLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/buscar.png"))); // NOI18N
-        jpSearchP.add(searchSjLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(387, 136, 21, 34));
-
-        searchSField.setBackground(new java.awt.Color(48, 48, 48));
-        searchSField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        searchSField.setForeground(new java.awt.Color(204, 204, 204));
-        searchSField.setText("Nombre de la etapa");
-        searchSField.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 5, 2, 5));
-        searchSField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchSFieldActionPerformed(evt);
+        jLabel16.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel16MouseClicked(evt);
             }
         });
-        jpSearchP.add(searchSField, new org.netbeans.lib.awtextra.AbsoluteConstraints(414, 136, 259, 34));
+        jpSearchP.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(655, 299, -1, 29));
 
-        MaterialjList.setBackground(new java.awt.Color(48, 48, 48));
-        MaterialjList.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        MaterialjList.setForeground(new java.awt.Color(204, 204, 204));
-        MaterialjList.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Material C.1", "Material C.2", "Material C.3", "Material C.4", "Material C.5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+        ImageS5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/nothing.png"))); // NOI18N
+        jpSearchP.add(ImageS5, new org.netbeans.lib.awtextra.AbsoluteConstraints(387, 267, -1, -1));
+
+        ImageS4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/nothing.png"))); // NOI18N
+        jpSearchP.add(ImageS4, new org.netbeans.lib.awtextra.AbsoluteConstraints(387, 248, -1, -1));
+
+        ImageS3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/nothing.png"))); // NOI18N
+        jpSearchP.add(ImageS3, new org.netbeans.lib.awtextra.AbsoluteConstraints(387, 226, -1, -1));
+
+        ImageS2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/nothing.png"))); // NOI18N
+        jpSearchP.add(ImageS2, new org.netbeans.lib.awtextra.AbsoluteConstraints(387, 204, -1, -1));
+
+        ImageS1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/nothing.png"))); // NOI18N
+        jpSearchP.add(ImageS1, new org.netbeans.lib.awtextra.AbsoluteConstraints(387, 182, -1, -1));
+
+        searchSjLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/buscar.png"))); // NOI18N
+        searchSjLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                searchSjLabelMouseClicked(evt);
+            }
         });
-        jScrollPane7.setViewportView(MaterialjList);
+        jpSearchP.add(searchSjLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(387, 136, 21, 34));
+
+        jTextSp2.setBackground(new java.awt.Color(48, 48, 48));
+        jTextSp2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTextSp2.setForeground(new java.awt.Color(204, 204, 204));
+        jTextSp2.setText("Nombre de la etapa");
+        jTextSp2.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 5, 2, 5));
+        jTextSp2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextSp2ActionPerformed(evt);
+            }
+        });
+        jpSearchP.add(jTextSp2, new org.netbeans.lib.awtextra.AbsoluteConstraints(414, 136, 259, 34));
+
+        MaterialLSp.setBackground(new java.awt.Color(48, 48, 48));
+        MaterialLSp.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        MaterialLSp.setForeground(new java.awt.Color(204, 204, 204));
+        jScrollPane7.setViewportView(MaterialLSp);
 
         jpSearchP.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(722, 176, 259, 117));
 
-        ntMjLabel.setBackground(new java.awt.Color(48, 48, 48));
-        ntMjLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        ntMjLabel.setForeground(new java.awt.Color(204, 204, 204));
-        ntMjLabel.setText("de XX");
-        jpSearchP.add(ntMjLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(894, 299, -1, 29));
+        nSdeP5.setBackground(new java.awt.Color(48, 48, 48));
+        nSdeP5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        nSdeP5.setForeground(new java.awt.Color(204, 204, 204));
+        nSdeP5.setText("de XX");
+        jpSearchP.add(nSdeP5, new org.netbeans.lib.awtextra.AbsoluteConstraints(894, 299, -1, 29));
 
         jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/anterior.png"))); // NOI18N
+        jLabel19.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel19MouseClicked(evt);
+            }
+        });
         jpSearchP.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(935, 299, -1, 29));
 
         jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/siguiente.png"))); // NOI18N
+        jLabel20.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel20MouseClicked(evt);
+            }
+        });
         jpSearchP.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(963, 299, -1, 29));
 
-        StatejLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/correcto2.png"))); // NOI18N
-        jpSearchP.add(StatejLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(695, 267, -1, -1));
+        ImageM5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/nothing.png"))); // NOI18N
+        jpSearchP.add(ImageM5, new org.netbeans.lib.awtextra.AbsoluteConstraints(695, 267, -1, -1));
 
-        StatejLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/linea.png"))); // NOI18N
-        jpSearchP.add(StatejLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(695, 248, -1, -1));
+        ImageM4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/nothing.png"))); // NOI18N
+        jpSearchP.add(ImageM4, new org.netbeans.lib.awtextra.AbsoluteConstraints(695, 248, -1, -1));
 
-        StatejLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/incorrecto.png"))); // NOI18N
-        jpSearchP.add(StatejLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(695, 226, -1, -1));
+        ImageM3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/nothing.png"))); // NOI18N
+        jpSearchP.add(ImageM3, new org.netbeans.lib.awtextra.AbsoluteConstraints(695, 226, -1, -1));
 
-        StatejLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/correcto2.png"))); // NOI18N
-        jpSearchP.add(StatejLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(695, 204, -1, -1));
+        ImageM2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/nothing.png"))); // NOI18N
+        jpSearchP.add(ImageM2, new org.netbeans.lib.awtextra.AbsoluteConstraints(695, 204, -1, -1));
 
-        StatejLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/correcto2.png"))); // NOI18N
-        jpSearchP.add(StatejLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(695, 182, -1, -1));
+        ImageM1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/nothing.png"))); // NOI18N
+        jpSearchP.add(ImageM1, new org.netbeans.lib.awtextra.AbsoluteConstraints(695, 182, -1, -1));
 
         searchMjLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/buscar.png"))); // NOI18N
+        searchMjLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                searchMjLabelMouseClicked(evt);
+            }
+        });
         jpSearchP.add(searchMjLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(695, 136, 21, 34));
 
-        searchMField.setBackground(new java.awt.Color(48, 48, 48));
-        searchMField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        searchMField.setForeground(new java.awt.Color(204, 204, 204));
-        searchMField.setText("Nombre del material");
-        searchMField.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 5, 2, 5));
-        searchMField.addActionListener(new java.awt.event.ActionListener() {
+        jTextSp3.setBackground(new java.awt.Color(48, 48, 48));
+        jTextSp3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTextSp3.setForeground(new java.awt.Color(204, 204, 204));
+        jTextSp3.setText("Nombre del material");
+        jTextSp3.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 5, 2, 5));
+        jTextSp3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchMFieldActionPerformed(evt);
+                jTextSp3ActionPerformed(evt);
             }
         });
-        jpSearchP.add(searchMField, new org.netbeans.lib.awtextra.AbsoluteConstraints(722, 136, 259, 34));
+        jpSearchP.add(jTextSp3, new org.netbeans.lib.awtextra.AbsoluteConstraints(722, 136, 259, 34));
 
-        namePjLabel.setBackground(new java.awt.Color(48, 48, 48));
-        namePjLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        namePjLabel.setForeground(new java.awt.Color(204, 204, 204));
-        namePjLabel.setText("Producción C");
-        jpSearchP.add(namePjLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(582, 334, -1, -1));
+        namePjL.setBackground(new java.awt.Color(48, 48, 48));
+        namePjL.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        namePjL.setForeground(new java.awt.Color(204, 204, 204));
+        jpSearchP.add(namePjL, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 340, 130, 20));
 
-        nMField.setBackground(new java.awt.Color(48, 48, 48));
-        nMField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        nMField.setForeground(new java.awt.Color(204, 204, 204));
-        nMField.setText(" XX");
-        nMField.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 255, 255)));
-        nMField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nMFieldActionPerformed(evt);
+        nSdeP4.setBackground(new java.awt.Color(48, 48, 48));
+        nSdeP4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        nSdeP4.setForeground(new java.awt.Color(204, 204, 204));
+        nSdeP4.setText(" XX");
+        nSdeP4.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 255, 255)));
+        nSdeP4.setFocusable(false);
+        jpSearchP.add(nSdeP4, new org.netbeans.lib.awtextra.AbsoluteConstraints(862, 302, 26, -1));
+
+        nSdeP2.setBackground(new java.awt.Color(48, 48, 48));
+        nSdeP2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        nSdeP2.setForeground(new java.awt.Color(204, 204, 204));
+        nSdeP2.setText(" XX");
+        nSdeP2.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 255, 255)));
+        nSdeP2.setFocusable(false);
+        jpSearchP.add(nSdeP2, new org.netbeans.lib.awtextra.AbsoluteConstraints(554, 302, 26, -1));
+
+        nSdeP0.setBackground(new java.awt.Color(48, 48, 48));
+        nSdeP0.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        nSdeP0.setForeground(new java.awt.Color(204, 204, 204));
+        nSdeP0.setText(" XX");
+        nSdeP0.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 255, 255)));
+        nSdeP0.setFocusable(false);
+        jpSearchP.add(nSdeP0, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 302, 26, -1));
+
+        goBackButton5.setBackground(new java.awt.Color(28, 28, 28));
+        goBackButton5.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        goBackButton5.setForeground(new java.awt.Color(77, 147, 255));
+        goBackButton5.setText("< Regresar");
+        goBackButton5.setBorder(null);
+        goBackButton5.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
+        goBackButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                goBackButton5MouseClicked(evt);
             }
         });
-        jpSearchP.add(nMField, new org.netbeans.lib.awtextra.AbsoluteConstraints(862, 302, 26, -1));
-
-        nSField.setBackground(new java.awt.Color(48, 48, 48));
-        nSField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        nSField.setForeground(new java.awt.Color(204, 204, 204));
-        nSField.setText(" XX");
-        nSField.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 255, 255)));
-        nSField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nSFieldActionPerformed(evt);
-            }
-        });
-        jpSearchP.add(nSField, new org.netbeans.lib.awtextra.AbsoluteConstraints(554, 302, 26, -1));
-
-        nPField.setBackground(new java.awt.Color(48, 48, 48));
-        nPField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        nPField.setForeground(new java.awt.Color(204, 204, 204));
-        nPField.setText(" XX");
-        nPField.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 255, 255)));
-        nPField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nPFieldActionPerformed(evt);
-            }
-        });
-        jpSearchP.add(nPField, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 302, 26, -1));
+        jpSearchP.add(goBackButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 20, 132, 30));
 
         Menu.add(jpSearchP, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1024, 431));
 
@@ -1567,11 +1610,6 @@ public class GUI extends javax.swing.JFrame {
         ParameterL.setBackground(new java.awt.Color(48, 48, 48));
         ParameterL.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         ParameterL.setForeground(new java.awt.Color(204, 204, 204));
-        ParameterL.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Parametro 1", "Parametro 2", "Parametro 3", "Parametro 4", "Parametro 5", "Parametro 6" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane13.setViewportView(ParameterL);
 
         jpCreateM.add(jScrollPane13, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 240, 320, 66));
@@ -1700,6 +1738,11 @@ public class GUI extends javax.swing.JFrame {
 
         jTextCs5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTextCs5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dia", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        jTextCs5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextCs5ActionPerformed(evt);
+            }
+        });
         jpCreateS.add(jTextCs5, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 210, -1, -1));
 
         jTextCs6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -1763,11 +1806,6 @@ public class GUI extends javax.swing.JFrame {
         ParameterL1.setBackground(new java.awt.Color(48, 48, 48));
         ParameterL1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         ParameterL1.setForeground(new java.awt.Color(204, 204, 204));
-        ParameterL1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Parametro 1", "Parametro 2", "Parametro 3", "Parametro 4", "Parametro 5", "Parametro 6" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane14.setViewportView(ParameterL1);
 
         jpCreateS.add(jScrollPane14, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 240, 320, 66));
@@ -1836,29 +1874,17 @@ public class GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextCrActionPerformed
 
-    private void searchPFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchPFieldActionPerformed
+    private void jTextSp1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextSp1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_searchPFieldActionPerformed
+    }//GEN-LAST:event_jTextSp1ActionPerformed
 
-    private void searchSFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchSFieldActionPerformed
+    private void jTextSp2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextSp2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_searchSFieldActionPerformed
+    }//GEN-LAST:event_jTextSp2ActionPerformed
 
-    private void searchMFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchMFieldActionPerformed
+    private void jTextSp3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextSp3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_searchMFieldActionPerformed
-
-    private void nMFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nMFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nMFieldActionPerformed
-
-    private void nSFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nSFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nSFieldActionPerformed
-
-    private void nPFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nPFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nPFieldActionPerformed
+    }//GEN-LAST:event_jTextSp3ActionPerformed
 
     private void formMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMousePressed
         x= evt.getX();   
@@ -1927,6 +1953,7 @@ public class GUI extends javax.swing.JFrame {
             Main.revalidate();
         
             Menu.setVisible(true); 
+            goBackButton5.setVisible(true);
             roleLabel.setText("Usuario administrador");
             jpControl.setVisible(true);            
              Menu.repaint();
@@ -1935,8 +1962,46 @@ public class GUI extends javax.swing.JFrame {
             Main.setVisible(false);               
             Main.repaint();
             Main.revalidate();
-        
+            
+            sLIDP2 = new SinglyLinkedList<>();
+            if(myArrayListProduction.getSize()>0){
+                ProductionLSp.removeAll();
+                String [] namep= new  String[5];
+                for(int i=0; i<myArrayListProduction.getSize(); i++){
+                        sLIDP2.pushBack(i);
+                }
+                for(int i=0; i<5; i++){
+                    if(i<myArrayListProduction.getSize()){
+                        namep[i]=myArrayListProduction.getItem(i).getName();
+                   if(!myArrayListProduction.getItem(i).isIsActive()){
+                        iconSeeP(i+1);
+                   }else if(myArrayListProduction.getItem(i).isIsFinished()){
+                        iconSeeP((i+1)+5);
+                   }else if(myArrayListProduction.getItem(i).isIsActive()){
+                        iconSeeP((i+1)+10);
+                   }
+                    }else{
+                        iconSeeP((i+1)+15);
+                    }
+                   
+                }
+                
+                   ProductionLSp.setListData(namep);
+                 indexSpp=1;
+                 String auxS;
+                 int sizep=myArrayListProduction.getSize()%5;
+                 int aux=myArrayListProduction.getSize()/5;
+                if(sizep!=0){
+                    aux++;
+                }
+                 nSdeP.setText("de "+aux);
+                 nSdeP0.setText("1");
+                 namePjL.setText("");
+                 namePjL0.setText("Todos las producciónes");
+            }
+            
             Menu.setVisible(true);  
+            goBackButton5.setVisible(false);
             roleLabel.setText("Usuario estandar");
             jpSearchP.setVisible(true);
             Menu.repaint();
@@ -1959,22 +2024,40 @@ public class GUI extends javax.swing.JFrame {
         nRdeP0.setText("X");
         nRdeP.setText("de XX");
         indexCr=1;
-        resgisterF.setText("		             Nombre de la producción\n" +
-"\n" +
-"  Fecha de inicio: 12/12/2102   Fecha de finalización: 12/12/2012 Estado: Sin iniciar/Finalizado/En proceso\n" +
-"  Descripción\n" +
-"\n" +
-"    MATERIALES\n" +
-"    1. Nombre del material	Lote: 	Fecha de compra: 1221/21/12     Fecha de vencimiento: 2112/12/21\n" +
-"        Descripción\n" +
-"        Paremetros\n" +
-"         1. Nombre del parametro  Valor:15  Limite inferior: 2 Limite superior: 15\n" +
-"    \n" +
-"    ETAPAS\n" +
-"    1. Nombre de la etapa	Fecha de inicio: 1212/12/12  Fecha final: 2112/12/12  Estado: Sin iniciar/En proceso/Finalizado\n" +
-"        Descripción\n" +
-"        Parametros \n" +
-"         1. Nombre del parametro  Valor:15  Limite inferior: 2 Limite superior: 15 ");
+        resgisterF.setText("");
+    }
+    
+    private void cleanJPSearchP(){
+        jTextSp1.setText("Nombre de la producción");
+        jTextSp2.setText("Nombre de la etapa");
+        jTextSp3.setText("Nombre del material");
+        nSdeP0.setText("X");
+        nSdeP.setText("de XX");
+        
+        nSdeP0.setText("X");
+        nSdeP.setText("de XX");
+        
+        nSdeP2.setText("X");
+        nSdeP3.setText("de XX");
+        
+        nSdeP4.setText("X");
+        nSdeP5.setText("de XX");
+        
+        for(int i=0; i<5; i++){
+                iconSeeP((i+1)+15);
+                iconSeeS((i+1)+15);
+                iconSeeM((i+1)+15);
+            }
+        
+          ProductionLSp.removeAll();
+          StageLSp.removeAll();
+          MaterialLSp.removeAll();
+            String [] namep= new  String[0];
+         
+          ProductionLSp.setListData(namep);
+          StageLSp.setListData(namep);
+          MaterialLSp.setListData(namep);
+        
     }
     private void signOutButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signOutButtonMouseClicked
        
@@ -1982,10 +2065,11 @@ public class GUI extends javax.swing.JFrame {
               int dialog = JOptionPane.YES_NO_OPTION;
        int result = JOptionPane.showConfirmDialog(null, "¿Desea cerrar sesión?","Cerrar sesión",dialog);
        if(result ==0){
-           
            cleanJPCreatM();
            cleanJPRegister();
            cleanJPCreatS();
+            cleanCreateP();
+            cleanJPSearchP();
            Menu.setVisible(false); 
 //            jpCM.setVisible(false);
 //            jpUser.setVisible(false);
@@ -2040,8 +2124,16 @@ public class GUI extends javax.swing.JFrame {
 
     private void goBackButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_goBackButton4MouseClicked
         jpRegister.setVisible(false);
+        
         if(adm){
-        jpControl.setVisible(true); 
+           if(SegoRe){
+            jpSearchP.setVisible(true);
+            SegoRe=false;
+            selectproduction=-1;
+        }else{
+             jpControl.setVisible(true);   
+           } 
+        
         }else{
         jpSearchP.setVisible(true);
         }
@@ -2078,7 +2170,7 @@ public class GUI extends javax.swing.JFrame {
            if(AdmC && correct){
                 if (jTextR5.getText().equals("soyadm")){
                    user = new User(jTextR1.getText(),Integer.parseInt (jTextR4.getText()),jTextR2.getText(),jTextR3.getText(),AdmC);
-                   AdmC=false;
+                   //AdmC=false;
                    jTextR5.setText("Constraseña");
                 }else{
                       JOptionPane.showMessageDialog(this,"Contraseña de administrador incorrecta.");
@@ -2108,6 +2200,7 @@ public class GUI extends javax.swing.JFrame {
 
   
     private void jCheckBox1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckBox1MouseClicked
+        
         if(AdmC){
         AdmC=false;
         jTextR5.setFocusable(AdmC);
@@ -2119,10 +2212,34 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jCheckBox1MouseClicked
     
     
-    
+    private Boolean SegoRe=false;
     private void seeRegisterButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seeRegisterButtonMouseClicked
-        jpSearchP.setVisible(false);
-        jpRegister.setVisible(true);
+
+        try{
+            if(selectproduction!=-1 && sLIDP2.getSize()>0 && sLIDP2.getSize()>selectproduction+(5*(indexSpp-1))){
+               jpSearchP.setVisible(false);
+               SegoRe=true;
+               jpRegister.setVisible(true); 
+                sLIDP = new SinglyLinkedList<>();
+                sLIDP.pushBack(sLIDP2.getItem(selectproduction+(5*(indexSpp-1))));
+                          
+                printProduction(1);
+                nRdeP.setText("de "+sLIDP.getSize());
+                nRdeP0.setText("1");
+            }else{
+               if(myArrayListProduction.getSize()<=0){
+                 JOptionPane.showMessageDialog(this,"Para ver registros debe crear producciónes."); 
+                }else{
+                 JOptionPane.showMessageDialog(this,"Por favor seleccione una producción. Para ello debe dar click en la imagen de la lupa del buscador de producciones para ver todas las producciónes"+"\n"+
+                         "o en el caso que desee buscar una producción en especifico, puede escribir el nombre de la producción y dar click en la lupa respectivamente.");   
+                 }
+            }
+             
+            
+        }catch(Exception e){
+          JOptionPane.showMessageDialog(this,"Ha ocurrido un error, por favor contacte con el administrador.");  
+        }
+       
         
     }//GEN-LAST:event_seeRegisterButtonMouseClicked
 
@@ -2143,7 +2260,7 @@ public class GUI extends javax.swing.JFrame {
              case "Julio":
                    return "07";
              case "Agosto":
-                   return "09";
+                   return "08";
              case "Septiembre":
                    return "09";
              case "Octubre":
@@ -2159,6 +2276,52 @@ public class GUI extends javax.swing.JFrame {
    
     }
     private static int numberProduction=0;
+    
+    private void cleanCreateP(){
+        jTextCp1.setText("Nombre de la producción");
+            jTextCp3.removeAllItems();
+            jTextCp3.addItem("Mes");
+            jTextCp3.addItem("Enero");
+            jTextCp3.addItem("Febrero");
+            jTextCp3.addItem("Marzo");
+            jTextCp3.addItem("Abril");
+            jTextCp3.addItem("Mayo");
+            jTextCp3.addItem("Junio");
+            jTextCp3.addItem("Julio");
+            jTextCp3.addItem("Agosto");
+            jTextCp3.addItem("Septiembre");
+            jTextCp3.addItem("Octubre");
+            jTextCp3.addItem("Noviembre");
+            jTextCp3.addItem("Diciembre");
+             
+            jTextCp4.removeAllItems();  
+           
+            jTextCp4.addItem("Año");
+           
+            for(int i=0; i<10; i++){
+            jTextCp4.addItem("202"+Integer.toString(i));
+           
+            }   
+            for(int i=0; i<10; i++){
+            jTextCp4.addItem("203"+Integer.toString(i));
+           
+            }
+            
+            jTextCp2.removeAllItems();
+            jTextCp2.addItem("Dia");
+            for(int i=1; i<32; i++){
+            jTextCp2.addItem(Integer.toString(i));
+            }
+            jTextCp5.setText("Descripción");
+            materialL.removeAll();
+            stagesL.removeAll();
+            String [] namep= new  String[0];
+            materialL.setListData(namep);
+            stagesL.setListData(namep);            
+            ListMaux= new MyArrayList<>();
+            ListSaux= new MyArrayList<>();
+            jLabel5.setText("Resumen: "+String.valueOf(ListMaux.getSize())+" material/es, "+String.valueOf(ListSaux.getSize()) +" etapa/s.");
+    }
     private void doneButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_doneButtonMouseClicked
         Production production=new Production();
         Boolean correct=true;
@@ -2190,49 +2353,8 @@ public class GUI extends javax.swing.JFrame {
             myArrayListProduction.pushBack(production);
             
             productionIDLabel1.setText(String.valueOf(countP+1));
-            jTextCp1.setText("Nombre de la producción");
-            jTextCp3.removeAllItems();
-            jTextCp3.addItem("Mes");
-            jTextCp3.addItem("Enero");
-            jTextCp3.addItem("Febrero");
-            jTextCp3.addItem("Marzo");
-            jTextCp3.addItem("Abril");
-            jTextCp3.addItem("Mayo");
-            jTextCp3.addItem("Junio");
-            jTextCp3.addItem("Julio");
-            jTextCp3.addItem("Agosto");
-            jTextCp3.addItem("Septiembre");
-            jTextCp3.addItem("Octubre");
-            jTextCp3.addItem("Noviembre");
-            jTextCp3.addItem("Diciembre");
-             
-            jTextCp2.removeAllItems();  
-           
-            jTextCp2.addItem("Año");
-           
-            for(int i=0; i<10; i++){
-            jTextCp2.addItem("202"+Integer.toString(i));
-           
-            }   
-            for(int i=0; i<10; i++){
-            jTextCp2.addItem("203"+Integer.toString(i));
-           
-            }
+            cleanCreateP();
             
-            jTextCp4.removeAllItems();
-            jTextCp4.addItem("Dia");
-            for(int i=1; i<32; i++){
-            jTextCp4.addItem(Integer.toString(i));
-            }
-            jTextCp5.setText("Descripción");
-            materialL.removeAll();
-            stagesL.removeAll();
-            String [] namep= new  String[0];
-            materialL.setListData(namep);
-            stagesL.setListData(namep);            
-            ListMaux= new MyArrayList<>();
-            ListSaux= new MyArrayList<>();
-            jLabel5.setText("Resumen: "+String.valueOf(ListMaux.getSize())+" material/es, "+String.valueOf(ListSaux.getSize()) +" etapa/s.");
            }
 
            }
@@ -2807,6 +2929,8 @@ private void cleanJPCreateP(){
     private void searchjLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchjLabelMouseClicked
        
         try{
+            if(jTextCr.getText()==""){
+            }else{
             sLIDP = new SinglyLinkedList<>();
             for(int i=0; i<myArrayListProduction.getSize(); i++){
                 if(myArrayListProduction.getItem(i).getName().equalsIgnoreCase(jTextCr.getText())){
@@ -2815,6 +2939,9 @@ private void cleanJPCreateP(){
             }
             if(sLIDP.getSize()==0){
                    JOptionPane.showMessageDialog(this,"No se ha encontrado una producción con el nombre: "+jTextCr.getText());    
+                   nRdeP.setText("de "+sLIDP.getSize());
+                   nRdeP0.setText("0");
+                   resgisterF.setText("");
             }else{
                 indexCr=1;
                 nRdeP.setText("de "+sLIDP.getSize());
@@ -2822,7 +2949,7 @@ private void cleanJPCreateP(){
                 printProduction(1);
                 
             }
-            
+              }
           }catch(Exception e){
                JOptionPane.showMessageDialog(this,"Ha ocurrido un error, por favor contacte con el administrador.");         
                     }
@@ -2985,6 +3112,1088 @@ private static int indexCr=1;
       }
     }//GEN-LAST:event_generateButtonMouseClicked
 
+    private static SinglyLinkedList<Integer> sLIDP2= new SinglyLinkedList<Integer>();
+    private int indexSpp=1;
+   
+    private void iconSeeP(int i){
+         switch (i) {   
+             case 1:
+                  ImageP1.setIcon(new ImageIcon("src/icons/play.png"));
+                   break;
+             case 2:
+                  ImageP2.setIcon(new ImageIcon("src/icons/play.png"));
+                   break;
+             case 3:
+                  ImageP3.setIcon(new ImageIcon("src/icons/play.png"));
+                   break;
+             case 4:
+                  ImageP4.setIcon(new ImageIcon("src/icons/play.png"));
+                  break;
+             case 5:
+                  ImageP5.setIcon(new ImageIcon("src/icons/play.png"));
+                   break;
+             case 6:
+                 ImageP1.setIcon(new ImageIcon("src/icons/correcto2.png"));
+                   break;
+             case 7:
+                 ImageP2.setIcon(new ImageIcon("src/icons/correcto2.png"));
+                   break;
+             case 8:
+                 ImageP3.setIcon(new ImageIcon("src/icons/correcto2.png"));
+                   break;
+             case 9:
+                 ImageP4.setIcon(new ImageIcon("src/icons/correcto2.png"));
+                   break;
+             case 10:
+                 ImageP5.setIcon(new ImageIcon("src/icons/correcto2.png"));
+                   break;
+             case 11:
+                  ImageP1.setIcon(new ImageIcon("src/icons/linea.png"));
+                  break;
+             case 12:
+                  ImageP2.setIcon(new ImageIcon("src/icons/linea.png"));
+                  break;
+             case 13:
+                  ImageP3.setIcon(new ImageIcon("src/icons/linea.png"));
+                  break;
+             case 14:
+                  ImageP4.setIcon(new ImageIcon("src/icons/linea.png"));
+                  break;
+             case 15:
+                  ImageP5.setIcon(new ImageIcon("src/icons/linea.png"));
+                  break;  
+             case 16:
+                  ImageP1.setIcon(new ImageIcon("src/icons/nothing.png"));
+                  break; 
+             case 17:
+                   ImageP2.setIcon(new ImageIcon("src/icons/nothing.png"));
+                  break; 
+             case 18:
+                   ImageP3.setIcon(new ImageIcon("src/icons/nothing.png"));
+                  break; 
+             case 19:
+                   ImageP4.setIcon(new ImageIcon("src/icons/nothing.png"));
+                  break; 
+             case 20:
+                   ImageP5.setIcon(new ImageIcon("src/icons/nothing.png"));
+                  break; 
+             default:
+                 
+                 break;
+         }
+    }
+    private void searchPjLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchPjLabelMouseClicked
+        
+        try{
+            sLIDP2 = new SinglyLinkedList<>();
+            if(jTextSp1.getText().equalsIgnoreCase("") && myArrayListProduction.getSize()>0){
+                ProductionLSp.removeAll();
+                String [] namep= new  String[5];
+                for(int i=0; i<myArrayListProduction.getSize(); i++){
+                        sLIDP2.pushBack(i);
+                }
+                for(int i=0; i<5; i++){
+                    if(i<myArrayListProduction.getSize()){
+                        namep[i]=myArrayListProduction.getItem(i).getName();
+                   if(!myArrayListProduction.getItem(i).isIsActive()){
+                        iconSeeP(i+1);
+                   }else if(myArrayListProduction.getItem(i).isIsFinished()){
+                        iconSeeP((i+1)+5);
+                   }else if(myArrayListProduction.getItem(i).isIsActive()){
+                        iconSeeP((i+1)+10);
+                   }
+                    }else{
+                        iconSeeP((i+1)+15);
+                    }
+                   
+                }
+                
+                ProductionLSp.setListData(namep);
+                 indexSpp=1;
+                 String auxS;
+                 int sizep=myArrayListProduction.getSize()%5;
+                 int aux=myArrayListProduction.getSize()/5;
+                if(sizep!=0){
+                    aux++;
+                }
+                 nSdeP.setText("de "+aux);
+                 nSdeP0.setText("1");
+                 namePjL.setText("");
+                 jTextSp1.setText("Nombre de la producción");
+            }else if(myArrayListProduction.getSize()>0){
+                for(int i=0; i<myArrayListProduction.getSize(); i++){
+                 if(myArrayListProduction.getItem(i).getName().equalsIgnoreCase(jTextSp1.getText())){
+                        sLIDP2.pushBack(i);
+                    }                
+                }
+                if(sLIDP2.getSize()==0){
+                   JOptionPane.showMessageDialog(this,"No se ha encontrado una producción con el nombre: "+jTextSp1.getText()); 
+                   for(int i=0; i<5; i++){
+                    iconSeeP((i+1)+15);
+                     }
+                    ProductionLSp.removeAll();
+                   String [] namep= new  String[0];
+                     ProductionLSp.setListData(namep);
+                    nSdeP0.setText("0");
+                    nSdeP.setText("de 0");
+                    namePjL.setText("");
+                    jTextSp1.setText("Nombre de la producción");
+             }else{
+                indexSpp=1;
+                int sizep=sLIDP2.getSize()%5;
+                int aux=sLIDP2.getSize()/5;
+                if(sizep!=0){
+                    aux++;
+                }
+                nSdeP.setText("de "+aux);
+                nSdeP0.setText("1");
+                ProductionLSp.removeAll();
+                String [] namep= new  String[5];
+                for(int i=0; i<5 ; i++){
+                    if(i<sLIDP2.getSize()){
+                        namep[i]=myArrayListProduction.getItem(sLIDP2.getItem(i)).getName();
+                          if(!myArrayListProduction.getItem(sLIDP2.getItem(i)).isIsActive()){
+                        iconSeeP(i+1);
+                        }else if(myArrayListProduction.getItem(sLIDP2.getItem(i)).isIsFinished()){
+                        iconSeeP((i+1)+5);
+                        }else if(myArrayListProduction.getItem(sLIDP2.getItem(i)).isIsActive()){
+                        iconSeeP((i+1)+10);
+                          }
+                    }else{
+                        iconSeeP((i+1)+15);
+                    }
+                            
+                   
+                }
+                namePjL.setText(jTextSp1.getText());
+                ProductionLSp.setListData(namep);
+                namePjL0.setText("Nombre de la producción: ");
+                jTextSp1.setText("Nombre de la producción");
+             }
+            }else{
+                JOptionPane.showMessageDialog(this,"¡No se encontraron datos sobre producciones!");
+                for(int i=0; i<5; i++){
+                    iconSeeP((i+1)+15);
+                }
+                 ProductionLSp.removeAll();
+                String [] namep= new  String[0];
+                ProductionLSp.setListData(namep);
+                 nSdeP0.setText("0");
+                 nSdeP.setText("de 0");
+                 namePjL.setText("");
+                 jTextSp1.setText("Nombre de la producción");
+            }
+          }catch(Exception e){
+               JOptionPane.showMessageDialog(this,"Ha ocurrido un error, por favor contacte con el administrador.");         
+                    }
+    }//GEN-LAST:event_searchPjLabelMouseClicked
+    private void iconSeeS(int i){
+         switch (i) {   
+             case 1:
+                  ImageS1.setIcon(new ImageIcon("src/icons/play.png"));
+                   break;
+             case 2:
+                  ImageS2.setIcon(new ImageIcon("src/icons/play.png"));
+                   break;
+             case 3:
+                  ImageS3.setIcon(new ImageIcon("src/icons/play.png"));
+                   break;
+             case 4:
+                  ImageS4.setIcon(new ImageIcon("src/icons/play.png"));
+                  break;
+             case 5:
+                  ImageS5.setIcon(new ImageIcon("src/icons/play.png"));
+                   break;
+             case 6:
+                 ImageS1.setIcon(new ImageIcon("src/icons/correcto2.png"));
+                   break;
+             case 7:
+                 ImageS2.setIcon(new ImageIcon("src/icons/correcto2.png"));
+                   break;
+             case 8:
+                 ImageS3.setIcon(new ImageIcon("src/icons/correcto2.png"));
+                   break;
+             case 9:
+                 ImageS4.setIcon(new ImageIcon("src/icons/correcto2.png"));
+                   break;
+             case 10:
+                 ImageS5.setIcon(new ImageIcon("src/icons/correcto2.png"));
+                   break;
+             case 11:
+                  ImageS1.setIcon(new ImageIcon("src/icons/linea.png"));
+                  break;
+             case 12:
+                  ImageS2.setIcon(new ImageIcon("src/icons/linea.png"));
+                  break;
+             case 13:
+                  ImageS3.setIcon(new ImageIcon("src/icons/linea.png"));
+                  break;
+             case 14:
+                  ImageS4.setIcon(new ImageIcon("src/icons/linea.png"));
+                  break;
+             case 15:
+                  ImageS5.setIcon(new ImageIcon("src/icons/linea.png"));
+                  break;  
+             case 16:
+                  ImageS1.setIcon(new ImageIcon("src/icons/nothing.png"));
+                  break; 
+             case 17:
+                   ImageS2.setIcon(new ImageIcon("src/icons/nothing.png"));
+                  break; 
+             case 18:
+                   ImageS3.setIcon(new ImageIcon("src/icons/nothing.png"));
+                  break; 
+             case 19:
+                   ImageS4.setIcon(new ImageIcon("src/icons/nothing.png"));
+                  break; 
+             case 20:
+                   ImageS5.setIcon(new ImageIcon("src/icons/nothing.png"));
+                  break; 
+             default:
+                 
+                 break;
+         }
+    }
+    private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
+        Boolean correct=true;
+        try{
+           if(sLIDP2.getSize()>0){
+                indexSpp++;
+                 
+                if(sLIDP2.getSize()>=indexSpp && indexSpp<=Integer.parseInt(nSdeP.getText().substring(3))){
+                    ProductionLSp.removeAll();
+                    String [] namep= new  String[5];
+                    for(int i=0; i<5; i++){
+                        if(sLIDP2.getSize()>(i+(5*(indexSpp-1)))){
+                            namep[i]=myArrayListProduction.getItem(sLIDP2.getItem(i+(5*(indexSpp-1)))).getName();
+                             if(!myArrayListProduction.getItem(sLIDP2.getItem(i+(5*(indexSpp-1)))).isIsActive()){
+                            iconSeeP(i+1);
+                          }else if(myArrayListProduction.getItem(sLIDP2.getItem(i+(5*(indexSpp-1)))).isIsFinished()){
+                             iconSeeP((i+1)+5);
+                            }else if(myArrayListProduction.getItem(sLIDP2.getItem(i+(5*(indexSpp-1)))).isIsActive()){
+                                iconSeeP((i+1)+10);
+                            }
+                        }else{
+                            iconSeeP((i+1)+15);
+                        }
+                       
+                    }
+                    
+                    ProductionLSp.setListData(namep);
+                    nSdeP0.setText(String.valueOf(indexSpp));
+                }else{
+                   indexSpp=indexSpp-1; 
+                }
+           }
+            
+       }catch(Exception e){
+           JOptionPane.showMessageDialog(this,"Ha ocurrido un error, por favor contacte con el administrador.");         
+       }
+    }//GEN-LAST:event_jLabel7MouseClicked
+
+    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
+        Boolean correct=true;
+        try{
+           if(sLIDP2.getSize()>0){
+                indexSpp=indexSpp-1;
+                if(sLIDP2.getSize()>=indexSpp  && indexSpp>0){
+                    ProductionLSp.removeAll();
+                    String [] namep= new  String[5];
+                    for(int i=0; i<5; i++){
+                        if(sLIDP2.getSize()>(i+(5*(indexSpp-1)))){
+                             namep[i]=myArrayListProduction.getItem(sLIDP2.getItem(i+((indexSpp-1)*5))).getName();
+                         if(!myArrayListProduction.getItem(sLIDP2.getItem(i+((indexSpp-1)*5))).isIsActive()){
+                        iconSeeP(i+1);
+                          }else if(myArrayListProduction.getItem(sLIDP2.getItem(i+((indexSpp-1)*5))).isIsFinished()){
+                        iconSeeP((i+1)+5);
+                         }else if(myArrayListProduction.getItem(sLIDP2.getItem(i+((indexSpp-1)*5))).isIsActive()){
+                        iconSeeP((i+1)+10);
+                        }
+                        }else{
+                             iconSeeP((i+1)+15);
+                        }
+                      
+                    }
+                    ProductionLSp.setListData(namep);
+                    nSdeP0.setText(String.valueOf(indexSpp));
+                }else{
+                   indexSpp++; 
+                }
+           }
+           
+       }catch(Exception e){
+           JOptionPane.showMessageDialog(this,"Ha ocurrido un error, por favor contacte con el administrador.");         
+       }
+    }//GEN-LAST:event_jLabel8MouseClicked
+    
+    private static int selectproduction=-1;
+    private static SinglyLinkedList<Integer> sLIDS= new SinglyLinkedList<Integer>();
+    private static int indexSps=1;
+    private void ProductionLSpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ProductionLSpMouseClicked
+       selectproduction =ProductionLSp.getSelectedIndex();
+        if(selectproduction!=-1 && sLIDP2.getSize()>0 && sLIDP2.getSize()>selectproduction+(5*(indexSpp-1))){
+            try{
+                 sLIDS = new SinglyLinkedList<>();
+                 if(myArrayListProduction.getItem(sLIDP2.getItem(selectproduction+(5*(indexSpp-1)))).getStages().getSize()>0){
+                StageLSp.removeAll();
+                String [] namep= new  String[5];
+                for(int i=0; i<myArrayListProduction.getItem(sLIDP2.getItem(selectproduction+(5*(indexSpp-1)))).getStages().getSize(); i++){
+                        sLIDS.pushBack(i);
+                }
+                
+                for(int i=0; i<5; i++){
+                    if(i<myArrayListProduction.getItem(sLIDP2.getItem(selectproduction+(5*(indexSpp-1)))).getStages().getSize()){
+                        namep[i]=myArrayListProduction.getItem(sLIDP2.getItem(selectproduction+(5*(indexSpp-1)))).getStages().getItem(i).getName();
+                   if(!myArrayListProduction.getItem(sLIDP2.getItem(selectproduction+(5*(indexSpp-1)))).getStages().getItem(i).isIsActive()){
+                        iconSeeS(i+1);
+                   }else if(myArrayListProduction.getItem(sLIDP2.getItem(selectproduction+(5*(indexSpp-1)))).getStages().getItem(i).isIsFinished()){
+                        iconSeeS((i+1)+5);
+                   }else if(myArrayListProduction.getItem(sLIDP2.getItem(selectproduction+(5*(indexSpp-1)))).getStages().getItem(i).isIsActive()){
+                        iconSeeS((i+1)+10);
+                   }
+                    }else{
+                        iconSeeS((i+1)+15);
+                    }
+                   
+                }
+                StageLSp.setListData(namep);
+                indexSps=1;
+                String auxS;
+                int sizep=myArrayListProduction.getItem(sLIDP2.getItem(selectproduction+(5*(indexSpp-1)))).getStages().getSize()%5;
+                int aux=myArrayListProduction.getItem(sLIDP2.getItem(selectproduction+(5*(indexSpp-1)))).getStages().getSize()/5;
+                if(sizep!=0){
+                    aux++;
+                }
+                 nSdeP3.setText("de "+aux);
+                 nSdeP2.setText("1");
+                 }
+                 
+                 ///
+                 sLIDM= new SinglyLinkedList<Integer>();
+                 if(myArrayListProduction.getItem(sLIDP2.getItem(selectproduction+(5*(indexSpp-1)))).getRawMaterials().getSize()>0){
+                MaterialLSp.removeAll();
+                String [] namep= new  String[5];
+                for(int i=0; i<myArrayListProduction.getItem(sLIDP2.getItem(selectproduction+(5*(indexSpp-1)))).getRawMaterials().getSize(); i++){
+                        sLIDM.pushBack(i);
+                }
+                for(int i=0; i<5; i++){
+                    if(i<myArrayListProduction.getItem(sLIDP2.getItem(selectproduction+(5*(indexSpp-1)))).getRawMaterials().getSize()){
+                        namep[i]=myArrayListProduction.getItem(sLIDP2.getItem(selectproduction+(5*(indexSpp-1)))).getRawMaterials().getItem(sLIDM.getItem(i)).getName();
+                        try{
+                           String year=myArrayListProduction.getItem(sLIDP2.getItem(selectproduction+(5*(indexSpp-1)))).getRawMaterials().getItem(sLIDM.getItem(i)).getExpirationDate();
+                        String month="";
+                        String day="";
+                        int count=0;
+                        for(int y=0; y<year.length(); y++){
+                            if(year.charAt(y)=='/'){
+                                
+                                count++;
+                                if(count==1){
+                                    day=year.substring(0,y+1);
+                                    month=year.substring(y+1);
+                                }
+                                if(count==2){
+                                    year=year.substring(y+1);
+                                break;
+                                }
+                            }
+                        }
+                  if(Integer.parseInt(year)<Integer.parseInt(timeFormatY.format(LocalDateTime.now()))){
+                        iconSeeM(i+1);
+                   }else if(Integer.parseInt(year)==Integer.parseInt(timeFormatY.format(LocalDateTime.now()))){
+                       if(Integer.parseInt(month) < Integer.parseInt(timeFormatM.format(LocalDateTime.now())) ){
+                              iconSeeM(i+1);
+                        }else if(Integer.parseInt(month) == Integer.parseInt(timeFormatM.format(LocalDateTime.now())) ){
+                            if(Integer.parseInt(day) < Integer.parseInt(timeFormatD.format(LocalDateTime.now())) ){
+                            iconSeeM(i+1);
+                            }else{
+                                iconSeeM((i+1)+5); 
+                            }
+                        }else{
+                             iconSeeM((i+1)+5);
+                        }
+                  }else{
+                        iconSeeM((i+1)+5);
+                   }  
+                        }catch(Exception e){
+                            iconSeeM((i+1)+10);
+                        }
+                       
+                      
+                    }else{
+                         iconSeeM((i+1)+15);
+                    }
+                   
+                }
+                
+                MaterialLSp.setListData(namep);
+                 indexSpm=1;
+                 
+                 int sizep=myArrayListProduction.getItem(sLIDP2.getItem(selectproduction+(5*(indexSpp-1)))).getRawMaterials().getSize()%5;
+                 int aux=myArrayListProduction.getItem(sLIDP2.getItem(selectproduction+(5*(indexSpp-1)))).getRawMaterials().getSize()/5;
+                if(sizep!=0){
+                    aux++;
+                }
+                 nSdeP5.setText("de "+aux);
+                 nSdeP4.setText("1");
+                 }
+                 
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(this,"Ha ocurrido un error, por favor contacte con el administrador.");  
+            }
+            
+         
+        }else{
+            if(myArrayListProduction.getSize()<=0){
+                 JOptionPane.showMessageDialog(this,"Para ver etapas debe crear producciónes."); 
+            }else{
+                 JOptionPane.showMessageDialog(this,"Por favor seleccione una producción. Para ello debe dar click en la imagen de la lupa del buscador de producciones para ver todas las producciónes"+"\n"+
+                         "o en el caso que desee buscar una producción en especifico, puede escribir el nombre de la producción y dar click en la lupa respectivamente.");   
+            }
+        }
+    }//GEN-LAST:event_ProductionLSpMouseClicked
+
+    private void jLabel15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseClicked
+       Boolean correct=true;
+        try{
+           if(sLIDS.getSize()>0){
+                indexSps=indexSps-1;
+                if(sLIDS.getSize()>=indexSps  && indexSps>0){
+                    StageLSp.removeAll();
+                    String [] namep= new  String[5];
+                    for(int i=0; i<5; i++){
+                        if(sLIDS.getSize()>(i+(5*(indexSps-1)))){
+                             namep[i]=myArrayListProduction.getItem(sLIDP2.getItem(selectproduction+(5*(indexSpp-1)))).getStages().getItem(sLIDS.getItem(i+((indexSps-1)*5))).getName();
+                         if(!myArrayListProduction.getItem(sLIDP2.getItem(selectproduction+(5*(indexSpp-1)))).getStages().getItem(sLIDS.getItem(i+((indexSps-1)*5))).isIsActive()){
+                        iconSeeS(i+1);
+                          }else if(myArrayListProduction.getItem(sLIDP2.getItem(selectproduction+(5*(indexSpp-1)))).getStages().getItem(sLIDS.getItem(i+((indexSps-1)*5))).isIsFinished()){
+                        iconSeeS((i+1)+5);
+                         }else if(myArrayListProduction.getItem(sLIDP2.getItem(selectproduction+(5*(indexSpp-1)))).getStages().getItem(sLIDS.getItem(i+((indexSps-1)*5))).isIsActive()){
+                        iconSeeS((i+1)+10);
+                        }
+                        }else{
+                             iconSeeS((i+1)+15);
+                        }
+                      
+                    }
+                    StageLSp.setListData(namep);
+                    nSdeP2.setText(String.valueOf(indexSps));
+                }else{
+                   indexSps++; 
+                }
+           }
+           
+       }catch(Exception e){
+           JOptionPane.showMessageDialog(this,"Ha ocurrido un error, por favor contacte con el administrador.");         
+       }
+    }//GEN-LAST:event_jLabel15MouseClicked
+
+    private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
+         Boolean correct=true;
+        try{
+           if(sLIDS.getSize()>0){
+                indexSps++;
+                 
+                if(sLIDS.getSize()>=indexSps && indexSps<=Integer.parseInt(nSdeP3.getText().substring(3))){
+                    StageLSp.removeAll();
+                    String [] namep= new  String[5];
+                    for(int i=0; i<5; i++){
+                        if(sLIDS.getSize()>(i+(5*(indexSps-1)))){
+                            namep[i]=myArrayListProduction.getItem(sLIDP2.getItem(selectproduction+(5*(indexSpp-1)))).getStages().getItem(sLIDS.getItem(i+((indexSps-1)*5))).getName();
+                             if(!myArrayListProduction.getItem(sLIDP2.getItem(selectproduction+(5*(indexSpp-1)))).getStages().getItem(sLIDS.getItem(i+((indexSps-1)*5))).isIsActive()){
+                            iconSeeS(i+1);
+                          }else if(myArrayListProduction.getItem(sLIDP2.getItem(selectproduction+(5*(indexSpp-1)))).getStages().getItem(sLIDS.getItem(i+((indexSps-1)*5))).isIsFinished()){
+                             iconSeeS((i+1)+5);
+                            }else if(myArrayListProduction.getItem(sLIDP2.getItem(selectproduction+(5*(indexSpp-1)))).getStages().getItem(sLIDS.getItem(i+((indexSps-1)*5))).isIsActive()){
+                         iconSeeS((i+1)+10);
+                            }
+                        }else{
+                            iconSeeS((i+1)+15);
+                        }
+                       
+                    }
+                    
+                    StageLSp.setListData(namep);
+                    nSdeP2.setText(String.valueOf(indexSps));
+                }else{
+                   indexSps=indexSps-1; 
+                }
+           }
+            
+       }catch(Exception e){
+           JOptionPane.showMessageDialog(this,"Ha ocurrido un error, por favor contacte con el administrador.");         
+       }
+    }//GEN-LAST:event_jLabel16MouseClicked
+
+    private void searchSjLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchSjLabelMouseClicked
+  
+        selectproduction =ProductionLSp.getSelectedIndex();
+        if(selectproduction!=-1 && sLIDP2.getSize()>0 && sLIDP2.getSize()>selectproduction+(5*(indexSpp-1))){
+        
+        try{
+            if(selectproduction!=-1){
+           
+            sLIDS = new SinglyLinkedList<>();
+            if(jTextSp2.getText().equalsIgnoreCase("") && myArrayListProduction.getItem(sLIDP2.getItem(selectproduction+(5*(indexSpp-1)))).getStages().getSize()>0){
+                StageLSp.removeAll();
+                String [] namep= new  String[5];
+                for(int i=0; i<myArrayListProduction.getItem(sLIDP2.getItem(selectproduction+(5*(indexSpp-1)))).getStages().getSize(); i++){
+                        sLIDS.pushBack(i);
+                }
+                for(int i=0; i<5; i++){
+                    if(i<myArrayListProduction.getItem(sLIDP2.getItem(selectproduction+(5*(indexSpp-1)))).getStages().getSize()){
+                        namep[i]=myArrayListProduction.getItem(sLIDP2.getItem(selectproduction+(5*(indexSpp-1)))).getStages().getItem(sLIDS.getItem(i)).getName();
+                   if(!myArrayListProduction.getItem(sLIDP2.getItem(selectproduction+(5*(indexSpp-1)))).getStages().getItem(sLIDS.getItem(i)).isIsActive()){
+                        iconSeeS(i+1);
+                   }else if(myArrayListProduction.getItem(sLIDP2.getItem(selectproduction+(5*(indexSpp-1)))).getStages().getItem(sLIDS.getItem(i)).isIsFinished()){
+                        iconSeeS((i+1)+5);
+                   }else if(myArrayListProduction.getItem(sLIDP2.getItem(selectproduction+(5*(indexSpp-1)))).getStages().getItem(sLIDS.getItem(i)).isIsActive()){
+                        iconSeeS((i+1)+10);
+                   }
+                    }else{
+                        iconSeeS((i+1)+15);
+                    }
+                   
+                }
+                
+                StageLSp.setListData(namep);
+                 indexSps=1;
+                 String auxS;
+                 int sizep=myArrayListProduction.getItem(sLIDP2.getItem(selectproduction+(5*(indexSpp-1)))).getStages().getSize()%5;
+                 int aux=myArrayListProduction.getItem(sLIDP2.getItem(selectproduction+(5*(indexSpp-1)))).getStages().getSize()/5;
+                if(sizep!=0){
+                    aux++;
+                }
+                 nSdeP3.setText("de "+aux);
+                 nSdeP2.setText("1");
+                 jTextSp2.setText("Nombre de la etapa");
+                
+            }else if(myArrayListProduction.getItem(sLIDP2.getItem(selectproduction+(5*(indexSpp-1)))).getStages().getSize()>0){
+                for(int i=0; i<myArrayListProduction.getItem(sLIDP2.getItem(selectproduction+(5*(indexSpp-1)))).getStages().getSize(); i++){
+                if(myArrayListProduction.getItem(sLIDP2.getItem(selectproduction+(5*(indexSpp-1)))).getStages().getItem(i).getName().equalsIgnoreCase(jTextSp2.getText())){
+                        sLIDS.pushBack(i);
+                    }                
+                }
+                if(sLIDS.getSize()==0){
+                   JOptionPane.showMessageDialog(this,"No se ha encontrado etapas con el nombre: "+jTextSp2.getText()+" en la producción: "+myArrayListProduction.getItem(selectproduction+(5*(indexSpp-1))).getName()); 
+                   for(int i=0; i<5; i++){
+                    iconSeeS((i+1)+15);
+                     }
+                    StageLSp.removeAll();
+                   String [] namep= new  String[0];
+                     StageLSp.setListData(namep);
+                    nSdeP2.setText("0");
+                    nSdeP3.setText("de 0");
+                    jTextSp2.setText("Nombre de la etapa");
+             }else{
+                indexSps=1;
+                int sizep=sLIDS.getSize()%5;
+                int aux=sLIDS.getSize()/5;
+                if(sizep!=0){
+                    aux++;
+                }
+                nSdeP3.setText("de "+aux);
+                nSdeP2.setText("1");
+                StageLSp.removeAll();
+                String [] namep= new  String[5];
+                for(int i=0; i<5 ; i++){
+                    if(i<sLIDS.getSize()){
+                         namep[i]=myArrayListProduction.getItem(sLIDP2.getItem(selectproduction+(5*(indexSpp-1)))).getStages().getItem(sLIDS.getItem(i)).getName();
+                         if(!myArrayListProduction.getItem(sLIDP2.getItem(selectproduction+(5*(indexSpp-1)))).getStages().getItem(sLIDS.getItem(i)).isIsActive()){
+                        iconSeeS(i+1);
+                         }else if(myArrayListProduction.getItem(sLIDP2.getItem(selectproduction+(5*(indexSpp-1)))).getStages().getItem(sLIDS.getItem(i)).isIsFinished()){
+                        iconSeeS((i+1)+5);
+                         }else if(myArrayListProduction.getItem(sLIDP2.getItem(selectproduction+(5*(indexSpp-1)))).getStages().getItem(sLIDS.getItem(i)).isIsActive()){
+                        iconSeeS((i+1)+10);
+                          }
+                     }else{
+                         iconSeeS((i+1)+15);
+                    }
+
+                   
+                }
+                
+                StageLSp.setListData(namep);
+                jTextSp2.setText("Nombre de la etapa");
+             }
+            }else{
+                JOptionPane.showMessageDialog(this,"¡No se encontraron datos sobre las etapas!");
+                for(int i=0; i<5; i++){
+                    iconSeeS((i+1)+15);
+                }
+                 StageLSp.removeAll();
+                String [] namep= new  String[0];
+                StageLSp.setListData(namep);
+                 nSdeP2.setText("0");
+                 nSdeP3.setText("de 0");
+                 jTextSp2.setText("Nombre de la etapa");
+            }
+            }else{
+                 JOptionPane.showMessageDialog(this,"Por favor, seleccione una producción para mostrar/buscar sus etapas.");
+            }
+          }catch(Exception e){
+               JOptionPane.showMessageDialog(this,"Ha ocurrido un error, por favor contacte con el administrador.");         
+                    }
+        
+        }else{
+            if(myArrayListProduction.getSize()<=0){
+                 JOptionPane.showMessageDialog(this,"Para ver etapas debe crear producciónes."); 
+            }else{
+                 JOptionPane.showMessageDialog(this,"Por favor seleccione una producción. Para ello debe dar click en la imagen de la lupa del buscador de producciones para ver todas las producciónes"+"\n"+
+                         "o en el caso que desee buscar una producción en especifico, puede escribir el nombre de la producción y dar click en la lupa respectivamente.");   
+            }
+        }
+    }//GEN-LAST:event_searchSjLabelMouseClicked
+
+    private void iconSeeM(int i){
+         switch (i) {   
+             case 1:
+                  ImageM1.setIcon(new ImageIcon("src/icons/incorrecto.png"));
+                   break;
+             case 2:
+                  ImageM2.setIcon(new ImageIcon("src/icons/incorrecto.png"));
+                   break;
+             case 3:
+                  ImageM3.setIcon(new ImageIcon("src/icons/incorrecto.png"));
+                   break;
+             case 4:
+                  ImageM4.setIcon(new ImageIcon("src/icons/incorrecto.png"));
+                  break;
+             case 5:
+                  ImageM5.setIcon(new ImageIcon("src/icons/incorrecto.png"));
+                   break;
+             case 6:
+                 ImageM1.setIcon(new ImageIcon("src/icons/correcto2.png"));
+                   break;
+             case 7:
+                 ImageM2.setIcon(new ImageIcon("src/icons/correcto2.png"));
+                   break;
+             case 8:
+                 ImageM3.setIcon(new ImageIcon("src/icons/correcto2.png"));
+                   break;
+             case 9:
+                 ImageM4.setIcon(new ImageIcon("src/icons/correcto2.png"));
+                   break;
+             case 10:
+                 ImageM5.setIcon(new ImageIcon("src/icons/correcto2.png"));
+                   break;
+             case 11:
+                  ImageM1.setIcon(new ImageIcon("src/icons/linea.png"));
+                  break;
+             case 12:
+                  ImageM2.setIcon(new ImageIcon("src/icons/linea.png"));
+                  break;
+             case 13:
+                  ImageM3.setIcon(new ImageIcon("src/icons/linea.png"));
+                  break;
+             case 14:
+                  ImageM4.setIcon(new ImageIcon("src/icons/linea.png"));
+                  break;
+             case 15:
+                  ImageM5.setIcon(new ImageIcon("src/icons/linea.png"));
+                  break;  
+             case 16:
+                  ImageM1.setIcon(new ImageIcon("src/icons/nothing.png"));
+                  break; 
+             case 17:
+                   ImageM2.setIcon(new ImageIcon("src/icons/nothing.png"));
+                  break; 
+             case 18:
+                   ImageM3.setIcon(new ImageIcon("src/icons/nothing.png"));
+                  break; 
+             case 19:
+                   ImageM4.setIcon(new ImageIcon("src/icons/nothing.png"));
+                  break; 
+             case 20:
+                   ImageM5.setIcon(new ImageIcon("src/icons/nothing.png"));
+                  break; 
+             default:
+                 
+                 break;
+         }
+    }
+
+    private static SinglyLinkedList<Integer> sLIDM= new SinglyLinkedList<Integer>();
+    private static int indexSpm=1;
+    private DateTimeFormatter timeFormatD = DateTimeFormatter.ofPattern("dd");
+    private DateTimeFormatter timeFormatM = DateTimeFormatter.ofPattern("MM");
+    private DateTimeFormatter timeFormatY = DateTimeFormatter.ofPattern("yyyy");
+    private void searchMjLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchMjLabelMouseClicked
+       
+        selectproduction =ProductionLSp.getSelectedIndex();
+        if(selectproduction!=-1 && sLIDP2.getSize()>0 && sLIDP2.getSize()>selectproduction+(5*(indexSpp-1))){
+        
+        try{
+            if(selectproduction!=-1){
+           
+            sLIDM = new SinglyLinkedList<>();
+            if(jTextSp3.getText().equalsIgnoreCase("") && myArrayListProduction.getItem(sLIDP2.getItem(selectproduction+(5*(indexSpp-1)))).getRawMaterials().getSize()>0){
+                MaterialLSp.removeAll();
+                String [] namep= new  String[5];
+                for(int i=0; i<myArrayListProduction.getItem(sLIDP2.getItem(selectproduction+(5*(indexSpp-1)))).getRawMaterials().getSize(); i++){
+                        sLIDM.pushBack(i);
+                }
+                for(int i=0; i<5; i++){
+                    if(i<myArrayListProduction.getItem(sLIDP2.getItem(selectproduction+(5*(indexSpp-1)))).getRawMaterials().getSize()){
+                        namep[i]=myArrayListProduction.getItem(sLIDP2.getItem(selectproduction+(5*(indexSpp-1)))).getRawMaterials().getItem(sLIDM.getItem(i)).getName();
+                        try{
+                            String year=myArrayListProduction.getItem(sLIDP2.getItem(selectproduction+(5*(indexSpp-1)))).getRawMaterials().getItem(sLIDM.getItem(i)).getExpirationDate();
+                        String month="";
+                        String day="";
+                        int count=0;
+                        for(int y=0; y<year.length(); y++){
+                            if(year.charAt(y)=='/'){
+                                
+                                count++;
+                                if(count==1){
+                                    day=year.substring(0,y+1);
+                                    month=year.substring(y+1);
+                                }
+                                if(count==2){
+                                    year=year.substring(y+1);
+                                break;
+                                }
+                            }
+                        }
+                  if(Integer.parseInt(year)<Integer.parseInt(timeFormatY.format(LocalDateTime.now()))){
+                        iconSeeM(i+1);
+                   }else if(Integer.parseInt(year)==Integer.parseInt(timeFormatY.format(LocalDateTime.now()))){
+                       if(Integer.parseInt(month) < Integer.parseInt(timeFormatM.format(LocalDateTime.now())) ){
+                              iconSeeM(i+1);
+                        }else if(Integer.parseInt(month) == Integer.parseInt(timeFormatM.format(LocalDateTime.now())) ){
+                            if(Integer.parseInt(day) < Integer.parseInt(timeFormatD.format(LocalDateTime.now())) ){
+                            iconSeeM(i+1);
+                            }else{
+                                iconSeeM((i+1)+5); 
+                            }
+                        }else{
+                             iconSeeM((i+1)+5);
+                        }
+                  }else{
+                        iconSeeM((i+1)+5);
+                   }
+                        }catch(Exception e){
+                            iconSeeM((i+1)+10);
+                        }
+                        
+                      
+                    }else{
+                         iconSeeM((i+1)+15);
+                    }
+                   
+                }
+                
+                MaterialLSp.setListData(namep);
+                 indexSpm=1;
+                 
+                 int sizep=myArrayListProduction.getItem(sLIDP2.getItem(selectproduction+(5*(indexSpp-1)))).getRawMaterials().getSize()%5;
+                 int aux=myArrayListProduction.getItem(sLIDP2.getItem(selectproduction+(5*(indexSpp-1)))).getRawMaterials().getSize()/5;
+                if(sizep!=0){
+                    aux++;
+                }
+                 nSdeP5.setText("de "+aux);
+                 nSdeP4.setText("1");
+                jTextSp3.setText("Nombre del material");
+            }else if(myArrayListProduction.getItem(sLIDP2.getItem(selectproduction+(5*(indexSpp-1)))).getRawMaterials().getSize()>0){
+                for(int i=0; i<myArrayListProduction.getItem(sLIDP2.getItem(selectproduction+(5*(indexSpp-1)))).getRawMaterials().getSize(); i++){
+                if(myArrayListProduction.getItem(sLIDP2.getItem(selectproduction+(5*(indexSpp-1)))).getRawMaterials().getItem(i).getName().equalsIgnoreCase(jTextSp3.getText())){
+                        sLIDM.pushBack(i);
+                    }                
+                }
+                if(sLIDM.getSize()==0){
+                   JOptionPane.showMessageDialog(this,"No se ha encontrado materiales con el nombre: "+jTextSp3.getText()+" en la produción: "+myArrayListProduction.getItem(selectproduction+(5*(indexSpp-1))).getName()); 
+                   for(int i=0; i<5; i++){
+                    iconSeeM((i+1)+15);
+                     }
+                    MaterialLSp.removeAll();
+                   String [] namep= new  String[0];
+                     MaterialLSp.setListData(namep);
+                    nSdeP4.setText("0");
+                    nSdeP5.setText("de 0");
+                    jTextSp3.setText("Nombre del material");
+             }else{
+                indexSpm=1;
+                int sizep=sLIDM.getSize()%5;
+                int aux=sLIDM.getSize()/5;
+                if(sizep!=0){
+                    aux++;
+                }
+                nSdeP5.setText("de "+aux);
+                nSdeP4.setText("1");
+                jTextSp3.setText("Nombre del material");
+                MaterialLSp.removeAll();
+                String [] namep= new  String[5];
+                for(int i=0; i<5 ; i++){
+                    if(i<sLIDM.getSize()){
+                         namep[i]=myArrayListProduction.getItem(sLIDP2.getItem(selectproduction+(5*(indexSpp-1)))).getRawMaterials().getItem(sLIDM.getItem(i)).getName();
+                         try{
+                             String year=myArrayListProduction.getItem(sLIDP2.getItem(selectproduction+(5*(indexSpp-1)))).getRawMaterials().getItem(sLIDM.getItem(i)).getExpirationDate();
+                        String month="";
+                        String day="";
+                        int count=0;
+                        for(int y=0; y<year.length(); y++){
+                            if(year.charAt(y)=='/'){
+                                
+                                count++;
+                                if(count==1){
+                                    day=year.substring(0,y+1);
+                                    month=year.substring(y+1);
+                                }
+                                if(count==2){
+                                    year=year.substring(y+1);
+                                break;
+                                }
+                            }
+                        }
+                  if(Integer.parseInt(year)<Integer.parseInt(timeFormatY.format(LocalDateTime.now()))){
+                        iconSeeM(i+1);
+                   }else if(Integer.parseInt(year)==Integer.parseInt(timeFormatY.format(LocalDateTime.now()))){
+                       if(Integer.parseInt(month) < Integer.parseInt(timeFormatM.format(LocalDateTime.now())) ){
+                              iconSeeM(i+1);
+                        }else if(Integer.parseInt(month) == Integer.parseInt(timeFormatM.format(LocalDateTime.now())) ){
+                            if(Integer.parseInt(day) < Integer.parseInt(timeFormatD.format(LocalDateTime.now())) ){
+                            iconSeeM(i+1);
+                            }else{
+                                iconSeeM((i+1)+5); 
+                            }
+                        }else{
+                             iconSeeM((i+1)+5);
+                        }
+                  }else{
+                        iconSeeM((i+1)+5);
+                   }
+                         }catch(Exception e){
+                             iconSeeM((i+1)+10);
+                         }
+                        
+                      
+                    }else{
+                         iconSeeM((i+1)+15);
+                    }
+                   
+                }
+                   
+                
+                MaterialLSp.setListData(namep);
+                
+             }
+            }else{
+                JOptionPane.showMessageDialog(this,"¡No se encontraron datos sobre los materiales!");
+                for(int i=0; i<5; i++){
+                    iconSeeM((i+1)+15);
+                }
+                 MaterialLSp.removeAll();
+                String [] namep= new  String[0];
+                MaterialLSp.setListData(namep);
+                 nSdeP4.setText("0");
+                 nSdeP5.setText("de 0");
+                 jTextSp3.setText("Nombre del material");
+            }
+            }else{
+                 JOptionPane.showMessageDialog(this,"Por favor, seleccione una producción para mostrar/buscar sus materiales.");
+            }
+          }catch(Exception e){
+               JOptionPane.showMessageDialog(this,"Ha ocurrido un error, por favor contacte con el administrador.");         
+                    }
+        
+        }else{
+            if(myArrayListProduction.getSize()<=0){
+                 JOptionPane.showMessageDialog(this,"Para ver materiales debe crear producciónes."); 
+            }else{
+                 JOptionPane.showMessageDialog(this,"Por favor seleccione una producción. Para ello debe dar click en la imagen de la lupa del buscador de producciones para ver todas las producciónes"+"\n"+
+                         "o en el caso que desee buscar una producción en especifico, puede escribir el nombre de la producción y dar click en la lupa respectivamente.");   
+            }
+        }
+    }//GEN-LAST:event_searchMjLabelMouseClicked
+
+    private void jLabel20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel20MouseClicked
+         Boolean correct=true;
+        try{
+           if(sLIDM.getSize()>0){
+                indexSpm++;
+                 
+                if(sLIDM.getSize()>=indexSpm && indexSpm<=Integer.parseInt(nSdeP5.getText().substring(3))){
+                    MaterialLSp.removeAll();
+                    String [] namep= new  String[5];
+                    for(int i=0; i<5; i++){
+                        if(sLIDM.getSize()>(i+(5*(indexSpm-1)))){
+                            namep[i]=myArrayListProduction.getItem(sLIDP2.getItem(selectproduction+(5*(indexSpp-1)))).getRawMaterials().getItem(sLIDM.getItem(i+((indexSpm-1)*5))).getName();
+                             try{
+                            String year=myArrayListProduction.getItem(sLIDP2.getItem(selectproduction+(5*(indexSpp-1)))).getRawMaterials().getItem(sLIDM.getItem(i+((indexSpm-1)*5))).getExpirationDate();
+                        String month="";
+                        String day="";
+                        int count=0;
+                        for(int y=0; y<year.length(); y++){
+                            if(year.charAt(y)=='/'){
+                                
+                                count++;
+                                if(count==1){
+                                    day=year.substring(0,y+1);
+                                    month=year.substring(y+1);
+                                }
+                                if(count==2){
+                                    year=year.substring(y+1);
+                                break;
+                                }
+                            }
+                        }
+                  if(Integer.parseInt(year)<Integer.parseInt(timeFormatY.format(LocalDateTime.now()))){
+                        iconSeeM(i+1);
+                   }else if(Integer.parseInt(year)==Integer.parseInt(timeFormatY.format(LocalDateTime.now()))){
+                       if(Integer.parseInt(month) < Integer.parseInt(timeFormatM.format(LocalDateTime.now())) ){
+                              iconSeeM(i+1);
+                        }else if(Integer.parseInt(month) == Integer.parseInt(timeFormatM.format(LocalDateTime.now())) ){
+                            if(Integer.parseInt(day) < Integer.parseInt(timeFormatD.format(LocalDateTime.now())) ){
+                            iconSeeM(i+1);
+                            }else{
+                                iconSeeM((i+1)+5); 
+                            }
+                        }else{
+                             iconSeeM((i+1)+5);
+                        }
+                        }else{
+                        iconSeeM((i+1)+5);
+                         }
+                        }catch(Exception e){
+                            iconSeeM((i+1)+10);
+                        }
+                        }else{
+                            iconSeeM((i+1)+15);
+                        }
+                       
+                    }
+                    
+                    MaterialLSp.setListData(namep);
+                    nSdeP4.setText(String.valueOf(indexSpm));
+                }else{
+                   indexSpm=indexSpm-1; 
+                }
+           }
+            
+       }catch(Exception e){
+           JOptionPane.showMessageDialog(this,"Ha ocurrido un error, por favor contacte con el administrador.");         
+       }
+    }//GEN-LAST:event_jLabel20MouseClicked
+
+    private void jLabel19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseClicked
+         Boolean correct=true;
+        try{
+           if(sLIDM.getSize()>0){
+                indexSpm=indexSpm-1;
+                if(sLIDM.getSize()>=indexSpm  && indexSpm>0){
+                    MaterialLSp.removeAll();
+                    String [] namep= new  String[5];
+                    for(int i=0; i<5; i++){
+                        if(sLIDM.getSize()>(i+(5*(indexSpm-1)))){
+                             namep[i]=myArrayListProduction.getItem(sLIDP2.getItem(selectproduction+(5*(indexSpp-1)))).getRawMaterials().getItem(sLIDM.getItem(i+((indexSpm-1)*5))).getName();
+                              try{
+                            String year=myArrayListProduction.getItem(sLIDP2.getItem(selectproduction+(5*(indexSpp-1)))).getRawMaterials().getItem(sLIDM.getItem(i+((indexSpm-1)*5))).getExpirationDate();
+                        String month="";
+                        String day="";
+                        int count=0;
+                        for(int y=0; y<year.length(); y++){
+                            if(year.charAt(y)=='/'){
+                                
+                                count++;
+                                if(count==1){
+                                    day=year.substring(0,y+1);
+                                    month=year.substring(y+1);
+                                }
+                                if(count==2){
+                                    year=year.substring(y+1);
+                                break;
+                                }
+                            }
+                        }
+                  if(Integer.parseInt(year)<Integer.parseInt(timeFormatY.format(LocalDateTime.now()))){
+                        iconSeeM(i+1);
+                   }else if(Integer.parseInt(year)==Integer.parseInt(timeFormatY.format(LocalDateTime.now()))){
+                       if(Integer.parseInt(month) < Integer.parseInt(timeFormatM.format(LocalDateTime.now())) ){
+                              iconSeeM(i+1);
+                        }else if(Integer.parseInt(month) == Integer.parseInt(timeFormatM.format(LocalDateTime.now())) ){
+                            if(Integer.parseInt(day) < Integer.parseInt(timeFormatD.format(LocalDateTime.now())) ){
+                            iconSeeM(i+1);
+                            }else{
+                                iconSeeM((i+1)+5); 
+                            }
+                        }else{
+                             iconSeeM((i+1)+5);
+                        }
+                        }else{
+                        iconSeeM((i+1)+5);
+                         }
+                        }catch(Exception e){
+                            iconSeeM((i+1)+10);
+                        }
+                             
+                             
+                        }else{
+                             iconSeeM((i+1)+15);
+                        }
+                      
+                    }
+                    MaterialLSp.setListData(namep);
+                    nSdeP4.setText(String.valueOf(indexSpm));
+                }else{
+                   indexSpm++; 
+                }
+           }
+           
+       }catch(Exception e){
+           JOptionPane.showMessageDialog(this,"Ha ocurrido un error, por favor contacte con el administrador.");         
+       }
+    }//GEN-LAST:event_jLabel19MouseClicked
+
+    private void doneButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_doneButton1MouseClicked
+        jpCreateP.setVisible(false);         
+        jpSearchP.setVisible(true);
+         sLIDP2 = new SinglyLinkedList<>();
+            if(myArrayListProduction.getSize()>0){
+                ProductionLSp.removeAll();
+                String [] namep= new  String[5];
+                for(int i=0; i<myArrayListProduction.getSize(); i++){
+                        sLIDP2.pushBack(i);
+                }
+                for(int i=0; i<5; i++){
+                    if(i<myArrayListProduction.getSize()){
+                        namep[i]=myArrayListProduction.getItem(i).getName();
+                   if(!myArrayListProduction.getItem(i).isIsActive()){
+                        iconSeeP(i+1);
+                   }else if(myArrayListProduction.getItem(i).isIsFinished()){
+                        iconSeeP((i+1)+5);
+                   }else if(myArrayListProduction.getItem(i).isIsActive()){
+                        iconSeeP((i+1)+10);
+                   }
+                    }else{
+                        iconSeeP((i+1)+15);
+                    }
+                   
+                }
+                
+                   ProductionLSp.setListData(namep);
+                 indexSpp=1;
+                 String auxS;
+                 int sizep=myArrayListProduction.getSize()%5;
+                 int aux=myArrayListProduction.getSize()/5;
+                if(sizep!=0){
+                    aux++;
+                }
+                 nSdeP.setText("de "+aux);
+                 nSdeP0.setText("1");
+                 namePjL.setText("");
+                 namePjL0.setText("Todos las producciónes");
+            }
+    }//GEN-LAST:event_doneButton1MouseClicked
+
+    private void goBackButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_goBackButton5MouseClicked
+         jpSearchP.setVisible(false);
+         jpCreateP.setVisible(true);
+    }//GEN-LAST:event_goBackButton5MouseClicked
+
+    private void jTextCs5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextCs5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextCs5ActionPerformed
+
     public static void main(String args[]) {
         for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
         }
@@ -3027,27 +4236,28 @@ private static int indexCr=1;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel ImageM1;
+    private javax.swing.JLabel ImageM2;
+    private javax.swing.JLabel ImageM3;
+    private javax.swing.JLabel ImageM4;
+    private javax.swing.JLabel ImageM5;
+    private javax.swing.JLabel ImageP1;
+    private javax.swing.JLabel ImageP2;
+    private javax.swing.JLabel ImageP3;
+    private javax.swing.JLabel ImageP4;
+    private javax.swing.JLabel ImageP5;
+    private javax.swing.JLabel ImageS1;
+    private javax.swing.JLabel ImageS2;
+    private javax.swing.JLabel ImageS3;
+    private javax.swing.JLabel ImageS4;
+    private javax.swing.JLabel ImageS5;
     private javax.swing.JPanel Main;
-    private javax.swing.JList<String> MaterialjList;
+    private javax.swing.JList<String> MaterialLSp;
     private javax.swing.JPanel Menu;
     private javax.swing.JList<String> ParameterL;
     private javax.swing.JList<String> ParameterL1;
-    private javax.swing.JList<String> StagejList;
-    private javax.swing.JLabel StatejLabel1;
-    private javax.swing.JLabel StatejLabel10;
-    private javax.swing.JLabel StatejLabel11;
-    private javax.swing.JLabel StatejLabel12;
-    private javax.swing.JLabel StatejLabel13;
-    private javax.swing.JLabel StatejLabel14;
-    private javax.swing.JLabel StatejLabel15;
-    private javax.swing.JLabel StatejLabel2;
-    private javax.swing.JLabel StatejLabel3;
-    private javax.swing.JLabel StatejLabel4;
-    private javax.swing.JLabel StatejLabel5;
-    private javax.swing.JLabel StatejLabel6;
-    private javax.swing.JLabel StatejLabel7;
-    private javax.swing.JLabel StatejLabel8;
-    private javax.swing.JLabel StatejLabel9;
+    private javax.swing.JList<String> ProductionLSp;
+    private javax.swing.JList<String> StageLSp;
     private javax.swing.JButton addMaterialButton1;
     private javax.swing.JButton addMaterialButton10;
     private javax.swing.JButton addMaterialButton11;
@@ -3073,11 +4283,13 @@ private static int indexCr=1;
     private javax.swing.JLabel createLabel2;
     private javax.swing.JPanel createPanel;
     private javax.swing.JButton doneButton;
+    private javax.swing.JButton doneButton1;
     private javax.swing.JPanel editProductionPanel;
     private javax.swing.JButton generateButton;
     private javax.swing.JButton goBackButton0;
     private javax.swing.JButton goBackButton3;
     private javax.swing.JButton goBackButton4;
+    private javax.swing.JButton goBackButton5;
     private javax.swing.JButton goBackButton6;
     private javax.swing.JButton goBackButton7;
     private javax.swing.JLabel idLabel;
@@ -3108,11 +4320,9 @@ private static int indexCr=1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
@@ -3169,6 +4379,9 @@ private static int indexCr=1;
     private javax.swing.JPasswordField jTextR3;
     private javax.swing.JTextField jTextR4;
     private javax.swing.JPasswordField jTextR5;
+    private javax.swing.JTextField jTextSp1;
+    private javax.swing.JTextField jTextSp2;
+    private javax.swing.JTextField jTextSp3;
     private javax.swing.JLabel jlBackCr;
     private javax.swing.JLabel jlClose;
     private javax.swing.JLabel jlClose1;
@@ -3192,15 +4405,16 @@ private static int indexCr=1;
     private javax.swing.JLabel manageLabel2;
     private javax.swing.JPanel managePanel;
     private javax.swing.JList<String> materialL;
-    private javax.swing.JTextField nMField;
-    private javax.swing.JTextField nPField;
     private javax.swing.JLabel nRdeP;
     private javax.swing.JTextField nRdeP0;
-    private javax.swing.JTextField nSField;
-    private javax.swing.JLabel namePjLabel;
-    private javax.swing.JLabel ntMjLabel;
-    private javax.swing.JLabel ntPjLabel;
-    private javax.swing.JLabel ntSjLabel;
+    private javax.swing.JLabel nSdeP;
+    private javax.swing.JTextField nSdeP0;
+    private javax.swing.JTextField nSdeP2;
+    private javax.swing.JLabel nSdeP3;
+    private javax.swing.JTextField nSdeP4;
+    private javax.swing.JLabel nSdeP5;
+    private javax.swing.JLabel namePjL;
+    private javax.swing.JLabel namePjL0;
     private javax.swing.JLabel passwordLabel;
     private javax.swing.JLabel productionIDLabel;
     private javax.swing.JLabel productionIDLabel1;
@@ -3212,11 +4426,8 @@ private static int indexCr=1;
     private javax.swing.JPanel registryPanel;
     private javax.swing.JTextArea resgisterF;
     private javax.swing.JLabel roleLabel;
-    private javax.swing.JTextField searchMField;
     private javax.swing.JLabel searchMjLabel;
-    private javax.swing.JTextField searchPField;
     private javax.swing.JLabel searchPjLabel;
-    private javax.swing.JTextField searchSField;
     private javax.swing.JLabel searchSjLabel;
     private javax.swing.JLabel searchjLabel;
     private javax.swing.JButton seeRegisterButton;
