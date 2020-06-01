@@ -41,6 +41,21 @@ public class MyBinaryTree implements Serializable {
             return true;
     }
 
+    public int findMin() {
+        if (isEmpty())
+            throw new RuntimeException("The tree is empty");
+        else
+            return findMin(this.root).getKey();
+    }
+
+    public BinaryNode findMin(BinaryNode node) {
+        if (node == null)
+            return null;
+        else if (node.getLeft() == null)
+            return node;
+        return findMin(node.getLeft());
+    }
+
     public BinaryNode find(int k) {
         return find(k, root);
     }
@@ -108,8 +123,53 @@ public class MyBinaryTree implements Serializable {
         else {
             BinaryNode x = next(node);
             node = x;
-
+            x.setParent(x.getRight());
         }
+    }
+
+    public void remove(int x) {
+        root = remove(x, root);
+    }
+
+    public BinaryNode remove (int x, BinaryNode node) {
+        if (node == null)
+            return null;
+        if (x < node.getKey())
+            node.setLeft(remove(x, node.getLeft()));
+        else if (x > node.getKey())
+            node.setRight(remove(x, node.getRight()));
+        else if (node.getLeft() != null && node.getRight() != null) {
+            node.setKey(findMin(node.getRight()).getKey());
+            node.setRight(remove(node.getKey(),node.getRight()));
+        } else {
+            if (node.getLeft() != null)
+                node = node.getLeft();
+            else
+                node = node.getRight();
+        }
+        return node;
+    }
+
+    public int height(BinaryNode node) {
+        if (node == null)
+            return -1;
+        else
+            return 1+ Math.max(height(node.getLeft()), height(node.getRight()));
+    }
+
+    public void rotateRight(BinaryNode x) {
+        BinaryNode p = x.getParent();
+        BinaryNode y = x.getLeft();
+        BinaryNode b = y.getRight();
+        y.setParent(p);
+        if (y.getKey() < p.getKey())
+            p.setLeft(y);
+        else
+            p.setRight(y);
+        x.setParent(y);
+        y.setRight(x);
+        b.setParent(x);
+        x.setLeft(b);
     }
 
     public void preorder(BinaryNode node) {
@@ -149,4 +209,6 @@ public class MyBinaryTree implements Serializable {
                 nodeQueue.enqueue(aux.getRight());
         }
     }
+
+
 }
