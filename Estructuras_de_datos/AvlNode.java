@@ -64,4 +64,15 @@ public class AvlNode implements Serializable {
     public void setHeight(int height) {
         this.height = height;
     }
+
+    public boolean hasChild() {
+        return (this.left != null || this.right != null);
+    }
+
+    public AvlNode getLargerChild() {
+        if (this.left.getKey() > this.right.getKey())
+            return this.left;
+        else
+            return this.right;
+    }
 }
