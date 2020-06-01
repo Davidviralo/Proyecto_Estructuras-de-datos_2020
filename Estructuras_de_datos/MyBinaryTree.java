@@ -56,6 +56,32 @@ public class MyBinaryTree implements Serializable {
         return findMin(node.getLeft());
     }
 
+    public int findMax() {
+        if (isEmpty())
+            throw new RuntimeException("The tree is empty");
+        else
+            return findMax(this.root).getKey();
+    }
+
+    public BinaryNode findMax(BinaryNode node) {
+        if (node == null)
+            return null;
+        else if (node.getRight() == null)
+            return node;
+        return findMax(node.getRight());
+    }
+
+    public int size(){
+        return size(root);
+    }
+
+    public int size(BinaryNode node) {
+        if (node == null)
+            return 0;
+        else
+            return 1 + size(node.getLeft()) + size(node.getRight());
+    }
+
     public BinaryNode find(int k) {
         return find(k, root);
     }
@@ -172,41 +198,43 @@ public class MyBinaryTree implements Serializable {
         x.setLeft(b);
     }
 
-    public void preorder(BinaryNode node) {
+    public void preOrder(BinaryNode node) {
         if (node != null) {
             System.out.print(node.getKey() + " ");
-            preorder(node.getLeft());
-            preorder(node.getRight());
+            preOrder(node.getLeft());
+            preOrder(node.getRight());
         }
     }
 
-    public void postorder(BinaryNode node) {
+    public void postOrder(BinaryNode node) {
         if (node != null) {
-            postorder(node.getLeft());
-            postorder(node.getRight());
+            postOrder(node.getLeft());
+            postOrder(node.getRight());
             System.out.print(node.getKey() + " ");
         }
     }
 
-    public void inorder(BinaryNode node) {
+    public void inOrder(BinaryNode node) {
         if (node != null) {
-            postorder(node.getLeft());
+            inOrder(node.getLeft());
             System.out.print(node.getKey() + " ");
-            postorder(node.getRight());
+            inOrder(node.getRight());
         }
     }
 
     public void levels(BinaryNode node) {
-        ArrayQueue<BinaryNode> nodeQueue = new ArrayQueue<>();
-        BinaryNode aux = new BinaryNode();
-        nodeQueue.enqueue(node);
-        while (!nodeQueue.empty()) {
-            aux = nodeQueue.dequeue();
-            System.out.println(aux.getKey());
-            if (aux.getLeft() != null)
-                nodeQueue.enqueue(aux.getLeft());
-            if (aux.getRight() != null)
-                nodeQueue.enqueue(aux.getRight());
+        if (node != null) {
+            ArrayQueue<BinaryNode> nodeQueue = new ArrayQueue<>();
+            BinaryNode aux = new BinaryNode();
+            nodeQueue.enqueue(node);
+            while (!nodeQueue.empty()) {
+                aux = nodeQueue.dequeue();
+                System.out.println(aux.getKey());
+                if (aux.getLeft() != null)
+                    nodeQueue.enqueue(aux.getLeft());
+                if (aux.getRight() != null)
+                    nodeQueue.enqueue(aux.getRight());
+            }
         }
     }
 
