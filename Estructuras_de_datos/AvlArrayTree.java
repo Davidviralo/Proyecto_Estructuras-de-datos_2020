@@ -14,6 +14,7 @@ public class AvlArrayTree implements Serializable {
         maxSize ++;
         this.maxSize = maxSize;
         this.H = new int[maxSize];
+        this.size = 0;
     }
 
     public int parent(int index){
@@ -86,5 +87,34 @@ public class AvlArrayTree implements Serializable {
             siftDown(index);
     }
 
+    public void heapSort(int[] array) {
+        int size = array.length;
+        AvlArrayTree arrayTree = new AvlArrayTree(size);
+        for (int i = 0; i < size; i++)
+            arrayTree.insert(array[i]);
+        for (int i = size-1; i>=0; i--)
+            array[i] = extractMax();
+    }
 
+    public AvlArrayTree buildHeap(int[] array) {
+        int size = array.length;
+        AvlArrayTree heap = new AvlArrayTree(size);
+        for (int i = 0; i < size; i++)
+            heap.H[i+1] = array[i];
+        for (int i = heap.maxSize/2; i >= 1; i--)
+            heap.siftDown(i);
+        return heap;
+    }
+
+    public int[] inPlaceHeapSort(int[] array) {
+        AvlArrayTree A = buildHeap(array);
+        for (int i = 0; i < array.length - 1; i++){
+            int aux = A.H[1];
+            A.H[1] = A.H[A.size];
+            A.H[A.size] = aux;
+            A.size--;
+            A.siftDown(1);
+        }
+        return A.H;
+    }
 }
