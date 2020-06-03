@@ -1,12 +1,15 @@
 package pruebaGrafica;
 
 import Estructuras_de_datos.*;
+import businessLogic.wrapLayout;
 import javax.swing.JOptionPane;
 import data.*;
 import static data.DataBase.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import javax.swing.ImageIcon;
+import java.awt.*;
+import javax.swing.JLabel;
 
 public class GUI extends javax.swing.JFrame {
 
@@ -243,6 +246,10 @@ public class GUI extends javax.swing.JFrame {
         addMaterialButton11 = new javax.swing.JButton();
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
+        jpManagementP = new javax.swing.JPanel();
+        controlPanelTitle4 = new javax.swing.JLabel();
+        jSeparator7 = new javax.swing.JSeparator();
+        panel1 = new java.awt.Panel();
 
         jLabel12.setText("jLabel12");
 
@@ -1853,6 +1860,38 @@ public class GUI extends javax.swing.JFrame {
 
         Menu.add(jpCreateS, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1024, 431));
 
+        jpManagementP.setBackground(new java.awt.Color(28, 28, 28));
+        jpManagementP.setMinimumSize(new java.awt.Dimension(1024, 431));
+        jpManagementP.setPreferredSize(new java.awt.Dimension(1024, 431));
+        jpManagementP.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        controlPanelTitle4.setBackground(new java.awt.Color(203, 203, 204));
+        controlPanelTitle4.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        controlPanelTitle4.setForeground(new java.awt.Color(255, 255, 255));
+        controlPanelTitle4.setText("Gesttion produccion");
+        jpManagementP.add(controlPanelTitle4, new org.netbeans.lib.awtextra.AbsoluteConstraints(335, 28, -1, 46));
+
+        jSeparator7.setBackground(new java.awt.Color(0, 69, 173));
+        jSeparator7.setForeground(new java.awt.Color(0, 69, 173));
+        jSeparator7.setToolTipText("");
+        jSeparator7.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 56, 142)));
+        jpManagementP.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(335, 80, 368, -1));
+
+        javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
+        panel1.setLayout(panel1Layout);
+        panel1Layout.setHorizontalGroup(
+            panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 760, Short.MAX_VALUE)
+        );
+        panel1Layout.setVerticalGroup(
+            panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 230, Short.MAX_VALUE)
+        );
+
+        jpManagementP.add(panel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, 760, 230));
+
+        Menu.add(jpManagementP, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1024, 431));
+
         getContentPane().add(Menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1024, 541));
 
         pack();
@@ -2101,15 +2140,17 @@ public class GUI extends javax.swing.JFrame {
        
     }//GEN-LAST:event_signOutButtonMouseClicked
 
-    private void createButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createButtonMouseClicked
-        jpControl.setVisible(false);
-        jpCreateP.setVisible(true);
-        
-    }//GEN-LAST:event_createButtonMouseClicked
-
     private void manageButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageButtonMouseClicked
-         jpControl.setVisible(false);
-        //.setVisible(true);   
+         
+jpControl.setVisible(false);
+         jpManagementP.setVisible(true); 
+         Stage stage = new Stage();
+         MyArrayList<Stage> stages= new MyArrayList<>();
+         stages.add(0, stage);
+         createPanels(stages);
+         jpManagementP.repaint();    
+         
+         
     }//GEN-LAST:event_manageButtonMouseClicked
 
     private void registryButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registryButtonMouseClicked
@@ -4184,7 +4225,8 @@ private static int indexCr=1;
                  namePjL0.setText("Todos las producciónes");
             }
     }//GEN-LAST:event_doneButton1MouseClicked
-
+    
+    
     private void goBackButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_goBackButton5MouseClicked
          jpSearchP.setVisible(false);
          jpCreateP.setVisible(true);
@@ -4194,6 +4236,92 @@ private static int indexCr=1;
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextCs5ActionPerformed
 
+    private void createButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createButtonMouseClicked
+
+    }//GEN-LAST:event_createButtonMouseClicked
+    private void createPanels(MyArrayList<Stage> stages1){
+        
+        panel1.removeAll();
+        panel1.setLayout(new wrapLayout(wrapLayout.CENTER, 10, 10));
+        
+        for (int i=0; i<20;i++){
+        panel1.add(createStages(panel1));
+        }
+        panel1.validate();   
+    }
+    
+    public final Panel  createStages( Panel panel){
+        //panel NOmbre:
+        JLabel nombre1 = new JLabel("Nombre: ");
+        nombre1.setOpaque(true);
+        nombre1.setBackground(new java.awt.Color(0, 56, 142));
+        nombre1.setVisible(true);
+        //nombre1.setSize(20,60);
+        nombre1.setForeground(Color.white);
+        
+        //panel con el nombre de la etapa
+        JLabel nombreE = new JLabel("Etapa A");
+        nombreE.setOpaque(true);
+        nombreE.setBackground(new java.awt.Color(0, 56, 142));
+        nombreE.setVisible(true);
+        //nombreE.setSize(20,60);
+        nombreE.setForeground(Color.white);
+        nombreE.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        //Panel Fecha Inicio:
+        JLabel fecha1 = new JLabel("Fecha de inicio: ");
+        fecha1.setOpaque(true);
+        fecha1.setBackground(new java.awt.Color(0, 56, 142));
+        fecha1.setVisible(true);
+        //fecha1.setSize(10,60);
+        fecha1.setForeground(Color.white);
+        
+        //Panel Fecha Inicio de la etapa
+        JLabel fechaE = new JLabel("01/01/2020");
+        fechaE.setOpaque(true);
+        fechaE.setBackground(new java.awt.Color(0, 56, 142));
+        fechaE.setVisible(true);
+        //fecha1.setSize(10,60);
+        fechaE.setForeground(Color.white);
+        fechaE.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        
+        //Panel Fecha de finalizacion:
+        JLabel fechaf1 = new JLabel("Fecha de finalizacion:");
+        fechaf1.setOpaque(true);
+        fechaf1.setBackground(new java.awt.Color(0, 56, 142));
+        fechaf1.setVisible(true);
+        //fechaf1.setSize(20,60);
+        fechaf1.setForeground(Color.white);
+            
+         //Panel Fecha de finalizacion:
+        JLabel fechafE = new JLabel("01/01/2021");
+        fechafE.setOpaque(true);
+        fechafE.setBackground(new java.awt.Color(0, 56, 142));
+        fechafE.setVisible(true);
+        //fechaf1.setSize(20,60);
+        fechafE.setForeground(Color.white);
+        fechafE.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        
+        JLabel estado = new JLabel("Estado:");
+        estado.setOpaque(true);
+        estado.setBackground(Color.white);
+        estado.setVisible(true);
+        //estado.setSize(20,60);
+        estado.setForeground(Color.white);
+        
+        Panel panelProducto = new Panel();
+        Dimension dimensioProducto = new Dimension(2000, 2000);
+        panelProducto.setSize(dimensioProducto);
+        panelProducto.setLayout(new GridLayout(4,2));
+        panelProducto.add(nombre1, 0);
+        panelProducto.add(nombreE,1);
+        panelProducto.add(fecha1,2);
+        panelProducto.add(fechaE,3);
+        panelProducto.add(fechaf1,4);
+        panelProducto.add(fechafE,5);
+        panelProducto.add(estado,6);
+        panelProducto.setBackground(new java.awt.Color(48, 48, 48));
+        return panelProducto;
+    }
     public static void main(String args[]) {
         for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
         }
@@ -4276,6 +4404,7 @@ private static int indexCr=1;
     private javax.swing.JLabel controlPanelTitle1;
     private javax.swing.JLabel controlPanelTitle2;
     private javax.swing.JLabel controlPanelTitle3;
+    private javax.swing.JLabel controlPanelTitle4;
     private javax.swing.JLabel controlPanelTitle5;
     private javax.swing.JLabel controlPanelTitle6;
     private javax.swing.JButton createButton;
@@ -4340,6 +4469,7 @@ private static int indexCr=1;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
+    private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JTextField jTextCm0;
@@ -4395,6 +4525,7 @@ private static int indexCr=1;
     private javax.swing.JPanel jpCreateP;
     private javax.swing.JPanel jpCreateS;
     private javax.swing.JPanel jpInfo;
+    private javax.swing.JPanel jpManagementP;
     private javax.swing.JPanel jpNewUser;
     private javax.swing.JPanel jpRegister;
     private javax.swing.JPanel jpSearchP;
@@ -4415,6 +4546,7 @@ private static int indexCr=1;
     private javax.swing.JLabel nSdeP5;
     private javax.swing.JLabel namePjL;
     private javax.swing.JLabel namePjL0;
+    private java.awt.Panel panel1;
     private javax.swing.JLabel passwordLabel;
     private javax.swing.JLabel productionIDLabel;
     private javax.swing.JLabel productionIDLabel1;
