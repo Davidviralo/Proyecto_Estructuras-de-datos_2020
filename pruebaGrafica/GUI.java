@@ -1881,14 +1881,14 @@ public class GUI extends javax.swing.JFrame {
         panel1.setLayout(panel1Layout);
         panel1Layout.setHorizontalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 760, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         panel1Layout.setVerticalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 230, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        jpManagementP.add(panel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, 760, 230));
+        jpManagementP.add(panel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, 810, 280));
 
         Menu.add(jpManagementP, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1024, 431));
 
