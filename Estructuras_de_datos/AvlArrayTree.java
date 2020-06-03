@@ -4,16 +4,16 @@ import java.io.Serializable;
 
 import static java.lang.Math.floor;
 
-public class AvlArrayTree implements Serializable {
+public class AvlArrayTree<T extends Comparable<T>> implements Serializable {
 
     private int maxSize;
     private int size;
-    private int[] H;
+    private T[] H;
 
     public AvlArrayTree(int maxSize) {
         maxSize ++;
         this.maxSize = maxSize;
-        this.H = new int[maxSize];
+        this.H = (T[]) new Object[maxSize];
         this.size = 0;
     }
 
@@ -29,9 +29,13 @@ public class AvlArrayTree implements Serializable {
         return (2*index) + 1;
     }
 
+    public T getMax() {
+        return H[1];
+    }
+
     public void siftUp(int index) {
-        while (index > 1 && H[parent(index)] < H[index]) {
-            int aux = H[parent(index)];
+        while (index > 1 && H[parent(index)].compareTo(H[index]) < 0) {
+            T aux = H[parent(index)];
             H[parent(index)] = H[index];
             H[index] = aux;
             index = parent(index);
@@ -41,20 +45,20 @@ public class AvlArrayTree implements Serializable {
     public void siftDown(int index) {
         int maxIndex = index;
         int leftIndex = left(index);
-        if (leftIndex <= size && H[leftIndex] > H[maxIndex])
+        if (leftIndex <= size && H[leftIndex].compareTo(H[maxIndex]) > 0)
             maxIndex = leftIndex;
         int rightIndex = right(index);
-        if (rightIndex <= size && H[rightIndex] > H[maxIndex])
+        if (rightIndex <= size && H[rightIndex].compareTo(H[maxIndex]) > 0)
             maxIndex = rightIndex;
         if (index != maxIndex){
-            int aux = H[index];
+            T aux = H[index];
             H[index] = H[maxIndex];
             H[maxIndex] = aux;
             siftDown(maxIndex);
         }
     }
 
-    public void insert(int x) {
+    public void insert(T x) {
         if (size == maxSize)
             throw new RuntimeException("The heap is full");
         else {
@@ -64,8 +68,8 @@ public class AvlArrayTree implements Serializable {
         }
     }
 
-    public int extractMax() {
-        int result = H[1];
+    public T extractMax() {
+        T result = H[1];
         H[1] = H[size];
         size--;
         siftDown(1);
@@ -73,21 +77,21 @@ public class AvlArrayTree implements Serializable {
     }
 
     public void remove(int index) {
-        H[index] = 2147483647;
+        H[index] = getMax();
         siftUp(index);
         extractMax();
     }
 
-    public void changePriority(int index, int newPriority) {
-        int oldPriority =  H[index];
+    public void changePriority(int index, T newPriority) {
+        T oldPriority =  H[index];
         H[index] = newPriority;
-        if (newPriority > oldPriority)
+        if (newPriority.compareTo(oldPriority) > 0)
             siftUp(index);
         else
             siftDown(index);
     }
 
-    public void heapSort(int[] array) {
+    public void heapSort(T[] array) {
         int size = array.length;
         AvlArrayTree arrayTree = new AvlArrayTree(size);
         for (int i = 0; i < size; i++)
@@ -96,7 +100,7 @@ public class AvlArrayTree implements Serializable {
             array[i] = extractMax();
     }
 
-    public AvlArrayTree buildHeap(int[] array) {
+    public AvlArrayTree buildHeap(T[] array) {
         int size = array.length;
         AvlArrayTree heap = new AvlArrayTree(size);
         for (int i = 0; i < size; i++)
@@ -106,15 +110,15 @@ public class AvlArrayTree implements Serializable {
         return heap;
     }
 
-    public int[] inPlaceHeapSort(int[] array) {
+    public T[] inPlaceHeapSort(T[] array) {
         AvlArrayTree A = buildHeap(array);
         for (int i = 0; i < array.length - 1; i++){
-            int aux = A.H[1];
+            T aux = (T) A.H[1];
             A.H[1] = A.H[A.size];
             A.H[A.size] = aux;
             A.size--;
             A.siftDown(1);
         }
-        return A.H;
+        return (T[]) A.H;
     }
 }
