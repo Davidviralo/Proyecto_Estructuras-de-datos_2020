@@ -2,18 +2,16 @@ package Estructuras_de_datos;
 
 import java.io.Serializable;
 
-import static java.lang.Math.floor;
-
-public class AvlArrayTree<T extends Comparable<T>> implements Serializable {
+public class MyHeap<T extends Comparable<T>> implements Serializable {
 
     private int maxSize;
     private int size;
     private T[] H;
 
-    public AvlArrayTree(int maxSize) {
+    public MyHeap(int maxSize) {
         maxSize ++;
         this.maxSize = maxSize;
-        this.H = (T[]) new Object[maxSize];
+        this.H = (T[]) new Comparable[maxSize];
         this.size = 0;
     }
 
@@ -93,16 +91,16 @@ public class AvlArrayTree<T extends Comparable<T>> implements Serializable {
 
     public void heapSort(T[] array) {
         int size = array.length;
-        AvlArrayTree arrayTree = new AvlArrayTree(size);
+        MyHeap arrayTree = new MyHeap(size);
         for (int i = 0; i < size; i++)
             arrayTree.insert(array[i]);
         for (int i = size-1; i>=0; i--)
             array[i] = extractMax();
     }
 
-    public AvlArrayTree buildHeap(T[] array) {
+    public MyHeap buildHeap(T[] array) {
         int size = array.length;
-        AvlArrayTree heap = new AvlArrayTree(size);
+        MyHeap heap = new MyHeap(size);
         for (int i = 0; i < size; i++)
             heap.H[i+1] = array[i];
         for (int i = heap.maxSize/2; i >= 1; i--)
@@ -111,7 +109,7 @@ public class AvlArrayTree<T extends Comparable<T>> implements Serializable {
     }
 
     public T[] inPlaceHeapSort(T[] array) {
-        AvlArrayTree A = buildHeap(array);
+        MyHeap A = buildHeap(array);
         for (int i = 0; i < array.length - 1; i++){
             T aux = (T) A.H[1];
             A.H[1] = A.H[A.size];
@@ -120,5 +118,12 @@ public class AvlArrayTree<T extends Comparable<T>> implements Serializable {
             A.siftDown(1);
         }
         return (T[]) A.H;
+    }
+
+    public void levels() {
+        for (int i = 1; i <= size; i++) {
+            System.out.print(H[i] + " ");
+        }
+        System.out.println();
     }
 }

@@ -1,15 +1,17 @@
 package Estructuras_de_datos;
 
-public class BinaryArrayTree {
+import java.io.Serializable;
+
+public class BinaryArrayTree<T extends Comparable<T>> implements Serializable {
 
     private int maxSize;
     private int size;
-    private int[] H;
+    private T[] array;
 
     public BinaryArrayTree(int maxSize) {
         maxSize ++;
         this.maxSize = maxSize;
-        this.H = new int[maxSize];
+        this.array = (T[]) new Comparable[maxSize];
         this.size = 0;
     }
 
@@ -25,30 +27,60 @@ public class BinaryArrayTree {
         return (2*index) + 1;
     }
 
-    public void insert(int x) {
+    public void insert(T x) {
         if (size == maxSize)
             throw new RuntimeException("The heap is full");
         else {
             size++;
-            H[size] = x;
+            array[size] = x;
         }
     }
 
+    public boolean contains(T item, int index) {
+        if (array[index].compareTo(item) == 0)
+            return true;
+        else {
+            if (item.compareTo(array[index]) < 0)
+                return contains(item, left(index));
+            if (item.compareTo(array[index]) > 0)
+                return contains(item, right(index));
+        }
+        return true;
+    }
 
-    public void levels() {
-        if (size >= 1) {
-            ArrayQueue<Integer> queue = new ArrayQueue<>();
-            int aux;
-            queue.enqueue(1);
-            while (!queue.empty()) {
-                aux = queue.dequeue();
-                System.out.println(H[aux]);
-                if (H[left(aux)] != -1)
-                    queue.enqueue(left(aux));
-                if (H[right(aux)] != -1)
-                    queue.enqueue(right(aux));
+    public boolean contains(T item) {
+        return contains(item, 1);
+    }
+
+    public int find(T item, int index) {
+        if (array[index].compareTo(item) > 0) {
+            if (left(index) <= size && array[left(index)] != null)
+                return find(item, left(index));
+        } else {
+            if (array[index].compareTo(item) < 0) {
+                if (right(index) <= size && array[right(index)] != null)
+                    return find(item, right(index));
             }
         }
+        return index;
+    }
+
+    public int find(T item) {
+        return find(item, 1);
+    }
+
+    public int height(int index) {
+        if (array[index] == null)
+            return 0;
+        else
+            return 1 + Math.max(height(left(index)), height(right(index)));
+    }
+
+    public void levels() {
+        for (int i = 1; i <= size; i++) {
+            System.out.print(array[i] + " ");
+        }
+        System.out.println();
     }
 
 }
