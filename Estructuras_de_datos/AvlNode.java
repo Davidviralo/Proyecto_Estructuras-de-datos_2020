@@ -2,58 +2,56 @@ package Estructuras_de_datos;
 
 import java.io.Serializable;
 
-public class AvlNode implements Serializable {
+public class AvlNode<T extends Comparable<T>> implements Serializable {
 
-    private int key;
-    private AvlNode parent;
-    private AvlNode left;
-    private AvlNode right;
+    private T item;
+    private AvlNode<T> parent ,left, right;
     private int height;
 
-    public AvlNode(int key, AvlNode parent, AvlNode left, AvlNode right, int height) {
-        this.key = key;
+    public AvlNode(T item, AvlNode<T> parent, AvlNode<T> left, AvlNode<T> right, int height) {
+        this.item = item;
         this.parent = parent;
         this.left = left;
         this.right = right;
         this.height = height;
     }
 
-    public AvlNode(int key) {
-        this.key = key;
+    public AvlNode(T item) {
+        this.item = item;
     }
 
     public AvlNode() {
     }
 
-    public int getKey() {
-        return key;
+    public T getItem() {
+        return item;
     }
 
-    public void setKey(int key) {
-        this.key = key;
+    public void setItem(T item) {
+        this.item = item;
     }
 
-    public AvlNode getParent() {
+    public AvlNode<T> getParent() {
         return parent;
     }
 
-    public void setParent(AvlNode parent) {
+    public void setParent(AvlNode<T> parent) {
         this.parent = parent;
     }
 
-    public AvlNode getLeft() {
+    public AvlNode<T> getLeft() {
         return left;
     }
 
-    public void setLeft(AvlNode left) {
+    public void setLeft(AvlNode<T> left) {
         this.left = left;
     }
 
-    public AvlNode getRight() {
+    public AvlNode<T> getRight() {
         return right;
     }
 
-    public void setRight(AvlNode right) {
+    public void setRight(AvlNode<T> right) {
         this.right = right;
     }
 
@@ -69,8 +67,8 @@ public class AvlNode implements Serializable {
         return (this.left != null || this.right != null);
     }
 
-    public AvlNode getLargerChild() {
-        if (this.left.getKey() > this.right.getKey())
+    public AvlNode<T> getLargerChild() {
+        if (left.getItem().compareTo(right.getItem()) > 0)
             return this.left;
         else
             return this.right;
