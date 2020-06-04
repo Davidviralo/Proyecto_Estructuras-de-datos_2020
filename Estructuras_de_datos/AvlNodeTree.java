@@ -144,6 +144,39 @@ public class AvlNodeTree<T extends Comparable<T>> implements Serializable {
             node.setRight(child);
             child.setParent(node);
         }
+        AvlNode<T> N = find(k, root);
+        rebalance(N);
+    }
+
+    public void rebalance(AvlNode<T> N) {
+        AvlNode<T> P = N.getParent();
+        if (N.getLeft().getHeight() > N.getRight().getHeight() + 1)
+            rebalanceRight(N);
+        if (N.getRight().getHeight() > N.getLeft().getHeight() + 1)
+            rebalanceLeft(N);
+        adjustHeight(N);
+        if (P != null)
+            rebalance(P);
+    }
+
+    public void rebalanceRight(AvlNode<T> N) {
+        AvlNode<T> M = N.getLeft();
+        if (M.getRight().getHeight() > M.getLeft().getHeight())
+            rotateLeft(M);
+        rotateRight(N);
+        //
+        adjustHeight(N);
+        adjustHeight(M);
+    }
+
+    public void rebalanceLeft(AvlNode<T> N) {
+        AvlNode<T> M = N.getRight();
+        if (M.getLeft().getHeight() > M.getRight().getHeight())
+            rotateRight(M);
+        rotateLeft(N);
+        //
+        adjustHeight(N);
+        adjustHeight(M);
     }
 
     public void delete(AvlNode<T> node) {
@@ -181,9 +214,28 @@ public class AvlNodeTree<T extends Comparable<T>> implements Serializable {
 
     public int height(AvlNode<T> node) {
         if (node == null)
-            return -1;
+            return 0;
         else
             return 1+ Math.max(height(node.getLeft()), height(node.getRight()));
+    }
+
+    public void adjustHeight(AvlNode<T> N) {
+        N.setHeight(1 + Math.max(height(N.getLeft()), height(N.getRight())));
+    }
+
+    public void rotateLeft(AvlNode<T> y) {
+        AvlNode<T> p = y.getParent();
+        AvlNode<T> x = y.getRight();
+        AvlNode<T> b = x.getLeft();
+        x.setParent(p);
+        if (x.getItem().compareTo(p.getItem()) < 0)
+            p.setLeft(x);
+        else
+            p.setRight(x);
+        y.setParent(x);
+        x.setLeft(y);
+        b.setParent(y);
+        y.setRight(b);
     }
 
     public void rotateRight(AvlNode<T> x) {
