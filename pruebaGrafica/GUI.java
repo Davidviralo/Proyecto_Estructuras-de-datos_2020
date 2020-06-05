@@ -17,6 +17,7 @@ public class GUI extends javax.swing.JFrame {
      int x,y;
     
     public GUI() {
+        
         initComponents();
         this.setLocationRelativeTo(null);               
         Menu.setVisible(false);       
@@ -33,7 +34,7 @@ public class GUI extends javax.swing.JFrame {
         Menu.revalidate();
              
         Main.setVisible(true); 
-              jpManagementP.setVisible(false);
+              
               jpNewUser.setVisible(false);    
 //            jpCM2.setVisible(true);
 //            jpInfo.setVisible(true);
@@ -196,6 +197,7 @@ public class GUI extends javax.swing.JFrame {
         nSdeP2 = new javax.swing.JTextField();
         nSdeP0 = new javax.swing.JTextField();
         goBackButton5 = new javax.swing.JButton();
+        seeRegisterButton1 = new javax.swing.JButton();
         jpCreateM = new javax.swing.JPanel();
         goBackButton6 = new javax.swing.JButton();
         controlPanelTitle5 = new javax.swing.JLabel();
@@ -254,6 +256,7 @@ public class GUI extends javax.swing.JFrame {
         jSeparator7 = new javax.swing.JSeparator();
         jScrollPane2 = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
+        goBackButton8 = new javax.swing.JButton();
 
         jLabel12.setText("jLabel12");
 
@@ -270,6 +273,14 @@ public class GUI extends javax.swing.JFrame {
         addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 formMousePressed(evt);
+            }
+        });
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
             }
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -693,7 +704,7 @@ public class GUI extends javax.swing.JFrame {
 
         manageLabel1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         manageLabel1.setForeground(new java.awt.Color(202, 202, 202));
-        manageLabel1.setText("Gestionar");
+        manageLabel1.setText("Buscador");
 
         manageLabel2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         manageLabel2.setForeground(new java.awt.Color(202, 202, 202));
@@ -1206,7 +1217,7 @@ public class GUI extends javax.swing.JFrame {
                 seeRegisterButtonMouseClicked(evt);
             }
         });
-        jpSearchP.add(seeRegisterButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 370, 186, 35));
+        jpSearchP.add(seeRegisterButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 370, 186, 35));
 
         ImageP1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/nothing.png"))); // NOI18N
         jpSearchP.add(ImageP1, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 182, -1, -1));
@@ -1452,6 +1463,19 @@ public class GUI extends javax.swing.JFrame {
             }
         });
         jpSearchP.add(goBackButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 20, 132, 30));
+
+        seeRegisterButton1.setBackground(new java.awt.Color(0, 56, 142));
+        seeRegisterButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        seeRegisterButton1.setForeground(new java.awt.Color(204, 204, 204));
+        seeRegisterButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/play.png"))); // NOI18N
+        seeRegisterButton1.setText("Gestionar P");
+        seeRegisterButton1.setBorder(null);
+        seeRegisterButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                seeRegisterButton1MouseClicked(evt);
+            }
+        });
+        jpSearchP.add(seeRegisterButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 370, 186, 35));
 
         Menu.add(jpSearchP, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1024, 431));
 
@@ -1872,14 +1896,16 @@ public class GUI extends javax.swing.JFrame {
         controlPanelTitle4.setBackground(new java.awt.Color(203, 203, 204));
         controlPanelTitle4.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         controlPanelTitle4.setForeground(new java.awt.Color(255, 255, 255));
-        controlPanelTitle4.setText("Gesttion produccion");
-        jpManagementP.add(controlPanelTitle4, new org.netbeans.lib.awtextra.AbsoluteConstraints(335, 28, 460, 46));
+        controlPanelTitle4.setText("Gestión producción");
+        jpManagementP.add(controlPanelTitle4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 30, 440, 46));
 
         jSeparator7.setBackground(new java.awt.Color(0, 69, 173));
         jSeparator7.setForeground(new java.awt.Color(0, 69, 173));
         jSeparator7.setToolTipText("");
         jSeparator7.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 56, 142)));
-        jpManagementP.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(335, 80, 368, -1));
+        jpManagementP.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(335, 80, 440, -1));
+
+        jPanel1.setBackground(new java.awt.Color(48, 48, 48));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -1895,6 +1921,19 @@ public class GUI extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jPanel1);
 
         jpManagementP.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 940, 230));
+
+        goBackButton8.setBackground(new java.awt.Color(28, 28, 28));
+        goBackButton8.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        goBackButton8.setForeground(new java.awt.Color(77, 147, 255));
+        goBackButton8.setText("< Regresar");
+        goBackButton8.setBorder(null);
+        goBackButton8.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
+        goBackButton8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                goBackButton8MouseClicked(evt);
+            }
+        });
+        jpManagementP.add(goBackButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 20, 132, 30));
 
         Menu.add(jpManagementP, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1024, 431));
 
@@ -1943,7 +1982,8 @@ public class GUI extends javax.swing.JFrame {
     private void jlCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlCloseMouseClicked
        int dialog = JOptionPane.YES_NO_OPTION;
        int result = JOptionPane.showConfirmDialog(null, "¿Desea cerrar el programa?","Exit",dialog);
-       if(result ==0){         
+       if(result ==0){
+           DataBase.WriteArchive();
            System.exit(0);
        }
     }//GEN-LAST:event_jlCloseMouseClicked
@@ -1999,6 +2039,8 @@ public class GUI extends javax.swing.JFrame {
         
             Menu.setVisible(true); 
             goBackButton5.setVisible(true);
+            
+            seeRegisterButton.setVisible(false);
             roleLabel.setText("Usuario administrador");
             jpControl.setVisible(true);            
              Menu.repaint();
@@ -2047,6 +2089,7 @@ public class GUI extends javax.swing.JFrame {
             
             Menu.setVisible(true);  
             goBackButton5.setVisible(false);
+            seeRegisterButton1.setVisible(false);
             roleLabel.setText("Usuario estandar");
             jpSearchP.setVisible(true);
             Menu.repaint();
@@ -2124,6 +2167,10 @@ public class GUI extends javax.swing.JFrame {
             jpControl.setVisible(false); 
             jpCreateS.setVisible(false);
             jpCreateM.setVisible(false);
+            seeRegisterButton1.setVisible(true);
+            seeRegisterButton.setVisible(true);
+            jpManagementP.setVisible(false);
+            
         Menu.repaint();
         Menu.revalidate(); 
         
@@ -2147,14 +2194,54 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_signOutButtonMouseClicked
 
     private void manageButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageButtonMouseClicked
+         jpControl.setVisible(false);
+         jpSearchP.setVisible(true);
          
-jpControl.setVisible(false);
-         jpManagementP.setVisible(true); 
-         Stage stage = new Stage();
-         MyArrayList<Stage> stages= new MyArrayList<>();
-         stages.add(0, stage);
-         createPanels(stages);
-         jpManagementP.repaint();    
+         
+         jpCreateP.setVisible(false);         
+         jpSearchP.setVisible(true);
+         sLIDP2 = new SinglyLinkedList<>();
+            if(myArrayListProduction.getSize()>0){
+                ProductionLSp.removeAll();
+                String [] namep= new  String[5];
+                for(int i=0; i<myArrayListProduction.getSize(); i++){
+                        sLIDP2.pushBack(i);
+                }
+                for(int i=0; i<5; i++){
+                    if(i<myArrayListProduction.getSize()){
+                        namep[i]=myArrayListProduction.getItem(i).getName();
+                   if(!myArrayListProduction.getItem(i).isIsActive()){
+                        iconSeeP(i+1);
+                   }else if(myArrayListProduction.getItem(i).isIsFinished()){
+                        iconSeeP((i+1)+5);
+                   }else if(myArrayListProduction.getItem(i).isIsActive()){
+                        iconSeeP((i+1)+10);
+                   }
+                    }else{
+                        iconSeeP((i+1)+15);
+                    }
+                   
+                }
+                
+                   ProductionLSp.setListData(namep);
+                 indexSpp=1;
+                 String auxS;
+                 int sizep=myArrayListProduction.getSize()%5;
+                 int aux=myArrayListProduction.getSize()/5;
+                if(sizep!=0){
+                    aux++;
+                }
+                 nSdeP.setText("de "+aux);
+                 nSdeP0.setText("1");
+                 namePjL.setText("");
+                 namePjL0.setText("Todos las producciónes");
+            }
+////       jpManagementP.setVisible(true); 
+//         Stage stage = new Stage();
+//         MyArrayList<Stage> stages= new MyArrayList<>();
+//         stages.add(0, stage);
+//         createPanels(stages);
+//         jpManagementP.repaint();    
          
          
     }//GEN-LAST:event_manageButtonMouseClicked
@@ -3057,7 +3144,7 @@ private static int indexCr=1;
                    String Stageaux="";
                    Parameteraux="";
                    String sE;
-                   for(int s=0; s<production.getRawMaterials().getSize(); s++){
+                   for(int s=0; s<production.getStages().getSize(); s++){
                    if(production.getStages().getItem(s).isIsActive()){
                         if(production.getStages().getItem(s).isFinished()){
                             sE="Finalizado";
@@ -4243,20 +4330,68 @@ private static int indexCr=1;
     }//GEN-LAST:event_jTextCs5ActionPerformed
 
     private void createButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createButtonMouseClicked
-
+        jpControl.setVisible(false);
+        jpCreateP.setVisible(true);
     }//GEN-LAST:event_createButtonMouseClicked
+
+    private void goBackButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_goBackButton8MouseClicked
+        jpManagementP.setVisible(false);
+        jpSearchP.setVisible(true);
+    }//GEN-LAST:event_goBackButton8MouseClicked
+
+    private void seeRegisterButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seeRegisterButton1MouseClicked
+           try{
+            if(selectproduction!=-1 && sLIDP2.getSize()>0 && sLIDP2.getSize()>selectproduction+(5*(indexSpp-1))){
+//               jpSearchP.setVisible(false);
+//               SegoRe=true;
+//               jpRegister.setVisible(true); 
+//                sLIDP = new SinglyLinkedList<>();
+//                sLIDP.pushBack(sLIDP2.getItem(selectproduction+(5*(indexSpp-1))));
+//                          
+//                printProduction(1);
+//                nRdeP.setText("de "+sLIDP.getSize());
+//                nRdeP0.setText("1");
+                  jpSearchP.setVisible(false);
+                  jpManagementP.setVisible(true);
+                  
+                  createPanels(myArrayListProduction.getItem(sLIDP2.getItem(selectproduction+(5*(indexSpp-1)))).getStages());
+                  jpManagementP.repaint(); 
+            }else{
+               if(myArrayListProduction.getSize()<=0){
+                 JOptionPane.showMessageDialog(this,"Para ver registros debe crear producciónes."); 
+                }else{
+                 JOptionPane.showMessageDialog(this,"Por favor seleccione una producción. Para ello debe dar click en la imagen de la lupa del buscador de producciones para ver todas las producciónes"+"\n"+
+                         "o en el caso que desee buscar una producción en especifico, puede escribir el nombre de la producción y dar click en la lupa respectivamente.");   
+                 }
+            }
+             
+            
+        }catch(Exception e){
+          JOptionPane.showMessageDialog(this,"Ha ocurrido un error, por favor contacte con el administrador.");  
+        }
+   
+         
+    }//GEN-LAST:event_seeRegisterButton1MouseClicked
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+    DataBase.loadArchive();        // TODO add your handling code here:
+    }//GEN-LAST:event_formWindowOpened
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+    DataBase.WriteArchive();        // TODO add your handling code here:
+    }//GEN-LAST:event_formWindowClosing
     private void createPanels(MyArrayList<Stage> stages1){
         
         jPanel1.removeAll();
         jPanel1.setLayout(new wrapLayout(wrapLayout.CENTER, 20, 20));
         
-        for (int i=0; i<20;i++){
-        jPanel1.add(createStages(jPanel1));
+        for (int i=0; i< stages1.getSize();i++){
+        jPanel1.add(createStages(jPanel1,stages1.getItem(i)));
         }
         jPanel1.validate();   
     }
     
-    public final JPanel  createStages( JPanel panel){
+    public final JPanel  createStages( JPanel panel, Stage stage){
         JPanel panelProducto = new JPanel();
 //        Dimension dimensioProducto = new Dimension(2000, 2000);
 //        panelProducto.setSize(dimensioProducto);
@@ -4289,7 +4424,7 @@ private static int indexCr=1;
         constraints.gridheight = 1;
         panelProducto.add(nombre1,  constraints);
         //panel con el nombre de la etapa
-        JLabel nombreE = new JLabel("  Etapa A  ");
+        JLabel nombreE = new JLabel("  "+stage.getName()+"  ");
         nombreE.setOpaque(true);
         nombreE.setBackground(new java.awt.Color(0, 56, 142));
         nombreE.setVisible(true);
@@ -4503,6 +4638,7 @@ private static int indexCr=1;
     private javax.swing.JButton goBackButton5;
     private javax.swing.JButton goBackButton6;
     private javax.swing.JButton goBackButton7;
+    private javax.swing.JButton goBackButton8;
     private javax.swing.JLabel idLabel;
     private javax.swing.JLabel imageLabel1;
     private javax.swing.JLabel infoText3;
@@ -4646,6 +4782,7 @@ private static int indexCr=1;
     private javax.swing.JLabel searchSjLabel;
     private javax.swing.JLabel searchjLabel;
     private javax.swing.JButton seeRegisterButton;
+    private javax.swing.JButton seeRegisterButton1;
     private javax.swing.JButton signInButton;
     private javax.swing.JLabel signInTitle;
     private javax.swing.JButton signOutButton;
