@@ -10,6 +10,7 @@ import java.time.format.DateTimeFormatter;
 import javax.swing.ImageIcon;
 import java.awt.*;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 public class GUI extends javax.swing.JFrame {
 
@@ -27,10 +28,12 @@ public class GUI extends javax.swing.JFrame {
              jpRegister.setVisible(false);
              jpCreateS.setVisible(false);
              jpCreateM.setVisible(false);
+             jpManagementP.setVisible(false);
         Menu.repaint();
         Menu.revalidate();
              
         Main.setVisible(true); 
+              jpManagementP.setVisible(false);
               jpNewUser.setVisible(false);    
 //            jpCM2.setVisible(true);
 //            jpInfo.setVisible(true);
@@ -249,7 +252,8 @@ public class GUI extends javax.swing.JFrame {
         jpManagementP = new javax.swing.JPanel();
         controlPanelTitle4 = new javax.swing.JLabel();
         jSeparator7 = new javax.swing.JSeparator();
-        panel1 = new java.awt.Panel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jPanel1 = new javax.swing.JPanel();
 
         jLabel12.setText("jLabel12");
 
@@ -1869,7 +1873,7 @@ public class GUI extends javax.swing.JFrame {
         controlPanelTitle4.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         controlPanelTitle4.setForeground(new java.awt.Color(255, 255, 255));
         controlPanelTitle4.setText("Gesttion produccion");
-        jpManagementP.add(controlPanelTitle4, new org.netbeans.lib.awtextra.AbsoluteConstraints(335, 28, -1, 46));
+        jpManagementP.add(controlPanelTitle4, new org.netbeans.lib.awtextra.AbsoluteConstraints(335, 28, 460, 46));
 
         jSeparator7.setBackground(new java.awt.Color(0, 69, 173));
         jSeparator7.setForeground(new java.awt.Color(0, 69, 173));
@@ -1877,18 +1881,20 @@ public class GUI extends javax.swing.JFrame {
         jSeparator7.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 56, 142)));
         jpManagementP.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(335, 80, 368, -1));
 
-        javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
-        panel1.setLayout(panel1Layout);
-        panel1Layout.setHorizontalGroup(
-            panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 921, Short.MAX_VALUE)
         );
-        panel1Layout.setVerticalGroup(
-            panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 288, Short.MAX_VALUE)
         );
 
-        jpManagementP.add(panel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, 810, 280));
+        jScrollPane2.setViewportView(jPanel1);
+
+        jpManagementP.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 940, 230));
 
         Menu.add(jpManagementP, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1024, 431));
 
@@ -4241,84 +4247,160 @@ private static int indexCr=1;
     }//GEN-LAST:event_createButtonMouseClicked
     private void createPanels(MyArrayList<Stage> stages1){
         
-        panel1.removeAll();
-        panel1.setLayout(new wrapLayout(wrapLayout.CENTER, 10, 10));
+        jPanel1.removeAll();
+        jPanel1.setLayout(new wrapLayout(wrapLayout.CENTER, 20, 20));
         
         for (int i=0; i<20;i++){
-        panel1.add(createStages(panel1));
+        jPanel1.add(createStages(jPanel1));
         }
-        panel1.validate();   
+        jPanel1.validate();   
     }
     
-    public final Panel  createStages( Panel panel){
+    public final JPanel  createStages( JPanel panel){
+        JPanel panelProducto = new JPanel();
+//        Dimension dimensioProducto = new Dimension(2000, 2000);
+//        panelProducto.setSize(dimensioProducto);
+//        panelProducto.setMinimumSize(dimensioProducto);
+//        GridLayout gridLayaout = new GridLayout(4,2);
+//        gridLayaout.setHgap(20);
+//        gridLayaout.setVgap(20);
+        GridBagLayout gridbaglayaout = new GridBagLayout();
+        panelProducto.setLayout(gridbaglayaout);
+        GridBagConstraints constraints = new GridBagConstraints();
+        constraints.fill = GridBagConstraints.BOTH;
+        
+        
+        
+        
+        Font fuente = new java.awt.Font("Segoe UI", 0, 14);
+       // Dimension dimension = new Dimension(2000, 2000);
         //panel NOmbre:
-        JLabel nombre1 = new JLabel("Nombre: ");
+        JLabel nombre1 = new JLabel("  Nombre: ");
+        nombre1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         nombre1.setOpaque(true);
         nombre1.setBackground(new java.awt.Color(0, 56, 142));
         nombre1.setVisible(true);
-        //nombre1.setSize(20,60);
+//        nombre1.setSize(dimension);
+        nombre1.setFont(fuente);
         nombre1.setForeground(Color.white);
-        
+        constraints.gridx = 0; // El área de texto empieza en la columna cero.
+        constraints.gridy = 0; // El área de texto empieza en la fila cero
+        constraints.gridwidth = 1; // El área de texto ocupa dos columnas.
+        constraints.gridheight = 1;
+        panelProducto.add(nombre1,  constraints);
         //panel con el nombre de la etapa
-        JLabel nombreE = new JLabel("Etapa A");
+        JLabel nombreE = new JLabel("  Etapa A  ");
         nombreE.setOpaque(true);
         nombreE.setBackground(new java.awt.Color(0, 56, 142));
         nombreE.setVisible(true);
-        //nombreE.setSize(20,60);
+        nombreE.setFont(fuente);
+        //nombreE.setSize(dimension);
         nombreE.setForeground(Color.white);
         nombreE.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        constraints.gridx = 1; // El área de texto empieza en la columna cero.
+        constraints.gridy = 0; // El área de texto empieza en la fila cero
+        constraints.gridwidth = 1; // El área de texto ocupa dos columnas.
+        constraints.gridheight = 1;
+        panelProducto.add(nombreE,  constraints);
         //Panel Fecha Inicio:
-        JLabel fecha1 = new JLabel("Fecha de inicio: ");
+        JLabel fecha1 = new JLabel("  Fecha de inicio: ");
+        fecha1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         fecha1.setOpaque(true);
         fecha1.setBackground(new java.awt.Color(0, 56, 142));
         fecha1.setVisible(true);
-        //fecha1.setSize(10,60);
+        fecha1.setFont(fuente);
+        //fecha1.setSize(dimension);
         fecha1.setForeground(Color.white);
+        constraints.gridx = 0; // El área de texto empieza en la columna cero.
+        constraints.gridy = 1; // El área de texto empieza en la fila cero
+        constraints.gridwidth = 1; // El área de texto ocupa dos columnas.
+        constraints.gridheight = 1;
+        panelProducto.add(fecha1,  constraints);
         
         //Panel Fecha Inicio de la etapa
-        JLabel fechaE = new JLabel("01/01/2020");
+        JLabel fechaE = new JLabel("  01/01/2020  ");
         fechaE.setOpaque(true);
         fechaE.setBackground(new java.awt.Color(0, 56, 142));
         fechaE.setVisible(true);
-        //fecha1.setSize(10,60);
+       //fecha1.setSize(dimension);
         fechaE.setForeground(Color.white);
+        fechaE.setFont(fuente);
         fechaE.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        constraints.gridx = 1; // El área de texto empieza en la columna cero.
+        constraints.gridy = 1; // El área de texto empieza en la fila cero
+        constraints.gridwidth = 1; // El área de texto ocupa dos columnas.
+        constraints.gridheight = 1;
+        panelProducto.add(fechaE,  constraints);
         
         //Panel Fecha de finalizacion:
-        JLabel fechaf1 = new JLabel("Fecha de finalizacion:");
+        JLabel fechaf1 = new JLabel("  Fecha de finalizacion: ");
+        fechaf1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         fechaf1.setOpaque(true);
         fechaf1.setBackground(new java.awt.Color(0, 56, 142));
         fechaf1.setVisible(true);
-        //fechaf1.setSize(20,60);
+        //fechaf1.setSize(dimension);
         fechaf1.setForeground(Color.white);
+        fechaf1.setFont(fuente);
+        constraints.gridx = 0; // El área de texto empieza en la columna cero.
+        constraints.gridy = 2; // El área de texto empieza en la fila cero
+        constraints.gridwidth = 1; // El área de texto ocupa dos columnas.
+        constraints.gridheight = 1;
+        panelProducto.add(fechaf1,  constraints);
             
          //Panel Fecha de finalizacion:
-        JLabel fechafE = new JLabel("01/01/2021");
+        JLabel fechafE = new JLabel("  01/01/2021  ");
         fechafE.setOpaque(true);
         fechafE.setBackground(new java.awt.Color(0, 56, 142));
         fechafE.setVisible(true);
-        //fechaf1.setSize(20,60);
+        fechafE.setFont(fuente);
+        //fechafE.setSize(dimension);
         fechafE.setForeground(Color.white);
         fechafE.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        constraints.gridx = 1; // El área de texto empieza en la columna cero.
+        constraints.gridy = 2; // El área de texto empieza en la fila cero
+        constraints.gridwidth = 1; // El área de texto ocupa dos columnas.
+        constraints.gridheight = 1;
+        panelProducto.add(fechafE,  constraints);
         
-        JLabel estado = new JLabel("Estado:");
+        
+        JLabel estado = new JLabel("  Estado:  ");
+        estado.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         estado.setOpaque(true);
-        estado.setBackground(Color.white);
+        estado.setBackground(new java.awt.Color(0, 56, 142));
         estado.setVisible(true);
-        //estado.setSize(20,60);
+        estado.setFont(fuente);
+        //estado.setSize(dimension);
         estado.setForeground(Color.white);
+        constraints.gridx = 0; // El área de texto empieza en la columna cero.
+        constraints.gridy = 3; // El área de texto empieza en la fila cero
+        constraints.gridwidth = 1; // El área de texto ocupa dos columnas.
+        constraints.gridheight = 2;
+        constraints.weighty = 1.0;
+        panelProducto.add(estado,  constraints);
+        constraints.weighty = 0.0;
+        JLabel estado2 = new JLabel("Estado:");
+        estado2.setOpaque(true);
+        estado2.setBackground(new java.awt.Color(0, 56, 142));
+        estado2.setVisible(true);
+        estado2.setForeground(Color.white);
+        //estado.setSize(dimension);
+        estado.setForeground(Color.white);
+        constraints.gridx = 1; // El área de texto empieza en la columna cero.
+        constraints.gridy = 3; // El área de texto empieza en la fila cero
+        constraints.gridwidth = 1; // El área de texto ocupa dos columnas.
+        constraints.gridheight = 2;
+        constraints.weighty = 1.0;
+        panelProducto.add(estado2,  constraints);
+        constraints.weighty = 0.0;
         
-        Panel panelProducto = new Panel();
-        Dimension dimensioProducto = new Dimension(2000, 2000);
-        panelProducto.setSize(dimensioProducto);
-        panelProducto.setLayout(new GridLayout(4,2));
-        panelProducto.add(nombre1, 0);
-        panelProducto.add(nombreE,1);
-        panelProducto.add(fecha1,2);
-        panelProducto.add(fechaE,3);
-        panelProducto.add(fechaf1,4);
-        panelProducto.add(fechafE,5);
-        panelProducto.add(estado,6);
+        //panelProdcuto.setLayout(new )
+//        panelProducto.add(nombre1, 0);
+//        panelProducto.add(nombreE,1);
+//        panelProducto.add(fecha1,2);
+//        panelProducto.add(fechaE,3);
+//        panelProducto.add(fechaf1,4);
+//        panelProducto.add(fechafE,5);
+//        panelProducto.add(estado,6);
         panelProducto.setBackground(new java.awt.Color(48, 48, 48));
         return panelProducto;
     }
@@ -4452,11 +4534,13 @@ private static int indexCr=1;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JScrollPane jScrollPane14;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
@@ -4546,7 +4630,6 @@ private static int indexCr=1;
     private javax.swing.JLabel nSdeP5;
     private javax.swing.JLabel namePjL;
     private javax.swing.JLabel namePjL0;
-    private java.awt.Panel panel1;
     private javax.swing.JLabel passwordLabel;
     private javax.swing.JLabel productionIDLabel;
     private javax.swing.JLabel productionIDLabel1;
