@@ -74,7 +74,7 @@ public class AvlNodeTree<T extends Comparable<T>> implements Serializable {
         return findMax(node.getRight());
     }
 
-    public int size(){
+    public int size() {
         return size(root);
     }
 
@@ -148,15 +148,22 @@ public class AvlNodeTree<T extends Comparable<T>> implements Serializable {
         rebalance(N);
     }
 
+    //
+    public void insert(T k) {
+        insert(k, this.root());
+    }
+
     public void rebalance(AvlNode<T> N) {
         AvlNode<T> P = N.getParent();
-        if (N.getLeft().getHeight() > N.getRight().getHeight() + 1)
-            rebalanceRight(N);
-        if (N.getRight().getHeight() > N.getLeft().getHeight() + 1)
-            rebalanceLeft(N);
-        adjustHeight(N);
-        if (P != null)
-            rebalance(P);
+        if (N.getLeft() != null && N.getRight() != null) {
+            if (N.getLeft().getHeight() > N.getRight().getHeight() + 1)
+                rebalanceRight(N);
+            if (N.getRight().getHeight() > N.getLeft().getHeight() + 1)
+                rebalanceLeft(N);
+            adjustHeight(N);
+            if (P != null)
+                rebalance(P);
+        }
     }
 
     public void rebalanceRight(AvlNode<T> N) {
@@ -193,7 +200,7 @@ public class AvlNodeTree<T extends Comparable<T>> implements Serializable {
         root = remove(x, root);
     }
 
-    public AvlNode<T> remove (T x, AvlNode<T> node) {
+    public AvlNode<T> remove(T x, AvlNode<T> node) {
         if (node == null)
             return null;
         if (x.compareTo(node.getItem()) < 0)
@@ -202,7 +209,7 @@ public class AvlNodeTree<T extends Comparable<T>> implements Serializable {
             node.setRight(remove(x, node.getRight()));
         else if (node.getLeft() != null && node.getRight() != null) {
             node.setItem(findMin(node.getRight()).getItem());
-            node.setRight(remove(node.getItem(),node.getRight()));
+            node.setRight(remove(node.getItem(), node.getRight()));
         } else {
             if (node.getLeft() != null)
                 node = node.getLeft();
@@ -216,7 +223,7 @@ public class AvlNodeTree<T extends Comparable<T>> implements Serializable {
         if (node == null)
             return 0;
         else
-            return 1+ Math.max(height(node.getLeft()), height(node.getRight()));
+            return 1 + Math.max(height(node.getLeft()), height(node.getRight()));
     }
 
     public void adjustHeight(AvlNode<T> N) {
