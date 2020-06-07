@@ -28,18 +28,13 @@ public class DataBase implements Serializable {
             if (sLnameP.getSize() == 0) {
                 CreateArchive("Informe", true);
             }
-
+            
             for (int i = 0; i < singlyLinkedListUser.getSize(); i++) {
-
-                if (sLnameU.getIndex(singlyLinkedListUser.getItem(i).getUser()) == -1) {
-                    Write("Usuarios", "Usuarios", i);
-                }
-
+                Write("Usuarios", "Usuarios", i);
             }
-
+            
             for (int k = 0; k < myArrayListProduction.getSize(); k++) {
-                String nameA = myArrayListProduction.getItem(k).getName();
-
+                String nameA = myArrayListProduction.getItem(k).getId()+myArrayListProduction.getItem(k).getName();
                 llenarArchive(nameA, k);
             }
 
@@ -53,9 +48,8 @@ public class DataBase implements Serializable {
         nametxt = nametxt + name;
         File file = new File(nametxt + ".txt");
         FileWriter flwriter = new FileWriter(file.getAbsoluteFile(), new1);
-
         flwriter.close();
-
+            
     }
 
     public static void llenarArchive(String nameA, int i) throws IOException {//Llena los archivos de producciones
@@ -66,7 +60,7 @@ public class DataBase implements Serializable {
         informeArchive(nameA, true);
     }
 
-    public static void eliminar(String nameA) throws IOException {//Elimina un archivo
+    public static void eliminar(String nameA, String tip) throws IOException {//Elimina un archivo
 
         String nametxt = localDatabase;
         nametxt = nametxt + nameA;
@@ -76,18 +70,25 @@ public class DataBase implements Serializable {
         } else {
             System.out.println("El archivo" + nameA + "no puedo ser borrado satisfactoriamente");
         }
-
-        sLnameP.removeItem(nameA);
-        informeArchive("Eliminar", false);
+        
+        if(tip.equalsIgnoreCase("Usuario")){            
+        }else{
+            sLnameP.removeItem(nameA);
+            informeArchive("Eliminar", false);
+        }
+        
     }
 
     public static void Write(String nameA, String name, int number) throws IOException {//Escribe el archivo dependiendo lo que vaya a escribir
-
+        
         String nametxt = localDatabase;
-
         nametxt = nametxt + nameA;
         File file = new File(nametxt + ".txt");
-        FileWriter flwriter = new FileWriter(file.getAbsoluteFile(), true);
+        Boolean User0=true;
+        if(name.equalsIgnoreCase("Usuarios") && number ==0){
+            User0=false;
+        }
+        FileWriter flwriter = new FileWriter(file.getAbsoluteFile(), User0);
         BufferedWriter bfwriter = new BufferedWriter(flwriter);
 
         if (name.equalsIgnoreCase("Materiales")) {
@@ -108,13 +109,14 @@ public class DataBase implements Serializable {
 
         } else if (name.equalsIgnoreCase("Usuarios") && singlyLinkedListUser.getSize() != 0) {
             String write = "";
+            System.out.println(singlyLinkedListUser.getItem(number).toString());
             write = singlyLinkedListUser.getItem(number).toString();
             bfwriter.write("5" + "$" + write + ";\n");
 
         } else if (name.equalsIgnoreCase("Producciones") && myArrayListProduction.getSize() != 0) {
             String write = myArrayListProduction.getItem(number).getName();
             bfwriter.write("1.Nombre: " + write + ";\n");
-
+            bfwriter.write(myArrayListProduction.getItem(number).getId()+ ";\n");
             Boolean a = myArrayListProduction.getItem(number).isIsActive();
             write = "0";
             if (a) {
@@ -166,6 +168,7 @@ public class DataBase implements Serializable {
         }
 
         bfwriter.close();
+         flwriter.close();
     }
 
     public static void informeArchive(String name, Boolean neww) throws IOException { //Actualiza la lista de procesos
@@ -192,7 +195,7 @@ public class DataBase implements Serializable {
             }
             bfwriter.close();
         }
-
+        flwriter.close();
     }
 
     //Load
@@ -203,10 +206,13 @@ public class DataBase implements Serializable {
             load("", "Usuarios");
             for (int i = 0; i < sLnameP.getSize(); i++) {
                 DataBase.reach(sLnameP.getItem(i), "Informe");
+                
             }
-            for (int i = 0; i < sLnameU.getSize(); i++) {
-                DataBase.reach(sLnameU.getItem(i), "Usuarios");
+              for (int i = 0; i < sLnameU.getSize(); i++) {
+                 DataBase.reach(String.valueOf(i), "Usuarios");
             }
+           
+       
         } catch (IOException e) {
             System.out.println("Error al cargar archivos");
         }
@@ -240,7 +246,6 @@ public class DataBase implements Serializable {
                             sLnameU.pushBack(loadData2.substring(2, i));
                             break;
                         }
-
                     }
                     loadData2 = os2.readLine();
                 }
@@ -266,7 +271,10 @@ public class DataBase implements Serializable {
             BufferedReader os = new BufferedReader(fileStremx);
             String loadData = os.readLine();
             String name = loadData.substring(10, loadData.length() - 1);
-
+            
+            loadData = os.readLine();
+            String ID = loadData.substring(0, loadData.length() - 1);
+            
             Boolean start = true;
             loadData = os.readLine();
             if ((loadData).equals("0;")) {
@@ -397,10 +405,13 @@ public class DataBase implements Serializable {
             production.setStartDate(fecha1);
             production.setEndDate(fecha2);
             production.setCurrentStage(Integer.valueOf(num));
+            production.setId(ID);
             myArrayListProduction.pushBack(production);
             os.close();
             return true;
         } else if (tip.equals("Usuarios")) {
+            i=Integer.valueOf(buscarBD);
+           
             FileReader fileStremx = new FileReader(localDatabase + "Usuarios" + ".txt");
             BufferedReader os = new BufferedReader(fileStremx);
             for (int j = 0; j < i; j++) {

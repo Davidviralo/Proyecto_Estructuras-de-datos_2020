@@ -1,18 +1,23 @@
 package pruebaGrafica;
 
 import Estructuras_de_datos.*;
+import businessLogic.wrapLayout;
 import javax.swing.JOptionPane;
 import data.*;
 import static data.DataBase.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import javax.swing.ImageIcon;
+import java.awt.*;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 public class GUI extends javax.swing.JFrame {
 
      int x,y;
     
     public GUI() {
+        
         initComponents();
         this.setLocationRelativeTo(null);               
         Menu.setVisible(false);       
@@ -24,10 +29,13 @@ public class GUI extends javax.swing.JFrame {
              jpRegister.setVisible(false);
              jpCreateS.setVisible(false);
              jpCreateM.setVisible(false);
+             jpManagementP.setVisible(false);
+             jpPerfilUser.setVisible(false);
         Menu.repaint();
         Menu.revalidate();
              
         Main.setVisible(true); 
+              
               jpNewUser.setVisible(false);    
 //            jpCM2.setVisible(true);
 //            jpInfo.setVisible(true);
@@ -102,6 +110,39 @@ public class GUI extends javax.swing.JFrame {
         registryButton = new javax.swing.JButton();
         registryLabel1 = new javax.swing.JLabel();
         registryLabel2 = new javax.swing.JLabel();
+        jpPerfilUser = new javax.swing.JPanel();
+        controlPanelTitle7 = new javax.swing.JLabel();
+        jSeparator10 = new javax.swing.JSeparator();
+        jTextPu3 = new javax.swing.JTextField();
+        createLabel8 = new javax.swing.JLabel();
+        createLabel9 = new javax.swing.JLabel();
+        createLabel10 = new javax.swing.JLabel();
+        createLabel7 = new javax.swing.JLabel();
+        createLabel6 = new javax.swing.JLabel();
+        createLabel3 = new javax.swing.JLabel();
+        createLabel5 = new javax.swing.JLabel();
+        jTextPu = new javax.swing.JTextField();
+        jTextPu2 = new javax.swing.JTextField();
+        jSeparator11 = new javax.swing.JSeparator();
+        jSeparator12 = new javax.swing.JSeparator();
+        createLabel11 = new javax.swing.JLabel();
+        createLabel12 = new javax.swing.JLabel();
+        jScrollPane12 = new javax.swing.JScrollPane();
+        UserL = new javax.swing.JList<>();
+        jTextIDU = new javax.swing.JTextField();
+        searchPjLabel2 = new javax.swing.JLabel();
+        createLabel13 = new javax.swing.JLabel();
+        jScrollPane15 = new javax.swing.JScrollPane();
+        ProductionL = new javax.swing.JList<>();
+        jTextIDP = new javax.swing.JTextField();
+        searchPjLabel3 = new javax.swing.JLabel();
+        doneButton2 = new javax.swing.JButton();
+        doneButton3 = new javax.swing.JButton();
+        doneButton4 = new javax.swing.JButton();
+        goBackButton9 = new javax.swing.JButton();
+        jTextPu6 = new javax.swing.JPasswordField();
+        jTextPu4 = new javax.swing.JPasswordField();
+        jTextPu5 = new javax.swing.JPasswordField();
         jpCreateP = new javax.swing.JPanel();
         goBackButton3 = new javax.swing.JButton();
         controlPanelTitle1 = new javax.swing.JLabel();
@@ -116,7 +157,7 @@ public class GUI extends javax.swing.JFrame {
         jTextCp2 = new javax.swing.JComboBox<>();
         jTextCp3 = new javax.swing.JComboBox<>();
         jLabel11 = new javax.swing.JLabel();
-        productionIDLabel1 = new javax.swing.JLabel();
+        IDP = new javax.swing.JLabel();
         addingPanel1 = new javax.swing.JPanel();
         addMaterialButton1 = new javax.swing.JButton();
         jScrollPane8 = new javax.swing.JScrollPane();
@@ -190,6 +231,7 @@ public class GUI extends javax.swing.JFrame {
         nSdeP2 = new javax.swing.JTextField();
         nSdeP0 = new javax.swing.JTextField();
         goBackButton5 = new javax.swing.JButton();
+        seeRegisterButton1 = new javax.swing.JButton();
         jpCreateM = new javax.swing.JPanel();
         goBackButton6 = new javax.swing.JButton();
         controlPanelTitle5 = new javax.swing.JLabel();
@@ -243,6 +285,12 @@ public class GUI extends javax.swing.JFrame {
         addMaterialButton11 = new javax.swing.JButton();
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
+        jpManagementP = new javax.swing.JPanel();
+        controlPanelTitle4 = new javax.swing.JLabel();
+        jSeparator7 = new javax.swing.JSeparator();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jPanel1 = new javax.swing.JPanel();
+        goBackButton8 = new javax.swing.JButton();
 
         jLabel12.setText("jLabel12");
 
@@ -259,6 +307,14 @@ public class GUI extends javax.swing.JFrame {
         addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 formMousePressed(evt);
+            }
+        });
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
             }
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -570,6 +626,11 @@ public class GUI extends javax.swing.JFrame {
         jpUser.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         userLogoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/usuario.png"))); // NOI18N
+        userLogoLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                userLogoLabelMouseClicked(evt);
+            }
+        });
         jpUser.add(userLogoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(69, 21, -1, -1));
 
         userLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -682,7 +743,7 @@ public class GUI extends javax.swing.JFrame {
 
         manageLabel1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         manageLabel1.setForeground(new java.awt.Color(202, 202, 202));
-        manageLabel1.setText("Gestionar");
+        manageLabel1.setText("Buscador");
 
         manageLabel2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         manageLabel2.setForeground(new java.awt.Color(202, 202, 202));
@@ -768,6 +829,248 @@ public class GUI extends javax.swing.JFrame {
 
         Menu.add(jpControl, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1024, 431));
 
+        jpPerfilUser.setBackground(new java.awt.Color(28, 28, 28));
+        jpPerfilUser.setMinimumSize(new java.awt.Dimension(1024, 431));
+        jpPerfilUser.setPreferredSize(new java.awt.Dimension(1024, 431));
+        jpPerfilUser.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        controlPanelTitle7.setBackground(new java.awt.Color(203, 203, 204));
+        controlPanelTitle7.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        controlPanelTitle7.setForeground(new java.awt.Color(255, 255, 255));
+        controlPanelTitle7.setText("Perfil de usuario");
+        jpPerfilUser.add(controlPanelTitle7, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 30, 370, 46));
+
+        jSeparator10.setBackground(new java.awt.Color(0, 69, 173));
+        jSeparator10.setForeground(new java.awt.Color(0, 69, 173));
+        jSeparator10.setToolTipText("");
+        jSeparator10.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 56, 142)));
+        jpPerfilUser.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(335, 80, 368, -1));
+
+        jTextPu3.setBackground(new java.awt.Color(48, 48, 48));
+        jTextPu3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTextPu3.setForeground(new java.awt.Color(204, 204, 204));
+        jTextPu3.setText(" Usuario");
+        jTextPu3.setBorder(null);
+        jTextPu3.setFocusable(false);
+        jpPerfilUser.add(jTextPu3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 200, 140, 24));
+
+        createLabel8.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        createLabel8.setForeground(new java.awt.Color(202, 202, 202));
+        createLabel8.setText("Nueva contraseña:");
+        jpPerfilUser.add(createLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, -1, -1));
+
+        createLabel9.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        createLabel9.setForeground(new java.awt.Color(202, 202, 202));
+        createLabel9.setText(" Confirmar contraseña:");
+        jpPerfilUser.add(createLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 160, -1));
+
+        createLabel10.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        createLabel10.setForeground(new java.awt.Color(202, 202, 202));
+        createLabel10.setText("   Contraseña actual:");
+        jpPerfilUser.add(createLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 330, 140, -1));
+
+        createLabel7.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        createLabel7.setForeground(new java.awt.Color(202, 202, 202));
+        createLabel7.setText("Cambiar de contraseña");
+        jpPerfilUser.add(createLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, -1, -1));
+
+        createLabel6.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        createLabel6.setForeground(new java.awt.Color(202, 202, 202));
+        createLabel6.setText(" Usuario:");
+        jpPerfilUser.add(createLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, -1, -1));
+
+        createLabel3.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        createLabel3.setForeground(new java.awt.Color(202, 202, 202));
+        createLabel3.setText("Nombre:");
+        jpPerfilUser.add(createLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, -1, -1));
+
+        createLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        createLabel5.setForeground(new java.awt.Color(202, 202, 202));
+        createLabel5.setText("Lista de producciónes");
+        jpPerfilUser.add(createLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 90, -1, -1));
+
+        jTextPu.setBackground(new java.awt.Color(48, 48, 48));
+        jTextPu.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTextPu.setForeground(new java.awt.Color(204, 204, 204));
+        jTextPu.setText(" ID");
+        jTextPu.setBorder(null);
+        jTextPu.setFocusable(false);
+        jpPerfilUser.add(jTextPu, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 140, 140, 24));
+
+        jTextPu2.setBackground(new java.awt.Color(48, 48, 48));
+        jTextPu2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTextPu2.setForeground(new java.awt.Color(204, 204, 204));
+        jTextPu2.setText(" Nombre");
+        jTextPu2.setBorder(null);
+        jTextPu2.setFocusable(false);
+        jpPerfilUser.add(jTextPu2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, 140, 24));
+
+        jSeparator11.setBackground(new java.awt.Color(0, 69, 173));
+        jSeparator11.setForeground(new java.awt.Color(0, 69, 173));
+        jSeparator11.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jSeparator11.setToolTipText("");
+        jSeparator11.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 56, 142)));
+        jpPerfilUser.add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 100, -1, 300));
+
+        jSeparator12.setBackground(new java.awt.Color(0, 69, 173));
+        jSeparator12.setForeground(new java.awt.Color(0, 69, 173));
+        jSeparator12.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jSeparator12.setToolTipText("");
+        jSeparator12.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 56, 142)));
+        jpPerfilUser.add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 100, -1, 300));
+
+        createLabel11.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        createLabel11.setForeground(new java.awt.Color(202, 202, 202));
+        createLabel11.setText("Perfil");
+        jpPerfilUser.add(createLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, -1, -1));
+
+        createLabel12.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        createLabel12.setForeground(new java.awt.Color(202, 202, 202));
+        createLabel12.setText("Lista de usuarios");
+        jpPerfilUser.add(createLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 90, -1, 30));
+
+        UserL.setBackground(new java.awt.Color(48, 48, 48));
+        UserL.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        UserL.setForeground(new java.awt.Color(204, 204, 204));
+        UserL.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                UserLMouseClicked(evt);
+            }
+        });
+        jScrollPane12.setViewportView(UserL);
+
+        jpPerfilUser.add(jScrollPane12, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 190, 210, 160));
+
+        jTextIDU.setBackground(new java.awt.Color(48, 48, 48));
+        jTextIDU.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTextIDU.setForeground(new java.awt.Color(204, 204, 204));
+        jTextIDU.setText("ID");
+        jTextIDU.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 5, 2, 5));
+        jTextIDU.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextIDUActionPerformed(evt);
+            }
+        });
+        jpPerfilUser.add(jTextIDU, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 130, 210, 34));
+
+        searchPjLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/buscar.png"))); // NOI18N
+        searchPjLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                searchPjLabel2MouseClicked(evt);
+            }
+        });
+        jpPerfilUser.add(searchPjLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 130, -1, 34));
+
+        createLabel13.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        createLabel13.setForeground(new java.awt.Color(202, 202, 202));
+        createLabel13.setText(" ID:");
+        jpPerfilUser.add(createLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 30, -1));
+
+        ProductionL.setBackground(new java.awt.Color(48, 48, 48));
+        ProductionL.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        ProductionL.setForeground(new java.awt.Color(204, 204, 204));
+        jScrollPane15.setViewportView(ProductionL);
+
+        jpPerfilUser.add(jScrollPane15, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 190, 210, 160));
+
+        jTextIDP.setBackground(new java.awt.Color(48, 48, 48));
+        jTextIDP.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTextIDP.setForeground(new java.awt.Color(204, 204, 204));
+        jTextIDP.setText("ID");
+        jTextIDP.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 5, 2, 5));
+        jTextIDP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextIDPActionPerformed(evt);
+            }
+        });
+        jpPerfilUser.add(jTextIDP, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 130, 210, 34));
+
+        searchPjLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/buscar.png"))); // NOI18N
+        searchPjLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                searchPjLabel3MouseClicked(evt);
+            }
+        });
+        jpPerfilUser.add(searchPjLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 130, -1, 34));
+
+        doneButton2.setBackground(new java.awt.Color(0, 56, 142));
+        doneButton2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        doneButton2.setForeground(new java.awt.Color(204, 204, 204));
+        doneButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/incorrecto.png"))); // NOI18N
+        doneButton2.setText(" Eliminar");
+        doneButton2.setBorder(null);
+        doneButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                doneButton2MouseClicked(evt);
+            }
+        });
+        jpPerfilUser.add(doneButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 370, 143, 35));
+
+        doneButton3.setBackground(new java.awt.Color(0, 56, 142));
+        doneButton3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        doneButton3.setForeground(new java.awt.Color(204, 204, 204));
+        doneButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/correcto.png"))); // NOI18N
+        doneButton3.setText("Guardar");
+        doneButton3.setBorder(null);
+        doneButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                doneButton3MouseClicked(evt);
+            }
+        });
+        jpPerfilUser.add(doneButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 370, 143, 35));
+
+        doneButton4.setBackground(new java.awt.Color(0, 56, 142));
+        doneButton4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        doneButton4.setForeground(new java.awt.Color(204, 204, 204));
+        doneButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/incorrecto.png"))); // NOI18N
+        doneButton4.setText(" Eliminar");
+        doneButton4.setBorder(null);
+        doneButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                doneButton4MouseClicked(evt);
+            }
+        });
+        jpPerfilUser.add(doneButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 370, 143, 35));
+
+        goBackButton9.setBackground(new java.awt.Color(28, 28, 28));
+        goBackButton9.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        goBackButton9.setForeground(new java.awt.Color(77, 147, 255));
+        goBackButton9.setText("< Regresar");
+        goBackButton9.setBorder(null);
+        goBackButton9.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
+        goBackButton9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                goBackButton9MouseClicked(evt);
+            }
+        });
+        jpPerfilUser.add(goBackButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 20, 132, 30));
+
+        jTextPu6.setBackground(new java.awt.Color(48, 48, 48));
+        jTextPu6.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jTextPu6.setForeground(new java.awt.Color(204, 204, 204));
+        jTextPu6.setText("Contraseña");
+        jTextPu6.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 8, 2, 8));
+        jTextPu6.setCaretColor(new java.awt.Color(188, 188, 188));
+        jpPerfilUser.add(jTextPu6, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 330, 140, 24));
+
+        jTextPu4.setBackground(new java.awt.Color(48, 48, 48));
+        jTextPu4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jTextPu4.setForeground(new java.awt.Color(204, 204, 204));
+        jTextPu4.setText("Contraseña");
+        jTextPu4.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 8, 2, 8));
+        jTextPu4.setCaretColor(new java.awt.Color(188, 188, 188));
+        jpPerfilUser.add(jTextPu4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 270, 140, 24));
+
+        jTextPu5.setBackground(new java.awt.Color(48, 48, 48));
+        jTextPu5.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jTextPu5.setForeground(new java.awt.Color(204, 204, 204));
+        jTextPu5.setText("Contraseña");
+        jTextPu5.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 8, 2, 8));
+        jTextPu5.setCaretColor(new java.awt.Color(188, 188, 188));
+        jpPerfilUser.add(jTextPu5, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 300, 140, 24));
+
+        Menu.add(jpPerfilUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1024, 431));
+
         jpCreateP.setBackground(new java.awt.Color(28, 28, 28));
         jpCreateP.setMinimumSize(new java.awt.Dimension(1024, 431));
         jpCreateP.setPreferredSize(new java.awt.Dimension(1024, 431));
@@ -842,9 +1145,9 @@ public class GUI extends javax.swing.JFrame {
         jLabel11.setForeground(new java.awt.Color(204, 204, 204));
         jLabel11.setText("Fecha de finalización: ");
 
-        productionIDLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        productionIDLabel1.setForeground(new java.awt.Color(202, 202, 202));
-        productionIDLabel1.setText("XXXX");
+        IDP.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        IDP.setForeground(new java.awt.Color(202, 202, 202));
+        IDP.setText("0");
 
         javax.swing.GroupLayout editProductionPanelLayout = new javax.swing.GroupLayout(editProductionPanel);
         editProductionPanel.setLayout(editProductionPanelLayout);
@@ -858,7 +1161,7 @@ public class GUI extends javax.swing.JFrame {
                         .addGroup(editProductionPanelLayout.createSequentialGroup()
                             .addComponent(productionIDLabel)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(productionIDLabel1))
+                            .addComponent(IDP))
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 435, Short.MAX_VALUE)
                         .addComponent(jTextCp1))
                     .addGroup(editProductionPanelLayout.createSequentialGroup()
@@ -877,7 +1180,7 @@ public class GUI extends javax.swing.JFrame {
                 .addGap(16, 16, 16)
                 .addGroup(editProductionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(productionIDLabel)
-                    .addComponent(productionIDLabel1))
+                    .addComponent(IDP))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextCp1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1195,7 +1498,7 @@ public class GUI extends javax.swing.JFrame {
                 seeRegisterButtonMouseClicked(evt);
             }
         });
-        jpSearchP.add(seeRegisterButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 370, 186, 35));
+        jpSearchP.add(seeRegisterButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 370, 186, 35));
 
         ImageP1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/nothing.png"))); // NOI18N
         jpSearchP.add(ImageP1, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 182, -1, -1));
@@ -1441,6 +1744,19 @@ public class GUI extends javax.swing.JFrame {
             }
         });
         jpSearchP.add(goBackButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 20, 132, 30));
+
+        seeRegisterButton1.setBackground(new java.awt.Color(0, 56, 142));
+        seeRegisterButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        seeRegisterButton1.setForeground(new java.awt.Color(204, 204, 204));
+        seeRegisterButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/play.png"))); // NOI18N
+        seeRegisterButton1.setText("Gestionar P");
+        seeRegisterButton1.setBorder(null);
+        seeRegisterButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                seeRegisterButton1MouseClicked(evt);
+            }
+        });
+        jpSearchP.add(seeRegisterButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 370, 186, 35));
 
         Menu.add(jpSearchP, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1024, 431));
 
@@ -1853,6 +2169,55 @@ public class GUI extends javax.swing.JFrame {
 
         Menu.add(jpCreateS, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1024, 431));
 
+        jpManagementP.setBackground(new java.awt.Color(28, 28, 28));
+        jpManagementP.setMinimumSize(new java.awt.Dimension(1024, 431));
+        jpManagementP.setPreferredSize(new java.awt.Dimension(1024, 431));
+        jpManagementP.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        controlPanelTitle4.setBackground(new java.awt.Color(203, 203, 204));
+        controlPanelTitle4.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        controlPanelTitle4.setForeground(new java.awt.Color(255, 255, 255));
+        controlPanelTitle4.setText("Gestión producción");
+        jpManagementP.add(controlPanelTitle4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 30, 440, 46));
+
+        jSeparator7.setBackground(new java.awt.Color(0, 69, 173));
+        jSeparator7.setForeground(new java.awt.Color(0, 69, 173));
+        jSeparator7.setToolTipText("");
+        jSeparator7.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 56, 142)));
+        jpManagementP.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(335, 80, 440, -1));
+
+        jPanel1.setBackground(new java.awt.Color(48, 48, 48));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 921, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 288, Short.MAX_VALUE)
+        );
+
+        jScrollPane2.setViewportView(jPanel1);
+
+        jpManagementP.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 940, 230));
+
+        goBackButton8.setBackground(new java.awt.Color(28, 28, 28));
+        goBackButton8.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        goBackButton8.setForeground(new java.awt.Color(77, 147, 255));
+        goBackButton8.setText("< Regresar");
+        goBackButton8.setBorder(null);
+        goBackButton8.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
+        goBackButton8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                goBackButton8MouseClicked(evt);
+            }
+        });
+        jpManagementP.add(goBackButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 20, 132, 30));
+
+        Menu.add(jpManagementP, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1024, 431));
+
         getContentPane().add(Menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1024, 541));
 
         pack();
@@ -1898,7 +2263,8 @@ public class GUI extends javax.swing.JFrame {
     private void jlCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlCloseMouseClicked
        int dialog = JOptionPane.YES_NO_OPTION;
        int result = JOptionPane.showConfirmDialog(null, "¿Desea cerrar el programa?","Exit",dialog);
-       if(result ==0){         
+       if(result ==0){
+           DataBase.WriteArchive();
            System.exit(0);
        }
     }//GEN-LAST:event_jlCloseMouseClicked
@@ -1907,6 +2273,7 @@ public class GUI extends javax.swing.JFrame {
          int dialog = JOptionPane.YES_NO_OPTION;
        int result = JOptionPane.showConfirmDialog(null, "¿Desea cerrar el programa?","Exit",dialog);
        if(result ==0){
+          DataBase.WriteArchive();
           System.exit(0);
        }
     }//GEN-LAST:event_jlClose1MouseClicked
@@ -1938,6 +2305,7 @@ public class GUI extends javax.swing.JFrame {
                 if (singlyLinkedListUser.getItem(i).getUser().equals(jTextL1.getText())){
                    if (singlyLinkedListUser.getItem(i).getPassword().equals(jTextL2.getText())){  
                    correct=true;
+                   indexLA=i;
                    adm=singlyLinkedListUser.getItem(i).getAdm();
                    userLabel1.setText(singlyLinkedListUser.getItem(i).getUser());
                    idLabel.setText("ID: "+String.valueOf(singlyLinkedListUser.getItem(i).getId()));
@@ -1945,7 +2313,7 @@ public class GUI extends javax.swing.JFrame {
                      }
                 }
            }
-        if(correct ){
+        if(correct){
             if(adm){
                 
             Main.setVisible(false);               
@@ -1954,6 +2322,8 @@ public class GUI extends javax.swing.JFrame {
         
             Menu.setVisible(true); 
             goBackButton5.setVisible(true);
+            
+            seeRegisterButton.setVisible(false);
             roleLabel.setText("Usuario administrador");
             jpControl.setVisible(true);            
              Menu.repaint();
@@ -2002,6 +2372,7 @@ public class GUI extends javax.swing.JFrame {
             
             Menu.setVisible(true);  
             goBackButton5.setVisible(false);
+            seeRegisterButton1.setVisible(false);
             roleLabel.setText("Usuario estandar");
             jpSearchP.setVisible(true);
             Menu.repaint();
@@ -2070,6 +2441,7 @@ public class GUI extends javax.swing.JFrame {
            cleanJPCreatS();
             cleanCreateP();
             cleanJPSearchP();
+            cleanJPPerfilUser();
            Menu.setVisible(false); 
 //            jpCM.setVisible(false);
 //            jpUser.setVisible(false);
@@ -2079,6 +2451,11 @@ public class GUI extends javax.swing.JFrame {
             jpControl.setVisible(false); 
             jpCreateS.setVisible(false);
             jpCreateM.setVisible(false);
+            seeRegisterButton1.setVisible(true);
+            seeRegisterButton.setVisible(true);
+            jpManagementP.setVisible(false);
+            jpPerfilUser.setVisible(false);
+            
         Menu.repaint();
         Menu.revalidate(); 
         
@@ -2101,15 +2478,57 @@ public class GUI extends javax.swing.JFrame {
        
     }//GEN-LAST:event_signOutButtonMouseClicked
 
-    private void createButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createButtonMouseClicked
-        jpControl.setVisible(false);
-        jpCreateP.setVisible(true);
-        
-    }//GEN-LAST:event_createButtonMouseClicked
-
     private void manageButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageButtonMouseClicked
          jpControl.setVisible(false);
-        //.setVisible(true);   
+         jpSearchP.setVisible(true);
+         
+         
+         jpCreateP.setVisible(false);         
+         jpSearchP.setVisible(true);
+         sLIDP2 = new SinglyLinkedList<>();
+            if(myArrayListProduction.getSize()>0){
+                ProductionLSp.removeAll();
+                String [] namep= new  String[5];
+                for(int i=0; i<myArrayListProduction.getSize(); i++){
+                        sLIDP2.pushBack(i);
+                }
+                for(int i=0; i<5; i++){
+                    if(i<myArrayListProduction.getSize()){
+                        namep[i]=myArrayListProduction.getItem(i).getName();
+                   if(!myArrayListProduction.getItem(i).isIsActive()){
+                        iconSeeP(i+1);
+                   }else if(myArrayListProduction.getItem(i).isIsFinished()){
+                        iconSeeP((i+1)+5);
+                   }else if(myArrayListProduction.getItem(i).isIsActive()){
+                        iconSeeP((i+1)+10);
+                   }
+                    }else{
+                        iconSeeP((i+1)+15);
+                    }
+                   
+                }
+                
+                   ProductionLSp.setListData(namep);
+                 indexSpp=1;
+                 String auxS;
+                 int sizep=myArrayListProduction.getSize()%5;
+                 int aux=myArrayListProduction.getSize()/5;
+                if(sizep!=0){
+                    aux++;
+                }
+                 nSdeP.setText("de "+aux);
+                 nSdeP0.setText("1");
+                 namePjL.setText("");
+                 namePjL0.setText("Todos las producciónes");
+            }
+////       jpManagementP.setVisible(true); 
+//         Stage stage = new Stage();
+//         MyArrayList<Stage> stages= new MyArrayList<>();
+//         stages.add(0, stage);
+//         createPanels(stages);
+//         jpManagementP.repaint();    
+         
+         
     }//GEN-LAST:event_manageButtonMouseClicked
 
     private void registryButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registryButtonMouseClicked
@@ -2350,9 +2769,16 @@ public class GUI extends javax.swing.JFrame {
             production.setEndDate(Integer.parseInt(jTextCp2.getSelectedItem().toString())+"/"+Integer.parseInt(convertMonth(jTextCp3.getSelectedItem().toString()))+"/"+Integer.parseInt(jTextCp4.getSelectedItem().toString()));
             production.setIsActive(false);
             production.setIsFinished(false);
+           
+            production.setId(IDP.getText());
             myArrayListProduction.pushBack(production);
-            
-            productionIDLabel1.setText(String.valueOf(countP+1));
+             String id1=String.valueOf(myArrayListProduction.getSize());
+            for(int i=0; i<myArrayListProduction.getSize(); i++){
+                if(myArrayListProduction.getItem(i).getId().equals(id1)){
+                    id1=String.valueOf(i+myArrayListProduction.getSize());
+                }
+            }
+            IDP.setText(id1);  
             cleanCreateP();
             
            }
@@ -2868,7 +3294,7 @@ public class GUI extends javax.swing.JFrame {
          
     }//GEN-LAST:event_addStageButton2MouseClicked
 private void cleanJPCreateP(){
-    productionIDLabel1.setText("XXXX");
+     //    IDP.setText(String.valueOf(myArrayListProduction.getSize()));
             jTextCp1.setText("Nombre de la producción");
             jTextCp3.removeAllItems();
             jTextCp3.addItem("Mes");
@@ -2885,23 +3311,23 @@ private void cleanJPCreateP(){
             jTextCp3.addItem("Noviembre");
             jTextCp3.addItem("Diciembre");
              
-            jTextCp2.removeAllItems();  
+            jTextCp4.removeAllItems();  
            
-            jTextCp2.addItem("Año");
+            jTextCp4.addItem("Año");
            
             for(int i=0; i<10; i++){
-            jTextCp2.addItem("202"+Integer.toString(i));
+            jTextCp4.addItem("202"+Integer.toString(i));
            
             }   
             for(int i=0; i<10; i++){
-            jTextCp2.addItem("203"+Integer.toString(i));
+            jTextCp4.addItem("203"+Integer.toString(i));
            
             }
             
-            jTextCp4.removeAllItems();
-            jTextCp4.addItem("Dia");
+            jTextCp2.removeAllItems();
+            jTextCp2.addItem("Dia");
             for(int i=1; i<32; i++){
-            jTextCp4.addItem(Integer.toString(i));
+            jTextCp2.addItem(Integer.toString(i));
             }
             jTextCp5.setText("Descripción");
             materialL.removeAll();
@@ -3010,7 +3436,7 @@ private static int indexCr=1;
                    String Stageaux="";
                    Parameteraux="";
                    String sE;
-                   for(int s=0; s<production.getRawMaterials().getSize(); s++){
+                   for(int s=0; s<production.getStages().getSize(); s++){
                    if(production.getStages().getItem(s).isIsActive()){
                         if(production.getStages().getItem(s).isFinished()){
                             sE="Finalizado";
@@ -3034,6 +3460,7 @@ private static int indexCr=1;
                    }
                    resgisterF.setText(
                     "		                        "+production.getName()+"\n\n"+
+                    "  ID: "+production.getId()+"\n"+
                     "  Fecha de inicio: "+production.getStartDate()+"    Fecha de finalización: "+production.getEndDate()+"    Estado: "+e+"\n"+
                     "  Descripción: "+production.getDescription()+"\n\n"+
                     "    MATERIALES\n"+
@@ -4184,16 +4611,566 @@ private static int indexCr=1;
                  namePjL0.setText("Todos las producciónes");
             }
     }//GEN-LAST:event_doneButton1MouseClicked
-
+    
+    
     private void goBackButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_goBackButton5MouseClicked
          jpSearchP.setVisible(false);
-         jpCreateP.setVisible(true);
+         jpControl.setVisible(true);
     }//GEN-LAST:event_goBackButton5MouseClicked
 
     private void jTextCs5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextCs5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextCs5ActionPerformed
 
+    private void createButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createButtonMouseClicked
+        jpControl.setVisible(false);
+        jpCreateP.setVisible(true);
+    }//GEN-LAST:event_createButtonMouseClicked
+
+    private void goBackButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_goBackButton8MouseClicked
+        jpManagementP.setVisible(false);
+        jpSearchP.setVisible(true);
+    }//GEN-LAST:event_goBackButton8MouseClicked
+
+    private void seeRegisterButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seeRegisterButton1MouseClicked
+           try{
+            if(selectproduction!=-1 && sLIDP2.getSize()>0 && sLIDP2.getSize()>selectproduction+(5*(indexSpp-1))){
+//               jpSearchP.setVisible(false);
+//               SegoRe=true;
+//               jpRegister.setVisible(true); 
+//                sLIDP = new SinglyLinkedList<>();
+//                sLIDP.pushBack(sLIDP2.getItem(selectproduction+(5*(indexSpp-1))));
+//                          
+//                printProduction(1);
+//                nRdeP.setText("de "+sLIDP.getSize());
+//                nRdeP0.setText("1");
+                  jpSearchP.setVisible(false);
+                  jpManagementP.setVisible(true);
+                  
+                  createPanels(myArrayListProduction.getItem(sLIDP2.getItem(selectproduction+(5*(indexSpp-1)))).getStages());
+                  jpManagementP.repaint(); 
+            }else{
+               if(myArrayListProduction.getSize()<=0){
+                 JOptionPane.showMessageDialog(this,"Para ver registros debe crear producciónes."); 
+                }else{
+                 JOptionPane.showMessageDialog(this,"Por favor seleccione una producción. Para ello debe dar click en la imagen de la lupa del buscador de producciones para ver todas las producciónes"+"\n"+
+                         "o en el caso que desee buscar una producción en especifico, puede escribir el nombre de la producción y dar click en la lupa respectivamente.");   
+                 }
+            }
+             
+            
+        }catch(Exception e){
+          JOptionPane.showMessageDialog(this,"Ha ocurrido un error, por favor contacte con el administrador.");  
+        }
+   
+         
+    }//GEN-LAST:event_seeRegisterButton1MouseClicked
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+    DataBase.loadArchive();  
+    String id1=String.valueOf(myArrayListProduction.getSize());
+            for(int i=0; i<myArrayListProduction.getSize(); i++){
+                if(myArrayListProduction.getItem(i).getId().equals(id1)){
+                    id1=String.valueOf(i+myArrayListProduction.getSize());
+                }
+            }
+    IDP.setText(id1);  
+// TODO add your handling code here:
+    }//GEN-LAST:event_formWindowOpened
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+    DataBase.WriteArchive();        // TODO add your handling code here:
+    }//GEN-LAST:event_formWindowClosing
+
+    private void jTextIDUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextIDUActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextIDUActionPerformed
+
+    private static int removeU=-1;
+    private void searchPjLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchPjLabel2MouseClicked
+      Boolean correct=true;
+      Boolean find=false;
+        try{
+          try{
+              if(jTextIDU.getText().equals("ID")){
+                  correct=false;
+                  UserL.removeAll();
+                   String [] namep= new  String[singlyLinkedListUser.getSize()];
+                  for(int i=0; i<singlyLinkedListUser.getSize(); i++){
+                   namep[i]=String.valueOf(singlyLinkedListUser.getItem(i).getId());
+                 }
+                  UserL.setListData(namep);
+                   removeU=-1;
+              }else{
+                   Integer.valueOf(jTextIDU.getText());
+              }
+          }catch(Exception e){
+              correct=false;
+              JOptionPane.showMessageDialog(this,"Valor no valido para ID."); 
+              
+          }
+          if(correct){
+              for(int i=0; i<singlyLinkedListUser.getSize(); i++){
+              if(Integer.valueOf(jTextIDU.getText())==singlyLinkedListUser.getItem(i).getId()){
+                  find=true;
+                    UserL.removeAll();
+                    removeU=i;
+                   String [] namep= new  String[1];
+                   namep[0]=String.valueOf(singlyLinkedListUser.getItem(i).getId());
+                  UserL.setListData(namep);
+                  jTextIDU.setText("ID");
+                  break;
+                }
+             }
+             if(!find){
+                    JOptionPane.showMessageDialog(this,"No se ha encontrado usuarios con este ID: "+jTextIDU.getText());   
+              }
+          }
+          jTextIDU.setText("ID");
+      }catch(Exception e){
+           JOptionPane.showMessageDialog(this,"Ha ocurrido un error, por favor contacte con el administrador."); 
+      }
+    }//GEN-LAST:event_searchPjLabel2MouseClicked
+
+    private void jTextIDPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextIDPActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextIDPActionPerformed
+    private static int removeP=-1;
+    private void searchPjLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchPjLabel3MouseClicked
+      Boolean correct=true;
+        try{
+       
+            if(jTextIDP.getText().equals("ID")){
+                  correct=false;
+                  ProductionL.removeAll();
+                   String [] namep= new  String[myArrayListProduction.getSize()];
+                  for(int i=0; i<myArrayListProduction.getSize(); i++){
+                   namep[i]=myArrayListProduction.getItem(i).getId();
+                 }
+                  ProductionL.setListData(namep);
+                  removeP=-1;
+              }
+           
+            if(correct){
+                for(int i=0; i<myArrayListProduction.getSize(); i++){
+                    if(jTextIDP.getText().equals(myArrayListProduction.getItem(i).getId())){
+                        ProductionL.removeAll();
+                    String [] namep= new  String[1];
+                    namep[0]=myArrayListProduction.getItem(i).getId();
+                     ProductionL.setListData(namep);
+                     removeP=i;
+                    break;
+                    }
+                    if(i+1==myArrayListProduction.getSize()){
+                        JOptionPane.showMessageDialog(this,"No se ha creado una producción con el ID: "+jTextIDP.getText()); 
+                    }
+                 }
+                
+            }
+            
+            jTextIDP.setText("ID");
+       }catch(Exception e){
+             JOptionPane.showMessageDialog(this,"Ha ocurrido un error, por favor contacte con el administrador."); 
+       }
+    }//GEN-LAST:event_searchPjLabel3MouseClicked
+
+    private void doneButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_doneButton2MouseClicked
+            
+     try{
+         int selected2=0;
+         int selected =ProductionL.getSelectedIndex();
+             if(selected!=-1 && myArrayListProduction.getSize()>0){
+                int dialog = JOptionPane.YES_NO_OPTION;
+                if(removeP!=-1){
+                    selected2=removeP;
+                }else{
+                    selected2=selected;
+                }
+                int result = JOptionPane.showConfirmDialog(null, "¿Esta seguro que desea eliminar la producción: "+myArrayListProduction.getItem(selected2).getName()+"?","Eliminar producción",dialog);
+                      if(result==0){
+                          DataBase.eliminar(myArrayListProduction.getItem(selected2).getId()+myArrayListProduction.getItem(selected2).getName(), "Producción");
+                          myArrayListProduction.removeIndex(selected2);
+                           ProductionL.removeAll();
+                             String [] namep= new  String[myArrayListProduction.getSize()];
+                         for(int i=0; i<myArrayListProduction.getSize(); i++){
+                           namep[i]=myArrayListProduction.getItem(i).getId();
+                         }
+                         ProductionL.setListData(namep);
+                         cleanJPRegister();
+                          if(removeP!=-1){
+                               removeP=-1;
+                            }           
+                      }
+                 
+             }
+     }catch(Exception e){
+          JOptionPane.showMessageDialog(this,"Ha ocurrido un error, por favor contacte con el administrador.");  
+     }
+    }//GEN-LAST:event_doneButton2MouseClicked
+   
+     private void cleanJPPerfilUser(){
+         try{
+             jTextPu.setText(" ID");
+             jTextPu2.setText(" Nombre");
+             jTextPu3.setText(" Usuario");
+             jTextPu4.setText("Contraseña");
+             jTextPu5.setText("Contraseña");
+             jTextPu6.setText("Contraseña");
+             jTextIDU.setText("ID");
+             jTextIDP.setText("ID");
+             
+             removeU=-1;
+             indexLA2=-1;
+             removeP=-1;
+             
+             UserL.removeAll();
+             String [] namep= new  String[singlyLinkedListUser.getSize()];
+              for(int i=0; i<singlyLinkedListUser.getSize(); i++){
+                          namep[i]=String.valueOf(singlyLinkedListUser.getItem(i).getId());
+               }
+             UserL.setListData(namep);
+             
+              ProductionL.removeAll();
+                String [] namep2= new  String[myArrayListProduction.getSize()];
+                for (int i = 0; i < myArrayListProduction.getSize(); i++) {
+                namep2[i]=String.valueOf(myArrayListProduction.getItem(i).getId());
+                }
+             ProductionL.setListData(namep2);
+         }catch(Exception e){
+              JOptionPane.showMessageDialog(this,"Ha ocurrido un error, por favor contacte con el administrador.");  
+         }
+                        
+     }
+    
+    
+    private static int indexLA2=-1;
+    private void doneButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_doneButton3MouseClicked
+       try {
+           if(indexLA2!=-1){
+           if(jTextPu4.getText().equals(singlyLinkedListUser.getItem(indexLA2).getPassword())){
+               JOptionPane.showMessageDialog(this,"La nueva contraseña debe ser diferente a su contraseña actual");  
+             }else{
+                 if(jTextPu6.getText().equals(singlyLinkedListUser.getItem(indexLA2).getPassword())){
+                    if(jTextPu4.getText().equals(jTextPu5.getText())){
+                  
+                    int dialog = JOptionPane.YES_NO_OPTION;
+                    int result = JOptionPane.showConfirmDialog(null, "¿Desea guardar los datos?","Guardar contraseña",dialog);
+                      if(result==0){
+                          System.out.println(jTextPu4.getText());
+                          singlyLinkedListUser.getItem(indexLA2).setPassword(jTextPu4.getText());
+                          System.out.println(singlyLinkedListUser.getItem(indexLA2).getPassword());
+                          JOptionPane.showMessageDialog(this,"Su contraseña se ha cambiado con exito.");  
+                          jTextPu4.setText("Contraseña");
+                          jTextPu5.setText("Contraseña");
+                          jTextPu6.setText("Contraseña");
+                    }
+                   
+                     }else{
+                    JOptionPane.showMessageDialog(this,"Las constraseñas no coinciden.");  
+                     }
+                 }else{
+                JOptionPane.showMessageDialog(this,"Contraseña incorrecta.");  
+                 }
+           }
+       }
+       }catch(Exception e){
+           JOptionPane.showMessageDialog(this,"Ha ocurrido un error, por favor contacte con el administrador.");  
+       }
+    }//GEN-LAST:event_doneButton3MouseClicked
+
+    private void doneButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_doneButton4MouseClicked
+     try{
+         int selected =UserL.getSelectedIndex();
+             if(selected!=-1 && singlyLinkedListUser.getSize()>0){
+                int dialog = JOptionPane.YES_NO_OPTION;
+                int result;
+                 
+                       if(selected==0 && removeU!=-1){
+                           if(singlyLinkedListUser.getItem(removeU).getUser().equals(singlyLinkedListUser.getItem(indexLA).getUser())){
+                            JOptionPane.showMessageDialog(this,"No es posible eliminar el usuario que se esta usando actualmente.");      
+                           }else{
+                        result = JOptionPane.showConfirmDialog(null, "¿Esta seguro que desea eliminar el usuario: "+singlyLinkedListUser.getItem(removeU).getUser()+"?","Eliminar usuario",dialog);   
+                        if(result==0){
+                        singlyLinkedListUser.removeIndex(removeU);
+                        jTextPu.setText(" ID");
+                        jTextPu2.setText(" Nombre");
+                        jTextPu3.setText(" Usuario");
+                        UserL.removeAll();
+                         String [] namep= new  String[singlyLinkedListUser.getSize()];
+                         for(int i=0; i<singlyLinkedListUser.getSize(); i++){
+                          namep[i]=String.valueOf(singlyLinkedListUser.getItem(i).getId());
+                         }
+                         UserL.setListData(namep);
+                          removeU=-1;
+                            }
+                       }
+                    }else{ if(singlyLinkedListUser.getItem(selected).getUser().equals(singlyLinkedListUser.getItem(indexLA).getUser())){
+                            JOptionPane.showMessageDialog(this,"No es posible eliminar el usuario que se esta usando actualmente.");      
+                           }else{
+                        result = JOptionPane.showConfirmDialog(null, "¿Esta seguro que desea eliminar el usuario: "+singlyLinkedListUser.getItem(selected).getUser()+"?","Eliminar usuario",dialog);   
+                        if(result==0){
+                         singlyLinkedListUser.removeIndex(selected);
+                         jTextPu.setText(" ID");
+                        jTextPu2.setText(" Nombre");
+                        jTextPu3.setText(" Usuario");
+                            UserL.removeAll();
+                         String [] namep= new  String[singlyLinkedListUser.getSize()];
+                         for(int i=0; i<singlyLinkedListUser.getSize(); i++){
+                          namep[i]=String.valueOf(singlyLinkedListUser.getItem(i).getId());
+                         }
+                         UserL.setListData(namep);
+                        }
+                        }
+                     }
+                      selected=-1;
+                  }
+     }catch(Exception e){
+           JOptionPane.showMessageDialog(this,"Ha ocurrido un error, por favor contacte con el administrador.");  
+     }
+         
+    }//GEN-LAST:event_doneButton4MouseClicked
+
+    private void goBackButton9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_goBackButton9MouseClicked
+       
+//             jpCM.setVisible(false);
+//             jpUser.setVisible(false);
+             jpControl.setVisible(true);
+             jpSearchP.setVisible(false);
+             jpCreateP.setVisible(false);
+             jpRegister.setVisible(false);
+             jpCreateS.setVisible(false);
+             jpCreateM.setVisible(false);
+             jpManagementP.setVisible(false);
+             jpPerfilUser.setVisible(false);
+        Menu.repaint();
+        Menu.revalidate();
+    }//GEN-LAST:event_goBackButton9MouseClicked
+      private static int indexLA;
+    private void userLogoLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userLogoLabelMouseClicked
+        if(adm){
+            try{
+//             jpCM.setVisible(false);
+//             jpUser.setVisible(false);
+                indexLA2=indexLA;
+                jTextIDU.setText("ID");
+                jTextIDP.setText("ID");
+                jTextPu.setText(" "+String.valueOf(singlyLinkedListUser.getItem(indexLA).getId()));
+                jTextPu2.setText(" "+singlyLinkedListUser.getItem(indexLA).getName());
+                jTextPu3.setText(" "+userLabel1.getText());
+               
+                 UserL.removeAll();
+                String [] namep= new  String[singlyLinkedListUser.getSize()];
+                for (int i = 0; i < singlyLinkedListUser.getSize(); i++) {
+                namep[i]=String.valueOf(singlyLinkedListUser.getItem(i).getId());
+                }
+                UserL.setListData(namep);
+                
+                    ProductionL.removeAll();
+                String [] namep2= new  String[myArrayListProduction.getSize()];
+                for (int i = 0; i < myArrayListProduction.getSize(); i++) {
+                namep2[i]=String.valueOf(myArrayListProduction.getItem(i).getId());
+                }
+                ProductionL.setListData(namep2);
+                
+               jpControl.setVisible(false);
+               jpSearchP.setVisible(false);
+               jpCreateP.setVisible(false);
+               jpRegister.setVisible(false);
+               jpCreateS.setVisible(false);
+               jpCreateM.setVisible(false);
+               jpManagementP.setVisible(false);
+             jpPerfilUser.setVisible(true);
+        Menu.repaint();
+        Menu.revalidate();
+           }catch(Exception e){
+             JOptionPane.showMessageDialog(this,"Ha ocurrido un error, por favor contacte con el administrador."); 
+           }
+        }
+    }//GEN-LAST:event_userLogoLabelMouseClicked
+
+    private void UserLMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UserLMouseClicked
+       try{
+            int selected =UserL.getSelectedIndex();
+             if(selected!=-1 && singlyLinkedListUser.getSize()>0){
+                 if(selected==0 && removeU!=-1){
+                  jTextPu.setText(" "+String.valueOf(singlyLinkedListUser.getItem(removeU).getId()));
+                  jTextPu2.setText(" "+singlyLinkedListUser.getItem(removeU).getName());
+                  jTextPu3.setText(" "+singlyLinkedListUser.getItem(removeU).getUser()); 
+                  indexLA2=removeU;
+                 }else{
+                  jTextPu.setText(" "+String.valueOf(singlyLinkedListUser.getItem(selected).getId()));
+                  jTextPu2.setText(" "+singlyLinkedListUser.getItem(selected).getName());
+                  jTextPu3.setText(" "+singlyLinkedListUser.getItem(selected).getUser());
+                  indexLA2=selected;
+                 }
+             }
+       }catch(Exception e){
+             JOptionPane.showMessageDialog(this,"Ha ocurrido un error, por favor contacte con el administrador."); 
+       }
+    }//GEN-LAST:event_UserLMouseClicked
+    private void createPanels(MyArrayList<Stage> stages1){
+        
+        jPanel1.removeAll();
+        jPanel1.setLayout(new wrapLayout(wrapLayout.CENTER, 20, 20));
+        
+        for (int i=0; i< stages1.getSize();i++){
+        jPanel1.add(createStages(jPanel1,stages1.getItem(i)));
+        }
+        jPanel1.validate();   
+    }
+    
+    public final JPanel  createStages( JPanel panel, Stage stage){
+        JPanel panelProducto = new JPanel();
+//        Dimension dimensioProducto = new Dimension(2000, 2000);
+//        panelProducto.setSize(dimensioProducto);
+//        panelProducto.setMinimumSize(dimensioProducto);
+//        GridLayout gridLayaout = new GridLayout(4,2);
+//        gridLayaout.setHgap(20);
+//        gridLayaout.setVgap(20);
+        GridBagLayout gridbaglayaout = new GridBagLayout();
+        panelProducto.setLayout(gridbaglayaout);
+        GridBagConstraints constraints = new GridBagConstraints();
+        constraints.fill = GridBagConstraints.BOTH;
+        
+        
+        
+        
+        Font fuente = new java.awt.Font("Segoe UI", 0, 14);
+       // Dimension dimension = new Dimension(2000, 2000);
+        //panel NOmbre:
+        JLabel nombre1 = new JLabel(" Nombre: ");
+        nombre1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        nombre1.setOpaque(true);
+        nombre1.setBackground(new java.awt.Color(0, 56, 142));
+        nombre1.setVisible(true);
+//        nombre1.setSize(dimension);
+        nombre1.setFont(fuente);
+        nombre1.setForeground(Color.white);
+        constraints.gridx = 0; // El área de texto empieza en la columna cero.
+        constraints.gridy = 0; // El área de texto empieza en la fila cero
+        constraints.gridwidth = 1; // El área de texto ocupa dos columnas.
+        constraints.gridheight = 1;
+        panelProducto.add(nombre1,  constraints);
+        //panel con el nombre de la etapa
+        JLabel nombreE = new JLabel("  "+stage.getName()+"  ");
+        nombreE.setOpaque(true);
+        nombreE.setBackground(new java.awt.Color(0, 56, 142));
+        nombreE.setVisible(true);
+        nombreE.setFont(fuente);
+        //nombreE.setSize(dimension);
+        nombreE.setForeground(Color.white);
+        nombreE.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        constraints.gridx = 1; // El área de texto empieza en la columna cero.
+        constraints.gridy = 0; // El área de texto empieza en la fila cero
+        constraints.gridwidth = 1; // El área de texto ocupa dos columnas.
+        constraints.gridheight = 1;
+        panelProducto.add(nombreE,  constraints);
+        //Panel Fecha Inicio:
+        JLabel fecha1 = new JLabel(" Fecha de inicio: ");
+        fecha1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        fecha1.setOpaque(true);
+        fecha1.setBackground(new java.awt.Color(0, 56, 142));
+        fecha1.setVisible(true);
+        fecha1.setFont(fuente);
+        //fecha1.setSize(dimension);
+        fecha1.setForeground(Color.white);
+        constraints.gridx = 0; // El área de texto empieza en la columna cero.
+        constraints.gridy = 1; // El área de texto empieza en la fila cero
+        constraints.gridwidth = 1; // El área de texto ocupa dos columnas.
+        constraints.gridheight = 1;
+        panelProducto.add(fecha1,  constraints);
+        
+        //Panel Fecha Inicio de la etapa
+        JLabel fechaE = new JLabel("  "+stage.getStartDate()+"  ");
+        fechaE.setOpaque(true);
+        fechaE.setBackground(new java.awt.Color(0, 56, 142));
+        fechaE.setVisible(true);
+       //fecha1.setSize(dimension);
+        fechaE.setForeground(Color.white);
+        fechaE.setFont(fuente);
+        fechaE.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        constraints.gridx = 1; // El área de texto empieza en la columna cero.
+        constraints.gridy = 1; // El área de texto empieza en la fila cero
+        constraints.gridwidth = 1; // El área de texto ocupa dos columnas.
+        constraints.gridheight = 1;
+        panelProducto.add(fechaE,  constraints);
+        
+        //Panel Fecha de finalizacion:
+        JLabel fechaf1 = new JLabel(" Fecha de finalizacion: ");
+        fechaf1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        fechaf1.setOpaque(true);
+        fechaf1.setBackground(new java.awt.Color(0, 56, 142));
+        fechaf1.setVisible(true);
+        //fechaf1.setSize(dimension);
+        fechaf1.setForeground(Color.white);
+        fechaf1.setFont(fuente);
+        constraints.gridx = 0; // El área de texto empieza en la columna cero.
+        constraints.gridy = 2; // El área de texto empieza en la fila cero
+        constraints.gridwidth = 1; // El área de texto ocupa dos columnas.
+        constraints.gridheight = 1;
+        panelProducto.add(fechaf1,  constraints);
+            
+         //Panel Fecha de finalizacion:
+        JLabel fechafE = new JLabel("  "+stage.getEndDate()+"  ");
+        fechafE.setOpaque(true);
+        fechafE.setBackground(new java.awt.Color(0, 56, 142));
+        fechafE.setVisible(true);
+        fechafE.setFont(fuente);
+        //fechafE.setSize(dimension);
+        fechafE.setForeground(Color.white);
+        fechafE.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        constraints.gridx = 1; // El área de texto empieza en la columna cero.
+        constraints.gridy = 2; // El área de texto empieza en la fila cero
+        constraints.gridwidth = 1; // El área de texto ocupa dos columnas.
+        constraints.gridheight = 1;
+        panelProducto.add(fechafE,  constraints);
+        
+        
+        JLabel estado = new JLabel("  Estado:  ");
+        estado.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        estado.setOpaque(true);
+        estado.setBackground(new java.awt.Color(0, 56, 142));
+        estado.setVisible(true);
+        estado.setFont(fuente);
+        //estado.setSize(dimension);
+        estado.setForeground(Color.white);
+        constraints.gridx = 0; // El área de texto empieza en la columna cero.
+        constraints.gridy = 3; // El área de texto empieza en la fila cero
+        constraints.gridwidth = 1; // El área de texto ocupa dos columnas.
+        constraints.gridheight = 2;
+        constraints.weighty = 1.0;
+        panelProducto.add(estado,  constraints);
+        constraints.weighty = 0.0;
+        JLabel estado2 = new JLabel();
+        if(stage.isIsActive())
+        estado2.setText("Activo");
+        else
+            
+        estado2.setOpaque(true);
+        estado2.setBackground(new java.awt.Color(0, 56, 142));
+        estado2.setVisible(true);
+        estado2.setForeground(Color.white);
+        //estado.setSize(dimension);
+        estado.setForeground(Color.white);
+        constraints.gridx = 1; // El área de texto empieza en la columna cero.
+        constraints.gridy = 3; // El área de texto empieza en la fila cero
+        constraints.gridwidth = 1; // El área de texto ocupa dos columnas.
+        constraints.gridheight = 2;
+        constraints.weighty = 1.0;
+        panelProducto.add(estado2,  constraints);
+        constraints.weighty = 0.0;
+        
+        //panelProdcuto.setLayout(new )
+//        panelProducto.add(nombre1, 0);
+//        panelProducto.add(nombreE,1);
+//        panelProducto.add(fecha1,2);
+//        panelProducto.add(fechaE,3);
+//        panelProducto.add(fechaf1,4);
+//        panelProducto.add(fechafE,5);
+//        panelProducto.add(estado,6);
+        panelProducto.setBackground(new java.awt.Color(48, 48, 48));
+        return panelProducto;
+    }
     public static void main(String args[]) {
         for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
         }
@@ -4236,6 +5213,7 @@ private static int indexCr=1;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel IDP;
     private javax.swing.JLabel ImageM1;
     private javax.swing.JLabel ImageM2;
     private javax.swing.JLabel ImageM3;
@@ -4256,8 +5234,10 @@ private static int indexCr=1;
     private javax.swing.JPanel Menu;
     private javax.swing.JList<String> ParameterL;
     private javax.swing.JList<String> ParameterL1;
+    private javax.swing.JList<String> ProductionL;
     private javax.swing.JList<String> ProductionLSp;
     private javax.swing.JList<String> StageLSp;
+    private javax.swing.JList<String> UserL;
     private javax.swing.JButton addMaterialButton1;
     private javax.swing.JButton addMaterialButton10;
     private javax.swing.JButton addMaterialButton11;
@@ -4276,14 +5256,29 @@ private static int indexCr=1;
     private javax.swing.JLabel controlPanelTitle1;
     private javax.swing.JLabel controlPanelTitle2;
     private javax.swing.JLabel controlPanelTitle3;
+    private javax.swing.JLabel controlPanelTitle4;
     private javax.swing.JLabel controlPanelTitle5;
     private javax.swing.JLabel controlPanelTitle6;
+    private javax.swing.JLabel controlPanelTitle7;
     private javax.swing.JButton createButton;
     private javax.swing.JLabel createLabel1;
+    private javax.swing.JLabel createLabel10;
+    private javax.swing.JLabel createLabel11;
+    private javax.swing.JLabel createLabel12;
+    private javax.swing.JLabel createLabel13;
     private javax.swing.JLabel createLabel2;
+    private javax.swing.JLabel createLabel3;
+    private javax.swing.JLabel createLabel5;
+    private javax.swing.JLabel createLabel6;
+    private javax.swing.JLabel createLabel7;
+    private javax.swing.JLabel createLabel8;
+    private javax.swing.JLabel createLabel9;
     private javax.swing.JPanel createPanel;
     private javax.swing.JButton doneButton;
     private javax.swing.JButton doneButton1;
+    private javax.swing.JButton doneButton2;
+    private javax.swing.JButton doneButton3;
+    private javax.swing.JButton doneButton4;
     private javax.swing.JPanel editProductionPanel;
     private javax.swing.JButton generateButton;
     private javax.swing.JButton goBackButton0;
@@ -4292,6 +5287,8 @@ private static int indexCr=1;
     private javax.swing.JButton goBackButton5;
     private javax.swing.JButton goBackButton6;
     private javax.swing.JButton goBackButton7;
+    private javax.swing.JButton goBackButton8;
+    private javax.swing.JButton goBackButton9;
     private javax.swing.JLabel idLabel;
     private javax.swing.JLabel imageLabel1;
     private javax.swing.JLabel infoText3;
@@ -4323,11 +5320,15 @@ private static int indexCr=1;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
+    private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JScrollPane jScrollPane14;
+    private javax.swing.JScrollPane jScrollPane15;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
@@ -4335,11 +5336,15 @@ private static int indexCr=1;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator10;
+    private javax.swing.JSeparator jSeparator11;
+    private javax.swing.JSeparator jSeparator12;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
+    private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JTextField jTextCm0;
@@ -4372,8 +5377,16 @@ private static int indexCr=1;
     private javax.swing.JComboBox<String> jTextCs7;
     private javax.swing.JTextArea jTextCs8;
     private javax.swing.JTextField jTextCs9;
+    private javax.swing.JTextField jTextIDP;
+    private javax.swing.JTextField jTextIDU;
     private javax.swing.JTextField jTextL1;
     private javax.swing.JPasswordField jTextL2;
+    private javax.swing.JTextField jTextPu;
+    private javax.swing.JTextField jTextPu2;
+    private javax.swing.JTextField jTextPu3;
+    private javax.swing.JPasswordField jTextPu4;
+    private javax.swing.JPasswordField jTextPu5;
+    private javax.swing.JPasswordField jTextPu6;
     private javax.swing.JTextField jTextR1;
     private javax.swing.JTextField jTextR2;
     private javax.swing.JPasswordField jTextR3;
@@ -4395,7 +5408,9 @@ private static int indexCr=1;
     private javax.swing.JPanel jpCreateP;
     private javax.swing.JPanel jpCreateS;
     private javax.swing.JPanel jpInfo;
+    private javax.swing.JPanel jpManagementP;
     private javax.swing.JPanel jpNewUser;
+    private javax.swing.JPanel jpPerfilUser;
     private javax.swing.JPanel jpRegister;
     private javax.swing.JPanel jpSearchP;
     private javax.swing.JPanel jpSignIn;
@@ -4417,7 +5432,6 @@ private static int indexCr=1;
     private javax.swing.JLabel namePjL0;
     private javax.swing.JLabel passwordLabel;
     private javax.swing.JLabel productionIDLabel;
-    private javax.swing.JLabel productionIDLabel1;
     private javax.swing.JButton registerButton;
     private javax.swing.JLabel registerLabel;
     private javax.swing.JButton registryButton;
@@ -4428,9 +5442,12 @@ private static int indexCr=1;
     private javax.swing.JLabel roleLabel;
     private javax.swing.JLabel searchMjLabel;
     private javax.swing.JLabel searchPjLabel;
+    private javax.swing.JLabel searchPjLabel2;
+    private javax.swing.JLabel searchPjLabel3;
     private javax.swing.JLabel searchSjLabel;
     private javax.swing.JLabel searchjLabel;
     private javax.swing.JButton seeRegisterButton;
+    private javax.swing.JButton seeRegisterButton1;
     private javax.swing.JButton signInButton;
     private javax.swing.JLabel signInTitle;
     private javax.swing.JButton signOutButton;

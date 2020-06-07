@@ -11,7 +11,7 @@ public class Stage extends Event {
 
     private int stageNumber;
     private MyArrayList<Parameter> parameterList;
-
+    public Stage (){}
     public Stage(int stageNumber, MyArrayList<Parameter> parameterList, String name, String startDate, String endDate, String id, String description) {
         super(name, startDate, endDate, id, description);
         this.stageNumber = stageNumber;
