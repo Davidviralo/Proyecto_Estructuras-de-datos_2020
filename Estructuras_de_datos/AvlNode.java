@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class AvlNode<T extends Comparable<T>> implements Serializable {
 
     private T item;
-    private AvlNode<T> parent ,left, right;
+    private AvlNode<T> parent, left, right;
     private int height = 0;
 
     public AvlNode(T item, AvlNode<T> parent, AvlNode<T> left, AvlNode<T> right, int height) {
@@ -18,6 +18,10 @@ public class AvlNode<T extends Comparable<T>> implements Serializable {
 
     public AvlNode(T item) {
         this.item = item;
+        this.left = new AvlNode<>();
+        this.right = new AvlNode<>();
+        this.parent = new AvlNode<>();
+        this.height = 1;
     }
 
     public AvlNode() {
