@@ -64,6 +64,8 @@ public class ArrayQueue<T> implements Serializable {
             qarray[head] = null;
             head = (head + 1) % capacity;
             size--;
+            if (empty())
+                tail = head;
             return item;
         }
     }

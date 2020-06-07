@@ -321,7 +321,22 @@ public class AvlNodeTree<T extends Comparable<T>> implements Serializable {
         System.out.println();
     }
 
-    public void levels(AvlNode<T> node) {
-        //
+    public void levels(AvlNode<T> root) {
+        if (root.getItem() != null) {
+            ArrayQueue<AvlNode<T>> q = new ArrayQueue<>();
+            q.enqueue(root);
+            while (!q.empty()) {
+                AvlNode<T> node = q.dequeue();
+                System.out.print(node.getItem() + " ");
+                if (node.getLeft().getItem() != null)
+                    q.enqueue(node.getLeft());
+                if (node.getRight().getItem() != null)
+                    q.enqueue(node.getRight());
+            }
+        }
+    }
+
+    public void levels() {
+        levels(root);
     }
 }
