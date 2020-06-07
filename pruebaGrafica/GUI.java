@@ -4410,7 +4410,7 @@ private static int indexCr=1;
         Font fuente = new java.awt.Font("Segoe UI", 0, 14);
        // Dimension dimension = new Dimension(2000, 2000);
         //panel NOmbre:
-        JLabel nombre1 = new JLabel("  Nombre: ");
+        JLabel nombre1 = new JLabel(" Nombre: ");
         nombre1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         nombre1.setOpaque(true);
         nombre1.setBackground(new java.awt.Color(0, 56, 142));
@@ -4438,7 +4438,7 @@ private static int indexCr=1;
         constraints.gridheight = 1;
         panelProducto.add(nombreE,  constraints);
         //Panel Fecha Inicio:
-        JLabel fecha1 = new JLabel("  Fecha de inicio: ");
+        JLabel fecha1 = new JLabel(" Fecha de inicio: ");
         fecha1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         fecha1.setOpaque(true);
         fecha1.setBackground(new java.awt.Color(0, 56, 142));
@@ -4453,7 +4453,7 @@ private static int indexCr=1;
         panelProducto.add(fecha1,  constraints);
         
         //Panel Fecha Inicio de la etapa
-        JLabel fechaE = new JLabel("  01/01/2020  ");
+        JLabel fechaE = new JLabel("  "+stage.getStartDate()+"  ");
         fechaE.setOpaque(true);
         fechaE.setBackground(new java.awt.Color(0, 56, 142));
         fechaE.setVisible(true);
@@ -4468,7 +4468,7 @@ private static int indexCr=1;
         panelProducto.add(fechaE,  constraints);
         
         //Panel Fecha de finalizacion:
-        JLabel fechaf1 = new JLabel("  Fecha de finalizacion: ");
+        JLabel fechaf1 = new JLabel(" Fecha de finalizacion: ");
         fechaf1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         fechaf1.setOpaque(true);
         fechaf1.setBackground(new java.awt.Color(0, 56, 142));
@@ -4483,7 +4483,7 @@ private static int indexCr=1;
         panelProducto.add(fechaf1,  constraints);
             
          //Panel Fecha de finalizacion:
-        JLabel fechafE = new JLabel("  01/01/2021  ");
+        JLabel fechafE = new JLabel("  "+stage.getEndDate()+"  ");
         fechafE.setOpaque(true);
         fechafE.setBackground(new java.awt.Color(0, 56, 142));
         fechafE.setVisible(true);
@@ -4513,7 +4513,11 @@ private static int indexCr=1;
         constraints.weighty = 1.0;
         panelProducto.add(estado,  constraints);
         constraints.weighty = 0.0;
-        JLabel estado2 = new JLabel("Estado:");
+        JLabel estado2 = new JLabel();
+        if(stage.isIsActive())
+        estado2.setText("Activo");
+        else
+            
         estado2.setOpaque(true);
         estado2.setBackground(new java.awt.Color(0, 56, 142));
         estado2.setVisible(true);
