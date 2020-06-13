@@ -96,17 +96,30 @@ public class Production extends Event {
 //
     }
 
-    public void start() {
+//    public void start() {
+//        if (!isFinished()) {
+//            super.setIsActive(true);
+//            super.setIsFinished(false);
+//            currentStage = 1;
+//            System.out.println("Se inició la producción '" + super.getName() + "'");
+//            super.setStartDate(super.getTimeFormat().format(LocalDateTime.now()));
+//            System.out.println("Fecha de inicio: " + super.getStartDate());
+//            stages.getItem(0).start();
+//        } else {
+//            System.out.println("La producción no se puede empezar pues ya ha finalizado");
+//        }
+//    }
+        public void start() {
         if (!isFinished()) {
             super.setIsActive(true);
             super.setIsFinished(false);
             currentStage = 1;
-            System.out.println("Se inició la producción '" + super.getName() + "'");
+            //System.out.println("Se inició la producción '" + super.getName() + "'");
             super.setStartDate(super.getTimeFormat().format(LocalDateTime.now()));
-            System.out.println("Fecha de inicio: " + super.getStartDate());
+            //System.out.println("Fecha de inicio: " + super.getStartDate());
             stages.getItem(0).start();
         } else {
-            System.out.println("La producción no se puede empezar pues ya ha finalizado");
+            //System.out.println("La producción no se puede empezar pues ya ha finalizado");
         }
     }
 
@@ -123,7 +136,7 @@ public class Production extends Event {
     }
 
     public void endCurrentStage() {
-        stages.getItem(currentStage - 1).setParameters();
+        //stages.getItem(currentStage - 1).setParameters();
         stages.getItem(currentStage - 1).finish();
         if (stages.getItem(currentStage - 1).isFinished()) {
             currentStage++;

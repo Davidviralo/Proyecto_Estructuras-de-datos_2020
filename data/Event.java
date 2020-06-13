@@ -5,7 +5,7 @@ import java.time.format.DateTimeFormatter;
 
 public class Event {
     private String name;
-    private DateTimeFormatter timeFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+    private DateTimeFormatter timeFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     private String startDate; // Cambio a string para facilitar el guardado de los datos
     private String endDate; // En el momento que la declare convierta de tiemformat a string =>super.getTimeFormat().format(LocalDateTime.now())
     private String id;             //Es decir, Captura la hora y luego la mete en un String

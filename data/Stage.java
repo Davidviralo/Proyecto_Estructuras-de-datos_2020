@@ -57,25 +57,62 @@ public class Stage extends Event {
         super.setId("?");
     }
 
-    public void start() {
+//    public void start() {
+//        super.setIsActive(true);
+//        super.setIsFinished(false);
+//        System.out.println("Se inició la etapa " + stageNumber + " de producción '" + super.getName() + "'");
+//
+//        super.setStartDate(super.getTimeFormat().format(LocalDateTime.now()));
+//        System.out.println("Fecha de inicio: " + super.getStartDate());
+//    }
+        public void start() {
         super.setIsActive(true);
         super.setIsFinished(false);
-        System.out.println("Se inició la etapa " + stageNumber + " de producción '" + super.getName() + "'");
-
+        //System.out.println("Se inició la etapa " + stageNumber + " de producción '" + super.getName() + "'");
         super.setStartDate(super.getTimeFormat().format(LocalDateTime.now()));
-        System.out.println("Fecha de inicio: " + super.getStartDate());
+        //System.out.println("Fecha de inicio: " + super.getStartDate());
     }
 
-    public void setParameters() {
-        System.out.println("A continuación, ingrese los valores de los parámetros obtenidos en la etapa:");
-        for (int i = 0; i < parameterList.getSize(); i++) {
-            System.out.println("Ingrese el valor obtenido para "
-                    + parameterList.getItem(i).getName() + ":");
-            parameterList.getItem(i).setValue(scanner.nextDouble());
-        }
-        System.out.println("Se han asignado los valores de los parámetros de la etapa " + stageNumber + ".");
+//    public void setParameters() {
+//        System.out.println("A continuación, ingrese los valores de los parámetros obtenidos en la etapa:");
+//        for (int i = 0; i < parameterList.getSize(); i++) {
+//            System.out.println("Ingrese el valor obtenido para "
+//                    + parameterList.getItem(i).getName() + ":");
+//            parameterList.getItem(i).setValue(scanner.nextDouble());
+//        }
+//        System.out.println("Se han asignado los valores de los parámetros de la etapa " + stageNumber + ".");
+//    }
+        public void setParameters(double valueP,int i ) {
+            parameterList.getItem(i).setValue(valueP);
     }
 
+//    public void finish() {
+//        boolean testPassed = true;
+//        int auxIndex = 0;
+//        for (int i = 0; i < parameterList.getSize() && testPassed; i++) {
+//            testPassed = parameterList.getItem(i).satisfyQuality();
+//            auxIndex = i;
+//        }
+//        if (!testPassed) {
+//            MyArrayList<Parameter> badParameterList = new MyArrayList<>();
+//            for (int i = auxIndex; i < parameterList.getSize(); i++) {
+//                if (!parameterList.getItem(i).satisfyQuality()) {
+//                    badParameterList.pushBack(parameterList.getItem(i));
+//                }
+//            }
+//            System.out.println("El proceso no puede continuar ya que no se cumplen los "
+//                    + "estándares de calidad en los siguientes parámetros:");
+//            for (int i = 0; i < badParameterList.getSize(); i++) {
+//                System.out.println(badParameterList.getItem(i).getName());
+//            }
+//        } else {
+//            super.setEndDate(super.getTimeFormat().format(LocalDateTime.now()));
+//            super.setIsActive(false);
+//            this.setIsFinished(true);
+//            System.out.println("¡Finalizó la etapa " + stageNumber + " cumpliendo con los estándares de calidad!");
+//            System.out.println("Fecha y hora de finalización: " + super.getEndDate());
+//        }
+//    }
     public void finish() {
         boolean testPassed = true;
         int auxIndex = 0;
