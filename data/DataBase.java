@@ -61,22 +61,28 @@ public class DataBase implements Serializable {
     }
 
     public static void eliminar(String nameA, String tip) throws IOException {//Elimina un archivo
-
+        try{
         String nametxt = localDatabase;
         nametxt = nametxt + nameA;
         File file = new File(nametxt + ".txt");
+        
         if (file.delete()) {
             System.out.println("El archivo" + nameA + "ha sido borrado satisfactoriamente");
         } else {
             System.out.println("El archivo" + nameA + "no puedo ser borrado satisfactoriamente");
         }
         
+        
+        
+        
         if(tip.equalsIgnoreCase("Usuario")){            
         }else{
             sLnameP.removeItem(nameA);
             informeArchive("Eliminar", false);
+        }}catch (IOException e){
         }
-        
+            
+    
     }
 
     public static void Write(String nameA, String name, int number) throws IOException {//Escribe el archivo dependiendo lo que vaya a escribir
@@ -172,6 +178,7 @@ public class DataBase implements Serializable {
     }
 
     public static void informeArchive(String name, Boolean neww) throws IOException { //Actualiza la lista de procesos
+        try{
         String nametxt = localDatabase;
         nametxt = nametxt + "Informe";
         File file = new File(nametxt + ".txt");
@@ -196,6 +203,7 @@ public class DataBase implements Serializable {
             bfwriter.close();
         }
         flwriter.close();
+        }catch(IOException e){}
     }
 
     //Load

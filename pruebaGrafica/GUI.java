@@ -172,7 +172,6 @@ public class GUI extends javax.swing.JFrame {
         addStageButton3 = new javax.swing.JButton();
         doneButton = new javax.swing.JButton();
         addMaterialButton12 = new javax.swing.JButton();
-        doneButton1 = new javax.swing.JButton();
         jpRegister = new javax.swing.JPanel();
         goBackButton4 = new javax.swing.JButton();
         controlPanelTitle2 = new javax.swing.JLabel();
@@ -270,7 +269,6 @@ public class GUI extends javax.swing.JFrame {
         jTextCs8 = new javax.swing.JTextArea();
         jTextCs3 = new javax.swing.JComboBox<>();
         jTextCs2 = new javax.swing.JComboBox<>();
-        jTextCs1 = new javax.swing.JLabel();
         jTextCs11 = new javax.swing.JTextField();
         jTextCs4 = new javax.swing.JComboBox<>();
         jLabel24 = new javax.swing.JLabel();
@@ -287,7 +285,6 @@ public class GUI extends javax.swing.JFrame {
         jTextCs0 = new javax.swing.JTextField();
         addMaterialButton11 = new javax.swing.JButton();
         jLabel25 = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
         jpManagementP = new javax.swing.JPanel();
         controlPanelTitle4 = new javax.swing.JLabel();
         jSeparator7 = new javax.swing.JSeparator();
@@ -1244,7 +1241,6 @@ public class GUI extends javax.swing.JFrame {
         stagesL.setBackground(new java.awt.Color(48, 48, 48));
         stagesL.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         stagesL.setForeground(new java.awt.Color(204, 204, 204));
-        stagesL.setPreferredSize(new java.awt.Dimension(36, 88));
         jScrollPane9.setViewportView(stagesL);
 
         jLabel14.setBackground(new java.awt.Color(48, 48, 48));
@@ -1332,8 +1328,8 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(addStageButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(addStageButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(95, 95, 95))
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(94, 94, 94))
         );
 
         jpCreateP.add(addingPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 120, -1, 230));
@@ -1363,19 +1359,6 @@ public class GUI extends javax.swing.JFrame {
             }
         });
         jpCreateP.add(addMaterialButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 380, 143, 35));
-
-        doneButton1.setBackground(new java.awt.Color(0, 56, 142));
-        doneButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        doneButton1.setForeground(new java.awt.Color(204, 204, 204));
-        doneButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/correcto.png"))); // NOI18N
-        doneButton1.setText("Ver lista de procesos");
-        doneButton1.setBorder(null);
-        doneButton1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                doneButton1MouseClicked(evt);
-            }
-        });
-        jpCreateP.add(doneButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 380, 180, 35));
 
         Menu.add(jpCreateP, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1024, 431));
 
@@ -2064,20 +2047,17 @@ public class GUI extends javax.swing.JFrame {
         jTextCs8.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jScrollPane11.setViewportView(jTextCs8);
 
-        jpCreateS.add(jScrollPane11, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 250, 420, 110));
+        jpCreateS.add(jScrollPane11, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, 420, 190));
 
         jTextCs3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTextCs3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mes", "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
+        jTextCs3.setEnabled(false);
         jpCreateS.add(jTextCs3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 170, 110, -1));
 
         jTextCs2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTextCs2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dia", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        jTextCs2.setEnabled(false);
         jpCreateS.add(jTextCs2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 170, -1, -1));
-
-        jTextCs1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jTextCs1.setForeground(new java.awt.Color(204, 204, 204));
-        jTextCs1.setText("XXXX");
-        jpCreateS.add(jTextCs1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 130, 60, 30));
 
         jTextCs11.setBackground(new java.awt.Color(48, 48, 48));
         jTextCs11.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -2093,15 +2073,18 @@ public class GUI extends javax.swing.JFrame {
 
         jTextCs4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTextCs4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Año", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2029", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039" }));
+        jTextCs4.setEnabled(false);
         jpCreateS.add(jTextCs4, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 170, 90, -1));
 
         jLabel24.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel24.setForeground(new java.awt.Color(204, 204, 204));
         jLabel24.setText("Fecha de finalización: ");
+        jLabel24.setEnabled(false);
         jpCreateS.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 210, -1, -1));
 
         jTextCs5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTextCs5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dia", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        jTextCs5.setEnabled(false);
         jTextCs5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextCs5ActionPerformed(evt);
@@ -2111,10 +2094,12 @@ public class GUI extends javax.swing.JFrame {
 
         jTextCs6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTextCs6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mes", "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
+        jTextCs6.setEnabled(false);
         jpCreateS.add(jTextCs6, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 210, 110, -1));
 
         jTextCs7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTextCs7.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Año", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2029", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039" }));
+        jTextCs7.setEnabled(false);
         jpCreateS.add(jTextCs7, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 210, 90, -1));
 
         jTextCs9.setBackground(new java.awt.Color(48, 48, 48));
@@ -2213,12 +2198,8 @@ public class GUI extends javax.swing.JFrame {
         jLabel25.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel25.setForeground(new java.awt.Color(204, 204, 204));
         jLabel25.setText("Fecha de inicio: ");
+        jLabel25.setEnabled(false);
         jpCreateS.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, -1, -1));
-
-        jLabel26.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel26.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel26.setText("ID:");
-        jpCreateS.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 130, 30, 30));
 
         Menu.add(jpCreateS, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1024, 431));
 
@@ -3367,39 +3348,39 @@ public class GUI extends javax.swing.JFrame {
         try{
            
             //
-             try{
-               Integer.parseInt(jTextCs2.getSelectedItem().toString());
-               Integer.parseInt(convertMonth(jTextCs3.getSelectedItem().toString()));
-               Integer.parseInt(jTextCs4.getSelectedItem().toString());
-               Integer.parseInt(jTextCs5.getSelectedItem().toString());
-               Integer.parseInt(convertMonth(jTextCs6.getSelectedItem().toString()));
-               Integer.parseInt(jTextCs7.getSelectedItem().toString());
-            }catch(Exception e){
-                correct=false;
-                 JOptionPane.showMessageDialog(this,"Valores no validos para fecha.");
-            }
+//             try{
+//               Integer.parseInt(jTextCs2.getSelectedItem().toString());
+//               Integer.parseInt(convertMonth(jTextCs3.getSelectedItem().toString()));
+//               Integer.parseInt(jTextCs4.getSelectedItem().toString());
+//               Integer.parseInt(jTextCs5.getSelectedItem().toString());
+//               Integer.parseInt(convertMonth(jTextCs6.getSelectedItem().toString()));
+//               Integer.parseInt(jTextCs7.getSelectedItem().toString());
+//            }catch(Exception e){
+//                correct=false;
+//                 JOptionPane.showMessageDialog(this,"Valores no validos para fecha.");
+//            }
              
                 if(correct && listPaux2.getSize()==0){
                  JOptionPane.showMessageDialog(this,"Antes de guardar, agregue parametros a la etapa.");
                 correct=false;
              }
                 
-                 if(correct && Integer.parseInt(jTextCs4.getSelectedItem().toString())>Integer.parseInt(jTextCs7.getSelectedItem().toString())){
-                correct=false;
-                JOptionPane.showMessageDialog(this,"La fecha de inicio debe ser menor a la fecha de finalización.");
-                
-            }else  if(correct && Integer.parseInt(jTextCs4.getSelectedItem().toString())==Integer.parseInt(jTextCs7.getSelectedItem().toString())){
-                
-                if(Integer.parseInt(convertMonth(jTextCs3.getSelectedItem().toString()))>Integer.parseInt(convertMonth(jTextCs6.getSelectedItem().toString()))){
-                    correct=false;
-                    JOptionPane.showMessageDialog(this,"La fecha de inicio debe ser menor a la fecha de finalización.");
-                }else if(Integer.parseInt(convertMonth(jTextCs3.getSelectedItem().toString()))==Integer.parseInt(convertMonth(jTextCs6.getSelectedItem().toString()))){
-                    if(Integer.parseInt(jTextCs2.getSelectedItem().toString())>Integer.parseInt(jTextCs5.getSelectedItem().toString())){
-                        correct=false;
-                        JOptionPane.showMessageDialog(this,"La fecha de inicio debe ser menor a la fecha de finalización.");
-                     }
-                }
-            }
+//                 if(correct && Integer.parseInt(jTextCs4.getSelectedItem().toString())>Integer.parseInt(jTextCs7.getSelectedItem().toString())){
+//                correct=false;
+//                JOptionPane.showMessageDialog(this,"La fecha de inicio debe ser menor a la fecha de finalización.");
+//                
+//            }else  if(correct && Integer.parseInt(jTextCs4.getSelectedItem().toString())==Integer.parseInt(jTextCs7.getSelectedItem().toString())){
+//                
+//                if(Integer.parseInt(convertMonth(jTextCs3.getSelectedItem().toString()))>Integer.parseInt(convertMonth(jTextCs6.getSelectedItem().toString()))){
+//                    correct=false;
+//                    JOptionPane.showMessageDialog(this,"La fecha de inicio debe ser menor a la fecha de finalización.");
+//                }else if(Integer.parseInt(convertMonth(jTextCs3.getSelectedItem().toString()))==Integer.parseInt(convertMonth(jTextCs6.getSelectedItem().toString()))){
+//                    if(Integer.parseInt(jTextCs2.getSelectedItem().toString())>Integer.parseInt(jTextCs5.getSelectedItem().toString())){
+//                        correct=false;
+//                        JOptionPane.showMessageDialog(this,"La fecha de inicio debe ser menor a la fecha de finalización.");
+//                     }
+//                }
+//            }
             
             
             //
@@ -3408,9 +3389,11 @@ public class GUI extends javax.swing.JFrame {
            int result = JOptionPane.showConfirmDialog(null, "¿Desea guardar los datos?","Guardar etapa",dialog);
            if(result==0){
             Stage stage;
-            String dataS=Integer.parseInt(jTextCs2.getSelectedItem().toString())+"/"+Integer.parseInt(convertMonth(jTextCs3.getSelectedItem().toString()))+"/"+Integer.parseInt(jTextCs4.getSelectedItem().toString());
-            String dataE=Integer.parseInt(jTextCs5.getSelectedItem().toString())+"/"+Integer.parseInt(convertMonth(jTextCs6.getSelectedItem().toString()))+"/"+Integer.parseInt(jTextCs7.getSelectedItem().toString());
-            stage= new Stage(1,listPaux2,jTextCs0.getText(),dataS,dataE,jTextCs1.getText(),jTextCs8.getText());//Corregir,¡¡¡¡¡¿ que es es 1??           
+//            String dataS=Integer.parseInt(jTextCs2.getSelectedItem().toString())+"/"+Integer.parseInt(convertMonth(jTextCs3.getSelectedItem().toString()))+"/"+Integer.parseInt(jTextCs4.getSelectedItem().toString());
+//            String dataE=Integer.parseInt(jTextCs5.getSelectedItem().toString())+"/"+Integer.parseInt(convertMonth(jTextCs6.getSelectedItem().toString()))+"/"+Integer.parseInt(jTextCs7.getSelectedItem().toString());
+            String dataS="-";
+            String dataE="-";
+            stage= new Stage(1,listPaux2,jTextCs0.getText(),dataS,dataE,".",jTextCs8.getText());//Corregir,¡¡¡¡¡¿ que es es 1??           
             stage.setIsActive(false);
             stage.setIsFinished(false);
             ListSaux.pushBack(stage);
@@ -3447,63 +3430,78 @@ public class GUI extends javax.swing.JFrame {
     private void cleanJPCreatS(){
         listPaux2 = new MyArrayList<>();
             jTextCs0.setText("Nombre de la etapa");
-            jTextCs1.setText("XXXX");
+            //jTextCs1.setText("XXXX");
             jTextCs8.setText("Descripción");
                 
-            jTextCs3.removeAllItems();
-            jTextCs3.addItem("Mes");
-           
-            jTextCs3.addItem("Enero");
-            jTextCs3.addItem("Febrero");
-            jTextCs3.addItem("Marzo");
-            jTextCs3.addItem("Abril");
-            jTextCs3.addItem("Mayo");
-            jTextCs3.addItem("Junio");
-            jTextCs3.addItem("Julio");
-            jTextCs3.addItem("Agosto");
-            jTextCs3.addItem("Septiembre");
-            jTextCs3.addItem("Octubre");
-            jTextCs3.addItem("Noviembre");
-            jTextCs3.addItem("Diciembre");
-            
-            jTextCs6.removeAllItems();
-            jTextCs6.addItem("Mes");
-           
-            jTextCs6.addItem("Enero");
-            jTextCs6.addItem("Febrero");
-            jTextCs6.addItem("Marzo");
-            jTextCs6.addItem("Abril");
-            jTextCs6.addItem("Mayo");
-            jTextCs6.addItem("Junio");
-            jTextCs6.addItem("Julio");
-            jTextCs6.addItem("Agosto");
-            jTextCs6.addItem("Septiembre");
-            jTextCs6.addItem("Octubre");
-            jTextCs6.addItem("Noviembre");
-            jTextCs6.addItem("Diciembre");
-            
-            jTextCs4.removeAllItems();  
-            jTextCs7.removeAllItems(); 
-            jTextCs4.addItem("Año");
-            jTextCs7.addItem("Año");
-            for(int i=0; i<10; i++){
-            jTextCs4.addItem("202"+Integer.toString(i));
-            jTextCs7.addItem("202"+Integer.toString(i));
-            }   
-            for(int i=0; i<10; i++){
-            jTextCs4.addItem("203"+Integer.toString(i));
-            jTextCs7.addItem("203"+Integer.toString(i));
-            }
-            
-            jTextCs2.removeAllItems();
-            jTextCs5.removeAllItems();
-            jTextCs2.addItem("Dia");
-            jTextCs5.addItem("Dia");
-            for(int i=1; i<32; i++){
-            jTextCs2.addItem(Integer.toString(i));
-            jTextCs5.addItem(Integer.toString(i));
-            }
-            
+//            jTextCs3.removeAllItems();
+//            jTextCs3.addItem("Mes");
+//           
+//            jTextCs3.addItem("Enero");
+//            jTextCs3.addItem("Febrero");
+//            jTextCs3.addItem("Marzo");
+//            jTextCs3.addItem("Abril");
+//            jTextCs3.addItem("Mayo");
+//            jTextCs3.addItem("Junio");
+//            jTextCs3.addItem("Julio");
+//            jTextCs3.addItem("Agosto");
+//            jTextCs3.addItem("Septiembre");
+//            jTextCs3.addItem("Octubre");
+//            jTextCs3.addItem("Noviembre");
+//            jTextCs3.addItem("Diciembre");
+//            
+//            jTextCs6.removeAllItems();
+//            jTextCs6.addItem("Mes");
+//           
+//            jTextCs6.addItem("Enero");
+//            jTextCs6.addItem("Febrero");
+//            jTextCs6.addItem("Marzo");
+//            jTextCs6.addItem("Abril");
+//            jTextCs6.addItem("Mayo");
+//            jTextCs6.addItem("Junio");
+//            jTextCs6.addItem("Julio");
+//            jTextCs6.addItem("Agosto");
+//            jTextCs6.addItem("Septiembre");
+//            jTextCs6.addItem("Octubre");
+//            jTextCs6.addItem("Noviembre");
+//            jTextCs6.addItem("Diciembre");
+//            
+//            jTextCs4.removeAllItems();  
+//            jTextCs7.removeAllItems(); 
+//            jTextCs4.addItem("Año");
+//            jTextCs7.addItem("Año");
+//            for(int i=0; i<10; i++){
+//            jTextCs4.addItem("202"+Integer.toString(i));
+//            jTextCs7.addItem("202"+Integer.toString(i));
+//            }   
+//            for(int i=0; i<10; i++){
+//            jTextCs4.addItem("203"+Integer.toString(i));
+//            jTextCs7.addItem("203"+Integer.toString(i));
+//            }
+//            
+//            jTextCs2.removeAllItems();
+//            jTextCs5.removeAllItems();
+//            jTextCs2.addItem("Dia");
+//            jTextCs5.addItem("Dia");
+//            for(int i=1; i<32; i++){
+//            jTextCs2.addItem(Integer.toString(i));
+//            jTextCs5.addItem(Integer.toString(i));
+//            }
+            jTextCs2.setVisible(false);
+            jTextCs3.setVisible(false);
+            jTextCs4.setVisible(false);
+            jTextCs5.setVisible(false);
+            jTextCs6.setVisible(false);
+            jTextCs7.setVisible(false);
+            jLabel25.setVisible(false);
+            jLabel24.setVisible(false);
+            jTextCs2.setEnabled(false);
+            jTextCs3.setEnabled(false);
+            jTextCs4.setEnabled(false);
+            jTextCs5.setEnabled(false);
+            jTextCs6.setEnabled(false);
+            jTextCs7.setEnabled(false);
+            jLabel25.setEnabled(false);
+            jLabel24.setEnabled(false);
             jTextCs9.setText("Nombre de parametro");
             jTextCs10.setText("Limite superior");
             jTextCs11.setText("Limite inferior");
@@ -4824,10 +4822,26 @@ private static int indexCr=1;
            JOptionPane.showMessageDialog(this,"Ha ocurrido un error, por favor contacte con el administrador.");         
        }
     }//GEN-LAST:event_jLabel19MouseClicked
+    
+    
+    private void goBackButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_goBackButton5MouseClicked
+         jpSearchP.setVisible(false);
+         jpControl.setVisible(true);
+    }//GEN-LAST:event_goBackButton5MouseClicked
 
-    private void doneButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_doneButton1MouseClicked
-        jpCreateP.setVisible(false);         
+    private void jTextCs5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextCs5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextCs5ActionPerformed
+
+    private void createButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createButtonMouseClicked
+        jpControl.setVisible(false);
+        jpCreateP.setVisible(true);
+    }//GEN-LAST:event_createButtonMouseClicked
+
+    private void goBackButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_goBackButton8MouseClicked
+        jpManagementP.setVisible(false);
         jpSearchP.setVisible(true);
+        
          sLIDP2 = new SinglyLinkedList<>();
             if(myArrayListProduction.getSize()>0){
                 ProductionLSp.removeAll();
@@ -4864,26 +4878,6 @@ private static int indexCr=1;
                  namePjL.setText("");
                  namePjL0.setText("Todos las producciónes");
             }
-    }//GEN-LAST:event_doneButton1MouseClicked
-    
-    
-    private void goBackButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_goBackButton5MouseClicked
-         jpSearchP.setVisible(false);
-         jpControl.setVisible(true);
-    }//GEN-LAST:event_goBackButton5MouseClicked
-
-    private void jTextCs5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextCs5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextCs5ActionPerformed
-
-    private void createButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createButtonMouseClicked
-        jpControl.setVisible(false);
-        jpCreateP.setVisible(true);
-    }//GEN-LAST:event_createButtonMouseClicked
-
-    private void goBackButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_goBackButton8MouseClicked
-        jpManagementP.setVisible(false);
-        jpSearchP.setVisible(true);
     }//GEN-LAST:event_goBackButton8MouseClicked
 
     private void seeRegisterButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seeRegisterButton1MouseClicked
@@ -5042,14 +5036,22 @@ private static int indexCr=1;
                 }
                 int result = JOptionPane.showConfirmDialog(null, "¿Esta seguro que desea eliminar la producción: "+myArrayListProduction.getItem(selected2).getName()+"?","Eliminar producción",dialog);
                       if(result==0){
-                          DataBase.eliminar(myArrayListProduction.getItem(selected2).getId()+myArrayListProduction.getItem(selected2).getName(), "Producción");
+                          
+                          if (sLnameP.isListed(myArrayListProduction.getItem(selected2).getName())){
+                              DataBase.eliminar(myArrayListProduction.getItem(selected2).getId()+myArrayListProduction.getItem(selected2).getName(), "Producción");
+                          }
+                          
                           myArrayListProduction.removeIndex(selected2);
                            ProductionL.removeAll();
                              String [] namep= new  String[myArrayListProduction.getSize()];
+                             
+                             
                          for(int i=0; i<myArrayListProduction.getSize(); i++){
                            namep[i]=myArrayListProduction.getItem(i).getId();
                          }
+                         
                          ProductionL.setListData(namep);
+                         
                          cleanJPRegister();
                           if(removeP!=-1){
                                removeP=-1;
@@ -5511,12 +5513,14 @@ boolean avanzarEtapa=false;
     }//GEN-LAST:event_ProductionSearchListMouseClicked
 
     private void jTextCrKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextCrKeyTyped
+        
+        //try{
         String currentSearch = jTextCr.getText();
         if(myArrayListProduction.getSize()>0){
             
             AvlNodeTree<Production> prodTree = new AvlNodeTree<>();
             ProductionSearchList.removeAll();
-            String [] namep= new  String[myArrayListProduction.getSize()];            
+            String [] namep= new  String[10];            
            
             for(int i=0; i<myArrayListProduction.getSize(); i++){
                 prodTree.insert(myArrayListProduction.getItem(i));
@@ -5534,11 +5538,14 @@ boolean avanzarEtapa=false;
                 }                    
                 node = node.next(node);
                 auxProd = (Production) node.getItem(); 
-                while (auxProd.getName().substring(0, currentSearch.length()).compareToIgnoreCase(currentSearch) == 0) {
+                
+                for(int i=0; i<10;i++){
+                   if(auxProd.getName().substring(0, currentSearch.length()).compareToIgnoreCase(currentSearch) == 0) {
                    treeList.pushBack((Production)node.getItem()); 
                    node = node.next(node);
                    auxProd = (Production) node.getItem();  
-                }
+                }}
+                
             }
 
             MyArrayList<Production> completeList = prodTree.inOrderList();
@@ -5554,7 +5561,13 @@ boolean avanzarEtapa=false;
                 }
             }
             ProductionSearchList.setListData(namep);
-        }       
+        }     
+//    }catch (Exception e){
+//                JOptionPane.showMessageDialog(this,"Ha ocurrido un error, por favor contacte con el administrador.");
+                
+                
+                
+                 
     }//GEN-LAST:event_jTextCrKeyTyped
     
     private void createPanels(MyArrayList<Stage> stages1){
@@ -5853,7 +5866,6 @@ boolean avanzarEtapa=false;
     private javax.swing.JLabel createLabel9;
     private javax.swing.JPanel createPanel;
     private javax.swing.JButton doneButton;
-    private javax.swing.JButton doneButton1;
     private javax.swing.JButton doneButton10;
     private javax.swing.JButton doneButton2;
     private javax.swing.JButton doneButton3;
@@ -5897,7 +5909,6 @@ boolean avanzarEtapa=false;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -5954,7 +5965,6 @@ boolean avanzarEtapa=false;
     private javax.swing.JTextArea jTextCp5;
     private javax.swing.JTextField jTextCr;
     private javax.swing.JTextField jTextCs0;
-    private javax.swing.JLabel jTextCs1;
     private javax.swing.JTextField jTextCs10;
     private javax.swing.JTextField jTextCs11;
     private javax.swing.JComboBox<String> jTextCs2;
