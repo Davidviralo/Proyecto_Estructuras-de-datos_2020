@@ -186,6 +186,8 @@ public class GUI extends javax.swing.JFrame {
         nRdeP = new javax.swing.JLabel();
         jlBackCr = new javax.swing.JLabel();
         jlNextCr = new javax.swing.JLabel();
+        jScrollPane17 = new javax.swing.JScrollPane();
+        ProductionSearchList = new javax.swing.JList<>();
         jpSearchP = new javax.swing.JPanel();
         controlPanelTitle3 = new javax.swing.JLabel();
         jSeparator6 = new javax.swing.JSeparator();
@@ -1430,6 +1432,11 @@ public class GUI extends javax.swing.JFrame {
                 jTextCrActionPerformed(evt);
             }
         });
+        jTextCr.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextCrKeyTyped(evt);
+            }
+        });
         jpRegister.add(jTextCr, new org.netbeans.lib.awtextra.AbsoluteConstraints(446, 88, 251, 34));
 
         searchjLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/buscar.png"))); // NOI18N
@@ -1450,7 +1457,7 @@ public class GUI extends javax.swing.JFrame {
         resgisterF.setFocusable(false);
         jScrollPane4.setViewportView(resgisterF);
 
-        jpRegister.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, 740, 216));
+        jpRegister.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 140, 700, 216));
 
         nRdeP0.setBackground(new java.awt.Color(48, 48, 48));
         nRdeP0.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -1488,6 +1495,18 @@ public class GUI extends javax.swing.JFrame {
             }
         });
         jpRegister.add(jlNextCr, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 370, -1, 20));
+
+        ProductionSearchList.setBackground(new java.awt.Color(48, 48, 48));
+        ProductionSearchList.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        ProductionSearchList.setForeground(new java.awt.Color(204, 204, 204));
+        ProductionSearchList.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ProductionSearchListMouseClicked(evt);
+            }
+        });
+        jScrollPane17.setViewportView(ProductionSearchList);
+
+        jpRegister.add(jScrollPane17, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 190, 220));
 
         Menu.add(jpRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1024, 431));
 
@@ -2747,6 +2766,28 @@ public class GUI extends javax.swing.JFrame {
     private void registryButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registryButtonMouseClicked
         jpControl.setVisible(false);
         jpRegister.setVisible(true);
+        
+        
+        if(myArrayListProduction.getSize()>0){
+            AvlNodeTree<Production> prodTree = new AvlNodeTree<>();            
+            ProductionSearchList.removeAll();
+            String [] namep= new  String[myArrayListProduction.getSize()];
+            
+           
+            for(int i=0; i<myArrayListProduction.getSize(); i++){
+                //namep[i]=myArrayListProduction.getItem(i).getName();  
+                prodTree.insert(myArrayListProduction.getItem(i));
+            }
+            
+            MyArrayList<Production> treeList = prodTree.inOrderList();
+            
+            for(int i=0; i<treeList.getSize(); i++){
+                namep[i]=treeList.getItem(i).getName();  
+            }
+                
+            ProductionSearchList.setListData(namep);
+
+            }
     }//GEN-LAST:event_registryButtonMouseClicked
 
     private void goBackButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_goBackButton3MouseClicked
@@ -5439,6 +5480,83 @@ boolean avanzarEtapa=false;
     private void doneButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doneButton6ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_doneButton6ActionPerformed
+
+    private void ProductionSearchListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ProductionSearchListMouseClicked
+        try{
+            String prodName = ProductionSearchList.getSelectedValue().toString();
+            if(prodName==""){
+            }else{
+            sLIDP = new SinglyLinkedList<>();
+            for(int i=0; i<myArrayListProduction.getSize(); i++){
+                if(myArrayListProduction.getItem(i).getName().equalsIgnoreCase(prodName)){
+                  sLIDP.pushBack(i);
+                }                
+            }
+            if(sLIDP.getSize()==0){
+                   JOptionPane.showMessageDialog(this,"No se ha encontrado una producción con el nombre: "+jTextCr.getText());    
+                   nRdeP.setText("de "+sLIDP.getSize());
+                   nRdeP0.setText("0");
+                   resgisterF.setText("");
+            }else{
+                indexCr=1;
+                nRdeP.setText("de "+sLIDP.getSize());
+                nRdeP0.setText("1");
+                printProduction(1);
+                
+            }
+              }
+          }catch(Exception e){
+               JOptionPane.showMessageDialog(this,"Ha ocurrido un error, por favor contacte con el administrador.");         
+                    }
+    }//GEN-LAST:event_ProductionSearchListMouseClicked
+
+    private void jTextCrKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextCrKeyTyped
+        String currentSearch = jTextCr.getText();
+        if(myArrayListProduction.getSize()>0){
+            
+            AvlNodeTree<Production> prodTree = new AvlNodeTree<>();
+            ProductionSearchList.removeAll();
+            String [] namep= new  String[myArrayListProduction.getSize()];            
+           
+            for(int i=0; i<myArrayListProduction.getSize(); i++){
+                prodTree.insert(myArrayListProduction.getItem(i));
+            }
+            
+            Production aux = new Production(currentSearch, "", null, null);
+            AvlNode node = prodTree.find(aux); 
+            MyArrayList<Production> treeList = new MyArrayList();
+            Production auxProd = (Production) node.getItem();             
+            int stringIndex = currentSearch.length();
+            
+            if (stringIndex <= auxProd.getName().length() && stringIndex > 0) {
+                if (auxProd.getName().substring(0, stringIndex).compareToIgnoreCase(currentSearch) == 0) {
+                    treeList.pushBack((Production)node.getItem()); 
+                }                    
+                node = node.next(node);
+                auxProd = (Production) node.getItem(); 
+                while (auxProd.getName().substring(0, currentSearch.length()).compareToIgnoreCase(currentSearch) == 0) {
+                   treeList.pushBack((Production)node.getItem()); 
+                   node = node.next(node);
+                   auxProd = (Production) node.getItem();  
+                }
+            }
+
+            MyArrayList<Production> completeList = prodTree.inOrderList();
+
+            if (currentSearch.isBlank()){
+                ProductionSearchList.setListData(namep);
+                for(int i=0; i<completeList.getSize(); i++){
+                    namep[i]=completeList.getItem(i).getName();  
+                }
+            } else {
+                for(int i=0; i<treeList.getSize(); i++){
+                    namep[i]=treeList.getItem(i).getName();                                  
+                }
+            }
+            ProductionSearchList.setListData(namep);
+        }       
+    }//GEN-LAST:event_jTextCrKeyTyped
+    
     private void createPanels(MyArrayList<Stage> stages1){
         
         jPanel1.removeAll();
@@ -5688,6 +5806,7 @@ boolean avanzarEtapa=false;
     private javax.swing.JList<String> ParameterL1;
     private javax.swing.JList<String> ProductionL;
     private javax.swing.JList<String> ProductionLSp;
+    private javax.swing.JList<String> ProductionSearchList;
     private javax.swing.JList<String> StageLSp;
     private javax.swing.JList<String> UserL;
     private javax.swing.JList<String> UserL1;
@@ -5794,6 +5913,7 @@ boolean avanzarEtapa=false;
     private javax.swing.JScrollPane jScrollPane14;
     private javax.swing.JScrollPane jScrollPane15;
     private javax.swing.JScrollPane jScrollPane16;
+    private javax.swing.JScrollPane jScrollPane17;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;

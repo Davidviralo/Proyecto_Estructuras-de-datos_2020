@@ -75,6 +75,27 @@ public class BinaryArrayTree<T extends Comparable<T>> implements Serializable {
         else
             return 1 + Math.max(height(left(index)), height(right(index)));
     }
+    
+    public MyArrayList inOrderList(MyArrayList<T> list, int index) {
+        if (index < size) {
+            if (array[index] != null) {           
+                inOrderList(list, left(index));
+                list.pushBack(array[index]);
+                inOrderList(list, right(index));
+            }
+        }
+        return list;
+    }
+    
+    public MyArrayList<T> inOrderList(int index) {
+        MyArrayList<T> list = new MyArrayList<>();
+        return inOrderList(list, index);
+    }
+    
+    public MyArrayList<T> inOrderList() {
+        MyArrayList<T> list = new MyArrayList<>();
+        return inOrderList(list, 1);
+    }
 
     public void levels() {
         for (int i = 1; i <= size; i++) {

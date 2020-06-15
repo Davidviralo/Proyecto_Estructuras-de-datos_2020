@@ -77,4 +77,28 @@ public class AvlNode<T extends Comparable<T>> implements Serializable {
         else
             return this.right;
     }
+    
+     public AvlNode<T> leftDescendant(AvlNode<T> node) {
+        if (node.getLeft().getItem() == null)
+            return node;
+        else
+            return leftDescendant(node.getLeft());
+    }
+
+    public AvlNode<T> rightAncestor(AvlNode<T> node) {
+        if (node.getParent().getItem() != null) {
+            if (node.getItem().compareTo(node.getParent().getItem()) < 0)
+                return node.getParent();
+            else
+                return rightAncestor(node.getParent());
+        }else
+            return node;
+    }
+
+    public AvlNode<T> next(AvlNode<T> node) {
+        if (node.getRight().getItem() != null)
+            return leftDescendant(node.getRight());
+        else
+            return rightAncestor(node);
+    }
 }
