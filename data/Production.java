@@ -137,7 +137,10 @@ public class Production extends Event implements Comparable<Production>{
 
     public void endCurrentStage() {
         //stages.getItem(currentStage - 1).setParameters();
-        stages.getItem(currentStage - 1).finish();
+        //stages.getItem(currentStage - 1).finish();
+        
+        stages.getItem(currentStage - 1).setIsFinished(true);
+        stages.getItem(currentStage - 1).setEndDate(super.getTimeFormat().format(LocalDateTime.now()));
         if (stages.getItem(currentStage - 1).isFinished()) {
             currentStage++;
         } else {
@@ -156,7 +159,7 @@ public class Production extends Event implements Comparable<Production>{
             allStagesFinished = stages.getItem(i).isFinished();
         }
         if (allStagesFinished) {
-            super.setIsActive(false);
+            //super.setIsActive(false);
             super.setIsFinished(true);
             System.out.println("¡Felicitaciones! Se ha finalizado" +
                     " el proceso cumpliendo todos los parámetros de calidad.");

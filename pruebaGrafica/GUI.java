@@ -294,6 +294,8 @@ public class GUI extends javax.swing.JFrame {
         startPButton = new javax.swing.JButton();
         doneButton5 = new javax.swing.JButton();
         doneButton6 = new javax.swing.JButton();
+        createLabel24 = new javax.swing.JLabel();
+        createLabel25 = new javax.swing.JLabel();
         jpSetParametr = new javax.swing.JPanel();
         controlPanelTitle8 = new javax.swing.JLabel();
         jSeparator13 = new javax.swing.JSeparator();
@@ -304,13 +306,15 @@ public class GUI extends javax.swing.JFrame {
         jScrollPane16 = new javax.swing.JScrollPane();
         UserL1 = new javax.swing.JList<>();
         jTextIDU1 = new javax.swing.JTextField();
-        searchPjLabel5 = new javax.swing.JLabel();
-        doneButton8 = new javax.swing.JButton();
         goBackButton10 = new javax.swing.JButton();
         jLabel23 = new javax.swing.JLabel();
         createLabel19 = new javax.swing.JLabel();
         createLabel23 = new javax.swing.JLabel();
         doneButton10 = new javax.swing.JButton();
+        createLabel22 = new javax.swing.JLabel();
+        createLabel26 = new javax.swing.JLabel();
+        createLabel27 = new javax.swing.JLabel();
+        createLabel28 = new javax.swing.JLabel();
 
         jLabel12.setText("jLabel12");
 
@@ -2301,6 +2305,16 @@ public class GUI extends javax.swing.JFrame {
         });
         jpManagementP.add(doneButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 370, 143, 35));
 
+        createLabel24.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        createLabel24.setForeground(new java.awt.Color(202, 202, 202));
+        createLabel24.setText("Nombre:");
+        jpManagementP.add(createLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 100, 330, 20));
+
+        createLabel25.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        createLabel25.setForeground(new java.awt.Color(202, 202, 202));
+        createLabel25.setText("Nombre:");
+        jpManagementP.add(createLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 100, 20));
+
         Menu.add(jpManagementP, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1024, 431));
 
         jpSetParametr.setBackground(new java.awt.Color(28, 28, 28));
@@ -2352,7 +2366,7 @@ public class GUI extends javax.swing.JFrame {
         });
         jScrollPane16.setViewportView(UserL1);
 
-        jpSetParametr.add(jScrollPane16, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 190, 210, 160));
+        jpSetParametr.add(jScrollPane16, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 140, 210, 210));
 
         jTextIDU1.setBackground(new java.awt.Color(48, 48, 48));
         jTextIDU1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -2365,27 +2379,6 @@ public class GUI extends javax.swing.JFrame {
             }
         });
         jpSetParametr.add(jTextIDU1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 240, 210, 34));
-
-        searchPjLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/buscar.png"))); // NOI18N
-        searchPjLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                searchPjLabel5MouseClicked(evt);
-            }
-        });
-        jpSetParametr.add(searchPjLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 130, -1, 34));
-
-        doneButton8.setBackground(new java.awt.Color(0, 56, 142));
-        doneButton8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        doneButton8.setForeground(new java.awt.Color(204, 204, 204));
-        doneButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/correcto.png"))); // NOI18N
-        doneButton8.setText("Guardar");
-        doneButton8.setBorder(null);
-        doneButton8.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                doneButton8MouseClicked(evt);
-            }
-        });
-        jpSetParametr.add(doneButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 370, 143, 35));
 
         goBackButton10.setBackground(new java.awt.Color(28, 28, 28));
         goBackButton10.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
@@ -2427,6 +2420,26 @@ public class GUI extends javax.swing.JFrame {
             }
         });
         jpSetParametr.add(doneButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 360, 143, 35));
+
+        createLabel22.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        createLabel22.setForeground(new java.awt.Color(202, 202, 202));
+        createLabel22.setText("LO:");
+        jpSetParametr.add(createLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 330, 40, 30));
+
+        createLabel26.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        createLabel26.setForeground(new java.awt.Color(202, 202, 202));
+        createLabel26.setText("lo");
+        jpSetParametr.add(createLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 330, 70, 30));
+
+        createLabel27.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        createLabel27.setForeground(new java.awt.Color(202, 202, 202));
+        createLabel27.setText("LI:");
+        jpSetParametr.add(createLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 300, 40, 30));
+
+        createLabel28.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        createLabel28.setForeground(new java.awt.Color(202, 202, 202));
+        createLabel28.setText("li");
+        jpSetParametr.add(createLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 300, 70, 30));
 
         Menu.add(jpSetParametr, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1024, 431));
 
@@ -4195,7 +4208,7 @@ private static int indexCr=1;
                         iconSeeM((i+1)+5);
                    }  
                         }catch(Exception e){
-                            iconSeeM((i+1)+10);
+                            iconSeeM((i+1)+5);
                         }
                        
                       
@@ -4894,7 +4907,7 @@ private static int indexCr=1;
 //                nRdeP0.setText("1");
                   jpSearchP.setVisible(false);
                   jpManagementP.setVisible(true);
-                  
+                  createLabel24.setText(myArrayListProduction.getItem(sLIDP2.getItem(selectproduction+(5*(indexSpp-1)))).getName());
                   createPanels(myArrayListProduction.getItem(sLIDP2.getItem(selectproduction+(5*(indexSpp-1)))).getStages());
                   jpManagementP.repaint(); 
             }else{
@@ -5293,16 +5306,20 @@ private static int indexCr=1;
 
     private void doneButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_doneButton5MouseClicked
         // TODO add your handling code here:
+        //BOTON AVANZAR ETAPA
+        
         contador=0;
         int produccion=sLIDP2.getItem(selectproduction+(5*(indexSpp-1)));
+        int currentmax=myArrayListProduction.getItem(produccion).getStages().getSize();
         //Production aux=myArrayListProduction.getItem(produccion); 
         int currentStage = myArrayListProduction.getItem(produccion).getCurrentStage();
         int stagemax = myArrayListProduction.getItem(produccion).getStages().getSize();
         if(myArrayListProduction.getItem(produccion).isActive()){
+            if(myArrayListProduction.getItem(produccion).getCurrentStage()<currentmax||!myArrayListProduction.getItem(produccion).getStages().getItem(currentStage-1).isActive()){
             if (!myArrayListProduction.getItem(produccion).getStages().getItem(currentStage-1).isActive()){
-                myArrayListProduction.getItem(produccion).getStages().getItem(currentStage-1).setIsActive(true);
-                myArrayListProduction.getItem(produccion).getStages().getItem(currentStage-1).setIsFinished(false);
-                
+//                myArrayListProduction.getItem(produccion).getStages().getItem(currentStage-1).setIsActive(true);
+//                myArrayListProduction.getItem(produccion).getStages().getItem(currentStage-1).setIsFinished(false);
+                myArrayListProduction.getItem(produccion).startCurrentStage();
             
            
           
@@ -5321,8 +5338,18 @@ private static int indexCr=1;
                      avanzarEtapa=true;
                 jpManagementP.setVisible(false);
                 jpSetParametr.setVisible(true);
-                doneButton8.setEnabled(false);
+                //doneButton8.setEnabled(false);
                 createLabel19.setText(myArrayListProduction.getItem(produccion).getStages().getItem(currentStage-1).getParameterList().getItem(0).getName());
+                String li = String.valueOf(myArrayListProduction.getItem(produccion).getStages().getItem(currentStage-1).getParameterList().getItem(0).getLowerLimit());
+                createLabel28.setText(li);
+                String lo = String.valueOf(myArrayListProduction.getItem(produccion).getStages().getItem(currentStage-1).getParameterList().getItem(0).getUpperLimit());
+                createLabel26.setText(lo);
+                UserL1.removeAll();
+                String [] namep= new  String[myArrayListProduction.getItem(produccion).getStages().getItem(currentStage-1).getParameterList().getSize()];
+                for (int i = 0; i < myArrayListProduction.getItem(produccion).getStages().getItem(currentStage-1).getParameterList().getSize(); i++) {
+                namep[i]=myArrayListProduction.getItem(produccion).getStages().getItem(currentStage-1).getParameterList().getItem(i).getName();
+                }
+                 UserL1.setListData(namep);
                 jTextIDU1.setEnabled(true);
                 //aux.getStages().getItem(currentStage-1).setIsFinished(true);
                 //aux.setCurrentStage(currentStage+1);
@@ -5337,7 +5364,8 @@ private static int indexCr=1;
                }else{
                 JOptionPane.showMessageDialog(this, "La etapa ya esta finalizada");
             }}
-               
+        }else{if(myArrayListProduction.getItem(produccion).isFinished())
+                JOptionPane.showMessageDialog(this, "La produccion ya finalizo");else JOptionPane.showMessageDialog(this, "Se encuentra en la ultima etapa");}
         }
         else 
             JOptionPane.showMessageDialog(this, "La produccion no esta activa");
@@ -5349,18 +5377,36 @@ private static int indexCr=1;
         int contador=-1;
     private void doneButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_doneButton6MouseClicked
         // TODO add your handling code here:
+        // BOTON CERRAR ETAPA
         int produccion=sLIDP2.getItem(selectproduction+(5*(indexSpp-1)));
         //Production aux=myArrayListProduction.getItem(produccion); 
         int currentStage = myArrayListProduction.getItem(produccion).getCurrentStage();
         contador=0;
+        int currentmax=myArrayListProduction.getItem(produccion).getStages().getSize();
         if(myArrayListProduction.getItem(produccion).isActive()){
+        if(myArrayListProduction.getItem(produccion).getCurrentStage()<currentmax+1){
         if(!myArrayListProduction.getItem(produccion).getStages().getItem(currentStage-1).isIsFinished()&&myArrayListProduction.getItem(produccion).getStages().getItem(currentStage-1).isActive()){
             cerrarEtapa=true;
             avanzarEtapa=false;
             jpManagementP.setVisible(false);
             jpSetParametr.setVisible(true);
-            doneButton8.setEnabled(false);
+            //doneButton8.setEnabled(false);
             createLabel19.setText(myArrayListProduction.getItem(produccion).getStages().getItem(currentStage-1).getParameterList().getItem(0).getName());
+            String li = String.valueOf(myArrayListProduction.getItem(produccion).getStages().getItem(currentStage-1).getParameterList().getItem(0).getLowerLimit());
+            createLabel28.setText(li);
+            String lo = String.valueOf(myArrayListProduction.getItem(produccion).getStages().getItem(currentStage-1).getParameterList().getItem(0).getUpperLimit());
+            createLabel26.setText(lo);
+           
+            UserL1.removeAll();
+                String [] namep= new  String[myArrayListProduction.getItem(produccion).getStages().getItem(currentStage-1).getParameterList().getSize()];
+                for (int i = 0; i < myArrayListProduction.getItem(produccion).getStages().getItem(currentStage-1).getParameterList().getSize(); i++) {
+                namep[i]=myArrayListProduction.getItem(produccion).getStages().getItem(currentStage-1).getParameterList().getItem(i).getName();
+                }
+                 UserL1.setListData(namep);
+            
+            
+            
+            
             jTextIDU1.setEnabled(true);
             //aux.getStages().getItem(currentStage-1).setIsFinished(true);
             //aux.setCurrentStage(currentStage+1);
@@ -5369,9 +5415,14 @@ private static int indexCr=1;
             
             jPanel1.repaint();
             jpManagementP.repaint(); 
+            
         }else{
-        JOptionPane.showMessageDialog(this, "Ya esta finalizada o no esta activa");
-        }}else JOptionPane.showMessageDialog(this, "La produccion no esta activa");
+        JOptionPane.showMessageDialog(this, "La etapa  no esta activa");
+        }}else {JOptionPane.showMessageDialog(this, "La produccion esta finalizada");
+            myArrayListProduction.getItem(produccion).finish();
+        
+        }
+        }else JOptionPane.showMessageDialog(this, "La produccion no esta activa");
             
         
     }//GEN-LAST:event_doneButton6MouseClicked
@@ -5394,42 +5445,6 @@ private static int indexCr=1;
 boolean cerrarEtapa=false;
 boolean avanzarEtapa=false;
 
-    private void doneButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_doneButton8MouseClicked
-        // TODO add your handling code here:
-        int produccion=sLIDP2.getItem(selectproduction+(5*(indexSpp-1)));
-        //Production aux=myArrayListProduction.getItem(produccion);
-        int currentStage = myArrayListProduction.getItem(produccion).getCurrentStage();
-        
-        if(!(contador<myArrayListProduction.getItem(produccion).getStages().getItem(currentStage-1).getParameterList().getSize())){
-//        aux.getStages().getItem(currentStage-1).setIsFinished(true);
-//        aux.setCurrentStage(currentStage+1);
-//        JOptionPane.showMessageDialog(this, "Finalizo la etapa con exito");
-        if(cerrarEtapa&&!avanzarEtapa){
-        myArrayListProduction.getItem(produccion).getStages().getItem(currentStage-1).setIsFinished(true);
-        myArrayListProduction.getItem(produccion).setCurrentStage(currentStage+1);
-        JOptionPane.showMessageDialog(this, "Finalizo la etapa con exito");
-        }else if(!cerrarEtapa&&avanzarEtapa){
-             myArrayListProduction.getItem(produccion).getStages().getItem(currentStage-1).setIsFinished(true);
-             myArrayListProduction.getItem(produccion).getStages().getItem(currentStage).setIsActive(true);
-             myArrayListProduction.getItem(produccion).setCurrentStage(currentStage+1);
-        }
-        
-        
-        //myArrayListProduction.add(produccion, aux);
-        
-        createPanels(myArrayListProduction.getItem(produccion).getStages());
-        jpSetParametr.setVisible(false);
-        jpManagementP.setVisible(true);
-        jPanel1.repaint();
-        jpManagementP.repaint();}
-        else JOptionPane.showMessageDialog(this, "Verificar todos los parametros antes de guardar");
-        
-    }//GEN-LAST:event_doneButton8MouseClicked
-
-    private void searchPjLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchPjLabel5MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_searchPjLabel5MouseClicked
-
     private void jTextIDU1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextIDU1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextIDU1ActionPerformed
@@ -5443,7 +5458,7 @@ boolean avanzarEtapa=false;
         //Production aux=myArrayListProduction.getItem(produccion);
         int currentStage = myArrayListProduction.getItem(produccion).getCurrentStage();
         
-        doneButton8.setEnabled(false);
+        //doneButton8.setEnabled(false);
         double valuep1=0;
         boolean correct= true;
         
@@ -5454,7 +5469,7 @@ boolean avanzarEtapa=false;
                    correct=false;
                }
         if (contador<myArrayListProduction.getItem(produccion).getStages().getItem(currentStage-1).getParameterList().getSize()){
-            doneButton8.setEnabled(false);
+            //doneButton8.setEnabled(false);
         if (correct){
         myArrayListProduction.getItem(produccion).getStages().getItem(currentStage-1).setParameters(valuep1, contador);
         if(myArrayListProduction.getItem(produccion).getStages().getItem(currentStage-1).getParameterList().getItem(contador).satisfyQuality()) {
@@ -5462,13 +5477,53 @@ boolean avanzarEtapa=false;
             jTextIDU1.setText("valor");
             contador++;
             if(contador<myArrayListProduction.getItem(produccion).getStages().getItem(currentStage-1).getParameterList().getSize()){
-            createLabel19.setText(myArrayListProduction.getItem(produccion).getStages().getItem(currentStage-1).getParameterList().getItem(contador).getName());}
+            createLabel19.setText(myArrayListProduction.getItem(produccion).getStages().getItem(currentStage-1).getParameterList().getItem(contador).getName());
+            String li = String.valueOf(myArrayListProduction.getItem(produccion).getStages().getItem(currentStage-1).getParameterList().getItem(contador).getLowerLimit());
+            createLabel28.setText(li);
+            String lo = String.valueOf(myArrayListProduction.getItem(produccion).getStages().getItem(currentStage-1).getParameterList().getItem(contador).getUpperLimit());
+            createLabel26.setText(lo);
             
+            }
         }else
             JOptionPane.showMessageDialog(this,"El parametro no satisface calidad");
             
-        }}else{ JOptionPane.showMessageDialog(this,"Los valores de todos los parametros han sido llenados con exito. Por favor guarde");
-            doneButton8.setEnabled(true);
+        }}else{
+            //int produccion=sLIDP2.getItem(selectproduction+(5*(indexSpp-1)));
+        //Production aux=myArrayListProduction.getItem(produccion);
+        //int currentStage = myArrayListProduction.getItem(produccion).getCurrentStage();
+        
+        if(!(contador<myArrayListProduction.getItem(produccion).getStages().getItem(currentStage-1).getParameterList().getSize())){
+//        aux.getStages().getItem(currentStage-1).setIsFinished(true);
+//        aux.setCurrentStage(currentStage+1);
+//        JOptionPane.showMessageDialog(this, "Finalizo la etapa con exito");
+        if(cerrarEtapa&&!avanzarEtapa){
+//        myArrayListProduction.getItem(produccion).getStages().getItem(currentStage-1).setIsFinished(true);
+//        
+//        myArrayListProduction.getItem(produccion).setCurrentStage(currentStage+1);
+          myArrayListProduction.getItem(produccion).endCurrentStage();
+        JOptionPane.showMessageDialog(this, "Finalizo la etapa con exito");
+        }else if(!cerrarEtapa&&avanzarEtapa){
+             myArrayListProduction.getItem(produccion).endCurrentStage();
+             myArrayListProduction.getItem(produccion).startCurrentStage();
+             //myArrayListProduction.getItem(produccion).getStages().getItem(currentStage-1).setIsFinished(true);
+             //myArrayListProduction.getItem(produccion).getStages().getItem(currentStage).setIsActive(true);
+             //myArrayListProduction.getItem(produccion).setCurrentStage(currentStage+1);
+             
+        }
+        
+        
+        //myArrayListProduction.add(produccion, aux);
+        
+        createPanels(myArrayListProduction.getItem(produccion).getStages());
+        jpSetParametr.setVisible(false);
+        jpManagementP.setVisible(true);
+        jPanel1.repaint();
+        jpManagementP.repaint();}
+        else JOptionPane.showMessageDialog(this, "Verificar todos los parametros antes de guardar"); 
+            
+            
+            JOptionPane.showMessageDialog(this,"Los valores de todos los parametros han sido llenados con exito. Se guardó");
+            //doneButton8.setEnabled(true);
         
         }
         jpSetParametr.repaint();
@@ -5856,7 +5911,13 @@ boolean avanzarEtapa=false;
     private javax.swing.JLabel createLabel2;
     private javax.swing.JLabel createLabel20;
     private javax.swing.JLabel createLabel21;
+    private javax.swing.JLabel createLabel22;
     private javax.swing.JLabel createLabel23;
+    private javax.swing.JLabel createLabel24;
+    private javax.swing.JLabel createLabel25;
+    private javax.swing.JLabel createLabel26;
+    private javax.swing.JLabel createLabel27;
+    private javax.swing.JLabel createLabel28;
     private javax.swing.JLabel createLabel3;
     private javax.swing.JLabel createLabel4;
     private javax.swing.JLabel createLabel5;
@@ -5872,7 +5933,6 @@ boolean avanzarEtapa=false;
     private javax.swing.JButton doneButton4;
     private javax.swing.JButton doneButton5;
     private javax.swing.JButton doneButton6;
-    private javax.swing.JButton doneButton8;
     private javax.swing.JPanel editProductionPanel;
     private javax.swing.JButton generateButton;
     private javax.swing.JButton goBackButton0;
@@ -6044,7 +6104,6 @@ boolean avanzarEtapa=false;
     private javax.swing.JLabel searchPjLabel;
     private javax.swing.JLabel searchPjLabel2;
     private javax.swing.JLabel searchPjLabel3;
-    private javax.swing.JLabel searchPjLabel5;
     private javax.swing.JLabel searchSjLabel;
     private javax.swing.JLabel searchjLabel;
     private javax.swing.JButton seeRegisterButton;
