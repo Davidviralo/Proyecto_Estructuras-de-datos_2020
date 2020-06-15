@@ -8,7 +8,7 @@ import static graphicInterface.Proyecto_2020.scanner;
 import java.time.LocalDateTime;
 import java.util.Scanner;
 
-public class Production extends Event {
+public class Production extends Event implements Comparable<Production>{
 
     private MyArrayList<RawMaterial> rawMaterials;
     private MyArrayList<Stage> stages;
@@ -285,6 +285,11 @@ public class Production extends Event {
     @Override
     public String toString() {
         return (getName() + ";" + getDescription());
+    }
+
+    @Override
+    public int compareTo(Production o) {
+        return getName().compareToIgnoreCase(o.getName());
     }
 
 }
