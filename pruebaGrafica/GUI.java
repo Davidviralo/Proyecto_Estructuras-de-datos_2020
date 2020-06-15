@@ -5252,13 +5252,13 @@ private static int indexCr=1;
         // TODO add your handling code here:
         contador=0;
         int produccion=sLIDP2.getItem(selectproduction+(5*(indexSpp-1)));
-        Production aux=myArrayListProduction.getItem(produccion); 
+        //Production aux=myArrayListProduction.getItem(produccion); 
         int currentStage = myArrayListProduction.getItem(produccion).getCurrentStage();
-        int stagemax = aux.getStages().getSize();
-        if(aux.isActive()){
-            if (!aux.getStages().getItem(currentStage-1).isActive()){
-                aux.getStages().getItem(currentStage-1).setIsActive(true);
-                aux.getStages().getItem(currentStage-1).setIsFinished(false);
+        int stagemax = myArrayListProduction.getItem(produccion).getStages().getSize();
+        if(myArrayListProduction.getItem(produccion).isActive()){
+            if (!myArrayListProduction.getItem(produccion).getStages().getItem(currentStage-1).isActive()){
+                myArrayListProduction.getItem(produccion).getStages().getItem(currentStage-1).setIsActive(true);
+                myArrayListProduction.getItem(produccion).getStages().getItem(currentStage-1).setIsFinished(false);
                 
             
            
@@ -5267,19 +5267,19 @@ private static int indexCr=1;
             //aux.setCurrentStage(currentStage+1);
             
             createPanels(myArrayListProduction.getItem(produccion).getStages());
-            myArrayListProduction.add(produccion, aux); 
+            //myArrayListProduction.add(produccion, aux); 
             jPanel1.repaint();
             jpManagementP.repaint();
                 
                 JOptionPane.showMessageDialog(this, "La etapa ha inicido");
             }else{
-                if(aux.getStages().getItem(currentStage-1).isActive()){
+                if(myArrayListProduction.getItem(produccion).getStages().getItem(currentStage-1).isActive()){
                      cerrarEtapa=false;
                      avanzarEtapa=true;
                 jpManagementP.setVisible(false);
                 jpSetParametr.setVisible(true);
                 doneButton8.setEnabled(false);
-                createLabel19.setText(aux.getStages().getItem(currentStage-1).getParameterList().getItem(0).getName());
+                createLabel19.setText(myArrayListProduction.getItem(produccion).getStages().getItem(currentStage-1).getParameterList().getItem(0).getName());
                 jTextIDU1.setEnabled(true);
                 //aux.getStages().getItem(currentStage-1).setIsFinished(true);
                 //aux.setCurrentStage(currentStage+1);
@@ -5298,7 +5298,7 @@ private static int indexCr=1;
         }
         else 
             JOptionPane.showMessageDialog(this, "La produccion no esta activa");
-        myArrayListProduction.add(produccion, aux);
+        //myArrayListProduction.add(produccion, aux);
         createPanels(myArrayListProduction.getItem(produccion).getStages());
         jPanel1.repaint();
         jpManagementP.repaint();
@@ -5307,17 +5307,17 @@ private static int indexCr=1;
     private void doneButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_doneButton6MouseClicked
         // TODO add your handling code here:
         int produccion=sLIDP2.getItem(selectproduction+(5*(indexSpp-1)));
-        Production aux=myArrayListProduction.getItem(produccion); 
+        //Production aux=myArrayListProduction.getItem(produccion); 
         int currentStage = myArrayListProduction.getItem(produccion).getCurrentStage();
         contador=0;
-        if(aux.isActive()){
-        if(!aux.getStages().getItem(currentStage-1).isIsFinished()&&aux.getStages().getItem(currentStage-1).isActive()){
+        if(myArrayListProduction.getItem(produccion).isActive()){
+        if(!myArrayListProduction.getItem(produccion).getStages().getItem(currentStage-1).isIsFinished()&&myArrayListProduction.getItem(produccion).getStages().getItem(currentStage-1).isActive()){
             cerrarEtapa=true;
             avanzarEtapa=false;
             jpManagementP.setVisible(false);
             jpSetParametr.setVisible(true);
             doneButton8.setEnabled(false);
-            createLabel19.setText(aux.getStages().getItem(currentStage-1).getParameterList().getItem(0).getName());
+            createLabel19.setText(myArrayListProduction.getItem(produccion).getStages().getItem(currentStage-1).getParameterList().getItem(0).getName());
             jTextIDU1.setEnabled(true);
             //aux.getStages().getItem(currentStage-1).setIsFinished(true);
             //aux.setCurrentStage(currentStage+1);
@@ -5354,25 +5354,25 @@ boolean avanzarEtapa=false;
     private void doneButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_doneButton8MouseClicked
         // TODO add your handling code here:
         int produccion=sLIDP2.getItem(selectproduction+(5*(indexSpp-1)));
-        Production aux=myArrayListProduction.getItem(produccion);
+        //Production aux=myArrayListProduction.getItem(produccion);
         int currentStage = myArrayListProduction.getItem(produccion).getCurrentStage();
         
-        if(!(contador<aux.getStages().getItem(currentStage-1).getParameterList().getSize())){
+        if(!(contador<myArrayListProduction.getItem(produccion).getStages().getItem(currentStage-1).getParameterList().getSize())){
 //        aux.getStages().getItem(currentStage-1).setIsFinished(true);
 //        aux.setCurrentStage(currentStage+1);
 //        JOptionPane.showMessageDialog(this, "Finalizo la etapa con exito");
         if(cerrarEtapa&&!avanzarEtapa){
-        aux.getStages().getItem(currentStage-1).setIsFinished(true);
-        aux.setCurrentStage(currentStage+1);
+        myArrayListProduction.getItem(produccion).getStages().getItem(currentStage-1).setIsFinished(true);
+        myArrayListProduction.getItem(produccion).setCurrentStage(currentStage+1);
         JOptionPane.showMessageDialog(this, "Finalizo la etapa con exito");
         }else if(!cerrarEtapa&&avanzarEtapa){
-             aux.getStages().getItem(currentStage-1).setIsFinished(true);
-             aux.getStages().getItem(currentStage).setIsActive(true);
-             aux.setCurrentStage(currentStage+1);
+             myArrayListProduction.getItem(produccion).getStages().getItem(currentStage-1).setIsFinished(true);
+             myArrayListProduction.getItem(produccion).getStages().getItem(currentStage).setIsActive(true);
+             myArrayListProduction.getItem(produccion).setCurrentStage(currentStage+1);
         }
         
         
-        myArrayListProduction.add(produccion, aux);
+        //myArrayListProduction.add(produccion, aux);
         
         createPanels(myArrayListProduction.getItem(produccion).getStages());
         jpSetParametr.setVisible(false);
@@ -5397,7 +5397,7 @@ boolean avanzarEtapa=false;
 
     private void doneButton10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_doneButton10MouseClicked
         int produccion=sLIDP2.getItem(selectproduction+(5*(indexSpp-1)));
-        Production aux=myArrayListProduction.getItem(produccion);
+        //Production aux=myArrayListProduction.getItem(produccion);
         int currentStage = myArrayListProduction.getItem(produccion).getCurrentStage();
         
         doneButton8.setEnabled(false);
@@ -5410,16 +5410,16 @@ boolean avanzarEtapa=false;
                    JOptionPane.showMessageDialog(this,"Valor no valido para valor.");
                    correct=false;
                }
-        if (contador<aux.getStages().getItem(currentStage-1).getParameterList().getSize()){
+        if (contador<myArrayListProduction.getItem(produccion).getStages().getItem(currentStage-1).getParameterList().getSize()){
             doneButton8.setEnabled(false);
         if (correct){
-        aux.getStages().getItem(currentStage-1).setParameters(valuep1, contador);
-        if(aux.getStages().getItem(currentStage-1).getParameterList().getItem(contador).satisfyQuality()) {
+        myArrayListProduction.getItem(produccion).getStages().getItem(currentStage-1).setParameters(valuep1, contador);
+        if(myArrayListProduction.getItem(produccion).getStages().getItem(currentStage-1).getParameterList().getItem(contador).satisfyQuality()) {
             JOptionPane.showMessageDialog(this,"El parametro satisface calidad");
             jTextIDU1.setText("valor");
             contador++;
-            if(contador<aux.getStages().getItem(currentStage-1).getParameterList().getSize()){
-            createLabel19.setText(aux.getStages().getItem(currentStage-1).getParameterList().getItem(contador).getName());}
+            if(contador<myArrayListProduction.getItem(produccion).getStages().getItem(currentStage-1).getParameterList().getSize()){
+            createLabel19.setText(myArrayListProduction.getItem(produccion).getStages().getItem(currentStage-1).getParameterList().getItem(contador).getName());}
             
         }else
             JOptionPane.showMessageDialog(this,"El parametro no satisface calidad");
@@ -5429,7 +5429,7 @@ boolean avanzarEtapa=false;
         
         }
         jpSetParametr.repaint();
-        myArrayListProduction.add(produccion, aux);
+        //myArrayListProduction.add(produccion, aux);
     }//GEN-LAST:event_doneButton10MouseClicked
 
     private void seeRegisterButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seeRegisterButton1ActionPerformed
