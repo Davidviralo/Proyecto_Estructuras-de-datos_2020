@@ -1,4 +1,4 @@
-package pruebaGrafica;
+package GUI_SGP;
 
 import Estructuras_de_datos.*;
 import businessLogic.wrapLayout;
@@ -428,7 +428,7 @@ public class GUI extends javax.swing.JFrame {
         jTextL1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jTextL1.setForeground(new java.awt.Color(204, 204, 204));
         jTextL1.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        jTextL1.setText("Admnistrador");
+        jTextL1.setText("Usuario");
         jTextL1.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 8, 2, 8));
         jTextL1.setCaretColor(new java.awt.Color(188, 188, 188));
         jpSignIn.add(jTextL1, new org.netbeans.lib.awtextra.AbsoluteConstraints(151, 187, 267, 32));
@@ -441,7 +441,7 @@ public class GUI extends javax.swing.JFrame {
         jTextL2.setBackground(new java.awt.Color(48, 48, 48));
         jTextL2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jTextL2.setForeground(new java.awt.Color(204, 204, 204));
-        jTextL2.setText("1234");
+        jTextL2.setText("Contraseña");
         jTextL2.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 8, 2, 8));
         jTextL2.setCaretColor(new java.awt.Color(188, 188, 188));
         jpSignIn.add(jTextL2, new org.netbeans.lib.awtextra.AbsoluteConstraints(151, 257, 267, 30));
@@ -485,6 +485,7 @@ public class GUI extends javax.swing.JFrame {
         jTextR4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTextR4.setForeground(new java.awt.Color(204, 204, 204));
         jTextR4.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        jTextR4.setText("ID");
         jTextR4.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 8, 2, 8));
         jTextR4.setCaretColor(new java.awt.Color(188, 188, 188));
         jTextR4.addActionListener(new java.awt.event.ActionListener() {
@@ -497,6 +498,7 @@ public class GUI extends javax.swing.JFrame {
         jTextR3.setBackground(new java.awt.Color(48, 48, 48));
         jTextR3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTextR3.setForeground(new java.awt.Color(204, 204, 204));
+        jTextR3.setText("Contraseña");
         jTextR3.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 8, 2, 8));
         jTextR3.setCaretColor(new java.awt.Color(188, 188, 188));
         jTextR3.addActionListener(new java.awt.event.ActionListener() {
@@ -550,6 +552,7 @@ public class GUI extends javax.swing.JFrame {
         jTextR1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTextR1.setForeground(new java.awt.Color(204, 204, 204));
         jTextR1.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        jTextR1.setText("Nombre");
         jTextR1.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 8, 2, 8));
         jTextR1.setCaretColor(new java.awt.Color(188, 188, 188));
         jTextR1.addActionListener(new java.awt.event.ActionListener() {
@@ -605,6 +608,7 @@ public class GUI extends javax.swing.JFrame {
         jTextR2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTextR2.setForeground(new java.awt.Color(204, 204, 204));
         jTextR2.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        jTextR2.setText("Usuario");
         jTextR2.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 8, 2, 8));
         jTextR2.setCaretColor(new java.awt.Color(188, 188, 188));
         jTextR2.addActionListener(new java.awt.event.ActionListener() {
@@ -1528,7 +1532,7 @@ public class GUI extends javax.swing.JFrame {
                 seeRegisterButtonMouseClicked(evt);
             }
         });
-        jpSearchP.add(seeRegisterButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 370, 186, 35));
+        jpSearchP.add(seeRegisterButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 370, 186, 35));
 
         ImageP1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/nothing.png"))); // NOI18N
         jpSearchP.add(ImageP1, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 182, -1, -1));
@@ -1791,7 +1795,7 @@ public class GUI extends javax.swing.JFrame {
                 seeRegisterButton1ActionPerformed(evt);
             }
         });
-        jpSearchP.add(seeRegisterButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 370, 186, 35));
+        jpSearchP.add(seeRegisterButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 370, 186, 35));
 
         Menu.add(jpSearchP, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1024, 431));
 
@@ -2687,8 +2691,8 @@ public class GUI extends javax.swing.JFrame {
         
         
         
-        jTextL1.setText("");
-        jTextL2.setText("");
+        jTextL1.setText("Usuario");
+        jTextL2.setText("Contraseña");
         
         Main.setVisible(true);  
         jpNewUser.setVisible(false);   
@@ -2838,7 +2842,7 @@ public class GUI extends javax.swing.JFrame {
                 if (jTextR5.getText().equals("soyadm")){
                    user = new User(jTextR1.getText(),Integer.parseInt (jTextR4.getText()),jTextR2.getText(),jTextR3.getText(),AdmC);
                    //AdmC=false;
-                   jTextR5.setText("Constraseña");
+                   jTextR5.setText("soyadm");
                 }else{
                       JOptionPane.showMessageDialog(this,"Contraseña de administrador incorrecta.");
                       correct=false;
@@ -2851,9 +2855,15 @@ public class GUI extends javax.swing.JFrame {
            int dialog = JOptionPane.YES_NO_OPTION;
            int result = JOptionPane.showConfirmDialog(null, "¿Desea guardar los datos?","Guardar",dialog);
            
-           if(result==0){
-               singlyLinkedListUser.pushBack(user);
-           }
+                if(result==0){
+                    singlyLinkedListUser.pushBack(user);
+                }
+                
+                jTextR1.setText("Nombre");
+                jTextR2.setText("Usuario");
+                jTextR3.setText("Contraseña");
+                jTextR4.setText("ID");
+               
            }
           
        }catch (Exception e){
@@ -3878,7 +3888,7 @@ private static int indexCr=1;
         
         try{
             sLIDP2 = new SinglyLinkedList<>();
-            if(jTextSp1.getText().equalsIgnoreCase("") && myArrayListProduction.getSize()>0){
+            if(jTextSp1.getText().equalsIgnoreCase("Nombre de la producción") && myArrayListProduction.getSize()>0){
                 ProductionLSp.removeAll();
                 String [] namep= new  String[5];
                 for(int i=0; i<myArrayListProduction.getSize(); i++){
@@ -4326,7 +4336,7 @@ private static int indexCr=1;
             if(selectproduction!=-1){
            
             sLIDS = new SinglyLinkedList<>();
-            if(jTextSp2.getText().equalsIgnoreCase("") && myArrayListProduction.getItem(sLIDP2.getItem(selectproduction+(5*(indexSpp-1)))).getStages().getSize()>0){
+            if(jTextSp2.getText().equalsIgnoreCase("Nombre de la etapa") && myArrayListProduction.getItem(sLIDP2.getItem(selectproduction+(5*(indexSpp-1)))).getStages().getSize()>0){
                 StageLSp.removeAll();
                 String [] namep= new  String[5];
                 for(int i=0; i<myArrayListProduction.getItem(sLIDP2.getItem(selectproduction+(5*(indexSpp-1)))).getStages().getSize(); i++){
@@ -4519,7 +4529,7 @@ private static int indexCr=1;
             if(selectproduction!=-1){
            
             sLIDM = new SinglyLinkedList<>();
-            if(jTextSp3.getText().equalsIgnoreCase("") && myArrayListProduction.getItem(sLIDP2.getItem(selectproduction+(5*(indexSpp-1)))).getRawMaterials().getSize()>0){
+            if(jTextSp3.getText().equalsIgnoreCase("Nombre del material") && myArrayListProduction.getItem(sLIDP2.getItem(selectproduction+(5*(indexSpp-1)))).getRawMaterials().getSize()>0){
                 MaterialLSp.removeAll();
                 String [] namep= new  String[5];
                 for(int i=0; i<myArrayListProduction.getItem(sLIDP2.getItem(selectproduction+(5*(indexSpp-1)))).getRawMaterials().getSize(); i++){

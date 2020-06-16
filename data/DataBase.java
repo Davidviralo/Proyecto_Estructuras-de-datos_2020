@@ -114,8 +114,7 @@ public class DataBase implements Serializable {
             }
 
         } else if (name.equalsIgnoreCase("Usuarios") && singlyLinkedListUser.getSize() != 0) {
-            String write = "";
-            System.out.println(singlyLinkedListUser.getItem(number).toString());
+            String write = "";        
             write = singlyLinkedListUser.getItem(number).toString();
             bfwriter.write("5" + "$" + write + ";\n");
 
