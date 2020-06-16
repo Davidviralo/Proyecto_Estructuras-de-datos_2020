@@ -2,7 +2,7 @@ package data;
 
 import Estructuras_de_datos.*;
 
-import static graphicInterface.Proyecto_2020.scanner;
+
 
 import java.time.LocalDateTime;
 import java.util.Scanner;
@@ -20,41 +20,41 @@ public class Stage extends Event {
 
 
     public Stage(int stageNumber) {
-        this.stageNumber = stageNumber;
-        System.out.println("Ingrese el nombre de la etapa " + stageNumber + ":");
-        String name = scanner.nextLine();
-        super.setName(name);
-        System.out.println("Nombre de la etapa: " + name);
-        System.out.println("Ingrese la descripción de la etapa " + stageNumber + ":");
-        String description = scanner.nextLine();
-        super.setDescription(description);
-        System.out.println("Descripción de la etapa: " + description);
-        System.out.println("Cree parámetros de calidad a evaluar en esta etapa:");
-        MyArrayList<Parameter> parameterList = new MyArrayList<>();
-        Parameter parameter = new Parameter();
-        parameterList.pushBack(parameter);
-        boolean createParameter = true;
-        while (createParameter) {
-            System.out.println("¿Desea agregar más parámetros a la etapa?");
-            String answer = scanner.nextLine();
-            if (answer.equalsIgnoreCase("Si")) {
-                parameter = new Parameter();
-                parameterList.pushBack(parameter);
-            } else if (answer.equalsIgnoreCase("No")) {
-                System.out.println("Creación de etapas finalizadas.");
-                createParameter = false;
-            } else {
-                System.out.println("Entrada no válida. Intente de nuevo.");
-            }
-        }
-        System.out.println("Se creó la etapa " + stageNumber + " con "
-                + parameterList.getSize() + " parámetros de calidad.");
-        this.parameterList = parameterList;
-        super.setStartDate("No iniciado");
-        super.setEndDate("No finalizado");
-        super.setIsActive(false);
-        super.setIsFinished(false);
-        super.setId("?");
+//        this.stageNumber = stageNumber;
+//        System.out.println("Ingrese el nombre de la etapa " + stageNumber + ":");
+//        String name = scanner.nextLine();
+//        super.setName(name);
+//        System.out.println("Nombre de la etapa: " + name);
+//        System.out.println("Ingrese la descripción de la etapa " + stageNumber + ":");
+//        String description = scanner.nextLine();
+//        super.setDescription(description);
+//        System.out.println("Descripción de la etapa: " + description);
+//        System.out.println("Cree parámetros de calidad a evaluar en esta etapa:");
+//        MyArrayList<Parameter> parameterList = new MyArrayList<>();
+//        Parameter parameter = new Parameter();
+//        parameterList.pushBack(parameter);
+//        boolean createParameter = true;
+//        while (createParameter) {
+//            System.out.println("¿Desea agregar más parámetros a la etapa?");
+//            String answer = scanner.nextLine();
+//            if (answer.equalsIgnoreCase("Si")) {
+//                parameter = new Parameter();
+//                parameterList.pushBack(parameter);
+//            } else if (answer.equalsIgnoreCase("No")) {
+//                System.out.println("Creación de etapas finalizadas.");
+//                createParameter = false;
+//            } else {
+//                System.out.println("Entrada no válida. Intente de nuevo.");
+//            }
+//        }
+//        System.out.println("Se creó la etapa " + stageNumber + " con "
+//                + parameterList.getSize() + " parámetros de calidad.");
+//        this.parameterList = parameterList;
+//        super.setStartDate("No iniciado");
+//        super.setEndDate("No finalizado");
+//        super.setIsActive(false);
+//        super.setIsFinished(false);
+//        super.setId("?");
     }
 
 //    public void start() {

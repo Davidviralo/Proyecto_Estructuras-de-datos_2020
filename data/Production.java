@@ -3,7 +3,7 @@ package data;
 import Estructuras_de_datos.*;
 
 import static data.DataBase.myArrayListProduction;
-import static graphicInterface.Proyecto_2020.scanner;
+
 
 import java.time.LocalDateTime;
 import java.util.Scanner;
