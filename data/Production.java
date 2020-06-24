@@ -3,12 +3,12 @@ package data;
 import Estructuras_de_datos.*;
 
 import static data.DataBase.myArrayListProduction;
-import static graphicInterface.Proyecto_2020.scanner;
+
 
 import java.time.LocalDateTime;
 import java.util.Scanner;
 
-public class Production extends Event {
+public class Production extends Event implements Comparable<Production>{
 
     private MyArrayList<RawMaterial> rawMaterials;
     private MyArrayList<Stage> stages;
@@ -31,82 +31,95 @@ public class Production extends Event {
     }
 
     public Production() {
-        System.out.println("**********************  ASISTENTE DE CREACIÓN DE PRODUCCIÓN  ***********************");
-        System.out.println("Bienvenido, aquí podrá crear su producción. Para ello puede seleccionar las materias " +
-                "primas que desee usar y puede dividir su producción en etapas con sus respectivos parámetros de " +
-                "calidad. A continuación, siga las instrucciones dadas");
-        System.out.println("Ingrese el nombre de la producción:");
-        scanner.nextLine();
-        String name = scanner.nextLine();
-        System.out.println("Nombre: " + name);
-        System.out.println("Ingrese una descripción para la producción:");
-        String description = scanner.nextLine();
-        System.out.println("Descripción: " + description);
-        System.out.println("Cree las materias primas que va a emplear.");
-        MyArrayList<RawMaterial> rawMaterials = new MyArrayList<>();
-        RawMaterial rawMaterial = new RawMaterial();
-        rawMaterials.pushBack(rawMaterial);
-        boolean createMaterial = true;
-        while (createMaterial) {
-            System.out.println("¿Desea agregar más materiales al proceso?");
-            String answer = scanner.nextLine();
-            if (answer.equalsIgnoreCase("Si")) {
-                rawMaterial = new RawMaterial();
-                rawMaterials.pushBack(rawMaterial);
-            } else if (answer.equalsIgnoreCase("No")) {
-                System.out.println("Creación de materiales finalizada.");
-                createMaterial = false;
-            } else {
-                System.out.println("Entrada no válida. Intente de nuevo.");
-            }
-        }
-        System.out.println("Cree etapas de producción:");
-        MyArrayList<Stage> processStages = new MyArrayList<>();
-        Stage stage = new Stage(1);
-        processStages.pushBack(stage);
-        boolean createStage = true;
-        while (createStage) {
-            System.out.println("¿Desea agregar más etapas al proceso?");
-            String answer = scanner.nextLine();
-            if (answer.equalsIgnoreCase("Si")) {
-                stage = new Stage(processStages.getSize() + 1);
-                processStages.pushBack(stage);
-            } else if (answer.equalsIgnoreCase("No")) {
-                System.out.println("Creación de etapas finalizadas.");
-                createStage = false;
-            } else {
-                System.out.println("Entrada no válida. Intente de nuevo.");
-            }
-        }
-        super.setName(name);
-        super.setDescription(description);
-        this.stages = processStages;
-        this.rawMaterials = rawMaterials;
-//        //Opcional mientras se pide los materiales - Falta menu de materiales
-//        ArrayQueue<RawMaterial> materiales=new ArrayQueue<RawMaterial>();// Para poder guardar el elemento completo
-//        RawMaterial rawMaterial= new RawMaterial("Sin información","Sin información","Sin información","Sin información","Sin información",processStages.getItem(0).getParameterList());
-//        materiales.enqueue(rawMaterial);
-//        this.rawMaterials = materiales; 
-//        //        
-        System.out.println("Se creó la producción '" + name + "' con " + processStages.getSize() + " etapas.");
-        super.setStartDate("Noiniciado");
-        super.setEndDate("Nofinalizado");
-        super.setIsActive(false);
-        super.setIsFinished(false);
-
+//        System.out.println("**********************  ASISTENTE DE CREACIÓN DE PRODUCCIÓN  ***********************");
+//        System.out.println("Bienvenido, aquí podrá crear su producción. Para ello puede seleccionar las materias " +
+//                "primas que desee usar y puede dividir su producción en etapas con sus respectivos parámetros de " +
+//                "calidad. A continuación, siga las instrucciones dadas");
+//        System.out.println("Ingrese el nombre de la producción:");
+//        scanner.nextLine();
+//        String name = scanner.nextLine();
+//        System.out.println("Nombre: " + name);
+//        System.out.println("Ingrese una descripción para la producción:");
+//        String description = scanner.nextLine();
+//        System.out.println("Descripción: " + description);
+//        System.out.println("Cree las materias primas que va a emplear.");
+//        MyArrayList<RawMaterial> rawMaterials = new MyArrayList<>();
+//        RawMaterial rawMaterial = new RawMaterial();
+//        rawMaterials.pushBack(rawMaterial);
+//        boolean createMaterial = true;
+//        while (createMaterial) {
+//            System.out.println("¿Desea agregar más materiales al proceso?");
+//            String answer = scanner.nextLine();
+//            if (answer.equalsIgnoreCase("Si")) {
+//                rawMaterial = new RawMaterial();
+//                rawMaterials.pushBack(rawMaterial);
+//            } else if (answer.equalsIgnoreCase("No")) {
+//                System.out.println("Creación de materiales finalizada.");
+//                createMaterial = false;
+//            } else {
+//                System.out.println("Entrada no válida. Intente de nuevo.");
+//            }
+//        }
+//        System.out.println("Cree etapas de producción:");
+//        MyArrayList<Stage> processStages = new MyArrayList<>();
+//        Stage stage = new Stage(1);
+//        processStages.pushBack(stage);
+//        boolean createStage = true;
+//        while (createStage) {
+//            System.out.println("¿Desea agregar más etapas al proceso?");
+//            String answer = scanner.nextLine();
+//            if (answer.equalsIgnoreCase("Si")) {
+//                stage = new Stage(processStages.getSize() + 1);
+//                processStages.pushBack(stage);
+//            } else if (answer.equalsIgnoreCase("No")) {
+//                System.out.println("Creación de etapas finalizadas.");
+//                createStage = false;
+//            } else {
+//                System.out.println("Entrada no válida. Intente de nuevo.");
+//            }
+//        }
+//        super.setName(name);
+//        super.setDescription(description);
+//        this.stages = processStages;
+//        this.rawMaterials = rawMaterials;
+////        //Opcional mientras se pide los materiales - Falta menu de materiales
+////        ArrayQueue<RawMaterial> materiales=new ArrayQueue<RawMaterial>();// Para poder guardar el elemento completo
+////        RawMaterial rawMaterial= new RawMaterial("Sin información","Sin información","Sin información","Sin información","Sin información",processStages.getItem(0).getParameterList());
+////        materiales.enqueue(rawMaterial);
+////        this.rawMaterials = materiales; 
+////        //        
+//        System.out.println("Se creó la producción '" + name + "' con " + processStages.getSize() + " etapas.");
+//        super.setStartDate("Noiniciado");
+//        super.setEndDate("Nofinalizado");
+//        super.setIsActive(false);
+//        super.setIsFinished(false);
+//
     }
 
-    public void start() {
+//    public void start() {
+//        if (!isFinished()) {
+//            super.setIsActive(true);
+//            super.setIsFinished(false);
+//            currentStage = 1;
+//            System.out.println("Se inició la producción '" + super.getName() + "'");
+//            super.setStartDate(super.getTimeFormat().format(LocalDateTime.now()));
+//            System.out.println("Fecha de inicio: " + super.getStartDate());
+//            stages.getItem(0).start();
+//        } else {
+//            System.out.println("La producción no se puede empezar pues ya ha finalizado");
+//        }
+//    }
+        public void start() {
         if (!isFinished()) {
             super.setIsActive(true);
             super.setIsFinished(false);
             currentStage = 1;
-            System.out.println("Se inició la producción '" + super.getName() + "'");
+            //System.out.println("Se inició la producción '" + super.getName() + "'");
             super.setStartDate(super.getTimeFormat().format(LocalDateTime.now()));
-            System.out.println("Fecha de inicio: " + super.getStartDate());
+            //System.out.println("Fecha de inicio: " + super.getStartDate());
             stages.getItem(0).start();
         } else {
-            System.out.println("La producción no se puede empezar pues ya ha finalizado");
+            //System.out.println("La producción no se puede empezar pues ya ha finalizado");
         }
     }
 
@@ -123,8 +136,11 @@ public class Production extends Event {
     }
 
     public void endCurrentStage() {
-        stages.getItem(currentStage - 1).setParameters();
-        stages.getItem(currentStage - 1).finish();
+        //stages.getItem(currentStage - 1).setParameters();
+        //stages.getItem(currentStage - 1).finish();
+        
+        stages.getItem(currentStage - 1).setIsFinished(true);
+        stages.getItem(currentStage - 1).setEndDate(super.getTimeFormat().format(LocalDateTime.now()));
         if (stages.getItem(currentStage - 1).isFinished()) {
             currentStage++;
         } else {
@@ -143,7 +159,7 @@ public class Production extends Event {
             allStagesFinished = stages.getItem(i).isFinished();
         }
         if (allStagesFinished) {
-            super.setIsActive(false);
+            //super.setIsActive(false);
             super.setIsFinished(true);
             System.out.println("¡Felicitaciones! Se ha finalizado" +
                     " el proceso cumpliendo todos los parámetros de calidad.");
@@ -272,6 +288,11 @@ public class Production extends Event {
     @Override
     public String toString() {
         return (getName() + ";" + getDescription());
+    }
+
+    @Override
+    public int compareTo(Production o) {
+        return getName().compareToIgnoreCase(o.getName());
     }
 
 }

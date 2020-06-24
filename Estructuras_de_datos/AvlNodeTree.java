@@ -320,6 +320,27 @@ public class AvlNodeTree<T extends Comparable<T>> implements Serializable {
         inOrder(root);
         System.out.println();
     }
+    
+    //public MyLinkedList<T> inOrderArray()
+    
+    public MyArrayList inOrderList(MyArrayList<T> list, AvlNode<T>node) {
+        if (node.getItem() != null) {           
+            inOrderList(list, node.getLeft());
+            list.pushBack(node.getItem());
+            inOrderList(list, node.getRight());
+        }
+        return list;
+    }
+    
+    public MyArrayList<T> inOrderList(AvlNode<T>node) {
+        MyArrayList<T> list = new MyArrayList<>();
+        return inOrderList(list, node.getParent());
+    }
+    
+    public MyArrayList<T> inOrderList() {
+        MyArrayList<T> list = new MyArrayList<>();
+        return inOrderList(list, root);
+    }
 
     public void levels(AvlNode<T> root) {
         if (root.getItem() != null) {

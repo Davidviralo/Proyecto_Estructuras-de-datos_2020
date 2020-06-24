@@ -13,6 +13,14 @@ public class User implements Serializable {
 
     }
 
+    public Boolean getAdm() {
+        return Adm;
+    }
+
+    public void setAdm(Boolean Adm) {
+        this.Adm = Adm;
+    }
+
     public User(String name, int id, String user, String password, Boolean Adm) {
         this.name = name;
         this.id = id;
