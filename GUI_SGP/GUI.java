@@ -160,7 +160,6 @@ public class GUI extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         IDP = new javax.swing.JLabel();
         addingPanel1 = new javax.swing.JPanel();
-        addMaterialButton1 = new javax.swing.JButton();
         jScrollPane8 = new javax.swing.JScrollPane();
         materialL = new javax.swing.JList<>();
         jScrollPane9 = new javax.swing.JScrollPane();
@@ -170,6 +169,7 @@ public class GUI extends javax.swing.JFrame {
         addStageButton2 = new javax.swing.JButton();
         jLabel17 = new javax.swing.JLabel();
         addStageButton3 = new javax.swing.JButton();
+        addMaterialButton1 = new javax.swing.JButton();
         doneButton = new javax.swing.JButton();
         addMaterialButton12 = new javax.swing.JButton();
         jpRegister = new javax.swing.JPanel();
@@ -398,8 +398,6 @@ public class GUI extends javax.swing.JFrame {
         infoText4.setText("con los mejores estándares de calidad.");
         jpInfo.add(infoText4, new org.netbeans.lib.awtextra.AbsoluteConstraints(83, 455, -1, -1));
 
-        Main.add(jpInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 472, 541));
-
         jpSignIn.setBackground(new java.awt.Color(28, 28, 28));
         jpSignIn.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jpSignIn.setMaximumSize(new java.awt.Dimension(552, 541));
@@ -475,7 +473,9 @@ public class GUI extends javax.swing.JFrame {
         });
         jpSignIn.add(registerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(188, 433, 195, 33));
 
-        Main.add(jpSignIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(472, 0, 552, 541));
+        jpInfo.add(jpSignIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, -90, -1, -1));
+
+        Main.add(jpInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 472, 541));
 
         jpNewUser.setBackground(new java.awt.Color(28, 28, 28));
         jpNewUser.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
@@ -1230,17 +1230,6 @@ public class GUI extends javax.swing.JFrame {
 
         addingPanel1.setBackground(new java.awt.Color(28, 28, 28));
 
-        addMaterialButton1.setBackground(new java.awt.Color(65, 69, 71));
-        addMaterialButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        addMaterialButton1.setForeground(new java.awt.Color(204, 204, 204));
-        addMaterialButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/agregar_azul.png"))); // NOI18N
-        addMaterialButton1.setBorder(null);
-        addMaterialButton1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                addMaterialButton1MouseClicked(evt);
-            }
-        });
-
         materialL.setBackground(new java.awt.Color(48, 48, 48));
         materialL.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         materialL.setForeground(new java.awt.Color(204, 204, 204));
@@ -1294,6 +1283,17 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
+        addMaterialButton1.setBackground(new java.awt.Color(65, 69, 71));
+        addMaterialButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        addMaterialButton1.setForeground(new java.awt.Color(204, 204, 204));
+        addMaterialButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/agregar_azul.png"))); // NOI18N
+        addMaterialButton1.setBorder(null);
+        addMaterialButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addMaterialButton1MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout addingPanel1Layout = new javax.swing.GroupLayout(addingPanel1);
         addingPanel1.setLayout(addingPanel1Layout);
         addingPanel1Layout.setHorizontalGroup(
@@ -1315,8 +1315,8 @@ public class GUI extends javax.swing.JFrame {
                     .addGroup(addingPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel17)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(addMaterialButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(addMaterialButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(addStageButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(40, 40, 40))))
         );
@@ -1326,8 +1326,10 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(addingPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(addMaterialButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(addStageButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(addStageButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(addingPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(addMaterialButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
