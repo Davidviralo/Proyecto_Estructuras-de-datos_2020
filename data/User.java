@@ -76,4 +76,20 @@ public class User implements Serializable {
         }
         return (user + ";" + String.valueOf(id) + ";" + name + ";" + password + ";" + String.valueOf(ad));
     }
+    
+     @Override
+     public int hashCode(){
+        int hashVal = 0;
+        for( int i = 0; i < getUser().length(); i++ ){
+            hashVal = 37 * hashVal + getUser().charAt(getUser().length()-i-1);
+        }
+        return hashVal;
+     }
+     
+     
+     public boolean equals (Object obj){
+        User u=(User)obj;
+        return user.equalsIgnoreCase(u.getUser());
+     }
+
 }

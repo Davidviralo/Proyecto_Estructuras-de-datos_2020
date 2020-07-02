@@ -7,6 +7,14 @@ public class MyHashTable<T>
     private MyArrayList<SinglyLinkedList>  theLists; 
     private int currentSize;
 
+    public MyArrayList<SinglyLinkedList> getTheLists() {
+        return theLists;
+    }
+
+    public void setTheLists(MyArrayList<SinglyLinkedList> theLists) {
+        this.theLists = theLists;
+    }
+
     public MyHashTable( )
     {
         this(SIZE);
@@ -30,14 +38,17 @@ public class MyHashTable<T>
         }
     }
 
-    public void Remove( T x )
+    public void Remove(T x)
     {
-        SinglyLinkedList<T> listOfHashX = theLists.getItem( myhash( x ));
-        if(listOfHashX.isListed( x ) )
-            {
-                listOfHashX.removeItem(x);
-                    currentSize--;
+        SinglyLinkedList<T> listOfHashX = theLists.getItem(myhash( x ));        
+        for(int i=0; i<listOfHashX.getSize(); i++){
+            if(listOfHashX.getItem(i).equals(x)){
+                currentSize--; 
+                listOfHashX.removeIndex(i);
+                break;
             }
+        }
+       
     }
 
  
@@ -47,13 +58,19 @@ public class MyHashTable<T>
          return listOfHashX.isListed( x );
     }
     
-    public T Get( T x )
+    public T Get(T x)
     {
-        SinglyLinkedList<T> listOfHashX = theLists.getItem( myhash( x ));
-            if(!listOfHashX.isListed( x )){
-              System.out.println("Item T no encontrado. Error");
+        SinglyLinkedList<T> listOfHashX = theLists.getItem(myhash( x ));
+       
+         for(int i=0; i<listOfHashX.getSize(); i++){
+           
+            if(listOfHashX.getItem(i).equals(x)){
+                return listOfHashX.getItem(i);
             }
-        return listOfHashX.getItem(listOfHashX.getIndex(x));  
+            System.out.println(i);
+        }
+         
+        return null;  
     }
 
     public void cleanTable( )
@@ -63,16 +80,16 @@ public class MyHashTable<T>
         currentSize = 0;    
     }
 
-     public static int hash( String key, int tableSize )
+     public int hash(String key)
     {
         int hashVal = 0;
 
         for( int i = 0; i < key.length( ); i++ )
-            hashVal = 37 * hashVal + key.charAt( i );
+            hashVal = 37 * hashVal + key.charAt(key.length()-i-1);
 
-        hashVal %= tableSize;
+        hashVal %= theLists.getCapacity();
         if( hashVal < 0 )
-            hashVal += tableSize;
+            hashVal += theLists.getCapacity();
 
         return hashVal;
     }
@@ -86,8 +103,9 @@ public class MyHashTable<T>
 
         currentSize = 0;
           for( int j = 0; j < oldLists.getCapacity(); j++ ){
-              for( int i = 0; i < oldLists.getItem(j).getSize(); i++ ){
-                   Add((T) oldLists.getItem(j).getItem(i));
+              SinglyLinkedList<T> listOfHashX = oldLists.getItem(j);
+              for( int i = 0; i < listOfHashX.getSize(); i++ ){
+                   Add(listOfHashX.getItem(i));
               }
                
           }
