@@ -294,5 +294,15 @@ public class Production extends Event implements Comparable<Production>{
     public int compareTo(Production o) {
         return getName().compareToIgnoreCase(o.getName());
     }
+    
+    @Override
+     public int hashCode(){
+         int hashVal = 0;
+
+        for( int i = 0; i < getName().length(); i++ )
+            hashVal = 37 * hashVal + getName().charAt(getName().length()-i-1);
+        
+        return hashVal;
+     }
 
 }
