@@ -55,11 +55,6 @@ public class GUI extends javax.swing.JFrame {
         jpCM2 = new javax.swing.JPanel();
         jlClose1 = new javax.swing.JLabel();
         jlMinimize1 = new javax.swing.JLabel();
-        jpInfo = new javax.swing.JPanel();
-        infoTitle1 = new javax.swing.JLabel();
-        imageLabel1 = new javax.swing.JLabel();
-        infoText3 = new javax.swing.JLabel();
-        infoText4 = new javax.swing.JLabel();
         jpSignIn = new javax.swing.JPanel();
         signInTitle = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
@@ -70,6 +65,11 @@ public class GUI extends javax.swing.JFrame {
         signInButton = new javax.swing.JButton();
         registerLabel = new javax.swing.JLabel();
         registerButton = new javax.swing.JButton();
+        jpInfo = new javax.swing.JPanel();
+        infoTitle1 = new javax.swing.JLabel();
+        imageLabel1 = new javax.swing.JLabel();
+        infoText3 = new javax.swing.JLabel();
+        infoText4 = new javax.swing.JLabel();
         jpNewUser = new javax.swing.JPanel();
         jTextR4 = new javax.swing.JTextField();
         jTextR3 = new javax.swing.JPasswordField();
@@ -370,34 +370,6 @@ public class GUI extends javax.swing.JFrame {
 
         Main.add(jpCM2, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 0, 50, 30));
 
-        jpInfo.setBackground(new java.awt.Color(0, 56, 142));
-        jpInfo.setMaximumSize(new java.awt.Dimension(472, 541));
-        jpInfo.setMinimumSize(new java.awt.Dimension(472, 541));
-        jpInfo.setName(""); // NOI18N
-        jpInfo.setRequestFocusEnabled(false);
-        jpInfo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        infoTitle1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        infoTitle1.setForeground(new java.awt.Color(255, 255, 255));
-        infoTitle1.setText("Bienvenid@ a SGP");
-        jpInfo.add(infoTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(83, 64, -1, -1));
-
-        imageLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/estrategia.png"))); // NOI18N
-        imageLabel1.setToolTipText("");
-        imageLabel1.setDebugGraphicsOptions(javax.swing.DebugGraphics.BUFFERED_OPTION);
-        imageLabel1.setDoubleBuffered(true);
-        jpInfo.add(imageLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(117, 146, -1, -1));
-
-        infoText3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        infoText3.setForeground(new java.awt.Color(255, 255, 255));
-        infoText3.setText("Está a un paso de gestionar toda su producción");
-        jpInfo.add(infoText3, new org.netbeans.lib.awtextra.AbsoluteConstraints(83, 435, -1, -1));
-
-        infoText4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        infoText4.setForeground(new java.awt.Color(255, 255, 255));
-        infoText4.setText("con los mejores estándares de calidad.");
-        jpInfo.add(infoText4, new org.netbeans.lib.awtextra.AbsoluteConstraints(83, 455, -1, -1));
-
         jpSignIn.setBackground(new java.awt.Color(28, 28, 28));
         jpSignIn.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jpSignIn.setMaximumSize(new java.awt.Dimension(552, 541));
@@ -473,7 +445,35 @@ public class GUI extends javax.swing.JFrame {
         });
         jpSignIn.add(registerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(188, 433, 195, 33));
 
-        jpInfo.add(jpSignIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, -90, -1, -1));
+        Main.add(jpSignIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(472, 0, -1, -1));
+
+        jpInfo.setBackground(new java.awt.Color(0, 56, 142));
+        jpInfo.setMaximumSize(new java.awt.Dimension(472, 541));
+        jpInfo.setMinimumSize(new java.awt.Dimension(472, 541));
+        jpInfo.setName(""); // NOI18N
+        jpInfo.setRequestFocusEnabled(false);
+        jpInfo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        infoTitle1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        infoTitle1.setForeground(new java.awt.Color(255, 255, 255));
+        infoTitle1.setText("Bienvenid@ a SGP");
+        jpInfo.add(infoTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(83, 64, -1, -1));
+
+        imageLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/estrategia.png"))); // NOI18N
+        imageLabel1.setToolTipText("");
+        imageLabel1.setDebugGraphicsOptions(javax.swing.DebugGraphics.BUFFERED_OPTION);
+        imageLabel1.setDoubleBuffered(true);
+        jpInfo.add(imageLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(117, 146, -1, -1));
+
+        infoText3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        infoText3.setForeground(new java.awt.Color(255, 255, 255));
+        infoText3.setText("Está a un paso de gestionar toda su producción");
+        jpInfo.add(infoText3, new org.netbeans.lib.awtextra.AbsoluteConstraints(83, 435, -1, -1));
+
+        infoText4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        infoText4.setForeground(new java.awt.Color(255, 255, 255));
+        infoText4.setText("con los mejores estándares de calidad.");
+        jpInfo.add(infoText4, new org.netbeans.lib.awtextra.AbsoluteConstraints(83, 455, -1, -1));
 
         Main.add(jpInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 472, 541));
 
