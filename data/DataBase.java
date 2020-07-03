@@ -13,9 +13,11 @@ public class DataBase implements Serializable {
     public static MyArrayList<Production> myArrayListProduction = new MyArrayList<Production>(); // guarda la lista de producciones
     public static SinglyLinkedList<String> sLnameP = new SinglyLinkedList<String>();// carga los nombres de las producciones para luego buscarlas
 
-    public static SinglyLinkedList<User> singlyLinkedListUser = new SinglyLinkedList<User>();
+    private static SinglyLinkedList<User> singlyLinkedListUser;
     public static SinglyLinkedList<String> sLnameU = new SinglyLinkedList<String>();
 
+    public static MyHashTable<User> hashTableUser=new  MyHashTable<User>();
+    
     public static MyArrayList<RawMaterial> myArrayListMaterial;
     public static MyArrayList<Stage> myArrayListStage;
 
@@ -29,6 +31,16 @@ public class DataBase implements Serializable {
                 CreateArchive("Informe", true);
             }
             
+            singlyLinkedListUser = new SinglyLinkedList<User>();
+            
+                for (int i = 0; i < hashTableUser.getTheLists().getSize(); i++) {
+                    SinglyLinkedList<User> user= hashTableUser.getTheLists().getItem(i);
+                    for (int j = 0; j < user.getSize(); j++) {
+                        singlyLinkedListUser.pushBack(user.getItem(j));
+                        
+                    }
+                }
+               
             for (int i = 0; i < singlyLinkedListUser.getSize(); i++) {
                 Write("Usuarios", "Usuarios", i);
             }
@@ -449,7 +461,7 @@ public class DataBase implements Serializable {
                 ad = false;
             }
             user = new User(load[2], Integer.valueOf(load[1]), load[0], load[3], ad);
-            singlyLinkedListUser.pushBack(user);
+            hashTableUser.Add(user);
             return true;
         }
         return false;

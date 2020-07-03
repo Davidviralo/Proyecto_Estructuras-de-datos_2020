@@ -3,9 +3,13 @@ package Estructuras_de_datos;
 public class MyHashTable<T>
 {
     
-    private static final int SIZE = 101;
+    private static final int  SIZE = 101;
     private MyArrayList<SinglyLinkedList>  theLists; 
     private int currentSize;
+
+    public int getCurrentSize() {
+        return currentSize;
+    }
 
     public MyArrayList<SinglyLinkedList> getTheLists() {
         return theLists;

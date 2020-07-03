@@ -975,7 +975,7 @@ public class GUI extends javax.swing.JFrame {
         jTextIDU.setBackground(new java.awt.Color(48, 48, 48));
         jTextIDU.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTextIDU.setForeground(new java.awt.Color(204, 204, 204));
-        jTextIDU.setText("ID");
+        jTextIDU.setText("Usuario");
         jTextIDU.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 5, 2, 5));
         jTextIDU.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2531,19 +2531,19 @@ public class GUI extends javax.swing.JFrame {
     private void signInButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signInButtonMouseClicked
         Boolean correct=false;
         try{
-            
-        for(int i=0; i<singlyLinkedListUser.getSize(); i++){
-                if (singlyLinkedListUser.getItem(i).getUser().equals(jTextL1.getText())){
-                   if (singlyLinkedListUser.getItem(i).getPassword().equals(jTextL2.getText())){  
-                   correct=true;
-                   indexLA=i;
-                   adm=singlyLinkedListUser.getItem(i).getAdm();
-                   userLabel1.setText(singlyLinkedListUser.getItem(i).getUser());
-                   idLabel.setText("ID: "+String.valueOf(singlyLinkedListUser.getItem(i).getId()));
-                   break;
-                     }
-                }
-           }
+         User singIn =new User();
+            singIn.setUser(jTextL1.getText()); 
+            singIn=hashTableUser.Get(singIn);
+         if(singIn!=null){
+                if(singIn.getPassword().equals(jTextL2.getText())){
+                 correct=true;
+                 userSingIn=singIn;
+                 adm=singIn.getAdm();
+                  userLabel1.setText(singIn.getUser());
+                  idLabel.setText("ID: "+String.valueOf(singIn.getId()));
+             } 
+         }
+       
         if(correct){
             if(adm){
                 
@@ -2828,18 +2828,13 @@ public class GUI extends javax.swing.JFrame {
                    JOptionPane.showMessageDialog(this,"Valor no valido para ID.");
                    correct=false;
                }
-           for(int i=0; i<singlyLinkedListUser.getSize(); i++){
-                if (singlyLinkedListUser.getItem(i).getUser().equals(jTextR2.getText())){
-                   JOptionPane.showMessageDialog(this,"El usuario ya existe.");
+           
+           user.setUser(jTextR2.getText());
+           if (hashTableUser.Find(user)){
+               JOptionPane.showMessageDialog(this,"El usuario ya existe.");
                    correct=false; 
-                   break;
-                }
-                if (singlyLinkedListUser.getItem(i).getId()==Integer.parseInt (jTextR4.getText())){
-                   JOptionPane.showMessageDialog(this,"El ID ya existe.");
-                   correct=false; 
-                   break;
-                }
            }
+           
            if(AdmC && correct){
                 if (jTextR5.getText().equals("soyadm")){
                    user = new User(jTextR1.getText(),Integer.parseInt (jTextR4.getText()),jTextR2.getText(),jTextR3.getText(),AdmC);
@@ -2858,7 +2853,7 @@ public class GUI extends javax.swing.JFrame {
            int result = JOptionPane.showConfirmDialog(null, "¿Desea guardar los datos?","Guardar",dialog);
            
                 if(result==0){
-                    singlyLinkedListUser.pushBack(user);
+                    hashTableUser.Add(user);
                 }
                 
                 jTextR1.setText("Nombre");
@@ -4959,47 +4954,49 @@ private static int indexCr=1;
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextIDUActionPerformed
 
-    private static int removeU=-1;
+    private static User removeU;
     private void searchPjLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchPjLabel2MouseClicked
       Boolean correct=true;
       Boolean find=false;
         try{
-          try{
-              if(jTextIDU.getText().equals("ID")){
+         
+              if(jTextIDU.getText().equals("Usuario")){
                   correct=false;
-                  UserL.removeAll();
-                   String [] namep= new  String[singlyLinkedListUser.getSize()];
-                  for(int i=0; i<singlyLinkedListUser.getSize(); i++){
-                   namep[i]=String.valueOf(singlyLinkedListUser.getItem(i).getId());
-                 }
-                  UserL.setListData(namep);
-                   removeU=-1;
-              }else{
-                   Integer.valueOf(jTextIDU.getText());
-              }
-          }catch(Exception e){
-              correct=false;
-              JOptionPane.showMessageDialog(this,"Valor no valido para ID."); 
-              
-          }
-          if(correct){
-              for(int i=0; i<singlyLinkedListUser.getSize(); i++){
-              if(Integer.valueOf(jTextIDU.getText())==singlyLinkedListUser.getItem(i).getId()){
-                  find=true;
-                    UserL.removeAll();
-                    removeU=i;
-                   String [] namep= new  String[1];
-                   namep[0]=String.valueOf(singlyLinkedListUser.getItem(i).getId());
-                  UserL.setListData(namep);
-                  jTextIDU.setText("ID");
-                  break;
+                  int k=0;
+                UserL.removeAll();
+                String [] namep= new  String[hashTableUser.getCurrentSize()];
+                for (int i = 0; i < hashTableUser.getTheLists().getSize(); i++) {
+                    SinglyLinkedList<User> user= hashTableUser.getTheLists().getItem(i);
+                    for (int j = 0; j < user.getSize(); j++) {
+                        namep[k]=user.getItem(j).getUser();
+                        k++;
+                    }
                 }
-             }
-             if(!find){
-                    JOptionPane.showMessageDialog(this,"No se ha encontrado usuarios con este ID: "+jTextIDU.getText());   
+                UserL.setListData(namep);
+                   removeU=null;
               }
+         User userS=new User();
+         userS.setUser(jTextIDU.getText());
+         userS=hashTableUser.Get(userS);
+          if(userS!=null){
+              
+                  find=true;
+                  removeU=userS;
+                  
+                  UserL.removeAll();                    
+                  String [] namep= new  String[1];
+                  namep[0]=String.valueOf(userS.getUser());
+                  UserL.setListData(namep);
+                  
+                  jTextIDU.setText("Usuario");
+               
+          }else{
+              if(!jTextIDU.getText().equals("Usuario")){
+                  JOptionPane.showMessageDialog(this,"No se ha encontrado usuarios con este nombre de usuario: "+jTextIDU.getText());    
+              }
+            
           }
-          jTextIDU.setText("ID");
+          jTextIDU.setText("Usuario");
       }catch(Exception e){
            JOptionPane.showMessageDialog(this,"Ha ocurrido un error, por favor contacte con el administrador."); 
       }
@@ -5097,19 +5094,24 @@ private static int indexCr=1;
              jTextPu4.setText("Contraseña");
              jTextPu5.setText("Contraseña");
              jTextPu6.setText("Contraseña");
-             jTextIDU.setText("ID");
+             jTextIDU.setText("Usuario");
              jTextIDP.setText("ID");
              
-             removeU=-1;
-             indexLA2=-1;
+             removeU=null;
+             indexLA2=null;
              removeP=-1;
              
-             UserL.removeAll();
-             String [] namep= new  String[singlyLinkedListUser.getSize()];
-              for(int i=0; i<singlyLinkedListUser.getSize(); i++){
-                          namep[i]=String.valueOf(singlyLinkedListUser.getItem(i).getId());
-               }
-             UserL.setListData(namep);
+              int k=0;
+                UserL.removeAll();
+                String [] namep= new  String[hashTableUser.getCurrentSize()];
+                for (int i = 0; i < hashTableUser.getTheLists().getSize(); i++) {
+                    SinglyLinkedList<User> user= hashTableUser.getTheLists().getItem(i);
+                    for (int j = 0; j < user.getSize(); j++) {
+                        namep[k]=user.getItem(j).getUser();
+                        k++;
+                    }
+                }
+                UserL.setListData(namep);
              
               ProductionL.removeAll();
                 String [] namep2= new  String[myArrayListProduction.getSize()];
@@ -5124,22 +5126,21 @@ private static int indexCr=1;
      }
     
     
-    private static int indexLA2=-1;
+    private static User indexLA2=null;
     private void doneButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_doneButton3MouseClicked
        try {
-           if(indexLA2!=-1){
-           if(jTextPu4.getText().equals(singlyLinkedListUser.getItem(indexLA2).getPassword())){
+           if(indexLA2!=null){
+           if(jTextPu4.getText().equals(indexLA2.getPassword())){
                JOptionPane.showMessageDialog(this,"La nueva contraseña debe ser diferente a su contraseña actual");  
              }else{
-                 if(jTextPu6.getText().equals(singlyLinkedListUser.getItem(indexLA2).getPassword())){
+                 if(jTextPu6.getText().equals(indexLA2.getPassword())){
                     if(jTextPu4.getText().equals(jTextPu5.getText())){
                   
                     int dialog = JOptionPane.YES_NO_OPTION;
                     int result = JOptionPane.showConfirmDialog(null, "¿Desea guardar los datos?","Guardar contraseña",dialog);
                       if(result==0){
-                          System.out.println(jTextPu4.getText());
-                          singlyLinkedListUser.getItem(indexLA2).setPassword(jTextPu4.getText());
-                          System.out.println(singlyLinkedListUser.getItem(indexLA2).getPassword());
+                         
+                          indexLA2.setPassword(jTextPu4.getText());
                           JOptionPane.showMessageDialog(this,"Su contraseña se ha cambiado con exito.");  
                           jTextPu4.setText("Contraseña");
                           jTextPu5.setText("Contraseña");
@@ -5162,44 +5163,63 @@ private static int indexCr=1;
     private void doneButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_doneButton4MouseClicked
      try{
          int selected =UserL.getSelectedIndex();
-             if(selected!=-1 && singlyLinkedListUser.getSize()>0){
+             if(selected!=-1 && hashTableUser.getCurrentSize()>0){
                 int dialog = JOptionPane.YES_NO_OPTION;
                 int result;
                  
-                       if(selected==0 && removeU!=-1){
-                           if(singlyLinkedListUser.getItem(removeU).getUser().equals(singlyLinkedListUser.getItem(indexLA).getUser())){
+                       if(selected==0 && removeU!=null){
+                           if(removeU.getUser().equals(userSingIn.getUser())){
                             JOptionPane.showMessageDialog(this,"No es posible eliminar el usuario que se esta usando actualmente.");      
                            }else{
-                        result = JOptionPane.showConfirmDialog(null, "¿Esta seguro que desea eliminar el usuario: "+singlyLinkedListUser.getItem(removeU).getUser()+"?","Eliminar usuario",dialog);   
+                        result = JOptionPane.showConfirmDialog(null, "¿Esta seguro que desea eliminar el usuario: "+removeU.getUser()+"?","Eliminar usuario",dialog);   
                         if(result==0){
-                        singlyLinkedListUser.removeIndex(removeU);
+                        hashTableUser.Remove(removeU);
                         jTextPu.setText(" ID");
                         jTextPu2.setText(" Nombre");
                         jTextPu3.setText(" Usuario");
-                        UserL.removeAll();
-                         String [] namep= new  String[singlyLinkedListUser.getSize()];
-                         for(int i=0; i<singlyLinkedListUser.getSize(); i++){
-                          namep[i]=String.valueOf(singlyLinkedListUser.getItem(i).getId());
-                         }
-                         UserL.setListData(namep);
-                          removeU=-1;
+                        
+                            int k=0;
+                           UserL.removeAll();
+                           String [] namep= new  String[hashTableUser.getCurrentSize()];
+                           for (int i = 0; i < hashTableUser.getTheLists().getSize(); i++) {
+                               SinglyLinkedList<User> user= hashTableUser.getTheLists().getItem(i);
+                               for (int j = 0; j < user.getSize(); j++) {
+                                   namep[k]=user.getItem(j).getUser();
+                                   k++;
+                               }
+                           }
+                             UserL.setListData(namep);
+                         
+                         
+                          removeU=null;
                             }
                        }
-                    }else{ if(singlyLinkedListUser.getItem(selected).getUser().equals(singlyLinkedListUser.getItem(indexLA).getUser())){
+                    }else{ 
+                           User usero=new User();
+                           usero.setUser(UserL.getSelectedValue());
+                           
+                           if(UserL.getSelectedValue().equals(userSingIn.getUser())){
                             JOptionPane.showMessageDialog(this,"No es posible eliminar el usuario que se esta usando actualmente.");      
                            }else{
-                        result = JOptionPane.showConfirmDialog(null, "¿Esta seguro que desea eliminar el usuario: "+singlyLinkedListUser.getItem(selected).getUser()+"?","Eliminar usuario",dialog);   
+                        result = JOptionPane.showConfirmDialog(null, "¿Esta seguro que desea eliminar el usuario: "+UserL.getSelectedValue()+"?","Eliminar usuario",dialog);   
                         if(result==0){
-                         singlyLinkedListUser.removeIndex(selected);
-                         jTextPu.setText(" ID");
+                        hashTableUser.Remove(usero);
+                        jTextPu.setText(" ID");
                         jTextPu2.setText(" Nombre");
                         jTextPu3.setText(" Usuario");
-                            UserL.removeAll();
-                         String [] namep= new  String[singlyLinkedListUser.getSize()];
-                         for(int i=0; i<singlyLinkedListUser.getSize(); i++){
-                          namep[i]=String.valueOf(singlyLinkedListUser.getItem(i).getId());
-                         }
-                         UserL.setListData(namep);
+                           
+                        int k=0;
+                           UserL.removeAll();
+                           String [] namep= new  String[hashTableUser.getCurrentSize()];
+                           for (int i = 0; i < hashTableUser.getTheLists().getSize(); i++) {
+                               SinglyLinkedList<User> user= hashTableUser.getTheLists().getItem(i);
+                               for (int j = 0; j < user.getSize(); j++) {
+                                   namep[k]=user.getItem(j).getUser();
+                                   k++;
+                               }
+                           }
+                             UserL.setListData(namep);
+                         
                         }
                         }
                      }
@@ -5226,23 +5246,28 @@ private static int indexCr=1;
         Menu.repaint();
         Menu.revalidate();
     }//GEN-LAST:event_goBackButton9MouseClicked
-      private static int indexLA;
+      private static User userSingIn;
     private void userLogoLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userLogoLabelMouseClicked
         if(adm){
             try{
 //             jpCM.setVisible(false);
 //             jpUser.setVisible(false);
-                indexLA2=indexLA;
-                jTextIDU.setText("ID");
+                indexLA2=userSingIn;
+                jTextIDU.setText("Usuario");
                 jTextIDP.setText("ID");
-                jTextPu.setText(" "+String.valueOf(singlyLinkedListUser.getItem(indexLA).getId()));
-                jTextPu2.setText(" "+singlyLinkedListUser.getItem(indexLA).getName());
+                jTextPu.setText(" "+String.valueOf(userSingIn.getId()));
+                jTextPu2.setText(" "+userSingIn.getName());
                 jTextPu3.setText(" "+userLabel1.getText());
                
-                 UserL.removeAll();
-                String [] namep= new  String[singlyLinkedListUser.getSize()];
-                for (int i = 0; i < singlyLinkedListUser.getSize(); i++) {
-                namep[i]=String.valueOf(singlyLinkedListUser.getItem(i).getId());
+                int k=0;
+                UserL.removeAll();
+                String [] namep= new  String[hashTableUser.getCurrentSize()];
+                for (int i = 0; i < hashTableUser.getTheLists().getSize(); i++) {
+                    SinglyLinkedList<User> user= hashTableUser.getTheLists().getItem(i);
+                    for (int j = 0; j < user.getSize(); j++) {
+                        namep[k]=user.getItem(j).getUser();
+                        k++;
+                    }
                 }
                 UserL.setListData(namep);
                 
@@ -5272,17 +5297,21 @@ private static int indexCr=1;
     private void UserLMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UserLMouseClicked
        try{
             int selected =UserL.getSelectedIndex();
-             if(selected!=-1 && singlyLinkedListUser.getSize()>0){
-                 if(selected==0 && removeU!=-1){
-                  jTextPu.setText(" "+String.valueOf(singlyLinkedListUser.getItem(removeU).getId()));
-                  jTextPu2.setText(" "+singlyLinkedListUser.getItem(removeU).getName());
-                  jTextPu3.setText(" "+singlyLinkedListUser.getItem(removeU).getUser()); 
+             if(selected!=-1 && hashTableUser.getCurrentSize()>0){
+                  User usero=new User();
+                  usero.setUser(UserL.getSelectedValue());
+                 if(selected==0 && removeU!=null){
+                  jTextPu.setText(" "+String.valueOf(removeU.getId()));
+                  jTextPu2.setText(" "+removeU.getName());
+                  jTextPu3.setText(" "+removeU.getUser()); 
                   indexLA2=removeU;
                  }else{
-                  jTextPu.setText(" "+String.valueOf(singlyLinkedListUser.getItem(selected).getId()));
-                  jTextPu2.setText(" "+singlyLinkedListUser.getItem(selected).getName());
-                  jTextPu3.setText(" "+singlyLinkedListUser.getItem(selected).getUser());
-                  indexLA2=selected;
+                  usero=hashTableUser.Get(usero);
+                     
+                  jTextPu.setText(" "+String.valueOf(usero.getId()));
+                  jTextPu2.setText(" "+usero.getName());
+                  jTextPu3.setText(" "+usero.getUser());
+                  indexLA2=usero;
                  }
              }
        }catch(Exception e){
