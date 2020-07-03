@@ -1149,6 +1149,11 @@ public class GUI extends javax.swing.JFrame {
                 jTextCp1ActionPerformed(evt);
             }
         });
+        jTextCp1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextCp1KeyTyped(evt);
+            }
+        });
 
         jTextCp5.setBackground(new java.awt.Color(48, 48, 48));
         jTextCp5.setColumns(20);
@@ -2770,15 +2775,15 @@ public class GUI extends javax.swing.JFrame {
         
         
         if(myArrayListProduction.getSize()>0){
-            AvlNodeTree<Production> prodTree = new AvlNodeTree<>();            
+            //AvlNodeTree<Production> prodTree = new AvlNodeTree<>();            
             ProductionSearchList.removeAll();
             String [] namep= new  String[myArrayListProduction.getSize()];
             
-           
-            for(int i=0; i<myArrayListProduction.getSize(); i++){
-                //namep[i]=myArrayListProduction.getItem(i).getName();  
-                prodTree.insert(myArrayListProduction.getItem(i));
-            }
+//           
+//            for(int i=0; i<myArrayListProduction.getSize(); i++){
+//                //namep[i]=myArrayListProduction.getItem(i).getName();  
+//                prodTree.insert(myArrayListProduction.getItem(i));
+//            }
             
             MyArrayList<Production> treeList = prodTree.inOrderList();
             
@@ -3031,17 +3036,29 @@ public class GUI extends javax.swing.JFrame {
             production.setEndDate(Integer.parseInt(jTextCp2.getSelectedItem().toString())+"/"+Integer.parseInt(convertMonth(jTextCp3.getSelectedItem().toString()))+"/"+Integer.parseInt(jTextCp4.getSelectedItem().toString()));
             production.setIsActive(false);
             production.setIsFinished(false);
-           
-            production.setId(IDP.getText());
+           //
+           int hashVal=0;
+             
+               for( int i = 0; i < production.getName().length( ); i++ ){
+                   hashVal = 37 * hashVal + production.getName().charAt(production.getName().length()-i-1);
+               }
+                   
+            
+//            for(int i=0; i<myArrayListProduction.getSize(); i++){
+//                if(myArrayListProduction.getItem(i).getId()==(id1)){
+//                    id1=String.valueOf(myArrayListProduction.getItem(i).getId()+1);
+//                }
+//            }
+
+            hashVal%=101;
+            String id1=String.valueOf(hashVal);
+           //
+            production.setId(production.getName());
             myArrayListProduction.pushBack(production);
             prodTree.insert(production);
-             String id1=String.valueOf(myArrayListProduction.getSize());
-            for(int i=0; i<myArrayListProduction.getSize(); i++){
-                if(myArrayListProduction.getItem(i).getId().equals(id1)){
-                    id1=String.valueOf(i+myArrayListProduction.getSize());
-                }
-            }
-            IDP.setText(id1);  
+            // String id1=String.valueOf(myArrayListProduction.getSize());
+             
+            IDP.setText("-");  
             cleanCreateP();
             
            }
@@ -4944,14 +4961,33 @@ private static int indexCr=1;
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
     DataBase.loadArchive();  
-    String id1=String.valueOf(myArrayListProduction.getSize());
-            for(int i=0; i<myArrayListProduction.getSize(); i++){
-                if(myArrayListProduction.getItem(i).getId().equals(id1)){
-                    id1=String.valueOf(i+myArrayListProduction.getSize());
-                }
-            }
-    IDP.setText(id1);  
+//    String id1=String.valueOf(myArrayListProduction.getSize());
+//            for(int i=0; i<myArrayListProduction.getSize(); i++){
+//                if(myArrayListProduction.getItem(i).getId().equals(id1)){
+//                    id1=String.valueOf(myArrayListProduction.getItem(i).getId()+1);
+//                }
+//            }
+//    IDP.setText(id1);  
     
+//    int hashVal=0;
+//            if(myArrayListProduction.getSize()>0){
+//                Production production = myArrayListProduction.getItem(myArrayListProduction.getSize()-1);
+//               for( int i = 0; i < production.getName().length( ); i++ ){
+//                   hashVal = 37 * hashVal + production.getName().charAt(production.getName().length()-i-1);
+//               }
+                   
+            
+//            for(int i=0; i<myArrayListProduction.getSize(); i++){
+//                if(myArrayListProduction.getItem(i).getId()==(id1)){
+//                    id1=String.valueOf(myArrayListProduction.getItem(i).getId()+1);
+//                }
+//            }
+
+//            hashVal%=101;
+//            String id1=String.valueOf(hashVal);
+            IDP.setText("-"); 
+//            }
+             
 // TODO add your handling code here:
     }//GEN-LAST:event_formWindowOpened
 
@@ -5067,10 +5103,20 @@ private static int indexCr=1;
                 }
                 int result = JOptionPane.showConfirmDialog(null, "¿Esta seguro que desea eliminar la producción: "+myArrayListProduction.getItem(selected2).getName()+"?","Eliminar producción",dialog);
                       if(result==0){
-                          
-                          if (sLnameP.isListed(myArrayListProduction.getItem(selected2).getName())){
+                          try{
                               DataBase.eliminar(myArrayListProduction.getItem(selected2).getId()+myArrayListProduction.getItem(selected2).getName(), "Producción");
+                          }catch(Exception e){
+                               System.out.println("Entro2eliminar");
                           }
+                          
+                              
+//                              for(int i=0; i<sLnameP.getSize(); i++){
+//                                      if (sLnameP.getItem(i).compareTo(myArrayListProduction.getItem(selected2).getName())==0){
+//                                         System.out.println("Entro2eliminar");
+//                                         DataBase.eliminar(myArrayListProduction.getItem(selected2).getId()+myArrayListProduction.getItem(selected2).getName(), "Producción");
+//                                     }
+//                                 }
+                          
                           prodTree.remove(myArrayListProduction.getItem(selected2));
                           myArrayListProduction.removeIndex(selected2);
                          
@@ -5630,11 +5676,11 @@ boolean avanzarEtapa=false;
             
             //AvlNodeTree<Production> prodTree = new AvlNodeTree<>();
             ProductionSearchList.removeAll();
-            String [] namep= new  String[10];            
+            String [] namep= new  String[9];            
            
-            for(int i=0; i<myArrayListProduction.getSize(); i++){
-                prodTree.insert(myArrayListProduction.getItem(i));
-            }
+//            for(int i=0; i<myArrayListProduction.getSize(); i++){
+//                prodTree.insert(myArrayListProduction.getItem(i));
+//            }
             
             Production aux = new Production(currentSearch, "", null, null);
             AvlNode node = prodTree.find(aux); 
@@ -5649,12 +5695,21 @@ boolean avanzarEtapa=false;
                 node = node.next(node);
                 auxProd = (Production) node.getItem(); 
                 
-                for(int i=0; i<10;i++){
-                   if(auxProd.getName().substring(0, currentSearch.length()).compareToIgnoreCase(currentSearch) == 0) {
-                   treeList.pushBack((Production)node.getItem()); 
-                   node = node.next(node);
-                   auxProd = (Production) node.getItem();  
-                }}
+                for(int i=0; i<9;i++){
+                    if(auxProd.getName().length()>=currentSearch.length()){
+                         if(auxProd.getName().substring(0, currentSearch.length()).compareToIgnoreCase(currentSearch) == 0) {
+                                if(!treeList.isListed((Production)node.getItem())){
+                                  treeList.pushBack((Production)node.getItem()); 
+                                    node = node.next(node);
+                                    auxProd = (Production) node.getItem();   
+                                }
+                    }
+                   
+                }else{
+                        System.out.println("Tamaño de auxP="+auxProd.getName().length()+" Tamaño de currentS= "+currentSearch.length());
+                    }
+                    
+                }
                 
             }
 
@@ -5679,6 +5734,10 @@ boolean avanzarEtapa=false;
                 
                  
     }//GEN-LAST:event_jTextCrKeyTyped
+
+    private void jTextCp1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextCp1KeyTyped
+        IDP.setText(jTextCp1.getText());
+    }//GEN-LAST:event_jTextCp1KeyTyped
     
     private void createPanels(MyArrayList<Stage> stages1){
         

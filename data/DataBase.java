@@ -82,7 +82,7 @@ public class DataBase implements Serializable {
         if (file.delete()) {
             System.out.println("El archivo" + nameA + "ha sido borrado satisfactoriamente");
         } else {
-            System.out.println("El archivo" + nameA + "no puedo ser borrado satisfactoriamente");
+          //  System.out.println("El archivo" + nameA + "no puedo ser borrado satisfactoriamente");
         }
         
         
@@ -358,7 +358,7 @@ public class DataBase implements Serializable {
                     parameter = new Parameter(load[5 + a], Double.parseDouble(load[6 + a]), Double.parseDouble(load[7 + a]), Double.parseDouble(load[8 + a]));
                     a = a + 4;
                     parametrosCalidad.pushBack(parameter);
-
+                    
                 }
                 rawMaterial = new RawMaterial(load[0], load[1], load[2], load[3], load[4], parametrosCalidad);
                 myArrayListMaterial.pushBack(rawMaterial);
