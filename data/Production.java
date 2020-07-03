@@ -161,12 +161,12 @@ public class Production extends Event implements Comparable<Production>{
         if (allStagesFinished) {
             //super.setIsActive(false);
             super.setIsFinished(true);
-            System.out.println("¡Felicitaciones! Se ha finalizado" +
-                    " el proceso cumpliendo todos los parámetros de calidad.");
-            System.out.println("¡Los clientes estarán muy satisfechos con su producto!");
+//            System.out.println("¡Felicitaciones! Se ha finalizado" +
+//                    " el proceso cumpliendo todos los parámetros de calidad.");
+//            System.out.println("¡Los clientes estarán muy satisfechos con su producto!");
         } else {
-            System.out.println("Hay etapas que no se han finalizado, " +
-                    "por favor revíselas antes de intentar finalizar la producción nuevamente.");
+//            System.out.println("Hay etapas que no se han finalizado, " +
+//                    "por favor revíselas antes de intentar finalizar la producción nuevamente.");
         }
     }
 

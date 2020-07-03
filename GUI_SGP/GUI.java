@@ -2435,23 +2435,23 @@ public class GUI extends javax.swing.JFrame {
 
         createLabel22.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         createLabel22.setForeground(new java.awt.Color(202, 202, 202));
-        createLabel22.setText("LO:");
-        jpSetParametr.add(createLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 330, 40, 30));
+        createLabel22.setText("LImite superior:");
+        jpSetParametr.add(createLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 330, 110, 30));
 
         createLabel26.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         createLabel26.setForeground(new java.awt.Color(202, 202, 202));
         createLabel26.setText("lo");
-        jpSetParametr.add(createLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 330, 70, 30));
+        jpSetParametr.add(createLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 330, 70, 30));
 
         createLabel27.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         createLabel27.setForeground(new java.awt.Color(202, 202, 202));
-        createLabel27.setText("LI:");
-        jpSetParametr.add(createLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 300, 40, 30));
+        createLabel27.setText("Limite inferior:");
+        jpSetParametr.add(createLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 300, 110, 30));
 
         createLabel28.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         createLabel28.setForeground(new java.awt.Color(202, 202, 202));
         createLabel28.setText("li");
-        jpSetParametr.add(createLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 300, 70, 30));
+        jpSetParametr.add(createLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 300, 70, 30));
 
         Menu.add(jpSetParametr, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1024, 431));
 
@@ -5411,8 +5411,7 @@ private static int indexCr=1;
         //Production aux=myArrayListProduction.getItem(produccion); 
         int currentStage = myArrayListProduction.getItem(produccion).getCurrentStage();
         int stagemax = myArrayListProduction.getItem(produccion).getStages().getSize();
-        System.out.println(myArrayListProduction.getItem(produccion).isActive());
-        System.out.println(myArrayListProduction.getItem(produccion).isFinished());
+        
         
         if(myArrayListProduction.getItem(produccion).isActive()&&!myArrayListProduction.getItem(produccion).isFinished()){
             if(myArrayListProduction.getItem(produccion).getCurrentStage()<currentmax||!myArrayListProduction.getItem(produccion).getStages().getItem(currentStage-1).isActive()){
@@ -5565,39 +5564,83 @@ boolean avanzarEtapa=false;
                }
         if (contador<myArrayListProduction.getItem(produccion).getStages().getItem(currentStage-1).getParameterList().getSize()){
             //doneButton8.setEnabled(false);
-        if (correct){
-        myArrayListProduction.getItem(produccion).getStages().getItem(currentStage-1).setParameters(valuep1, contador);
-        if(myArrayListProduction.getItem(produccion).getStages().getItem(currentStage-1).getParameterList().getItem(contador).satisfyQuality()) {
-            JOptionPane.showMessageDialog(this,"El parametro satisface calidad");
-            jTextIDU1.setText("valor");
-            contador++;
-            if(contador<myArrayListProduction.getItem(produccion).getStages().getItem(currentStage-1).getParameterList().getSize()){
-            createLabel19.setText(myArrayListProduction.getItem(produccion).getStages().getItem(currentStage-1).getParameterList().getItem(contador).getName());
-            String li = String.valueOf(myArrayListProduction.getItem(produccion).getStages().getItem(currentStage-1).getParameterList().getItem(contador).getLowerLimit());
-            createLabel28.setText(li);
-            String lo = String.valueOf(myArrayListProduction.getItem(produccion).getStages().getItem(currentStage-1).getParameterList().getItem(contador).getUpperLimit());
-            createLabel26.setText(lo);
+            if (correct){
+                myArrayListProduction.getItem(produccion).getStages().getItem(currentStage-1).setParameters(valuep1, contador);
+                if(myArrayListProduction.getItem(produccion).getStages().getItem(currentStage-1).getParameterList().getItem(contador).satisfyQuality()) {
+                    JOptionPane.showMessageDialog(this,"El parametro satisface calidad");
+                    jTextIDU1.setText("valor");
+                    contador++;
+                    
+                    if(contador<myArrayListProduction.getItem(produccion).getStages().getItem(currentStage-1).getParameterList().getSize()){
+                        createLabel19.setText(myArrayListProduction.getItem(produccion).getStages().getItem(currentStage-1).getParameterList().getItem(contador).getName());
+                        String li = String.valueOf(myArrayListProduction.getItem(produccion).getStages().getItem(currentStage-1).getParameterList().getItem(contador).getLowerLimit());
+                        createLabel28.setText(li);
+                        String lo = String.valueOf(myArrayListProduction.getItem(produccion).getStages().getItem(currentStage-1).getParameterList().getItem(contador).getUpperLimit());
+                        createLabel26.setText(lo);
+                    }else{    //int produccion=sLIDP2.getItem(selectproduction+(5*(indexSpp-1)));
+        //Production aux=myArrayListProduction.getItem(produccion);
+        //int currentStage = myArrayListProduction.getItem(produccion).getCurrentStage();
+        
+                if(!(contador<myArrayListProduction.getItem(produccion).getStages().getItem(currentStage-1).getParameterList().getSize())){
+//        aux.getStages().getItem(currentStage-1).setIsFinished(true);
+//        aux.setCurrentStage(currentStage+1);
+//        JOptionPane.showMessageDialog(this, "Finalizo la etapa con exito");
+                if(cerrarEtapa&&!avanzarEtapa){
+//        myArrayListProduction.getItem(produccion).getStages().getItem(currentStage-1).setIsFinished(true);
+//              
+//        myArrayListProduction.getItem(produccion).setCurrentStage(currentStage+1);
+                myArrayListProduction.getItem(produccion).endCurrentStage();
+          
+                JOptionPane.showMessageDialog(this, "Finalizo la etapa con exito. Los valores de todos los parametros han sido llenados con exito. Se guardó");
+        if(myArrayListProduction.getItem(produccion).getCurrentStage()==currentmax+1){
+            JOptionPane.showMessageDialog(this, "La produccion esta finalizada");
+            myArrayListProduction.getItem(produccion).finish();
+        
+        }
+        }else if(!cerrarEtapa&&avanzarEtapa){
+             myArrayListProduction.getItem(produccion).endCurrentStage();
+             myArrayListProduction.getItem(produccion).startCurrentStage();
+             JOptionPane.showMessageDialog(this, "Finalizo la etapa con exito. Los valores de todos los parametros han sido llenados con exito. Se guardó");
+             //myArrayListProduction.getItem(produccion).getStages().getItem(currentStage-1).setIsFinished(true);
+             //myArrayListProduction.getItem(produccion).getStages().getItem(currentStage).setIsActive(true);
+             //myArrayListProduction.getItem(produccion).setCurrentStage(currentStage+1);
+             
+        }
+        
+        
+        //myArrayListProduction.add(produccion, aux);
+        
+        createPanels(myArrayListProduction.getItem(produccion).getStages());
+        jpSetParametr.setVisible(false);
+        jpManagementP.setVisible(true);
+        jPanel1.repaint();
+        jpManagementP.repaint();}
+        else {JOptionPane.showMessageDialog(this, "Verificar todos los parametros antes de guardar."); }
             
+            
+            
+                    
+                    
+                    }
+                }else
+                    JOptionPane.showMessageDialog(this,"El parametro no satisface calidad");
             }
-        }else
-            JOptionPane.showMessageDialog(this,"El parametro no satisface calidad");
-            
-        }}else{
+        }else{
             //int produccion=sLIDP2.getItem(selectproduction+(5*(indexSpp-1)));
         //Production aux=myArrayListProduction.getItem(produccion);
         //int currentStage = myArrayListProduction.getItem(produccion).getCurrentStage();
         
-        if(!(contador<myArrayListProduction.getItem(produccion).getStages().getItem(currentStage-1).getParameterList().getSize())){
+                if(!(contador<myArrayListProduction.getItem(produccion).getStages().getItem(currentStage-1).getParameterList().getSize())){
 //        aux.getStages().getItem(currentStage-1).setIsFinished(true);
 //        aux.setCurrentStage(currentStage+1);
 //        JOptionPane.showMessageDialog(this, "Finalizo la etapa con exito");
-        if(cerrarEtapa&&!avanzarEtapa){
+                if(cerrarEtapa&&!avanzarEtapa){
 //        myArrayListProduction.getItem(produccion).getStages().getItem(currentStage-1).setIsFinished(true);
-//        
+//              
 //        myArrayListProduction.getItem(produccion).setCurrentStage(currentStage+1);
-          myArrayListProduction.getItem(produccion).endCurrentStage();
+                myArrayListProduction.getItem(produccion).endCurrentStage();
           
-        JOptionPane.showMessageDialog(this, "Finalizo la etapa con exito");
+                JOptionPane.showMessageDialog(this, "Finalizo la etapa con exito");
         if(myArrayListProduction.getItem(produccion).getCurrentStage()==currentmax+1){
             JOptionPane.showMessageDialog(this, "La produccion esta finalizada");
             myArrayListProduction.getItem(produccion).finish();
@@ -5620,10 +5663,10 @@ boolean avanzarEtapa=false;
         jpManagementP.setVisible(true);
         jPanel1.repaint();
         jpManagementP.repaint();}
-        else JOptionPane.showMessageDialog(this, "Verificar todos los parametros antes de guardar"); 
+        else {JOptionPane.showMessageDialog(this, "Verificar todos los parametros antes de guardar."); }
             
             
-            JOptionPane.showMessageDialog(this,"Los valores de todos los parametros han sido llenados con exito. Se guardó");
+            JOptionPane.showMessageDialog(this,"");
             //doneButton8.setEnabled(true);
         
         }
