@@ -12,7 +12,8 @@ public class DataBase implements Serializable {
 
     public static MyArrayList<Production> myArrayListProduction = new MyArrayList<Production>(); // guarda la lista de producciones
     public static SinglyLinkedList<String> sLnameP = new SinglyLinkedList<String>();// carga los nombres de las producciones para luego buscarlas
-
+     public static AvlNodeTree<Production> prodTree = new AvlNodeTree<>();
+    
     private static SinglyLinkedList<User> singlyLinkedListUser;
     public static SinglyLinkedList<String> sLnameU = new SinglyLinkedList<String>();
 
@@ -426,6 +427,7 @@ public class DataBase implements Serializable {
             production.setCurrentStage(Integer.valueOf(num));
             production.setId(ID);
             myArrayListProduction.pushBack(production);
+            prodTree.insert(production);
             os.close();
             return true;
         } else if (tip.equals("Usuarios")) {

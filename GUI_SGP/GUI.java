@@ -34,7 +34,8 @@ public class GUI extends javax.swing.JFrame {
              jpSetParametr.setVisible(false);
         Menu.repaint();
         Menu.revalidate();
-             
+        
+        
         Main.setVisible(true); 
               
               jpNewUser.setVisible(false);    
@@ -3015,6 +3016,12 @@ public class GUI extends javax.swing.JFrame {
                correct=false;
                JOptionPane.showMessageDialog(this,"Antes de guardar, debe agregar materiales y etapas a la producción.");
              }
+             for(int i=0; i<myArrayListProduction.getSize(); i++){
+                if(myArrayListProduction.getItem(i).getName().equals(jTextCp1.getText())){
+                  correct=false;
+                    JOptionPane.showMessageDialog(this,"Ya existe una producción con este nombre.");
+                }
+            }
            if(correct){
                int dialog = JOptionPane.YES_NO_OPTION;
            int result = JOptionPane.showConfirmDialog(null, "¿Desea guardar los datos?","Guardar la producción",dialog);
@@ -3027,6 +3034,7 @@ public class GUI extends javax.swing.JFrame {
            
             production.setId(IDP.getText());
             myArrayListProduction.pushBack(production);
+            prodTree.insert(production);
              String id1=String.valueOf(myArrayListProduction.getSize());
             for(int i=0; i<myArrayListProduction.getSize(); i++){
                 if(myArrayListProduction.getItem(i).getId().equals(id1)){
@@ -4943,6 +4951,7 @@ private static int indexCr=1;
                 }
             }
     IDP.setText(id1);  
+    
 // TODO add your handling code here:
     }//GEN-LAST:event_formWindowOpened
 
@@ -5062,8 +5071,9 @@ private static int indexCr=1;
                           if (sLnameP.isListed(myArrayListProduction.getItem(selected2).getName())){
                               DataBase.eliminar(myArrayListProduction.getItem(selected2).getId()+myArrayListProduction.getItem(selected2).getName(), "Producción");
                           }
-                          
+                          prodTree.remove(myArrayListProduction.getItem(selected2));
                           myArrayListProduction.removeIndex(selected2);
+                         
                            ProductionL.removeAll();
                              String [] namep= new  String[myArrayListProduction.getSize()];
                              
@@ -5618,7 +5628,7 @@ boolean avanzarEtapa=false;
         String currentSearch = jTextCr.getText();
         if(myArrayListProduction.getSize()>0){
             
-            AvlNodeTree<Production> prodTree = new AvlNodeTree<>();
+            //AvlNodeTree<Production> prodTree = new AvlNodeTree<>();
             ProductionSearchList.removeAll();
             String [] namep= new  String[10];            
            
