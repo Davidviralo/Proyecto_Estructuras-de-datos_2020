@@ -1589,6 +1589,11 @@ public class GUI extends javax.swing.JFrame {
                 jTextSp1ActionPerformed(evt);
             }
         });
+        jTextSp1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextSp1KeyTyped(evt);
+            }
+        });
         jpSearchP.add(jTextSp1, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 136, 259, 34));
 
         searchPjLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/buscar.png"))); // NOI18N
@@ -3696,12 +3701,18 @@ private static int indexCr=1;
        }
     }//GEN-LAST:event_jlNextCrMouseClicked
     public void printProduction(int index){
-       
+      
         try{
             if(sLIDP.getSize()>0){
                 if(sLIDP.getSize()>=index){
                    Production production;
-                   production=myArrayListProduction.getItem(sLIDP.getItem(index-1));
+                   if(index>0){
+                     production=myArrayListProduction.getItem(sLIDP.getItem(index-1));  
+                   }else{
+                       production=treeList.getItem(sLIDP.getItem(index+1));  
+                   }
+                   
+                   
                    String e;
                    if(production.isIsActive()){
                         if(production.isFinished()){
@@ -3910,7 +3921,7 @@ private static int indexCr=1;
         
         try{
             sLIDP2 = new SinglyLinkedList<>();
-            if(jTextSp1.getText().equalsIgnoreCase("Nombre de la producción") && myArrayListProduction.getSize()>0){
+            if((jTextSp1.getText().equalsIgnoreCase("Nombre de la producción") || jTextSp1.getText().isBlank()) && myArrayListProduction.getSize()>0){
                 ProductionLSp.removeAll();
                 String [] namep= new  String[5];
                 for(int i=0; i<myArrayListProduction.getSize(); i++){
@@ -5686,15 +5697,29 @@ boolean avanzarEtapa=false;
         try{
             String prodName = ProductionSearchList.getSelectedValue().toString();
             if(prodName==""){
+                
+                
             }else{
             sLIDP = new SinglyLinkedList<>();
-            for(int i=0; i<myArrayListProduction.getSize(); i++){
-                if(myArrayListProduction.getItem(i).getName().equalsIgnoreCase(prodName)){
+            int tipr=1;
+            if(treeList!=null){
+                for(int i=0; i<treeList.getSize(); i++){
+                if(treeList.getItem(i).getName().equalsIgnoreCase(prodName)){
                   sLIDP.pushBack(i);
                 }                
+                 }
+                tipr=-1;
+            }else{
+                for(int i=0; i<myArrayListProduction.getSize(); i++){
+                 if(myArrayListProduction.getItem(i).getName().equalsIgnoreCase(prodName)){
+                  sLIDP.pushBack(i);
+                 }                
+                }
+                tipr=1;
             }
+            
             if(sLIDP.getSize()==0){
-                   JOptionPane.showMessageDialog(this,"No se ha encontrado una producción con el nombre: "+jTextCr.getText());    
+                  // JOptionPane.showMessageDialog(this,"No se ha encontrado una producción con el nombre: "+jTextCr.getText());    
                    nRdeP.setText("de "+sLIDP.getSize());
                    nRdeP0.setText("0");
                    resgisterF.setText("");
@@ -5702,7 +5727,7 @@ boolean avanzarEtapa=false;
                 indexCr=1;
                 nRdeP.setText("de "+sLIDP.getSize());
                 nRdeP0.setText("1");
-                printProduction(1);
+                printProduction(tipr);
                 
             }
               }
@@ -5710,7 +5735,7 @@ boolean avanzarEtapa=false;
                JOptionPane.showMessageDialog(this,"Ha ocurrido un error, por favor contacte con el administrador.");         
                     }
     }//GEN-LAST:event_ProductionSearchListMouseClicked
-
+  private MyArrayList<Production> treeList;
     private void jTextCrKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextCrKeyTyped
         
         //try{
@@ -5727,7 +5752,8 @@ boolean avanzarEtapa=false;
             
             Production aux = new Production(currentSearch, "", null, null);
             AvlNode node = prodTree.find(aux); 
-            MyArrayList<Production> treeList = new MyArrayList();
+            //MyArrayList<Production> treeList = new MyArrayList();
+            treeList = new MyArrayList();
             Production auxProd = (Production) node.getItem();             
             int stringIndex = currentSearch.length();
             
@@ -5749,7 +5775,7 @@ boolean avanzarEtapa=false;
                     }
                    
                 }else{
-                        System.out.println("Tamaño de auxP="+auxProd.getName().length()+" Tamaño de currentS= "+currentSearch.length());
+                      //  System.out.println("Tamaño de auxP="+auxProd.getName().length()+" Tamaño de currentS= "+currentSearch.length());
                     }
                     
                 }
@@ -5759,6 +5785,7 @@ boolean avanzarEtapa=false;
             MyArrayList<Production> completeList = prodTree.inOrderList();
 
             if (currentSearch.isBlank()){
+                treeList = null;
                 ProductionSearchList.setListData(namep);
                 for(int i=0; i<completeList.getSize(); i++){
                     namep[i]=completeList.getItem(i).getName();  
@@ -5781,6 +5808,143 @@ boolean avanzarEtapa=false;
     private void jTextCp1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextCp1KeyTyped
         IDP.setText(jTextCp1.getText());
     }//GEN-LAST:event_jTextCp1KeyTyped
+
+    private void jTextSp1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextSp1KeyTyped
+       //try{
+        String currentSearch = jTextSp1.getText();
+        if(myArrayListProduction.getSize()>0){
+            
+            //AvlNodeTree<Production> prodTree = new AvlNodeTree<>();
+            ProductionLSp.removeAll();
+            String [] namep= new  String[5];            
+           
+//            for(int i=0; i<myArrayListProduction.getSize(); i++){
+//                prodTree.insert(myArrayListProduction.getItem(i));
+//            }
+            
+            Production aux = new Production(currentSearch, "", null, null);
+            AvlNode node = prodTree.find(aux); 
+            MyArrayList<Production> treeList2 = new MyArrayList();
+            //treeList = new MyArrayList();
+            Production auxProd = (Production) node.getItem();             
+            int stringIndex = currentSearch.length();
+            
+            if (stringIndex <= auxProd.getName().length() && stringIndex > 0) {
+                if (auxProd.getName().substring(0, stringIndex).compareToIgnoreCase(currentSearch) == 0) {
+                    treeList2.pushBack((Production)node.getItem()); 
+                }                    
+                node = node.next(node);
+                auxProd = (Production) node.getItem(); 
+                
+                for(int i=0; i<5;i++){
+                    if(auxProd.getName().length()>=currentSearch.length()){
+                         if(auxProd.getName().substring(0, currentSearch.length()).compareToIgnoreCase(currentSearch) == 0) {
+                                if(!treeList2.isListed((Production)node.getItem())){
+                                  treeList2.pushBack((Production)node.getItem()); 
+                                    node = node.next(node);
+                                    auxProd = (Production) node.getItem();   
+                                }
+                    }
+                   
+                }else{
+                      //  System.out.println("Tamaño de auxP="+auxProd.getName().length()+" Tamaño de currentS= "+currentSearch.length());
+                    }
+                    
+                }
+                
+            }
+
+            //MyArrayList<Production> completeList = prodTree.inOrderList();
+                   sLIDP2 = new SinglyLinkedList<>();
+            if (currentSearch.isBlank()){
+                 //ProductionLSp.setListData(namep);
+//                for(int i=0; i<completeList.getSize(); i++){
+//                    namep[i]=completeList.getItem(i).getName();  
+//                }
+                 
+            if(myArrayListProduction.getSize()>0){
+               // ProductionLSp.removeAll();
+                //String [] namep= new  String[5];
+                for(int i=0; i<myArrayListProduction.getSize(); i++){
+                        sLIDP2.pushBack(i);
+                }
+                for(int i=0; i<5; i++){
+                    if(i<myArrayListProduction.getSize()){
+                        namep[i]=myArrayListProduction.getItem(i).getName();
+                   if(!myArrayListProduction.getItem(i).isIsActive()){
+                        iconSeeP(i+1);
+                   }else if(myArrayListProduction.getItem(i).isIsFinished()){
+                        iconSeeP((i+1)+5);
+                   }else if(myArrayListProduction.getItem(i).isIsActive()){
+                        iconSeeP((i+1)+10);
+                   }
+                    }else{
+                        iconSeeP((i+1)+15);
+                    }
+                   
+                }
+                
+                  // ProductionLSp.setListData(namep);
+                 indexSpp=1;
+                 String auxS;
+                 int sizep=myArrayListProduction.getSize()%5;
+                 int aux2=myArrayListProduction.getSize()/5;
+                if(sizep!=0){
+                    aux2++;
+                }
+                 nSdeP.setText("de "+aux2);
+                 nSdeP0.setText("1");
+                 namePjL.setText("");
+                 namePjL0.setText("Todos las producciónes");
+            }
+                    
+                
+            } else {
+//                for(int i=0; i<treeList2.getSize(); i++){
+//                    namep[i]=treeList2.getItem(i).getName();                                  
+//                }
+//                
+                //
+                
+                for(int i=0; i<treeList2.getSize(); i++){
+                   sLIDP2.pushBack(myArrayListProduction.getIndex(treeList2.getItem(i)));
+                }
+                
+                for(int i=0; i<5; i++){
+                    if(i<treeList2.getSize()){
+                        namep[i]=treeList2.getItem(i).getName();
+                   if(!treeList2.getItem(i).isIsActive()){
+                        iconSeeP(i+1);
+                   }else if(treeList2.getItem(i).isIsFinished()){
+                        iconSeeP((i+1)+5);
+                   }else if(treeList2.getItem(i).isIsActive()){
+                        iconSeeP((i+1)+10);
+                   }
+                    }else{
+                        iconSeeP((i+1)+15);
+                    }
+                   
+                }
+                
+                indexSpp=1;
+                 String auxS;
+                 int sizep=treeList2.getSize()%5;
+                 int aux2=treeList2.getSize()/5;
+                if(sizep!=0){
+                    aux2++;
+                }
+                 nSdeP.setText("de "+aux2);
+                 nSdeP0.setText("1");
+                 namePjL.setText("");
+                 namePjL0.setText(currentSearch);
+                //
+                
+            }
+            ProductionLSp.setListData(namep);
+        }     
+//    }catch (Exception e){
+//                JOptionPane.showMessageDialog(this,"Ha ocurrido un error, por favor contacte con el administrador.");
+    }//GEN-LAST:event_jTextSp1KeyTyped
     
     private void createPanels(MyArrayList<Stage> stages1){
         
